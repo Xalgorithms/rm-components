@@ -30,5 +30,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.7",
+    "react-styleguidist": "^11.0.8",
+    "styled-components": "^5.1.1",
+    "styled-system": "^5.1.5",
+    "webpack": "^4.43.0"
   }
 }
