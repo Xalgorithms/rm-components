@@ -11,7 +11,7 @@ const Button = styled.button(
 		boxSizing: 'border-box',
 		display: 'inline-block',
 		px: 4,
-		py: 3,
+		py: 2,
 		textAlign: 'center',
 		border: 'thin',
 		color: 'primary',

@@ -1,3 +1,4 @@
+
 const palette = {
 	black: [
 		'#000000',
@@ -71,17 +72,21 @@ const theme = {
 		secondary: palette.grey[2],
 		accent: '#fa3653',
 		muted: palette.grey[4],
-		error: '#d0453e',
+		error: palette.red[0],
 		bg: palette.white[0],
 		lgrey: palette.grey[1],
 		oline: palette.outline[0],
 	},
 	space: [
 		0,
+		8,
+		12,
+		24,
+		36,
 	],
 	fonts: {
-		// heading: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-		// body: 'Helvetica Neue, Helvetica, Arial, sans-serif',
+		heading: 'Public Sans, sans-serif',
+		body: 'Public Sans, sans-serif',
 		// monospace: `"Mono Lisa", Monaco, monospace` /* Check out https://monolisa.dev for Mono Lisa font */,
 	},
 	fontSizes: {

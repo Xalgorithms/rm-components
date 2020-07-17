@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.7",
+    "babel-preset-react": "^6.24.1",
     "react-styleguidist": "^11.0.8",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",

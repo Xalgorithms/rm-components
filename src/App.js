@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
+import { ThemeProvider } from 'styled-components'
+import theme from './theme'
 
 
 function App() {
