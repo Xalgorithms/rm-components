@@ -4,7 +4,6 @@ module.exports = {
   version,
   components: '../src/components/[A-Z]**/*.js', // index.js
   ignore: ['**/src/test.js'],
-  require: ['./src/styles/index.scss'],
   webpackConfig: {
     module: {
       rules: [
@@ -23,6 +22,7 @@ module.exports = {
 };
 const path = require('path')
 module.exports = {
+  assetsDir: 'static',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/Provider.js')
   }
