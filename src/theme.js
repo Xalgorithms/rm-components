@@ -76,6 +76,12 @@ const theme = {
 		bg: palette.white[0],
 		lgrey: palette.grey[1],
 		oline: palette.outline[0],
+		drafta: palette.yellow[0],
+		draftb: palette.yellow[2],
+		midblue: palette.blue[1],
+		greyblue: palette.blue[2],
+		purplea: palette.purple[0],
+		purpleb: palette.purple[2],
 	},
 	space: [
 		0,

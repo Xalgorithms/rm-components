@@ -15,4 +15,5 @@ Still a little janky, need prop to pass color and a few size variations
 <Icon name="status"/>
 <Icon name="trash"/>
 <Icon name="user"/>
+<Icon name="idropdown"/>
 ```
