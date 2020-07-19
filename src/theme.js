@@ -54,6 +54,27 @@ const textStyles = {
 		lineHeight: 'body',
 		color: 'text',
 	},
+	formtitle: {
+		fontWeight: 'bold',
+		fontFamily: 'body',
+		fontSize: 'md',
+		lineHeight: 'body',
+		color: 'text',
+	},
+	sectiontitle: {
+		fontWeight: 'bold',
+		fontFamily: 'body',
+		fontSize: 'smd',
+		lineHeight: 'body',
+		color: 'text',
+	},
+	subtitle: {
+		fontWeight: 'bold',
+		fontFamily: 'body',
+		fontSize: 'lmd',
+		lineHeight: 'body',
+		color: 'text',
+	},
 	error: {
 		fontWeight: 'normal',
 		lineHeight: 'body',
@@ -98,6 +119,8 @@ const theme = {
 	fontSizes: {
 		xl: '4rem',
 		lg: '2rem',
+		lmd: '1.6rem',
+		smd: '1.3rem',
 		md: '1rem',
 		sm: '0.9rem',
 		xs: '0.75rem',
