@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { system } from 'styled-system';
-import { Box } from '../index.js';
+import { Box } from '../';
 
 // We need this export here to fix something
 export const Stack = styled(Box)(

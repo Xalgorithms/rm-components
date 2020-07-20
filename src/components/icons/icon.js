@@ -1,26 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as iconlib from './iconlib'
+import { variant } from 'styled-system';
+import styled from 'styled-components';
+import css from '@styled-system/css'
 
-const Icon = ({ name, paths, viewBox, ariaHidden = true}) => {
-  const iconPaths = name ? iconlib[name] : paths
+const Svg = styled('svg')(
+  css({
+    width: '18px',
+    height: '18px',
+  }),
+);
 
-  return (
-    <svg
-    viewBox={`0 0 ${viewBox} ${viewBox}`}
-    aria-hidden={ariaHidden}
-    style={
-      {
-      width: 32,
-      height: 32,
-      }
-    }
-    >
-      {iconPaths &&
-        iconPaths.map((pathProps, i) => <path {...pathProps} key={i} />)}
-    </svg>
-  )
-}
+const Icon = ({ name, paths, dimension, iconPaths = name ? iconlib[name] : paths}) =>
+  <Svg>
+    {iconPaths &&
+      iconPaths.map((pathProps, i) => <path {...pathProps} key={i}/>)}
+  </Svg>
 
 
-export default Icon;
+/** @component */
+export default Icon

@@ -40,8 +40,27 @@ const Input = styled.input(
 	}),
 	variant({
 		variants: {
-			primary: {
+			search: {
+				WebkitAppearance: 'none',
+				width: '100%',
+				border: 'none',
+				height: 3,
+				padding: 1,
+				background: 'primary',
+				color: 'text',
+				'&::placeholder': {
+					color: 'secondary',
+				},
 
+				'&:focus': {
+					outline: 0,
+					borderColor: 'primary',
+				},
+
+				'&:disabled': {
+					opacity: 0.6,
+					filter: 'saturate(60%)',
+				},
 			},
 			secondary: {
 				WebkitAppearance: 'none',

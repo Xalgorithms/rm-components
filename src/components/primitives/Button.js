@@ -53,6 +53,13 @@ const Button = styled.button(
 				backgroundColor: 'bg',
 				boxShadow: '0px 4px 4px #ADC5F3',
 			},
+			invisible: {
+				backgroundColor: 'none',
+				boxShadow: 'none',
+				border: 'none',
+				px: 0,
+				py: 0,
+			},
 		},
 	})
 );

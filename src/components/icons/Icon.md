@@ -1,7 +1,7 @@
 Still a little janky, need prop to pass color and a few size variations
 
 ```jsx
-<Icon name="additional"/>
+<Icon name="additional" variant="medium"/>
 <Icon name="dash"/>
 <Icon name="download"/>
 <Icon name="edit"/>
