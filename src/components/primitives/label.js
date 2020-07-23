@@ -1,43 +1,34 @@
-import styled from 'styled-components';
-import { variant } from 'styled-system';
-import { css } from '@styled-system/css';
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+	Text,
+	Icon,
+	Flex,
+	Button,
+} from '../';
 
-const Label= styled.div(
-	css({
-		boxSizing: 'border-box',
-		display: 'inline-block',
-		px: 2,
-		py: 1,
-		textAlign: 'center',
-		border: 'none',
-		color: 'drafta',
-		backgroundColor: 'draftb',
-		borderRadius: 'base',
-		fontFamily: 'body',
-		fontSize: 'md',
-		textDecoration: 'none',
-  }),
-  variant({
-		variants: {
-			blue: {
-				color: 'bg',
-				backgroundColor: 'primary',
-			},
-			lightblue: {
-        color: 'primary',
-				backgroundColor: 'midblue',
-			},
-      grayblue: {
-        color: 'primary',
-				backgroundColor: 'greyblue',
-			},
-      suggestion: {
-        color: 'purplea',
-				backgroundColor: 'purpleb',
-			},
-		},
-	})
-);
+function Label({ children, htmlFor, required = false }) {
+	return (
+		<Flex alignItems="center">
+			<Text as="label" aria-required={required} htmlFor={htmlFor}>
+				{children}
+			</Text>
+			{required && (
+				<Button variant="invisible">
+					<Flex alignItems="center">
+						<Icon name="info"/>
+					</Flex>
+				</Button>
+			)}
+		</Flex>
+	);
+}
 
-/** @component */
+Label.propTypes = {
+	/** Whether the label should be marked as required */
+	required: PropTypes.bool,
+	htmlFor: PropTypes.string,
+	children: PropTypes.node,
+};
+
 export default Label;

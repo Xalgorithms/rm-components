@@ -103,6 +103,8 @@ const theme = {
 		greyblue: palette.blue[2],
 		purplea: palette.purple[0],
 		purpleb: palette.purple[2],
+		bluebg: palette.blue[1],
+		grad: '#F1EEFC',
 	},
 	space: [
 		0,

@@ -1,0 +1,5 @@
+```jsx
+<Modal/>
+
+<Modal isOpen/>
+```

@@ -54,11 +54,15 @@ const Button = styled.button(
 				boxShadow: '0px 4px 4px #ADC5F3',
 			},
 			invisible: {
-				backgroundColor: 'none',
+				background: 'none',
 				boxShadow: 'none',
 				border: 'none',
 				px: 0,
 				py: 0,
+				'&:hover:not(:disabled), &:active:not(:disabled)': {
+					background: 'none',
+					cursor: 'pointer',
+				},
 			},
 		},
 	})

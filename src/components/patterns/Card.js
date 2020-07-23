@@ -5,7 +5,7 @@ import {
 	Text,
   Flex,
   Icon,
-  Label,
+  Badge,
   Box,
   Button,
 } from '../../components';
@@ -16,7 +16,7 @@ export default () => (
           <Text>
             Loi concernant la taxe sur les carburants
           </Text>
-          <Label>Draft</Label>
+          <Badge>Draft</Badge>
         </Flex>
       <Box padding={2}>
       </Box>

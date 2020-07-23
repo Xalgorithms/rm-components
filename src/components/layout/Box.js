@@ -11,7 +11,7 @@ const Box = styled('div')(
 	border,
 	layout,
 	flexbox,
-	grid
+	grid,
 );
 
 Box.propTypes = {
