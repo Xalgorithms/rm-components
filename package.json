@@ -1,7 +1,6 @@
 {
-  "name": "rm-components",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@xalgorithms/rm-components",
+  "version": "0.0.3",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -12,10 +11,12 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "styleguidist server",
+    "build": "webpack",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,11 +36,34 @@
   "devDependencies": {
     "@styled-system/css": "^5.1.5",
     "@styled-system/prop-types": "^5.1.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "path": "^0.12.7",
     "react-styleguidist": "^11.0.8",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
-    "webpack": "^4.43.0"
-  }
+    "webpack": "4.42.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "main": "index.js",
+  "description": "This is a work in progress component library.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/millenniallglyphs/rm-components.git"
+  },
+  "keywords": [
+    "react",
+    "components"
+  ],
+  "author": "Calvin Hutcheon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/millenniallglyphs/rm-components/issues"
+  },
+  "homepage": "https://github.com/millenniallglyphs/rm-components#readme"
 }
