@@ -2,7 +2,24 @@
 
 This is a work in progress component library.
 
+### Usage
 
+```sh
+# Using yarn
+$ yarn add @xalgorithms/rm-components
+
+# Using npm
+$ npm i @xalgorithms/rm-components
+```
+
+Within your application, you can now import and use the components:
+
+```js
+import { Text, Input, Label } from "@xalgorithms/rm-components";
+
+<Text variant={"heading"}>Slide Me!</Text>
+<Input variant={"secondary"} type={"range"} />
+```
 
 ### Development
 
@@ -10,15 +27,14 @@ This is a work in progress component library.
 # Install packages
 yarn install
 
-# Run styleguidist
+# View the styleguide (styleguidist)
 yarn start
 
 # Run testing React app
 yarn react-start
 ```
 
-Use `npx styleguidist server` to run the app. 
-
+You can also use `npx styleguidist server` to run styleguidist directly.
 
 ### Publishing
 
