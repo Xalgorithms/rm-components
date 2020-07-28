@@ -19,6 +19,7 @@ export { default as FormStandard } from './patterns/FormStandard';
 export { default as FormStandardDouble } from './patterns/FormStandardDouble';
 export { default as FormStandardDropdown } from './patterns/FormStandardDropdown';
 export { default as FormStandardLabel } from './patterns/FormStandardLabel';
+export { default as InvolvedParty } from './patterns/InvolvedParty';
 
 //Layouts
 export { default as Box } from './layout/Box';
