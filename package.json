@@ -12,7 +12,11 @@
   },
   "scripts": {
     "start": "styleguidist server",
-    "build": "webpack"
+    "build": "webpack",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,6 +63,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/millenniallglyphs/rm-components/issues"
-  },
-  "homepage": "https://github.com/millenniallglyphs/rm-components#readme"
+  }
 }

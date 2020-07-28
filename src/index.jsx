@@ -1,10 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
+import Card from "./components/patterns/Card";
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Test</h1>
+    <div>
+      <h1>Test App</h1>
+      <p>Render please</p>
+      <Card></Card>
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );
