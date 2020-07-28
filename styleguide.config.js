@@ -4,7 +4,7 @@ module.exports = {
   title: 'rm-components',
   version,
   components: '../src/components/[A-Z]**/*.js', // index.js
-  ignore: ['**/src/test.js'],
+  //ignore: ['**/src/test.js'],
   webpackConfig: {
     module: {
       rules: [
