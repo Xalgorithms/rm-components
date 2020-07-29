@@ -18,7 +18,7 @@ export default class Application extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      authenticated: false,
+      authenticated: true,
       userInfo: {
         name: "John Doe",
       },
