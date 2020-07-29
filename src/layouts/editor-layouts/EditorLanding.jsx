@@ -46,7 +46,11 @@ export default class EditorLanding extends React.Component {
                 borderColor="oline"
                 borderRadius="base"
               >
-                <Addbutton />
+                <Addbutton
+                  onClick={() => {
+                    alert("onclick");
+                  }}
+                />
               </Box>
               <Box padding={3} />
               <InvolvedParty />
