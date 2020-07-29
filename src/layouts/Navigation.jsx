@@ -27,18 +27,26 @@ export default class Navigation extends React.Component {
           <Link to="/" style={style_navlink}>
             <Text>Landing</Text>
           </Link>
-          <Link to="/dashboard" style={style_navlink}>
-            <Text>Dashboard</Text>
-          </Link>
-          <Link to="/browse" style={style_navlink}>
-            <Text>Browse</Text>
-          </Link>
-          <Link to="/query" style={style_navlink}>
-            <Text>Query</Text>
-          </Link>
-          <Link to="/editor" style={style_navlink}>
-            <Text>Editor</Text>
-          </Link>
+          {this.props.authenticated ? (
+            <Link to="/dashboard" style={style_navlink}>
+              <Text>Dashboard</Text>
+            </Link>
+          ) : null}
+          {this.props.authenticated ? (
+            <Link to="/browse" style={style_navlink}>
+              <Text>Browse</Text>
+            </Link>
+          ) : null}
+          {this.props.authenticated ? (
+            <Link to="/query" style={style_navlink}>
+              <Text>Query</Text>
+            </Link>
+          ) : null}
+          {this.props.authenticated ? (
+            <Link to="/editor" style={style_navlink}>
+              <Text>Editor</Text>
+            </Link>
+          ) : null}
           <Link to="/login" style={style_navlink}>
             <Text>Login</Text>
           </Link>

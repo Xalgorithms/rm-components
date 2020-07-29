@@ -10,6 +10,7 @@ export default class Landing extends React.Component {
     return (
       <div>
         <Text variant="heading">Landing</Text>
+        <Text>{this.props.authenticated ? "Welcome." : "Please log in."}</Text>
       </div>
     );
   }
