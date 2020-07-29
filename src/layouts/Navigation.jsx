@@ -4,6 +4,8 @@ import { Link } from "@reach/router";
 
 // rm-components
 import Text from "../components/primitives/Text";
+import Flex from "../components/layout/Flex"
+import Icon from "../components/icons/Icon"
 
 // styles
 
@@ -18,45 +20,55 @@ const style_navbar = {
 };
 
 const style_navlink = {
-  paddingRight: "0.33em",
+  paddingRight: "2em",
   textDecoration: "none",
-  color: "blue",
+  color: "#000",
 };
 
 // Primary Component
 export default class Navigation extends React.Component {
   render() {
     return (
-      <div style={style_nav}>
-        <Text variant="heading">Navigation</Text>
-        <nav style={style_navbar}>
+      <div>
+        <Flex justifyContent="space-between" alignItems="center" m={4}>
           <Link to="/" style={style_navlink}>
-            <Text>Landing</Text>
+            <Text variant="subtitle">Oughtomation</Text>
           </Link>
-          {this.props.authenticated ? (
-            <Link to="/dashboard" style={style_navlink}>
-              <Text>Dashboard</Text>
+          <nav style={style_navbar}>
+            {this.props.authenticated ? (
+              <Link to="/browse" style={style_navlink}>
+                <Flex alignItems="flex-end">
+                  <Icon name="list"/>
+                  <Text>Browse</Text>
+                </Flex>
+              </Link>
+            ) : null}
+            {this.props.authenticated ? (
+              <Link to="/query" style={style_navlink}>
+                <Flex alignItems="center">
+                  <Icon name="search"/>
+                  <Text>Query</Text>
+                </Flex>
+              </Link>
+            ) : null}
+            {this.props.authenticated ? (
+              <Link to="/editor" style={style_navlink}>
+                <Flex>
+                  <Icon name="edit"/>
+                  <Text>Editor</Text>
+                </Flex>
+              </Link>
+            ) : null}
+            {this.props.authenticated ? (
+              <Link to="/dashboard" style={style_navlink}>
+                <Icon name="dash"/>
+              </Link>
+            ) : null}
+            <Link to="/login" style={style_navlink}>
+              <Icon name="user"/>
             </Link>
-          ) : null}
-          {this.props.authenticated ? (
-            <Link to="/browse" style={style_navlink}>
-              <Text>Browse</Text>
-            </Link>
-          ) : null}
-          {this.props.authenticated ? (
-            <Link to="/query" style={style_navlink}>
-              <Text>Query</Text>
-            </Link>
-          ) : null}
-          {this.props.authenticated ? (
-            <Link to="/editor" style={style_navlink}>
-              <Text>Editor</Text>
-            </Link>
-          ) : null}
-          <Link to="/login" style={style_navlink}>
-            <Text>Login</Text>
-          </Link>
-        </nav>
+          </nav>
+        </Flex>
       </div>
     );
   }

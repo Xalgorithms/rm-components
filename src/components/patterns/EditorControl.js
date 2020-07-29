@@ -13,7 +13,7 @@ import {
 
 function EditorControl({title}) {
   return(
-    <Grid gridTemplateColumns='400px auto 170px'>
+    <Flex justifyContent="space-between">
       <Flex alignItems="center">
         <Button variant="invisible">Back</Button>
         <Box padding={1}/>
@@ -27,7 +27,7 @@ function EditorControl({title}) {
         <Box padding={1}/>
         <Button>Publish</Button>
       </Flex>
-    </Grid>
+    </Flex>
   );
 }
 
