@@ -29,7 +29,6 @@ export default class Login extends React.Component {
   render() {
     return (
       <div>
-        <Text variant="heading">Login</Text>
         <Button onClick={this.loginButtonOnClick}>
           {this.props.authenticated ? "Log Out" : "Log In"}
         </Button>
