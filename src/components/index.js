@@ -7,6 +7,7 @@ export { default as Badge } from './primitives/Badge';
 export { default as Label } from './primitives/Label';
 export { default as Dropdown } from './primitives/Dropdown';
 export { default as Modal } from './primitives/Modal';
+export { default as Link } from './primitives/Link';
 
 //icon
 export { default as Icon } from './icons/Icon';
