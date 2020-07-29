@@ -52,7 +52,7 @@ export default class Application extends React.Component {
                 toggleAuth={this.toggleLoggedin}
               />
               <Editor
-                path="/editor"
+                path="/editor/*"
                 authenticated={this.state.authenticated}
                 toggleAuth={this.toggleLoggedin}
               />
