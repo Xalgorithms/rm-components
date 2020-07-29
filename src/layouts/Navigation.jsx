@@ -12,7 +12,9 @@ const style_navbar = {
 };
 
 const style_navlink = {
-  paddingLeft: "0.3em",
+  paddingRight: "0.33em",
+  textDecoration: "none",
+  color: "blue",
 };
 
 // Primary Component
@@ -22,23 +24,23 @@ export default class Navigation extends React.Component {
       <div>
         <Text variant="heading">Navigation</Text>
         <nav style={style_navbar}>
-          <Link to="/">
-            <Text style={style_navlink}>Landing</Text>
+          <Link to="/" style={style_navlink}>
+            <Text>Landing</Text>
           </Link>
-          <Link to="/dashboard">
-            <Text style={style_navlink}>Dashboard</Text>
+          <Link to="/dashboard" style={style_navlink}>
+            <Text>Dashboard</Text>
           </Link>
-          <Link to="/browse">
-            <Text style={style_navlink}>Browse</Text>
+          <Link to="/browse" style={style_navlink}>
+            <Text>Browse</Text>
           </Link>
-          <Link to="/query">
-            <Text style={style_navlink}>Query</Text>
+          <Link to="/query" style={style_navlink}>
+            <Text>Query</Text>
           </Link>
-          <Link to="/editor">
-            <Text style={style_navlink}>Editor</Text>
+          <Link to="/editor" style={style_navlink}>
+            <Text>Editor</Text>
           </Link>
-          <Link to="/login">
-            <Text style={style_navlink}>Login</Text>
+          <Link to="/login" style={style_navlink}>
+            <Text>Login</Text>
           </Link>
         </nav>
       </div>
