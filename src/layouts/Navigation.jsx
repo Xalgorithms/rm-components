@@ -5,30 +5,42 @@ import { Link } from "@reach/router";
 // rm-components
 import Text from "../components/primitives/Text";
 
+// styles
+
+const style_navbar = {
+  display: "flex",
+};
+
+const style_navlink = {
+  paddingLeft: "0.3em",
+};
+
 // Primary Component
 export default class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <Text>Navigation</Text>
-        <Link to="/">
-          <Text>Landing</Text>
-        </Link>
-        <Link to="/login">
-          <Text>Login</Text>
-        </Link>
-        <Link to="/dashboard">
-          <Text>Dashboard</Text>
-        </Link>
-        <Link to="/browse">
-          <Text>Browse</Text>
-        </Link>
-        <Link to="/query">
-          <Text>Query</Text>
-        </Link>
-        <Link to="/editor">
-          <Text>Editor</Text>
-        </Link>
+        <Text variant="heading">Navigation</Text>
+        <nav style={style_navbar}>
+          <Link to="/">
+            <Text style={style_navlink}>Landing</Text>
+          </Link>
+          <Link to="/dashboard">
+            <Text style={style_navlink}>Dashboard</Text>
+          </Link>
+          <Link to="/browse">
+            <Text style={style_navlink}>Browse</Text>
+          </Link>
+          <Link to="/query">
+            <Text style={style_navlink}>Query</Text>
+          </Link>
+          <Link to="/editor">
+            <Text style={style_navlink}>Editor</Text>
+          </Link>
+          <Link to="/login">
+            <Text style={style_navlink}>Login</Text>
+          </Link>
+        </nav>
       </div>
     );
   }
