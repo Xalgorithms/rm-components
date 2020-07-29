@@ -7,6 +7,12 @@ import Text from "../components/primitives/Text";
 
 // styles
 
+const style_nav = {
+  border: "2px solid #EEE",
+  padding: "0.3em",
+  marginBottom: "1em",
+};
+
 const style_navbar = {
   display: "flex",
 };
@@ -21,7 +27,7 @@ const style_navlink = {
 export default class Navigation extends React.Component {
   render() {
     return (
-      <div>
+      <div style={style_nav}>
         <Text variant="heading">Navigation</Text>
         <nav style={style_navbar}>
           <Link to="/" style={style_navlink}>
