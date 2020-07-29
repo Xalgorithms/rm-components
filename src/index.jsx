@@ -1,21 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-// Should be able to do this:
-//import { Card, Text } from "./components";
-import Card from "./components/patterns/Card";
-import Text from "./components/primitives/Text";
-import { ThemeProvider } from "styled-components";
-import theme from "./theme";
+import Application from "./layouts/Application";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <div>
-        <Text variant={"heading"}>Render Please</Text>
-        <Card></Card>
-      </div>
-    </ThemeProvider>
+    <Application />
   </React.StrictMode>,
   document.getElementById("root")
 );
