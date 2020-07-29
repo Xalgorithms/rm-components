@@ -27,8 +27,8 @@ export default (props) => (
           />
         </svg>
       </Box>
-      <Box width="120px" p={1}>
-        <Text color="primary">New Output</Text>
+      <Box minWidth="120px" p={1}>
+        <Text color="primary">{props.content || "New Output"}</Text>
       </Box>
     </Flex>
   </Button>

@@ -13,6 +13,16 @@ import EditorControl from "../../components/patterns/EditorControl";
 
 // Primary Component
 export default class EditorLanding extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sampleInvolvedParties: [1, 2],
+    };
+
+    // Bind functions
+    //this.toggleLoggedin = this.toggleLoggedin.bind(this);
+  }
+
   render() {
     return (
       <div>
@@ -36,7 +46,9 @@ export default class EditorLanding extends React.Component {
               </SectionDescription>
             </Box>
             <Box>
-              <InvolvedParty />
+              {this.state.sampleInvolvedParties.map((val, index) => (
+                <InvolvedParty />
+              ))}
               <Box
                 p={2}
                 m={0}
@@ -48,23 +60,15 @@ export default class EditorLanding extends React.Component {
               >
                 <Addbutton
                   onClick={() => {
-                    alert("onclick");
+                    const parties = this.state.sampleInvolvedParties;
+                    const last = parties[parties.length];
+                    parties.push(last + 1);
+                    this.setState({ sampleInvolvedParties: parties });
                   }}
+                  content={"Add Involved Party"}
                 />
               </Box>
               <Box padding={3} />
-              <InvolvedParty />
-              <Box
-                p={2}
-                m={0}
-                width={1}
-                bg="bg"
-                border="1px solid"
-                borderColor="oline"
-                borderRadius="base"
-              >
-                <Addbutton />
-              </Box>
             </Box>
           </Grid>
         </Box>
