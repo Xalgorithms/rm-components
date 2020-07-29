@@ -4,6 +4,7 @@ import {
   Input,
   Stack,
   Dropdown,
+  Infobox,
   Box,
   Icon,
   Button,
@@ -25,53 +26,11 @@ function FormStandardDouble(props) {
     <Stack gap={4}>
       {/*first modal*/}
       <Modal isOpen={isOpen}>
-        <Box padding={1} />
-        <Box
-          p={2}
-          m={0}
-          width={1}
-          bg="bluebg"
-          border="1px solid"
-          borderColor="primary"
-          borderRadius="base"
-        >
-          <Grid gridTemplateColumns="24px auto 24px">
-            <Icon name="info" />
-            <Text color="primary" as="infobox">
-              {description}
-            </Text>
-            <Flex alignItems="flex-start">
-              <Button variant="invisible" onClick={() => setIsOpen(false)}>
-                <Icon name="ex" />
-              </Button>
-            </Flex>
-          </Grid>
-        </Box>
+        <Infobox content={description} onClick={() => setIsOpen(false)} />
       </Modal>
       {/*second modal*/}
       <Modal isOpen={isOpena}>
-        <Box padding={1} />
-        <Box
-          p={2}
-          m={0}
-          width={1}
-          bg="bluebg"
-          border="1px solid"
-          borderColor="primary"
-          borderRadius="base"
-        >
-          <Grid gridTemplateColumns="24px auto 24px">
-            <Icon name="info" />
-            <Text color="primary" as="infobox">
-              {descriptionTwo}
-            </Text>
-            <Flex alignItems="flex-start">
-              <Button variant="invisible" onClick={() => setIsOpena(false)}>
-                <Icon name="ex" />
-              </Button>
-            </Flex>
-          </Grid>
-        </Box>
+        <Infobox content={descriptionTwo} onClick={() => setIsOpena(false)} />
       </Modal>
       <Box padding={1} />
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
@@ -79,7 +38,13 @@ function FormStandardDouble(props) {
           {/*first input field*/}
           <Flex alignItems="center">
             <Text>{name}</Text>
-            <Button variant="invisible" onClick={() => setIsOpen(true)}>
+            <Button
+              variant="invisible"
+              onClick={() => {
+                setIsOpen(true);
+                setIsOpena(false);
+              }}
+            >
               <Flex alignItems="center">
                 <Icon name="info" />
               </Flex>
@@ -92,7 +57,13 @@ function FormStandardDouble(props) {
           {/*second input field*/}
           <Flex alignItems="center">
             <Text>{nameTwo}</Text>
-            <Button variant="invisible" onClick={() => setIsOpena(true)}>
+            <Button
+              variant="invisible"
+              onClick={() => {
+                setIsOpena(true);
+                setIsOpen(false);
+              }}
+            >
               <Flex alignItems="center">
                 <Icon name="info" />
               </Flex>
