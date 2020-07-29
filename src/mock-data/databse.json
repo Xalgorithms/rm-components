@@ -1,0 +1,4 @@
+{
+  "rules": ["anon.gas-tax.rule.json", "anon.property-tax-sg.rule.json"],
+  "tables": ["anon.gas-tax-distances.table.json"]
+}
