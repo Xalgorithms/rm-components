@@ -24,9 +24,9 @@ export default class InvolvedParty extends React.Component {
         >
           <FormStandardDouble
             name="Standard Role Name"
-            description="hello world is asking the following things"
+            description="Detail for standard role name field."
             nameTwo="Standard Industry Code"
-            descriptionTwo="hello world is asking the following things"
+            descriptionTwo="Detail for industry code field."
           />
           <Box padding={1} />
           <FormStandard
