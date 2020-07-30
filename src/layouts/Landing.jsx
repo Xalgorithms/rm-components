@@ -5,6 +5,8 @@ import Grid from "../components/layout/Grid";
 import SectionDescription from "../components/patterns/SectionDescription";
 // rm-components
 import Text from "../components/primitives/Text";
+import Flex from "../components/layout/Flex";
+import Search from "../components/patterns/Search"
 
 // Primary Component
 export default class Landing extends React.Component {
@@ -18,23 +20,30 @@ export default class Landing extends React.Component {
 
   render() {
     return (
-      <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
-        <Box>
-          <SectionDescription>
-            <Text variant="subtitle" color="purplea">
-              {this.state.pageDescription}
-            </Text>
-            <Text>
-              Any rule can be expressed in terms of its input conditions, and
-              its output assertions. Please state each condition of this rule,
-              and each assertion of this rule, as a simple factual sentence.
-              Each sentence should be phrased in a manner that, in some
-              particular circumstance, the sentence would logically be ‘true’ or
-              ‘false’.
-            </Text>
-          </SectionDescription>
-        </Box>
-      </Grid>
+      <Grid gridTemplateRows="45vh 45vh">
+          <Flex alignItems="center" justifyContent="center" bg="grad">
+            <Box width={4 / 7}>
+              <Text variant="heading">
+                A rule is a relation between
+                what is and what ought to be.
+              </Text>
+              <Box p={1} />
+              <Text>
+              Oughtomation is a general-purpose method for anyone to publish, discover, fetch, scrutinize, prioritize and automate normative rules across the Internet.
+              </Text>
+            </Box>
+          </Flex>
+          <Grid gridTemplateColumns='50vw 50vw'>
+            <Flex alignItems="center" justifyContent="center" bg="text" p={4}>
+                <Search/>
+            </Flex>
+            <Flex alignItems="center" justifyContent="center" p={4}>
+              <Box>
+                <Text>Assemble Rule</Text>
+              </Box>
+            </Flex>
+          </Grid>
+        </Grid>
     );
   }
 }
