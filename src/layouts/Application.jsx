@@ -21,7 +21,7 @@ import Query from './Query';
 
 // Styling
 
-const base_box_style = {
+const baseBoxStyle = {
   height: '100%',
 };
 
@@ -32,10 +32,19 @@ export default class Application extends React.Component {
     this.state = {
       authenticated: true,
       userInfo: {
-        name: 'John Doe',
+        name: 'Aaron Anon',
+        solidUsername: 'https://anon.solid.community/profile/card#me',
       },
-      solidUsername: '',
-      userRules: {},
+      userRules: [
+        {
+          name: 'Quebec Gas Station Tax',
+          path: 'anon.gas-tax',
+        },
+        {
+          name: 'Singapore Property Tax',
+          path: 'anon.property-tax-sg',
+        },
+      ],
     };
 
     // Bind functions
@@ -48,41 +57,54 @@ export default class Application extends React.Component {
   }
 
   render() {
+    const { authenticated, userRules, userInfo } = this.state;
     return (
       <ScrollUp>
         <ThemeProvider theme={theme}>
-          <Navigation authenticated={this.state.authenticated} />
+          <Navigation authenticated={authenticated} />
 
-          <Box bg="#F9FBFE" style={base_box_style}>
+          <Box bg="#F9FBFE" style={baseBoxStyle}>
             <Router>
               <Landing
                 path="/"
-                authenticated={this.state.authenticated}
+                authenticated={authenticated}
+                userRules={userRules}
+                userInfo={userInfo}
                 toggleAuth={this.toggleLoggedin}
               />
               <Browse
                 path="/browse"
-                authenticated={this.state.authenticated}
+                authenticated={authenticated}
+                userRules={userRules}
+                userInfo={userInfo}
                 toggleAuth={this.toggleLoggedin}
               />
               <Editor
                 path="/editor/*"
-                authenticated={this.state.authenticated}
+                authenticated={authenticated}
+                userRules={userRules}
+                userInfo={userInfo}
                 toggleAuth={this.toggleLoggedin}
               />
               <Login
                 path="/login"
-                authenticated={this.state.authenticated}
+                authenticated={authenticated}
+                userRules={userRules}
+                userInfo={userInfo}
                 toggleAuth={this.toggleLoggedin}
               />
               <Query
                 path="/query"
-                authenticated={this.state.authenticated}
+                authenticated={authenticated}
+                userRules={userRules}
+                userInfo={userInfo}
                 toggleAuth={this.toggleLoggedin}
               />
               <Dashboard
                 path="/dashboard"
-                authenticated={this.state.authenticated}
+                authenticated={authenticated}
+                userRules={userRules}
+                userInfo={userInfo}
                 toggleAuth={this.toggleLoggedin}
               />
             </Router>
