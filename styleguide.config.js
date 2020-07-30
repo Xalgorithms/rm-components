@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   title: 'rm-components',
   version,
+  exampleMode: 'expand',
   components: '../src/components/[A-Z]**/*.js', // index.js
   //ignore: ['**/src/test.js'],
   webpackConfig: {
@@ -37,9 +38,7 @@ module.exports = {
     }
     return props;
   },
-};
-
-module.exports = {
+  components: 'src/components/**/*.jsx',
   assetsDir: 'static',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/Provider.js'),
