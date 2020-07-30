@@ -23,6 +23,7 @@ export default class InputApplicabilityFilters extends React.Component {
   }
 
   render() {
+    const { sampleInvolvedParties } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
@@ -41,8 +42,8 @@ export default class InputApplicabilityFilters extends React.Component {
           </SectionDescription>
         </Box>
         <Box>
-          {this.state.sampleInvolvedParties.map((val, index) => (
-            <InvolvedParty key={index} />
+          {sampleInvolvedParties.map((val, key) => (
+            <InvolvedParty key={key} />
           ))}
           <Box
             p={2}
@@ -55,12 +56,12 @@ export default class InputApplicabilityFilters extends React.Component {
           >
             <Addbutton
               onClick={() => {
-                const parties = this.state.sampleInvolvedParties;
+                const parties = sampleInvolvedParties;
                 const last = parties[parties.length];
                 parties.push(last + 1);
                 this.setState({ sampleInvolvedParties: parties });
               }}
-              content={'Add Involved Party'}
+              content="Add Involved Party"
             />
           </Box>
           <Box padding={3} />

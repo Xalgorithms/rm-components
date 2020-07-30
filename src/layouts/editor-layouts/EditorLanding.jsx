@@ -13,12 +13,7 @@ import EditorSection from '../../components/patterns/EditorSection';
 export default class EditorLanding extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sampleInvolvedParties: [1, 2],
-    };
-
-    // Bind functions
-    // this.toggleLoggedin = this.toggleLoggedin.bind(this);
+    this.state = {};
   }
 
   render() {

@@ -11,6 +11,11 @@ import Text from '../../components/primitives/Text';
 
 // Primary Component
 export default class InputOutput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <div>
