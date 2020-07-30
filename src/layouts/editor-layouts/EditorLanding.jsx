@@ -9,6 +9,7 @@ import SectionDescription from '../../components/patterns/SectionDescription';
 import Text from '../../components/primitives/Text';
 import EditorSection from '../../components/patterns/EditorSection';
 import Rule from '../../components/primitives/Rule';
+import { Link } from '@reach/router';
 
 // Primary Component
 export default class EditorLanding extends React.Component {
@@ -18,6 +19,7 @@ export default class EditorLanding extends React.Component {
   }
 
   render() {
+    const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
@@ -46,7 +48,9 @@ export default class EditorLanding extends React.Component {
           >
             <Text variant="formtitle" m={2}>Input→Output Table</Text>
             <Rule />
-            <EditorSection title="Input→Output Table" />
+            <Link to="/input-output" >
+              <EditorSection title="Input→Output Table" destination="/input-output"/>
+            </Link>
           </Box>
           <Box padding={2} />
           <Box
@@ -67,7 +71,11 @@ export default class EditorLanding extends React.Component {
             <Rule />
             <EditorSection title="Input Contexts" />
             <Rule />
-            <EditorSection title="Input Filters" />
+              {currentRule ? (
+                <Link to="/input-applicability-filters" >
+                  <EditorSection title="Input Filters" />
+                </Link>
+              ) : null}
           </Box>
         </Box>
       </Grid>

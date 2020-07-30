@@ -24,7 +24,7 @@ import Query from './Query';
 const baseBoxStyle = {
   height: '100%',
   margin: 0,
-  paddingTop: 76,
+  paddingTop: 92,
 };
 
 // Primary Component

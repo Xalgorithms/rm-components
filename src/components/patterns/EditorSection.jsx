@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import { Stack, Box, Button, Grid, Flex, Icon, Text, Link } from '..';
+import {  Box, Flex, Icon, Text } from '..';
 
-function EditorSection({ title }) {
+
+
+function EditorSection({ title, destination }) {
   return (
     <Flex justifyContent="space-between" m={2}>
-      <Flex alignItems="center">
-        <Icon name="status" />
-        <Box padding={1} />
-        <Text color="textb">{title}</Text>
-      </Flex>
-      <Box />
-      <Flex alignItems="center">
-        <Icon name="edit" />
-      </Flex>
+        <Flex alignItems="center">
+            <Icon name="status" />
+            <Box padding={1} />
+            <Text color="textb">{title}</Text>
+        </Flex>
+        <Box />
+        <Flex alignItems="center">
+            <Icon name="edit" />
+        </Flex>
     </Flex>
   );
 }
