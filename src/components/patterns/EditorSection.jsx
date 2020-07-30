@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import {  Box, Flex, Icon, Text } from '..';
+import { Link } from '@reach/router';
 
-
+EditorSection.defaultProps = {
+    destination: "/"
+}
 
 function EditorSection({ title, destination }) {
   return (
@@ -9,7 +12,9 @@ function EditorSection({ title, destination }) {
         <Flex alignItems="center">
             <Icon name="status" />
             <Box padding={1} />
-            <Text color="textb">{title}</Text>
+            <Link to={destination}>
+                <Text color="textb">{title}</Text>
+            </Link>
         </Flex>
         <Box />
         <Flex alignItems="center">

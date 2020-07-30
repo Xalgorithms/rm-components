@@ -71,11 +71,7 @@ export default class EditorLanding extends React.Component {
             <Rule />
             <EditorSection title="Input Contexts" />
             <Rule />
-              {currentRule ? (
-                <Link to="/input-applicability-filters" >
-                  <EditorSection title="Input Filters" />
-                </Link>
-              ) : null}
+            <EditorSection title="Input Filters" />
           </Box>
         </Box>
       </Grid>
