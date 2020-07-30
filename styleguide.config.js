@@ -11,43 +11,37 @@ module.exports = {
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: 'babel-loader'
+          loader: 'babel-loader',
         },
         {
           test: /\.scss$/,
-          use: ['style-loader', 'css-loader']
+          use: ['style-loader', 'css-loader'],
         },
       ],
     },
   },
   require: [path.join(__dirname, 'styleguide.setup.js')],
   updateExample(props, exampleFilePath) {
-		const { settings, lang } = props;
-		if (settings && typeof settings.file === 'string') {
-			const filepath = path.resolve(
-				path.dirname(exampleFilePath),
-				settings.file
-			);
-			const { file, ...restSettings } = settings;
-			const rawContent = fs.readFileSync(filepath, 'utf8');
-			const content =
-				filepath.endsWith('.md') && lang === 'jsx'
-					? markdownToCodeExample(rawContent)
-					: rawContent;
-			return {
-				content,
-				settings: restSettings,
-				lang,
-			};
-		}
-		return props;
-	},
+    const { settings, lang } = props;
+    if (settings && typeof settings.file === 'string') {
+      const filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
+      const { file, ...restSettings } = settings;
+      const rawContent = fs.readFileSync(filepath, 'utf8');
+      const content =
+        filepath.endsWith('.md') && lang === 'jsx' ? markdownToCodeExample(rawContent) : rawContent;
+      return {
+        content,
+        settings: restSettings,
+        lang,
+      };
+    }
+    return props;
+  },
 };
-
 
 module.exports = {
   assetsDir: 'static',
   styleguideComponents: {
-    Wrapper: path.join(__dirname, 'src/Provider.js')
-  }
-}
+    Wrapper: path.join(__dirname, 'src/Provider.js'),
+  },
+};

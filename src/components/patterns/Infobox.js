@@ -1,5 +1,5 @@
-import React from "react";
-import { Text, Grid, Icon, Box, Button, Flex } from "../../components";
+import React from 'react';
+import { Text, Grid, Icon, Box, Button, Flex } from '../../components';
 
 function Infobox(props) {
   const { content, open } = props;

@@ -1,8 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { css } from '@styled-system/css';
-
 
 const Dropdown = styled.select(
   css({
@@ -22,15 +21,13 @@ const Dropdown = styled.select(
     overflow: 'hidden',
     WebkitAppearance: 'none',
     MozAppearance: 'none',
-    appearance: 'none',     /* Remove default arrow */
+    appearance: 'none' /* Remove default arrow */,
     background: 'url(/assets/icons/dropdown.svg) no-repeat right center',
     '&:focus': {
-			outline: 0,
-			borderColor: 'primary',
-		},
+      outline: 0,
+      borderColor: 'primary',
+    },
   })
 );
-
-
 
 export default Dropdown;

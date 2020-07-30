@@ -1,23 +1,23 @@
 // libraries
-import { Router } from "@reach/router";
-import React from "react";
-import { ThemeProvider } from "styled-components";
+import { Router } from '@reach/router';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 // rm-components
-import Box from "../components/layout/Box";
-import theme from "../theme";
-import Browse from "./Browse";
-import Dashboard from "./Dashboard";
-import Editor from "./Editor";
-import Landing from "./Landing";
-import Login from "./Login";
+import Box from '../components/layout/Box';
+import theme from '../theme';
+import Browse from './Browse';
+import Dashboard from './Dashboard';
+import Editor from './Editor';
+import Landing from './Landing';
+import Login from './Login';
 // layouts
-import Navigation from "./Navigation";
-import Query from "./Query";
+import Navigation from './Navigation';
+import Query from './Query';
 
 // Styling
 
 const base_box_style = {
-  height: "100%",
+  height: '100%',
 };
 
 // Primary Component
@@ -27,9 +27,9 @@ export default class Application extends React.Component {
     this.state = {
       authenticated: true,
       userInfo: {
-        name: "John Doe",
+        name: 'John Doe',
       },
-      solidUsername: "",
+      solidUsername: '',
       userRules: {},
     };
 

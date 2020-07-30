@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Label,
   Input,
@@ -12,15 +12,9 @@ import {
   Text,
   Flex,
   Modal,
-} from "../";
+} from '../';
 
-function FormStandardLabel({
-  name,
-  nameTwo,
-  description,
-  descriptionTwo,
-  value,
-}) {
+function FormStandardLabel({ name, nameTwo, description, descriptionTwo, value }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const [isOpena, setIsOpena] = React.useState(false);

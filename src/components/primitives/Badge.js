@@ -2,41 +2,41 @@ import styled from 'styled-components';
 import { variant } from 'styled-system';
 import { css } from '@styled-system/css';
 
-const Badge= styled.div(
-	css({
-		boxSizing: 'border-box',
-		display: 'inline-block',
-		px: 2,
-		py: 1,
-		textAlign: 'center',
-		border: 'none',
-		color: 'drafta',
-		backgroundColor: 'draftb',
-		borderRadius: 'base',
-		fontFamily: 'body',
-		fontSize: 'md',
-		textDecoration: 'none',
+const Badge = styled.div(
+  css({
+    boxSizing: 'border-box',
+    display: 'inline-block',
+    px: 2,
+    py: 1,
+    textAlign: 'center',
+    border: 'none',
+    color: 'drafta',
+    backgroundColor: 'draftb',
+    borderRadius: 'base',
+    fontFamily: 'body',
+    fontSize: 'md',
+    textDecoration: 'none',
   }),
   variant({
-		variants: {
-			blue: {
-				color: 'bg',
-				backgroundColor: 'primary',
-			},
-			lightblue: {
+    variants: {
+      blue: {
+        color: 'bg',
+        backgroundColor: 'primary',
+      },
+      lightblue: {
         color: 'primary',
-				backgroundColor: 'midblue',
-			},
+        backgroundColor: 'midblue',
+      },
       grayblue: {
         color: 'primary',
-				backgroundColor: 'greyblue',
-			},
+        backgroundColor: 'greyblue',
+      },
       suggestion: {
         color: 'purplea',
-				backgroundColor: 'purpleb',
-			},
-		},
-	})
+        backgroundColor: 'purpleb',
+      },
+    },
+  })
 );
 
 /** @component */

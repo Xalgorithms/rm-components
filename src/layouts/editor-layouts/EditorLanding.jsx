@@ -1,14 +1,14 @@
 // libraries
-import React from "react";
+import React from 'react';
 
 // rm-components
-import Box from "../../components/layout/Box";
-import Grid from "../../components/layout/Grid";
-import Addbutton from "../../components/patterns/Addbutton";
-import EditorControl from "../../components/patterns/EditorControl";
-import InvolvedParty from "../../components/patterns/InvolvedParty";
-import SectionDescription from "../../components/patterns/SectionDescription";
-import Text from "../../components/primitives/Text";
+import Box from '../../components/layout/Box';
+import Grid from '../../components/layout/Grid';
+import Addbutton from '../../components/patterns/Addbutton';
+import EditorControl from '../../components/patterns/EditorControl';
+import InvolvedParty from '../../components/patterns/InvolvedParty';
+import SectionDescription from '../../components/patterns/SectionDescription';
+import Text from '../../components/primitives/Text';
 
 // Primary Component
 export default class EditorLanding extends React.Component {
@@ -33,12 +33,10 @@ export default class EditorLanding extends React.Component {
               Rule Maker Dashboard
             </Text>
             <Text>
-              Any rule can be expressed in terms of its input conditions, and
-              its output assertions. Please state each condition of this rule,
-              and each assertion of this rule, as a simple factual sentence.
-              Each sentence should be phrased in a manner that, in some
-              particular circumstance, the sentence would logically be ‘true’ or
-              ‘false’.
+              Any rule can be expressed in terms of its input conditions, and its output assertions.
+              Please state each condition of this rule, and each assertion of this rule, as a simple
+              factual sentence. Each sentence should be phrased in a manner that, in some particular
+              circumstance, the sentence would logically be ‘true’ or ‘false’.
             </Text>
           </SectionDescription>
         </Box>
@@ -62,7 +60,7 @@ export default class EditorLanding extends React.Component {
                 parties.push(last + 1);
                 this.setState({ sampleInvolvedParties: parties });
               }}
-              content={"Add Involved Party"}
+              content={'Add Involved Party'}
             />
           </Box>
           <Box padding={3} />

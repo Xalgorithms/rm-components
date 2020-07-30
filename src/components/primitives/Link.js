@@ -6,21 +6,21 @@ import { Text } from '../index.js';
 /**
  * A link is a `Text` rendered as `a` with additional styles.
  */
-const Link = styled(props => <Text as="a" {...props} />)(props =>
-	css({
-		cursor: 'pointer',
-		'&, &:link, &:visited': {
-			color: props.color || 'primary',
-		},
-		'&:hover, &:focus, &:active': {
-			color: 'accent',
-		},
-		'&:focus': {
-			outline: '1px dashed',
-			outlineColor: 'accent',
-			outlineOffset: 2,
-		},
-	})
+const Link = styled((props) => <Text as="a" {...props} />)((props) =>
+  css({
+    cursor: 'pointer',
+    '&, &:link, &:visited': {
+      color: props.color || 'primary',
+    },
+    '&:hover, &:focus, &:active': {
+      color: 'accent',
+    },
+    '&:focus': {
+      outline: '1px dashed',
+      outlineColor: 'accent',
+      outlineOffset: 2,
+    },
+  })
 );
 
 /** @component */

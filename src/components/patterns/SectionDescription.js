@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box, Text } from "../";
+import React, { useState } from 'react';
+import { Box, Text } from '../';
 
 function SectionDescription({ children }) {
   return (

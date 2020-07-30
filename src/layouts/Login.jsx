@@ -1,19 +1,19 @@
 // libraries
-import React from "react";
-import Box from "../components/layout/Box";
-import Grid from "../components/layout/Grid";
-import SectionDescription from "../components/patterns/SectionDescription";
-import Button from "../components/primitives/Button";
+import React from 'react';
+import Box from '../components/layout/Box';
+import Grid from '../components/layout/Grid';
+import SectionDescription from '../components/patterns/SectionDescription';
+import Button from '../components/primitives/Button';
 // rm-components
-import Text from "../components/primitives/Text";
+import Text from '../components/primitives/Text';
 
 // Primary Component
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageName: "Login",
-      pageDescription: "Login to the Oughtomation Engine",
+      pageName: 'Login',
+      pageDescription: 'Login to the Oughtomation Engine',
     };
 
     // Bind functions
@@ -25,10 +25,10 @@ export default class Login extends React.Component {
     this.props.toggleAuth();
     if (loggedIn) {
       // User is logging out
-      this.props.navigate("/");
+      this.props.navigate('/');
     } else {
       // User is logging in
-      this.props.navigate("/dashboard");
+      this.props.navigate('/dashboard');
     }
   }
 
@@ -41,16 +41,14 @@ export default class Login extends React.Component {
               {this.state.pageDescription}
             </Text>
             <Text>
-              Any rule can be expressed in terms of its input conditions, and
-              its output assertions. Please state each condition of this rule,
-              and each assertion of this rule, as a simple factual sentence.
-              Each sentence should be phrased in a manner that, in some
-              particular circumstance, the sentence would logically be ‘true’ or
-              ‘false’.
+              Any rule can be expressed in terms of its input conditions, and its output assertions.
+              Please state each condition of this rule, and each assertion of this rule, as a simple
+              factual sentence. Each sentence should be phrased in a manner that, in some particular
+              circumstance, the sentence would logically be ‘true’ or ‘false’.
             </Text>
           </SectionDescription>
           <Button onClick={this.loginButtonOnClick}>
-            {this.props.authenticated ? "Log Out" : "Log In"}
+            {this.props.authenticated ? 'Log Out' : 'Log In'}
           </Button>
         </Box>
       </Grid>

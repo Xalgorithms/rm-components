@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Label,
   Input,
@@ -12,7 +12,7 @@ import {
   Text,
   Flex,
   Modal,
-} from "../";
+} from '../';
 
 function FormStandardDouble(props) {
   // Extract some props.

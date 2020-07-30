@@ -1,23 +1,23 @@
 // libraries
-import React from "react";
-import { Link } from "@reach/router";
+import React from 'react';
+import { Link } from '@reach/router';
 
 // rm-components
-import Text from "../components/primitives/Text";
-import Flex from "../components/layout/Flex";
-import Icon from "../components/icons/Icon";
+import Text from '../components/primitives/Text';
+import Flex from '../components/layout/Flex';
+import Icon from '../components/icons/Icon';
 
 // styles
 
 const style_navbar = {
-  display: "flex",
+  display: 'flex',
 };
 
 const style_navlink = {
-  fontSize: "1.05em",
-  paddingRight: "2em",
-  textDecoration: "none",
-  color: "#000",
+  fontSize: '1.05em',
+  paddingRight: '2em',
+  textDecoration: 'none',
+  color: '#000',
 };
 // Primary Component
 export default class Navigation extends React.Component {

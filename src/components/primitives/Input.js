@@ -1,89 +1,89 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { variant } from "styled-system";
-import { css } from "@styled-system/css";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { variant } from 'styled-system';
+import { css } from '@styled-system/css';
 
 /**
  * A basic input field.
  */
 const Input = styled.input(
   css({
-    boxSizing: "border-box",
-    display: "block",
-    width: "100%",
+    boxSizing: 'border-box',
+    display: 'block',
+    width: '100%',
     margin: 0,
-    padding: "12px",
-    border: "thin",
-    borderColor: "oline",
-    borderRadius: "base",
-    fontFamily: "body",
-    fontSize: "md",
-    color: "text",
-    backgroundColor: "bg",
+    padding: '12px',
+    border: 'thin',
+    borderColor: 'oline',
+    borderRadius: 'base',
+    fontFamily: 'body',
+    fontSize: 'md',
+    color: 'text',
+    backgroundColor: 'bg',
     // Remove red outline on required input in Firefox
-    boxShadow: "none",
+    boxShadow: 'none',
 
-    "&::placeholder": {
-      color: "secondary",
+    '&::placeholder': {
+      color: 'secondary',
     },
 
-    "&:focus": {
+    '&:focus': {
       outline: 0,
-      borderColor: "primary",
+      borderColor: 'primary',
     },
 
-    "&:disabled": {
+    '&:disabled': {
       opacity: 0.6,
-      filter: "saturate(60%)",
+      filter: 'saturate(60%)',
     },
   }),
   variant({
     variants: {
       search: {
-        WebkitAppearance: "none",
-        width: "100%",
-        border: "none",
+        WebkitAppearance: 'none',
+        width: '100%',
+        border: 'none',
         height: 3,
         padding: 1,
-        background: "primary",
-        color: "text",
-        "&::placeholder": {
-          color: "secondary",
+        background: 'primary',
+        color: 'text',
+        '&::placeholder': {
+          color: 'secondary',
         },
 
-        "&:focus": {
+        '&:focus': {
           outline: 0,
-          borderColor: "primary",
+          borderColor: 'primary',
         },
 
-        "&:disabled": {
+        '&:disabled': {
           opacity: 0.6,
-          filter: "saturate(60%)",
+          filter: 'saturate(60%)',
         },
       },
       secondary: {
-        WebkitAppearance: "none",
-        width: "100%",
-        border: "none",
+        WebkitAppearance: 'none',
+        width: '100%',
+        border: 'none',
         height: 3,
         padding: 0,
-        background: "#DBEAFF",
-        "&::-webkit-slider-thumb": {
-          WebkitAppearance: "none",
+        background: '#DBEAFF',
+        '&::-webkit-slider-thumb': {
+          WebkitAppearance: 'none',
           width: 22,
           height: 22,
           borderRadius: 30,
-          backgroundColor: "primary",
-          cursor: "pointer",
+          backgroundColor: 'primary',
+          cursor: 'pointer',
         },
-        "&::-moz-range-thumb": {
-          WebkitAppearance: "none",
-          appearance: "none",
-          border: "none",
+        '&::-moz-range-thumb': {
+          WebkitAppearance: 'none',
+          appearance: 'none',
+          border: 'none',
           width: 12,
           height: 12,
-          backgroundColor: "primary",
-          cursor: "pointer",
+          backgroundColor: 'primary',
+          cursor: 'pointer',
         },
       },
     },
@@ -99,7 +99,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  variant: "primary",
+  variant: 'primary',
 };
 
 /** @component */

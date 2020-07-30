@@ -1,13 +1,5 @@
-import React, { useState } from "react";
-import {
-  Stack,
-  Box,
-  Button,
-  Grid,
-  Flex,
-  FormStandardDouble,
-  FormStandard,
-} from "../";
+import React, { useState } from 'react';
+import { Stack, Box, Button, Grid, Flex, FormStandardDouble, FormStandard } from '../';
 
 export default class InvolvedParty extends React.Component {
   render() {
