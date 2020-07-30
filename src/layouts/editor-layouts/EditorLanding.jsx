@@ -8,6 +8,7 @@ import EditorControl from '../../components/patterns/EditorControl';
 import SectionDescription from '../../components/patterns/SectionDescription';
 import Text from '../../components/primitives/Text';
 import EditorSection from '../../components/patterns/EditorSection';
+import Rule from '../../components/primitives/Rule';
 
 // Primary Component
 export default class EditorLanding extends React.Component {
@@ -36,7 +37,6 @@ export default class EditorLanding extends React.Component {
         </Box>
         <Box>
           <Box
-            p={2}
             m={0}
             width={1}
             bg="bg"
@@ -44,13 +44,12 @@ export default class EditorLanding extends React.Component {
             borderColor="oline"
             borderRadius="base"
           >
-            <Text variant="formtitle">Input→Output Table</Text>
-            <hr />
+            <Text variant="formtitle" m={2}>Input→Output Table</Text>
+            <Rule />
             <EditorSection title="Input→Output Table" />
           </Box>
           <Box padding={2} />
           <Box
-            p={2}
             m={0}
             width={1}
             bg="bg"
@@ -58,16 +57,16 @@ export default class EditorLanding extends React.Component {
             borderColor="oline"
             borderRadius="base"
           >
-            <Text variant="formtitle">Context</Text>
-            <hr />
+            <Text variant="formtitle" m={2}>Context</Text>
+            <Rule />
             <EditorSection title="MetaData Management" />
-            <hr />
+            <Rule />
             <EditorSection title="Qualitative Weights" />
-            <hr />
+            <Rule />
             <EditorSection title="Input Sources" />
-            <hr />
+            <Rule />
             <EditorSection title="Input Contexts" />
-            <hr />
+            <Rule />
             <EditorSection title="Input Filters" />
           </Box>
         </Box>

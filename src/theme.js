@@ -59,6 +59,7 @@ const theme = {
     ...palette,
     background: palette.grey[6],
     text: palette.black[0],
+    textb: palette.grey[0],
     primary: palette.blue[0],
     secondary: palette.grey[2],
     accent: '#fa3653',

@@ -8,6 +8,13 @@ import Flex from '../../components/layout/Flex';
 import Icon from '../../components/icons/Icon';
 
 // styles
+const styleHold = {
+  position: 'fixed',
+  background: '#fff',
+  width: '100%',
+  top: 0,
+}
+
 const styleNavbar = {
   display: 'flex',
 };
@@ -29,7 +36,7 @@ export default class Navigation extends React.Component {
   render() {
     const { authenticated } = this.props;
     return (
-      <div>
+      <div style={styleHold}>
         <Flex justifyContent="space-between" alignItems="center" m={4}>
           <Link to="/" style={styleNavlink}>
             <Text variant="subtitle">Oughtomation</Text>
@@ -64,7 +71,7 @@ export default class Navigation extends React.Component {
                 <Icon name="dash" />
               </Link>
             ) : null}
-            <Link to="/login" style={styleNavlink}>
+            <Link to="/login">
               <Icon name="user" />
             </Link>
           </nav>
