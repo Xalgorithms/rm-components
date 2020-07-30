@@ -4,27 +4,21 @@ import { Link } from "@reach/router";
 
 // rm-components
 import Text from "../components/primitives/Text";
-import Flex from "../components/layout/Flex"
-import Icon from "../components/icons/Icon"
+import Flex from "../components/layout/Flex";
+import Icon from "../components/icons/Icon";
 
 // styles
-
-const style_nav = {
-  border: "2px solid #EEE",
-  padding: "0.3em",
-  marginBottom: "1em",
-};
 
 const style_navbar = {
   display: "flex",
 };
 
 const style_navlink = {
+  fontSize: "1.05em",
   paddingRight: "2em",
   textDecoration: "none",
   color: "#000",
 };
-
 // Primary Component
 export default class Navigation extends React.Component {
   render() {
@@ -38,7 +32,7 @@ export default class Navigation extends React.Component {
             {this.props.authenticated ? (
               <Link to="/browse" style={style_navlink}>
                 <Flex alignItems="flex-end">
-                  <Icon name="list"/>
+                  <Icon name="list" />
                   <Text>Browse</Text>
                 </Flex>
               </Link>
@@ -46,7 +40,7 @@ export default class Navigation extends React.Component {
             {this.props.authenticated ? (
               <Link to="/query" style={style_navlink}>
                 <Flex alignItems="center">
-                  <Icon name="search"/>
+                  <Icon name="search" />
                   <Text>Query</Text>
                 </Flex>
               </Link>
@@ -54,18 +48,18 @@ export default class Navigation extends React.Component {
             {this.props.authenticated ? (
               <Link to="/editor" style={style_navlink}>
                 <Flex>
-                  <Icon name="edit"/>
+                  <Icon name="edit" />
                   <Text>Editor</Text>
                 </Flex>
               </Link>
             ) : null}
             {this.props.authenticated ? (
               <Link to="/dashboard" style={style_navlink}>
-                <Icon name="dash"/>
+                <Icon name="dash" />
               </Link>
             ) : null}
             <Link to="/login" style={style_navlink}>
-              <Icon name="user"/>
+              <Icon name="user" />
             </Link>
           </nav>
         </Flex>

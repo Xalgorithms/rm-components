@@ -1,17 +1,24 @@
 // libraries
+import { Router } from "@reach/router";
 import React from "react";
 import { ThemeProvider } from "styled-components";
+// rm-components
+import Box from "../components/layout/Box";
 import theme from "../theme";
-import { Router } from "@reach/router";
-
+import Browse from "./Browse";
+import Dashboard from "./Dashboard";
+import Editor from "./Editor";
+import Landing from "./Landing";
+import Login from "./Login";
 // layouts
 import Navigation from "./Navigation";
-import Landing from "./Landing";
-import Browse from "./Browse";
-import Editor from "./Editor";
-import Login from "./Login";
 import Query from "./Query";
-import Dashboard from "./Dashboard";
+
+// Styling
+
+const base_box_style = {
+  height: "100%",
+};
 
 // Primary Component
 export default class Application extends React.Component {
@@ -36,45 +43,44 @@ export default class Application extends React.Component {
 
   render() {
     return (
-      <div>
-        <ThemeProvider theme={theme}>
-          <div>
-            <Navigation authenticated={this.state.authenticated} />
-            <Router>
-              <Landing
-                path="/"
-                authenticated={this.state.authenticated}
-                toggleAuth={this.toggleLoggedin}
-              />
-              <Browse
-                path="/browse"
-                authenticated={this.state.authenticated}
-                toggleAuth={this.toggleLoggedin}
-              />
-              <Editor
-                path="/editor/*"
-                authenticated={this.state.authenticated}
-                toggleAuth={this.toggleLoggedin}
-              />
-              <Login
-                path="/login"
-                authenticated={this.state.authenticated}
-                toggleAuth={this.toggleLoggedin}
-              />
-              <Query
-                path="/query"
-                authenticated={this.state.authenticated}
-                toggleAuth={this.toggleLoggedin}
-              />
-              <Dashboard
-                path="/dashboard"
-                authenticated={this.state.authenticated}
-                toggleAuth={this.toggleLoggedin}
-              />
-            </Router>
-          </div>
-        </ThemeProvider>
-      </div>
+      <ThemeProvider theme={theme}>
+        <Navigation authenticated={this.state.authenticated} />
+
+        <Box bg="#F9FBFE" style={base_box_style}>
+          <Router>
+            <Landing
+              path="/"
+              authenticated={this.state.authenticated}
+              toggleAuth={this.toggleLoggedin}
+            />
+            <Browse
+              path="/browse"
+              authenticated={this.state.authenticated}
+              toggleAuth={this.toggleLoggedin}
+            />
+            <Editor
+              path="/editor/*"
+              authenticated={this.state.authenticated}
+              toggleAuth={this.toggleLoggedin}
+            />
+            <Login
+              path="/login"
+              authenticated={this.state.authenticated}
+              toggleAuth={this.toggleLoggedin}
+            />
+            <Query
+              path="/query"
+              authenticated={this.state.authenticated}
+              toggleAuth={this.toggleLoggedin}
+            />
+            <Dashboard
+              path="/dashboard"
+              authenticated={this.state.authenticated}
+              toggleAuth={this.toggleLoggedin}
+            />
+          </Router>
+        </Box>
+      </ThemeProvider>
     );
   }
 }

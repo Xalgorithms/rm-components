@@ -12,12 +12,10 @@ import InputOutput from "./editor-layouts/InputOutput";
 export default class Editor extends React.Component {
   render() {
     return (
-      <div>
-        <Router>
-          <EditorLanding path="/" />
-          <InputOutput path="/input-output" />
-        </Router>
-      </div>
+      <Router primary={false}>
+        <EditorLanding path="/" />
+        <InputOutput path="/input-output" />
+      </Router>
     );
   }
 }

@@ -2,7 +2,6 @@
 import React from "react";
 
 // rm-components
-import Card from "../../components/patterns/Card";
 import Box from "../../components/layout/Box";
 import Grid from "../../components/layout/Grid";
 import SectionDescription from "../../components/patterns/SectionDescription";
