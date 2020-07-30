@@ -11,8 +11,7 @@
     "no-console": 0,
     "indent": ["error", 2],
     "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0,
-    "react/jsx-filename-extension": 0
+    "import/no-named-as-default-member": 0
   },
   "parserOptions": {
     "ecmaVersion": 8,
