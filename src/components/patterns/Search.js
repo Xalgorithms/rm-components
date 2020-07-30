@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Flex, Icon, Box, Button } from '../../components';
+import { Input, Flex, Icon, Box, Button } from '..';
 
 export default () => (
   <Box p={2} m={0} width={1} bg="bg" border="1px solid" borderColor="oline" borderRadius="round">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Label, Input, Stack, Dropdown, Box, Icon, Button, Grid, Text, Flex, Modal } from '../';
+import { Label, Input, Stack, Dropdown, Box, Icon, Button, Grid, Text, Flex, Modal } from '..';
 
 function FormStandardDropdown({
   name,
@@ -24,7 +24,7 @@ function FormStandardDropdown({
 
   return (
     <Stack gap={4}>
-      {/*first modal*/}
+      {/* first modal */}
       <Modal isOpen={isOpen}>
         <Box padding={1} />
         <Box
@@ -49,7 +49,7 @@ function FormStandardDropdown({
           </Grid>
         </Box>
       </Modal>
-      {/*second modal*/}
+      {/* second modal */}
       <Modal isOpen={isOpena}>
         <Box padding={1} />
         <Box
@@ -77,7 +77,7 @@ function FormStandardDropdown({
       <Box padding={1} />
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
         <Box>
-          {/*first input field*/}
+          {/* first input field */}
           <Flex alignItems="center">
             <Text>{name}</Text>
             <Button variant="invisible" onClick={() => setIsOpen(true)}>
@@ -90,7 +90,7 @@ function FormStandardDropdown({
           <Input />
         </Box>
         <Box>
-          {/*second input field*/}
+          {/* second input field */}
           <Flex alignItems="center">
             <Text>{nameTwo}</Text>
             <Button variant="invisible" onClick={() => setIsOpena(true)}>

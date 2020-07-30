@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Icon, Button, Text, Box } from '../../components';
+import { Flex, Icon, Button, Text, Box } from '..';
 
 export default (props) => (
   <Button variant="invisible" onClick={props.onClick}>

@@ -11,18 +11,18 @@ export default class Query extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageName: 'Query',
       pageDescription: 'Query the Rule Database',
     };
   }
 
   render() {
+    const { pageDescription } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
           <SectionDescription>
             <Text variant="subtitle" color="purplea">
-              {this.state.pageDescription}
+              {pageDescription}
             </Text>
             <Text>
               Any rule can be expressed in terms of its input conditions, and its output assertions.

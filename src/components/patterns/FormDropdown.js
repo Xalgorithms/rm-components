@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Label, Input, Stack, Dropdown, Box, Icon, Button, Grid, Text, Flex, Modal } from '../';
+import { Label, Input, Stack, Dropdown, Box, Icon, Button, Grid, Text, Flex, Modal } from '..';
 
 function FormDropdown({ name, description, label, value, options = [] }) {
   const [isOpen, setIsOpen] = React.useState(false);

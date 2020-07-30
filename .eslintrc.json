@@ -1,6 +1,6 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier", "jest"],
+  "extends": ["airbnb", "prettier", "eslint:recommended"],
+  "plugins": ["prettier", "jest", "react"],
   "rules": {
     "prettier/prettier": ["error"],
     "jest/no-disabled-tests": "warn",
@@ -11,8 +11,17 @@
     "no-console": 0,
     "indent": ["error", 2]
   },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
   "env": {
     "jest/globals": true,
-    "browser": true
+    "browser": true,
+    "es6": true
   }
 }

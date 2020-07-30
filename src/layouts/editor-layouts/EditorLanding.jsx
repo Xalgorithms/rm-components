@@ -19,7 +19,7 @@ export default class EditorLanding extends React.Component {
     };
 
     // Bind functions
-    //this.toggleLoggedin = this.toggleLoggedin.bind(this);
+    // this.toggleLoggedin = this.toggleLoggedin.bind(this);
   }
 
   render() {

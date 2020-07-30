@@ -8,7 +8,7 @@ import {
   FormStandardDropdown,
   FormStandardLabel,
   FormStandard,
-} from '../';
+} from '..';
 
 export default () => (
   <Box bg="#F9FBFE" p={4}>

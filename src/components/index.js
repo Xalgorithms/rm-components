@@ -9,10 +9,10 @@ export { default as Dropdown } from './primitives/Dropdown';
 export { default as Modal } from './primitives/Modal';
 export { default as Link } from './primitives/Link';
 
-//icon
+// icon
 export { default as Icon } from './icons/Icon';
 
-//pattern
+// pattern
 export { default as Infobox } from './patterns/Infobox';
 export { default as FormDropdown } from './patterns/FormDropdown';
 export { default as FormDropdownDouble } from './patterns/FormDropdownDouble';
@@ -22,7 +22,7 @@ export { default as FormStandardDropdown } from './patterns/FormStandardDropdown
 export { default as FormStandardLabel } from './patterns/FormStandardLabel';
 export { default as InvolvedParty } from './patterns/InvolvedParty';
 
-//Layouts
+// Layouts
 export { default as Box } from './layout/Box';
 export { default as Grid } from './layout/Grid';
 export { default as Flex } from './layout/Flex';

@@ -12,7 +12,7 @@ import {
   Text,
   Flex,
   Modal,
-} from '../';
+} from '..';
 
 function FormStandardLabel({ name, nameTwo, description, descriptionTwo, value }) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -21,7 +21,7 @@ function FormStandardLabel({ name, nameTwo, description, descriptionTwo, value }
 
   return (
     <Stack gap={4}>
-      {/*first modal*/}
+      {/* first modal */}
       <Modal isOpen={isOpen}>
         <Box padding={1} />
         <Box
@@ -44,7 +44,7 @@ function FormStandardLabel({ name, nameTwo, description, descriptionTwo, value }
           </Grid>
         </Box>
       </Modal>
-      {/*second modal*/}
+      {/* second modal */}
       <Modal isOpen={isOpena}>
         <Box padding={1} />
         <Box
@@ -72,7 +72,7 @@ function FormStandardLabel({ name, nameTwo, description, descriptionTwo, value }
       <Box padding={1} />
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
         <Box>
-          {/*first input field*/}
+          {/* first input field */}
           <Flex alignItems="center">
             <Text>{name}</Text>
             <Button variant="invisible" onClick={() => setIsOpen(true)}>
@@ -85,7 +85,7 @@ function FormStandardLabel({ name, nameTwo, description, descriptionTwo, value }
           <Input />
         </Box>
         <Box>
-          {/*second input field*/}
+          {/* second input field */}
           <Flex alignItems="center">
             <Text>{nameTwo}</Text>
             <Button variant="invisible" onClick={() => setIsOpena(true)}>

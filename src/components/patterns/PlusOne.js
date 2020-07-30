@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Text, InvolvedParty } from '../';
+import { Box, Button, Text, InvolvedParty } from '..';
 
 function PlusOne() {
   const numbers = [1];
@@ -14,7 +14,7 @@ function PlusOne() {
     numbers.push(count);
     console.log(numbers);
     listComp();
-    //console.log(numbers);
+    // console.log(numbers);
   };
 
   const listComp = () => {
@@ -28,7 +28,7 @@ function PlusOne() {
 
   return (
     <Box>
-      <Text id="morebox">You clicked {listComp()} times.</Text>
+      <Text id="morebox">You clicked{listComp()} times.</Text>
       <Button onClick={(plus, check)}>Click me</Button>
     </Box>
   );

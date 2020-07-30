@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stack, Box, Button, Grid, Flex, Icon, Text, Link, Badge } from '../';
+import { Stack, Box, Button, Grid, Flex, Icon, Text, Link, Badge } from '..';
 
 function EditorControl({ title }) {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, Icon, Flex, Button } from '../';
+import { Text, Icon, Flex, Button } from '..';
 
 function Label({ children, htmlFor, required = false }) {
   return (

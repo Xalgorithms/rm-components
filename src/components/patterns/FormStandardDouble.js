@@ -12,7 +12,7 @@ import {
   Text,
   Flex,
   Modal,
-} from '../';
+} from '..';
 
 function FormStandardDouble(props) {
   // Extract some props.
@@ -24,18 +24,18 @@ function FormStandardDouble(props) {
 
   return (
     <Stack gap={4}>
-      {/*first modal*/}
+      {/* first modal */}
       <Modal isOpen={isOpen}>
         <Infobox content={description} onClick={() => setIsOpen(false)} />
       </Modal>
-      {/*second modal*/}
+      {/* second modal */}
       <Modal isOpen={isOpena}>
         <Infobox content={descriptionTwo} onClick={() => setIsOpena(false)} />
       </Modal>
       <Box padding={1} />
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
         <Box>
-          {/*first input field*/}
+          {/* first input field */}
           <Flex alignItems="center">
             <Text>{name}</Text>
             <Button
@@ -54,7 +54,7 @@ function FormStandardDouble(props) {
           <Input onChange={props.onChangeInputA} />
         </Box>
         <Box>
-          {/*second input field*/}
+          {/* second input field */}
           <Flex alignItems="center">
             <Text>{nameTwo}</Text>
             <Button

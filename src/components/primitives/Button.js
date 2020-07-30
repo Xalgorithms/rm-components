@@ -35,7 +35,7 @@ const Button = styled.button(
       color: 'primary',
       borderColor: 'bg',
       backgroundColor: 'bg',
-      //borderColor: 'accent',
+      // borderColor: 'accent',
     },
 
     '&:disabled': {
