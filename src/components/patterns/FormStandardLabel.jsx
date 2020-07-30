@@ -35,7 +35,7 @@ function FormStandardLabel({ name, nameTwo, description, descriptionTwo, value }
         >
           <Grid gridTemplateColumns="24px auto 24px">
             <Icon name="info" />
-            <Infobox>{description}</Infobox>
+            <Infobox content={description} />
             <Flex alignItems="flex-start">
               <Button variant="invisible" onClick={() => setIsOpen(false)}>
                 <Icon name="ex" />

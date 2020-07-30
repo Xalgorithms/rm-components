@@ -1,9 +1,9 @@
 ```jsx
 <FormStandardDropdown
-  name="hello world"
-  description="hello world is asking the following things"
-  nameTwo="hello world"
-  descriptionTwo="hello world is asking the following things"
+  name="Text Input"
+  description="Text input description."
+  nameTwo="Dropdown Input"
+  descriptionTwo="Dropdown input description."
   options={[
     { value: 'justice', label: 'Justice' },
     { value: 'peace', label: 'Peace' },
