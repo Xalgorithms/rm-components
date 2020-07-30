@@ -4,13 +4,14 @@ import React from 'react';
 // rm-components
 import Box from '../../components/layout/Box';
 import Grid from '../../components/layout/Grid';
+import Addbutton from '../../components/patterns/Addbutton';
 import EditorControl from '../../components/patterns/EditorControl';
+import InvolvedParty from '../../components/patterns/InvolvedParty';
 import SectionDescription from '../../components/patterns/SectionDescription';
 import Text from '../../components/primitives/Text';
-import EditorSection from '../../components/patterns/EditorSection';
 
 // Primary Component
-export default class EditorLanding extends React.Component {
+export default class InputApplicabilityFilters extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,6 +41,9 @@ export default class EditorLanding extends React.Component {
           </SectionDescription>
         </Box>
         <Box>
+          {this.state.sampleInvolvedParties.map((val, index) => (
+            <InvolvedParty key={index} />
+          ))}
           <Box
             p={2}
             m={0}
@@ -49,36 +53,17 @@ export default class EditorLanding extends React.Component {
             borderColor="oline"
             borderRadius="base"
           >
-            <Text variant="formtitle">
-              Input→Output Table
-            </Text>
-            <hr></hr>
-            <EditorSection title="Input→Output Table"/>
+            <Addbutton
+              onClick={() => {
+                const parties = this.state.sampleInvolvedParties;
+                const last = parties[parties.length];
+                parties.push(last + 1);
+                this.setState({ sampleInvolvedParties: parties });
+              }}
+              content={'Add Involved Party'}
+            />
           </Box>
-          <Box padding={2} />
-          <Box
-            p={2}
-            m={0}
-            width={1}
-            bg="bg"
-            border="1px solid"
-            borderColor="oline"
-            borderRadius="base"
-          >
-            <Text variant="formtitle">
-              Context
-            </Text>
-            <hr></hr>
-            <EditorSection title="MetaData Management"/>
-            <hr></hr>
-            <EditorSection title="Qualitative Weights"/>
-            <hr></hr>
-            <EditorSection title="Input Sources"/>
-            <hr></hr>
-            <EditorSection title="Input Contexts"/>
-            <hr></hr>
-            <EditorSection title="Input Filters"/>
-          </Box>
+          <Box padding={3} />
         </Box>
       </Grid>
     );
