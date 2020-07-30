@@ -1,11 +1,12 @@
-const { version } = require('./package.json');
 const path = require('path');
+const { version } = require('./package.json');
+
 module.exports = {
   title: 'rm-components',
   version,
   exampleMode: 'expand',
   components: '../src/components/[A-Z]**/*.js', // index.js
-  //ignore: ['**/src/test.js'],
+  // ignore: ['**/src/test.js'],
   webpackConfig: {
     module: {
       rules: [

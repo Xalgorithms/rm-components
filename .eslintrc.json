@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "prettier", "eslint:recommended"],
+  "extends": ["airbnb", "prettier", "eslint:recommended", "plugin:react/recommended"],
   "plugins": ["prettier", "jest", "react"],
   "rules": {
     "prettier/prettier": ["error"],
@@ -11,15 +11,8 @@
     "no-console": 0,
     "indent": ["error", 2],
     "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0
-  },
-  "parserOptions": {
-    "ecmaVersion": 8,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    }
+    "import/no-named-as-default-member": 0,
+    "react/prop-types": 0
   },
   "env": {
     "jest/globals": true,

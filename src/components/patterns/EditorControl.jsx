@@ -15,6 +15,7 @@ function EditorControl({ title }) {
       <Flex alignItems="center">
         <Icon name="download" />
         <Box padding={1} />
+
         <Button>Publish</Button>
       </Flex>
     </Flex>

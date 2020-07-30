@@ -60,7 +60,7 @@ export default class EditorLanding extends React.Component {
                 parties.push(last + 1);
                 this.setState({ sampleInvolvedParties: parties });
               }}
-              content={'Add Involved Party'}
+              content="Add Involved Party"
             />
           </Box>
           <Box padding={3} />
