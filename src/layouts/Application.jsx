@@ -64,7 +64,7 @@ export default class Application extends React.Component {
           <Navigation authenticated={authenticated} />
 
           <Box bg="#F9FBFE" style={baseBoxStyle}>
-            <Router>
+            <Router primary={false}>
               <Landing
                 path="/"
                 authenticated={authenticated}
