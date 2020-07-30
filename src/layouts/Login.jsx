@@ -13,7 +13,6 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageName: 'Login',
       pageDescription: 'Login to the Oughtomation Engine',
     };
 

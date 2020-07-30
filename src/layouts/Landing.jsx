@@ -2,7 +2,6 @@
 import React from 'react';
 import Box from '../components/layout/Box';
 import Grid from '../components/layout/Grid';
-import SectionDescription from '../components/patterns/SectionDescription';
 
 // components
 import ScrollUp from './components/ScrollUp';
@@ -16,10 +15,7 @@ import Search from '../components/patterns/Search';
 export default class Landing extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      pageName: 'Landing',
-      pageDescription: 'Welcome',
-    };
+    this.state = {};
   }
 
   render() {
