@@ -48,9 +48,7 @@ export default class EditorLanding extends React.Component {
           >
             <Text variant="formtitle" m={2}>Input→Output Table</Text>
             <Rule />
-            <Link to="/input-output" >
-              <EditorSection title="Input→Output Table" destination="/input-output"/>
-            </Link>
+            <EditorSection title="Input→Output Table" destination="/editor/input-output"/>
           </Box>
           <Box padding={2} />
           <Box
@@ -63,7 +61,7 @@ export default class EditorLanding extends React.Component {
           >
             <Text variant="formtitle" m={2}>Context</Text>
             <Rule />
-            <EditorSection title="MetaData Management" />
+            <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
             <Rule />
             <EditorSection title="Qualitative Weights" />
             <Rule />
@@ -71,7 +69,7 @@ export default class EditorLanding extends React.Component {
             <Rule />
             <EditorSection title="Input Contexts" />
             <Rule />
-            <EditorSection title="Input Filters" />
+            <EditorSection title="Input Filters" destination="/editor/input-applicability-filters"/>
           </Box>
         </Box>
       </Grid>

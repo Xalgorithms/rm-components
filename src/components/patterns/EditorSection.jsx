@@ -3,7 +3,7 @@ import {  Box, Flex, Icon, Text } from '..';
 import { Link } from '@reach/router';
 
 EditorSection.defaultProps = {
-    destination: "/"
+  destination: '/',
 }
 
 function EditorSection({ title, destination }) {
