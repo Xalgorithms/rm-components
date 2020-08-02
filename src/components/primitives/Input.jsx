@@ -70,8 +70,8 @@ const Input = styled.input(
         background: '#DBEAFF',
         '&::-webkit-slider-thumb': {
           WebkitAppearance: 'none',
-          width: 22,
-          height: 22,
+          width: 12,
+          height: 12,
           borderRadius: 30,
           backgroundColor: 'primary',
           cursor: 'pointer',

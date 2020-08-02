@@ -70,6 +70,7 @@ const theme = {
     oline: palette.outline[0],
     drafta: palette.yellow[0],
     draftb: palette.yellow[2],
+    draftc: palette.yellow[1],
     midblue: palette.blue[1],
     greyblue: palette.blue[2],
     purplea: palette.purple[0],

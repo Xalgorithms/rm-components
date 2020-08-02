@@ -18,11 +18,12 @@ import ScrollUp from './components/ScrollUp';
 // layouts
 import Navigation from './components/Navigation';
 import Query from './Query';
+import Footer from './components/Footer'
 
 // Styling
 
 const baseBoxStyle = {
-  height: '100%',
+  minHeight: '100%',
   margin: 0,
   paddingTop: 92,
 };
@@ -111,6 +112,7 @@ export default class Application extends React.Component {
               />
             </Router>
           </Box>
+          <Footer />
         </ThemeProvider>
       </ScrollUp>
     );

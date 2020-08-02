@@ -63,7 +63,7 @@ export default class EditorLanding extends React.Component {
             <Rule />
             <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
             <Rule />
-            <EditorSection title="Qualitative Weights" />
+            <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
             <Rule />
             <EditorSection title="Input Sources" />
             <Rule />

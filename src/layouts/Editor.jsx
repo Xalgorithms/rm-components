@@ -8,6 +8,7 @@ import InputOutput from './editor-layouts/InputOutput';
 import InputApplicabilityFilters from './editor-layouts/InputApplicabilityFilters';
 import RuleMakerEntity from './editor-layouts/RuleMakerEntity';
 import RuleManager from './editor-layouts/RuleManager';
+import OutputWeight from './editor-layouts/OutputWeight'
 import ScrollUp from './components/ScrollUp';
 
 // rm-components
@@ -31,6 +32,7 @@ export default class Editor extends React.Component {
           <InputApplicabilityFilters path="/input-applicability-filters" rule={currentRule} />
           <RuleMakerEntity path="/rule-maker-entity" rule={currentRule} />
           <RuleManager path="rule-manager" rule={currentRule} />
+          <OutputWeight path="output-weight" rule={currentRule} />
         </Router>
       </ScrollUp>
     );

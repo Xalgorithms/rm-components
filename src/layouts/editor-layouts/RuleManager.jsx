@@ -2,16 +2,16 @@
 import React from 'react';
 
 // rm-components
+import { Link } from '@reach/router';
 import Box from '../../components/layout/Box';
 import Grid from '../../components/layout/Grid';
 import EditorControl from '../../components/patterns/EditorControl';
 import SectionDescription from '../../components/patterns/SectionDescription';
 import Text from '../../components/primitives/Text';
-import FormStandardDropdown from '../../components/patterns/FormStandardDropdown';
 import FormStandardLabel from '../../components/patterns/FormStandardLabel';
 import FormStandard from '../../components/patterns/FormStandard';
 import Button from '../../components/primitives/Button';
-import { Link } from '@reach/router';
+import Flex from '../../components/layout/Flex';
 
 // Primary Component
 export default class RuleManager extends React.Component {
@@ -40,7 +40,7 @@ export default class RuleManager extends React.Component {
           </SectionDescription>
         </Box>
         <Box>
-            <Box
+          <Box
             p={2}
             m={0}
             width={1}
@@ -48,22 +48,22 @@ export default class RuleManager extends React.Component {
             border="1px solid"
             borderColor="oline"
             borderRadius="base"
-            >
-                <FormStandardLabel
-                    name="Rule Manager Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Manager ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                />
-                <Box padding={1} />
-                <FormStandard
-                    name="Rule Manager Email"
-                    description="hello world is asking the following things"
-                />
-            </Box>
+          >
+            <FormStandardLabel
+              name="Rule Manager Name"
+              description="hello world is asking the following things"
+              nameTwo="Rule Manager ID"
+              descriptionTwo="hello world is asking the following things"
+              value="Vqp4nv8eGprI"
+            />
             <Box padding={1} />
-            <Box
+            <FormStandard
+              name="Rule Manager Email"
+              description="hello world is asking the following things"
+            />
+          </Box>
+          <Box padding={1} />
+          <Box
             p={2}
             m={0}
             width={1}
@@ -71,22 +71,22 @@ export default class RuleManager extends React.Component {
             border="1px solid"
             borderColor="oline"
             borderRadius="base"
-            >
-                <FormStandardLabel
-                    name="Rule Author Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Author ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                />
-                <Box padding={1} />
-                <FormStandard
-                    name="Rule Author Email"
-                    description="hello world is asking the following things"
-                />
-            </Box>
+          >
+            <FormStandardLabel
+              name="Rule Author Name"
+              description="hello world is asking the following things"
+              nameTwo="Rule Author ID"
+              descriptionTwo="hello world is asking the following things"
+              value="Vqp4nv8eGprI"
+            />
             <Box padding={1} />
-            <Box
+            <FormStandard
+              name="Rule Author Email"
+              description="hello world is asking the following things"
+            />
+          </Box>
+          <Box padding={1} />
+          <Box
             p={2}
             m={0}
             width={1}
@@ -94,25 +94,27 @@ export default class RuleManager extends React.Component {
             border="1px solid"
             borderColor="oline"
             borderRadius="base"
-            >
-                <FormStandardLabel
-                    name="Rule Maintainer Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Maintainer ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                />
-                <Box padding={1} />
-                <FormStandard
-                    name="Rule Maintainer Email"
-                    description="hello world is asking the following things"
-                />
-            </Box>
+          >
+            <FormStandardLabel
+              name="Rule Maintainer Name"
+              description="hello world is asking the following things"
+              nameTwo="Rule Maintainer ID"
+              descriptionTwo="hello world is asking the following things"
+              value="Vqp4nv8eGprI"
+            />
             <Box padding={1} />
-            <Grid gridTemplateColumns="auto 160px">
+            <FormStandard
+              name="Rule Maintainer Email"
+              description="hello world is asking the following things"
+            />
+          </Box>
+          <Box padding={1} />
+          <Flex justifyContent="flex-end">
             <Box />
-            <Button>Done</Button>
-            </Grid>
+            <Link to="/editor/">
+              <Button>Done</Button>
+            </Link>
+          </Flex>
         </Box>
       </Grid>
     );
