@@ -9,7 +9,6 @@ import SectionDescription from '../../components/patterns/SectionDescription';
 import Text from '../../components/primitives/Text';
 import EditorSection from '../../components/patterns/EditorSection';
 import Rule from '../../components/primitives/Rule';
-import { Link } from '@reach/router';
 
 // Primary Component
 export default class EditorLanding extends React.Component {
@@ -38,38 +37,28 @@ export default class EditorLanding extends React.Component {
           </SectionDescription>
         </Box>
         <Box>
-          <Box
-            m={0}
-            width={1}
-            bg="bg"
-            border="1px solid"
-            borderColor="oline"
-            borderRadius="base"
-          >
-            <Text variant="formtitle" m={2}>Input→Output Table</Text>
+          <Box m={0} width={1} bg="bg" border="1px solid" borderColor="oline" borderRadius="base">
+            <Text variant="formtitle" m={2}>
+              Input→Output Table
+            </Text>
             <Rule />
-            <EditorSection title="Input→Output Table" destination="/editor/input-output"/>
+            <EditorSection title="Input→Output Table" destination="/editor/input-output" />
           </Box>
           <Box padding={2} />
-          <Box
-            m={0}
-            width={1}
-            bg="bg"
-            border="1px solid"
-            borderColor="oline"
-            borderRadius="base"
-          >
-            <Text variant="formtitle" m={2}>Context</Text>
+          <Box m={0} width={1} bg="bg" border="1px solid" borderColor="oline" borderRadius="base">
+            <Text variant="formtitle" m={2}>
+              Context
+            </Text>
             <Rule />
             <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
             <Rule />
             <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
             <Rule />
-            <EditorSection title="Input Sources" />
+            <EditorSection title="Input Contexts" destination="/editor/input-context" />
             <Rule />
-            <EditorSection title="Input Contexts" />
+            <EditorSection title="Input Sources" destination="/editor/input-applicability-filters"/>
             <Rule />
-            <EditorSection title="Input Filters" destination="/editor/input-applicability-filters"/>
+            <EditorSection title="Input Filters" destination="/editor/additional-data"/>
           </Box>
         </Box>
       </Grid>
