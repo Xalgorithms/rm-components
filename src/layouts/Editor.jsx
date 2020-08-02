@@ -11,6 +11,7 @@ import RuleManager from './editor-layouts/RuleManager';
 import OutputWeight from './editor-layouts/OutputWeight';
 import InputContext from './editor-layouts/InputContext';
 import AdditionalData from './editor-layouts/AdditionalData';
+import InputOutputSentences from './editor-layouts/InputOutputSentences';
 import ScrollUp from './components/ScrollUp';
 
 // rm-components
@@ -37,6 +38,7 @@ export default class Editor extends React.Component {
           <OutputWeight path="output-weight" rule={currentRule} />
           <InputContext path="input-context" rule={currentRule} />
           <AdditionalData path="additional-data" rule={currentRule}/>
+          <InputOutputSentences path="input-output-sentences" rule={currentRule}/>
         </Router>
       </ScrollUp>
     );

@@ -42,7 +42,7 @@ export default class EditorLanding extends React.Component {
               Input→Output Table
             </Text>
             <Rule />
-            <EditorSection title="Input→Output Table" destination="/editor/input-output" />
+            <EditorSection title="Input→Output Table" destination="/editor/input-output-sentences" />
           </Box>
           <Box padding={2} />
           <Box m={0} width={1} bg="bg" border="1px solid" borderColor="oline" borderRadius="base">
