@@ -30,8 +30,8 @@ export default class InputApplicabilityFilters extends React.Component {
           <EditorControl title="Rule Name" />
           <Box p={2} />
           <SectionDescription>
-            <Text variant="subtitle" color="purplea">
-              Rule Maker Dashboard
+            <Text variant="subtitledesc" color="purplea">
+              Input Applicability Filters
             </Text>
             <Text>
               Any rule can be expressed in terms of its input conditions, and its output assertions.

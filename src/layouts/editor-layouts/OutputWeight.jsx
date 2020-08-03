@@ -28,8 +28,8 @@ export default class OutputWeight extends React.Component {
           <EditorControl title="Rule Name" />
           <Box p={2} />
           <SectionDescription>
-            <Text variant="subtitle" color="purplea">
-              Rule Maker Dashboard
+            <Text variant="subtitledesc" color="purplea">
+              Output Weight
             </Text>
             <Text>
               Any rule can be expressed in terms of its input conditions, and its output assertions.

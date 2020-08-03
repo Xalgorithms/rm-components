@@ -45,6 +45,13 @@ const textStyles = {
     lineHeight: 'body',
     color: 'text',
   },
+  subtitledesc: {
+    fontWeight: 'bold',
+    fontFamily: 'body',
+    fontSize: 'lmd',
+    lineHeight: 'body',
+    color: 'purplea',
+  },
   error: {
     fontWeight: 'normal',
     lineHeight: 'body',

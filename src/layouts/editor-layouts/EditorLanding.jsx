@@ -25,7 +25,7 @@ export default class EditorLanding extends React.Component {
           <EditorControl title="Rule Name" />
           <Box p={2} />
           <SectionDescription>
-            <Text variant="subtitle" color="purplea">
+            <Text variant="subtitledesc" color="purplea">
               Rule Maker Dashboard
             </Text>
             <Text>
