@@ -31,6 +31,16 @@ const Badge = styled.div(
         color: 'primary',
         backgroundColor: 'greyblue',
       },
+      form: {
+        color: 'textb',
+        borderColor: 'oline',
+        backgroundColor: 'bg',
+      },
+      blank: {
+        backgroundColor: 'bg',
+        color: 'text',
+        border: 'none',
+      },
       suggestion: {
         color: 'purplea',
         backgroundColor: 'grad',

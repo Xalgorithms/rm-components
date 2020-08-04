@@ -11,8 +11,8 @@ import Text from '../../components/primitives/Text';
 import Button from '../../components/primitives/Button';
 import Flex from '../../components/layout/Flex';
 import Icon from '../../components/icons/Icon';
+import InputOutputRow from '../../components/patterns/InputOutputRow';
 import Badge from '../../components/primitives/Badge';
-import Rule from '../../components/primitives/Rule';
 
 // Primary Component
 export default class InputOutput extends React.Component {
@@ -61,38 +61,28 @@ export default class InputOutput extends React.Component {
             </Flex>
             <Box padding={1} />
             <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
-              <Box>
                 <Flex>
                   <Text variant="formtitle">When</Text>
                   <Box padding={1} />
                   <Text>Input Contditions</Text>
                 </Flex>
-                <Box padding={1} />
-                <Text color="textb">Input condition sentences goes here</Text>
-                <Box padding={1} />
-                <Rule />
+                <Box>
+                  <Badge variant="blank">A</Badge>
+                </Box>
+            </Grid>
+            <InputOutputRow />
+            <Box padding={1} />
+            <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
                 <Flex>
                   <Text variant="formtitle">Then</Text>
                   <Box padding={1} />
                   <Text>Output Contditions</Text>
                 </Flex>
-                <Box padding={1} />
-                <Text color="textb">Output condition sentences goes here</Text>
-                <Box padding={1} />
-              </Box>
-              <Box>
-                <Flex>
-                  <Text>A</Text>
-                </Flex>
-                <Box padding={1} />
-                <Badge variant="blue">T</Badge>
-                <Box padding={1} />
-                <Box padding={1} />
-                <Box padding={1} />
-                <Box padding={1} />
-                <Badge variant="blue">T</Badge>
-              </Box>
+                <Box>
+                  <Badge variant="blank">A</Badge>
+                </Box>
             </Grid>
+            <InputOutputRow />
             <Box padding={1} />
           </Box>
           <Box padding={1} />
