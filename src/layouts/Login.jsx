@@ -3,10 +3,26 @@ import React from 'react';
 import Box from '../components/layout/Box';
 import Grid from '../components/layout/Grid';
 import SectionDescription from '../components/patterns/SectionDescription';
+import { Link } from '@reach/router';
 import Button from '../components/primitives/Button';
 // rm-components
 import Text from '../components/primitives/Text';
 import ScrollUp from './components/ScrollUp';
+import Flex from '../components/layout/Flex';
+import Input from '../components/primitives/Input';
+
+// style
+const inputHold = {
+  height: '90vh',
+};
+
+const widthHold = {
+  width: '80%',
+};
+
+const gradBg = {
+    background: 'radial-gradient(174.09% 353.7% at 121.14% 89.59%, #D3E0FA 0%, rgba(238, 224, 255, 0.28) 41.13%, rgba(225, 224, 255, 0.17) 100%)',
+}
 
 // Primary Component
 export default class Login extends React.Component {
@@ -35,25 +51,34 @@ export default class Login extends React.Component {
   render() {
     return (
       <ScrollUp>
-        <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
-          <Box>
-            <SectionDescription>
-              <Text variant="subtitle" color="purplea">
-                {this.state.pageDescription}
-              </Text>
-              <Text>
-                Any rule can be expressed in terms of its input conditions, and its output
-                assertions. Please state each condition of this rule, and each assertion of this
-                rule, as a simple factual sentence. Each sentence should be phrased in a manner
-                that, in some particular circumstance, the sentence would logically be ‘true’ or
-                ‘false’.
-              </Text>
-            </SectionDescription>
-            <Button onClick={this.loginButtonOnClick}>
-              {this.props.authenticated ? 'Log Out' : 'Log In'}
-            </Button>
-          </Box>
-        </Grid>
+        <Grid gridTemplateColumns="50% 50%">
+        <div style={inputHold}>
+          <Flex alignItems="center" justifyContent="center">
+            <div style={widthHold}>
+              <Text variant="subtitle">Log In</Text>
+              <Box m={2} />
+              <Text>Email</Text>
+              <Box m={1} />
+              <Input />
+              <Box m={2} />
+              <Text>Password</Text>
+              <Box m={1} />
+              <Input />
+              <Box m={3} />
+              <Link to="/dashboard">
+                  <Button variant="wide" >Log In</Button>
+              </Link>
+              <Box m={3} />
+              <Flex justifyContent="space-between">
+                <Text color="primary">Create Account</Text>
+                <Text color="primary">Forgot Password</Text>
+              </Flex>
+            </div>
+            <div style={inputHold} />
+          </Flex>
+        </div>
+        <div style={gradBg} />
+      </Grid>
       </ScrollUp>
     );
   }

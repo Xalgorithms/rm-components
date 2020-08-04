@@ -13,6 +13,7 @@ import InputContext from './editor-layouts/InputContext';
 import AdditionalData from './editor-layouts/AdditionalData';
 import InputOutputSentences from './editor-layouts/InputOutputSentences';
 import ScrollUp from './components/ScrollUp';
+import RuleName from './editor-layouts/RuleName';
 
 // rm-components
 
@@ -30,7 +31,8 @@ export default class Editor extends React.Component {
     return (
       <ScrollUp>
         <Router primary={false}>
-          <EditorLanding path="/" rule={currentRule} />
+          <RuleName path="/" rule={currentRule} />
+          <EditorLanding path="/editor-landing" rule={currentRule} />
           <InputOutput path="/input-output" rule={currentRule} />
           <InputApplicabilityFilters path="/input-applicability-filters" rule={currentRule} />
           <RuleMakerEntity path="/rule-maker-entity" rule={currentRule} />

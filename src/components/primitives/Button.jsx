@@ -15,7 +15,7 @@ const Button = styled.button(
     textAlign: 'center',
     border: 'thin',
     color: 'primary',
-    borderColor: 'bg',
+    borderColor: 'primary',
     backgroundColor: 'bg',
     borderRadius: 'round',
     fontFamily: 'body',
@@ -26,9 +26,9 @@ const Button = styled.button(
     // We can't use :enabled here because it doesn't work with <a>
     '&:hover:not(:disabled), &:active:not(:disabled)': {
       color: 'primary',
-      borderColor: 'bg',
-      backgroundColor: 'bg',
+      background: 'radial-gradient(371.11% 371.11% at 50% 66.67%, #FFFFFF 11.2%, #0258FF 100%)',
       cursor: 'pointer',
+      boxShadow: '0px 1px 4px #ADC5F3',
     },
 
     '&:focus': {
@@ -51,6 +51,10 @@ const Button = styled.button(
       },
       secondary: {
         backgroundColor: 'bg',
+        boxShadow: '0px 4px 4px #ADC5F3',
+      },
+      wide: {
+        width: '100%',
         boxShadow: '0px 4px 4px #ADC5F3',
       },
       invisible: {
