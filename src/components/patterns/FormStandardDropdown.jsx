@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Infobox,
-  Label,
   Input,
   Stack,
   Dropdown,
@@ -13,6 +12,7 @@ import {
   Flex,
   Modal,
 } from '..';
+import IInfo from '../icons/IInfo';
 
 function FormStandardDropdown({
   name,
@@ -58,8 +58,8 @@ function FormStandardDropdown({
                 setIsOpen(true);
               }}
             >
-              <Flex alignItems="center">
-                <Icon name="info" />
+              <Flex alignItems="flex-bottom" m="4px">
+                <IInfo />
               </Flex>
             </Button>
           </Flex>
@@ -77,8 +77,8 @@ function FormStandardDropdown({
                 setIsOpena(true);
               }}
             >
-              <Flex alignItems="center">
-                <Icon name="info" />
+              <Flex alignItems="flex-bottom" m="4px">
+                <IInfo />
               </Flex>
             </Button>
           </Flex>

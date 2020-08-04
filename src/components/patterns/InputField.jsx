@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Box, Text, Flex } from '..';
+import { Box } from '..';
 
 // style
 const textareaStyle = {
@@ -46,7 +45,7 @@ function InputField({ children, message }) {
         <textarea style={textareaStyle} onClick={() => setColor('primary')}>
           {message}
         </textarea>
-        {children}
+        <div>{children}</div>
       </Box>
     </div>
   );

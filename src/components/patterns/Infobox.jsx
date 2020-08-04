@@ -1,12 +1,10 @@
 import React from 'react';
 import { Text, Grid, Icon, Box, Button, Flex } from '..';
+import IEx from '../icons/IEx';
+import IInfo from '../icons/IInfo';
 
 function Infobox(props) {
-  const { content, open } = props;
-
-  function handleClick() {
-    console.log(`Opened InfoBox with content ${content}`);
-  }
+  const { content } = props;
 
   return (
     <Box
@@ -16,15 +14,18 @@ function Infobox(props) {
       bg="bluebg"
       borderRadius="base"
     >
-      <Grid gridTemplateColumns="24px auto 24px">
-        <Icon name="info" />
-        <Text color="primary">{content}</Text>
-        <Flex alignItems="flex-start">
+      <Flex alignItems="center" justifyContent="space-between">
+        <Flex alignItems="center">
+          <IInfo />
+          <Box p={1}/>
+          <Text color="primary">{content}</Text>
+        </Flex>
+        <Flex alignItems="center">
           <Button variant="invisible" onClick={props.onClick}>
-            <Icon name="ex" />
+            <IEx />
           </Button>
         </Flex>
-      </Grid>
+      </Flex>
     </Box>
   );
 }

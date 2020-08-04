@@ -18,7 +18,7 @@ export default class EditorLanding extends React.Component {
   }
 
   render() {
-    const { currentRule } = this.state;
+    {/*const { currentRule } = this.state;*/}
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
@@ -43,6 +43,7 @@ export default class EditorLanding extends React.Component {
             </Text>
             <Rule />
             <EditorSection title="Input→Output Table" destination="/editor/input-output-sentences" />
+            <Box p={1} />
           </Box>
           <Box padding={2} />
           <Box m={0} width={1} bg="bg" border="1px solid" borderColor="oline" borderRadius="base">
@@ -56,9 +57,10 @@ export default class EditorLanding extends React.Component {
             <Rule />
             <EditorSection title="Input Contexts" destination="/editor/input-context" />
             <Rule />
-            <EditorSection title="Input Sources" destination="/editor/input-applicability-filters"/>
+            <EditorSection title="Input Sources" destination="/editor/input-applicability-filters" />
             <Rule />
             <EditorSection title="Input Filters" destination="/editor/additional-data"/>
+            <Box p={1} />
           </Box>
         </Box>
       </Grid>

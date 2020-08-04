@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Input, Stack, Box, Icon, Button, Grid, Text, Flex, Modal, Infobox } from '..';
+import React from 'react';
+import { Input, Stack, Box, Button, Text, Flex, Modal, Infobox } from '..';
+import IInfo from '../icons/IInfo';
 
 function FormStandard({ name, description }) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -13,8 +14,8 @@ function FormStandard({ name, description }) {
       <Flex alignItems="center">
         <Text>{name}</Text>
         <Button variant="invisible" onClick={() => setIsOpen(true)}>
-          <Flex alignItems="center">
-            <Icon name="info" />
+          <Flex alignItems="flex-bottom" m="4px">
+            <IInfo />
           </Flex>
         </Button>
       </Flex>

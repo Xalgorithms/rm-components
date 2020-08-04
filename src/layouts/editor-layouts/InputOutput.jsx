@@ -9,23 +9,10 @@ import EditorControl from '../../components/patterns/EditorControl';
 import SectionDescription from '../../components/patterns/SectionDescription';
 import Text from '../../components/primitives/Text';
 import Button from '../../components/primitives/Button';
-import Addbutton from '../../components/patterns/Addbutton';
 import Flex from '../../components/layout/Flex';
 import Icon from '../../components/icons/Icon';
 import Badge from '../../components/primitives/Badge';
 import Rule from '../../components/primitives/Rule';
-
-// style
-const textareaStyle = {
-  width: '100%',
-  resize: 'none',
-  outline: 'none',
-  border: 'none',
-  height: '80px',
-  fontFamily: 'Public Sans, sans-serif',
-  fontSize: '1rem',
-  color: '#696969',
-};
 
 // Primary Component
 export default class InputOutput extends React.Component {

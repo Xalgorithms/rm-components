@@ -3,7 +3,6 @@ import React from 'react';
 
 // rm-components
 import { Link } from '@reach/router';
-import { minWidth } from 'styled-system';
 import Box from '../../components/layout/Box';
 import Grid from '../../components/layout/Grid';
 import EditorControl from '../../components/patterns/EditorControl';
@@ -18,6 +17,7 @@ import Dropdown from '../../components/primitives/Dropdown';
 import Rule from '../../components/primitives/Rule';
 import InputField from '../../components/patterns/InputField';
 import Infobox from '../../components/patterns/Infobox';
+import ITrash from '../../components/icons/ITrash';
 
 // style
 
@@ -88,7 +88,7 @@ export default class InputOutputSentences extends React.Component {
                   <div style={fillBox} />
                 </Flex>
                 <Button variant="invisible">
-                  <Icon name="trash" />
+                  <ITrash />
                 </Button>
               </Flex>
               <Box padding={1} />

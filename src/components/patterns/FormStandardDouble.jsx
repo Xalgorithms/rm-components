@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Label,
   Input,
   Stack,
-  Dropdown,
   Infobox,
   Box,
   Icon,
@@ -13,6 +11,7 @@ import {
   Flex,
   Modal,
 } from '..';
+import IInfo from '../icons/IInfo';
 
 function FormStandardDouble(props) {
   // Extract some props.
@@ -45,8 +44,8 @@ function FormStandardDouble(props) {
                 setIsOpena(false);
               }}
             >
-              <Flex alignItems="center">
-                <Icon name="info" />
+              <Flex alignItems="flex-bottom" m="4px">
+                <IInfo />
               </Flex>
             </Button>
           </Flex>
@@ -64,8 +63,8 @@ function FormStandardDouble(props) {
                 setIsOpen(false);
               }}
             >
-              <Flex alignItems="center">
-                <Icon name="info" />
+              <Flex alignItems="flex-bottom" m="4px">
+                <IInfo />
               </Flex>
             </Button>
           </Flex>
