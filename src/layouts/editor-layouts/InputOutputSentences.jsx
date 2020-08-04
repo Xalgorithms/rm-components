@@ -18,6 +18,7 @@ import Rule from '../../components/primitives/Rule';
 import InputField from '../../components/patterns/InputField';
 import Infobox from '../../components/patterns/Infobox';
 import ITrash from '../../components/icons/ITrash';
+import SentenceConstructor from '../../components/patterns/SentenceConstructor';
 
 // style
 
@@ -73,65 +74,7 @@ export default class InputOutputSentences extends React.Component {
           >
             <Text variant="formtitle">Inputs</Text>
             <Box padding={1} />
-            <Box>
-              <Flex justifyContent="space-between">
-                <Flex>
-                  <Text color="primary">A</Text>
-                  <Box padding={1} />
-                  <Text>The</Text>
-                  <div style={fillBox} />
-                  <div style={fillBox} />
-                  <Text>of the</Text>
-                  <div style={fillBox} />
-                  <Text>is</Text>
-                  <div style={smallFillBox} />
-                  <div style={fillBox} />
-                </Flex>
-                <Button variant="invisible">
-                  <ITrash />
-                </Button>
-              </Flex>
-              <Box padding={1} />
-              <Infobox content="lorem ipsum" />
-              <Box padding={1} />
-              <Flex alignItems="center">
-                <Text>The</Text>
-                <Box padding={1} />
-                <Box>
-                  <Input />
-                </Box>
-                <Box padding={1} />
-                <Box>
-                  <Input />
-                </Box>
-              </Flex>
-              <Box padding={1} />
-              <Flex alignItems="center">
-                <Text>Of the</Text>
-                <Box padding={1} />
-                <Box>
-                  <Input />
-                </Box>
-                <Box padding={1} />
-                <Box>
-                  <Dropdown>
-                    <option>≥</option>
-                    <option>=</option>
-                  </Dropdown>
-                </Box>
-              </Flex>
-              <Box padding={1} />
-              <InputField message="Adjective, Arithmetic expression, or Boolean Number">
-                <Rule />
-                <Flex alignItems="center">
-                  <Text color="primary">Sum</Text>
-                  <Box padding={1} />
-                  <Text color="primary">Filter</Text>
-                  <Box padding={1} />
-                  <Text color="primary">Source</Text>
-                </Flex>
-              </InputField>
-            </Box>
+            <SentenceConstructor />
             <Box padding={1} />
             <Addbutton />
           </Box>
