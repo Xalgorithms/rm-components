@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Box, FormStandardDouble, FormStandard } from '..';
+import { Stack, Box, FormStandardDouble, FormStandard, Text } from '..';
 
 export default class InvolvedParty extends React.Component {
   render() {
@@ -14,6 +14,8 @@ export default class InvolvedParty extends React.Component {
           borderColor="oline"
           borderRadius="base"
         >
+          <Text variant="formtitle">Involved Party</Text>
+            <Box padding={1} />
           <FormStandardDouble
             name="Standard Role Name"
             description="Detail for standard role name field."
