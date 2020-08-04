@@ -18,7 +18,7 @@ const Input = styled.input(
     borderRadius: 'base',
     fontFamily: 'body',
     fontSize: 'md',
-    color: 'text',
+    color: 'textb',
     backgroundColor: 'bg',
     // Remove red outline on required input in Firefox
     boxShadow: 'none',
@@ -46,9 +46,9 @@ const Input = styled.input(
         height: 3,
         padding: 1,
         background: 'primary',
-        color: 'text',
+        color: 'textb',
         '&::placeholder': {
-          color: 'secondary',
+          color: 'textb',
         },
 
         '&:focus': {

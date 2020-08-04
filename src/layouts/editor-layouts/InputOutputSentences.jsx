@@ -3,6 +3,7 @@ import React from 'react';
 
 // rm-components
 import { Link } from '@reach/router';
+import { minWidth } from 'styled-system';
 import Box from '../../components/layout/Box';
 import Grid from '../../components/layout/Grid';
 import EditorControl from '../../components/patterns/EditorControl';
@@ -15,17 +16,23 @@ import Icon from '../../components/icons/Icon';
 import Input from '../../components/primitives/Input';
 import Dropdown from '../../components/primitives/Dropdown';
 import Rule from '../../components/primitives/Rule';
+import InputField from '../../components/patterns/InputField';
+import Infobox from '../../components/patterns/Infobox';
 
 // style
-const textareaStyle = {
-  width: '100%',
-  resize: 'none',
-  outline: 'none',
-  border: 'none',
-  height: '80px',
-  fontFamily: 'Public Sans, sans-serif',
-  fontSize: '1rem',
-  color: '#696969',
+
+const fillBox = {
+  borderBottom: '1px solid #696969',
+  minWidth: 80,
+  marginLeft: 3,
+  marginRight: 3,
+};
+
+const smallFillBox = {
+  borderBottom: '1px solid #696969',
+  minWidth: 20,
+  marginLeft: 3,
+  marginRight: 3,
 };
 
 // Primary Component
@@ -43,7 +50,7 @@ export default class InputOutputSentences extends React.Component {
           <EditorControl title="Rule Name" />
           <Box p={2} />
           <SectionDescription>
-            <Text variant="subtitledesc" color="purplea"> 
+            <Text variant="subtitledesc" color="purplea">
               Input Output Sentences
             </Text>
             <Text color="purplea">
@@ -68,13 +75,24 @@ export default class InputOutputSentences extends React.Component {
             <Box padding={1} />
             <Box>
               <Flex justifyContent="space-between">
-                <Text>A</Text>
+                <Flex>
+                  <Text color="primary">A</Text>
+                  <Box padding={1} />
+                  <Text>The</Text>
+                  <div style={fillBox} />
+                  <div style={fillBox} />
+                  <Text>of the</Text>
+                  <div style={fillBox} />
+                  <Text>is</Text>
+                  <div style={smallFillBox} />
+                  <div style={fillBox} />
+                </Flex>
                 <Button variant="invisible">
                   <Icon name="trash" />
                 </Button>
               </Flex>
               <Box padding={1} />
-              <Text>Inputs</Text>
+              <Infobox content="lorem ipsum" />
               <Box padding={1} />
               <Flex alignItems="center">
                 <Text>The</Text>
@@ -103,18 +121,7 @@ export default class InputOutputSentences extends React.Component {
                 </Box>
               </Flex>
               <Box padding={1} />
-              <Box
-                p={2}
-                m={0}
-                width={1}
-                bg="bg"
-                border="1px solid"
-                borderColor="oline"
-                borderRadius="base"
-              >
-                <textarea style={textareaStyle}>
-                  Adjective, Arithmetic expression, or Boolean Number
-                </textarea>
+              <InputField message="Adjective, Arithmetic expression, or Boolean Number">
                 <Rule />
                 <Flex alignItems="center">
                   <Text color="primary">Sum</Text>
@@ -123,7 +130,7 @@ export default class InputOutputSentences extends React.Component {
                   <Box padding={1} />
                   <Text color="primary">Source</Text>
                 </Flex>
-              </Box>
+              </InputField>
             </Box>
             <Box padding={1} />
             <Addbutton />

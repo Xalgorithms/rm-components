@@ -2,6 +2,7 @@
 import React from 'react';
 
 // rm-components
+import { Link } from '@reach/router';
 import Box from '../../components/layout/Box';
 import Grid from '../../components/layout/Grid';
 import Addbutton from '../../components/patterns/Addbutton';
@@ -9,6 +10,9 @@ import EditorControl from '../../components/patterns/EditorControl';
 import InvolvedParty from '../../components/patterns/InvolvedParty';
 import SectionDescription from '../../components/patterns/SectionDescription';
 import Text from '../../components/primitives/Text';
+import Flex from '../../components/layout/Flex';
+import Button from '../../components/primitives/Button';
+
 
 // Primary Component
 export default class InputApplicabilityFilters extends React.Component {
@@ -64,7 +68,13 @@ export default class InputApplicabilityFilters extends React.Component {
               content="Add Involved Party"
             />
           </Box>
-          <Box padding={3} />
+          <Box padding={1} />
+          <Flex justifyContent="flex-end">
+            <Box />
+            <Link to="/editor/">
+              <Button>Done</Button>
+            </Link>
+          </Flex>
         </Box>
       </Grid>
     );

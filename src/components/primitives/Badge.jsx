@@ -33,7 +33,8 @@ const Badge = styled.div(
       },
       suggestion: {
         color: 'purplea',
-        backgroundColor: 'purpleb',
+        backgroundColor: 'grad',
+        padding: 2,
       },
     },
   })

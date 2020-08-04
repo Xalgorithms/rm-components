@@ -14,8 +14,6 @@ function Infobox(props) {
       m={0}
       width={1}
       bg="bluebg"
-      border="1px solid"
-      borderColor="primary"
       borderRadius="base"
     >
       <Grid gridTemplateColumns="24px auto 24px">
