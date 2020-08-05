@@ -61,26 +61,26 @@ export default class InputOutput extends React.Component {
             </Flex>
             <Box padding={1} />
             <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
-                <Flex>
-                  <Text variant="formtitle">When</Text>
-                  <Box padding={1} />
-                  <Text>Input Contditions</Text>
-                </Flex>
-                <Box>
-                  <Badge variant="blank">A</Badge>
-                </Box>
+              <Flex>
+                <Text variant="formtitle">When</Text>
+                <Box padding={1} />
+                <Text>Input Contditions</Text>
+              </Flex>
+              <Box>
+                <Badge variant="blank">A</Badge>
+              </Box>
             </Grid>
             <InputOutputRow />
             <Box padding={1} />
             <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
-                <Flex>
-                  <Text variant="formtitle">Then</Text>
-                  <Box padding={1} />
-                  <Text>Output Contditions</Text>
-                </Flex>
-                <Box>
-                  <Badge variant="blank">A</Badge>
-                </Box>
+              <Flex>
+                <Text variant="formtitle">Then</Text>
+                <Box padding={1} />
+                <Text>Output Contditions</Text>
+              </Flex>
+              <Box>
+                <Badge variant="blank">A</Badge>
+              </Box>
             </Grid>
             <InputOutputRow />
             <Box padding={1} />
@@ -88,7 +88,7 @@ export default class InputOutput extends React.Component {
           <Box padding={1} />
           <Flex justifyContent="flex-end">
             <Box />
-            <Link to="/editor/input-output">
+            <Link to="/editor/editor-landing">
               <Button>Done</Button>
             </Link>
           </Flex>

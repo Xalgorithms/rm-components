@@ -88,7 +88,7 @@ export default class OutputWeight extends React.Component {
           <Box padding={1} />
           <Flex justifyContent="flex-end">
             <Box />
-            <Link to="/editor/">
+            <Link to="/editor/editor-landing">
               <Button>Done</Button>
             </Link>
           </Flex>
