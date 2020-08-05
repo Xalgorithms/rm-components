@@ -38,7 +38,7 @@ const Badge = styled.div(
       },
       blank: {
         backgroundColor: 'bg',
-        color: 'text',
+        color: 'textb',
         border: 'none',
       },
       suggestion: {

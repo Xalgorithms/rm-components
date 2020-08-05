@@ -12,7 +12,7 @@ const Dropdown = styled.select(
     borderRadius: 8,
     fontFamily: 'Public Sans, sans-serif',
     fontSize: 'md',
-    color: 'text',
+    color: 'textb',
     backgroundColor: 'bg',
     // Remove red outline on required input in Firefox
     boxShadow: 'none',

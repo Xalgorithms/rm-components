@@ -4,7 +4,7 @@ import { Flex, Button, Text, Box } from '..';
 export default function Addbutton(props) {
   const { onClick, content } = props;
   return (
-    <Button variant="invisible" onClick={onClick}>
+    <Button variant="invisiblewide" onClick={onClick}>
       <Flex alignItems="center" justifyContent="flex-start">
         <Box width="32px">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31">

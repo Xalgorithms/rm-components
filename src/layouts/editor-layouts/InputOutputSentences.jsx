@@ -90,6 +90,8 @@ export default class InputOutputSentences extends React.Component {
           >
             <Text variant="formtitle">Outputs</Text>
             <Box padding={1} />
+            <SentenceConstructor />
+            <Box padding={1} />
             <Addbutton />
           </Box>
           <Box padding={1} />
