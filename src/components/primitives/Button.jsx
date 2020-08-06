@@ -65,7 +65,7 @@ const Button = styled.button(
         px: 0,
         py: 0,
         '&:hover:not(:disabled), &:active:not(:disabled)': {
-          background: 'radial-gradient(371.11% 371.11% at 50% 66.67%, #FFFFFF 11.2%, #0258FF 100%)',
+          background: 'none',
           cursor: 'pointer',
           boxShadow: 'none',
         },

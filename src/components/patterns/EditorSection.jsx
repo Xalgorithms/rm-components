@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import { Box, Flex, Icon, Text } from '..';
+import { Box, Flex, Icon, Text, Button } from '..';
 import IEdit from "../icons/IEdit";
 
 const styleNavlink = {
@@ -13,29 +13,36 @@ const littlePadding = {
   padding: '2px',
 }
 
+const helpAlign = {
+  marginTop: '6px',
+  marginBottom: '6px',
+}
+
 EditorSection.defaultProps = {
   destination: '/',
 };
 
 function EditorSection({ title, destination }) {
   return (
-    <Link to={destination} style={styleNavlink}>
-      <Box>
-        <div style={littlePadding}/>
-        <Flex justifyContent="space-between" m={2}>
-          <Flex alignItems="center">
-            <Icon name="status" />
-            <Box padding={1} />
-            <Text color="textb">{title}</Text>
+    <Button variant="invisiblewide">
+      <Link to={destination} style={styleNavlink}>
+        <div style={helpAlign}>
+          <div style={littlePadding}/>
+          <Flex justifyContent="space-between">
+            <Flex alignItems="center">
+              <Icon name="status" />
+              <Box padding={1} />
+              <Text color="primary">{title}</Text>
+            </Flex>
+            <Box />
+            <Flex alignItems="center">
+              <IEdit />
+            </Flex>
           </Flex>
-          <Box />
-          <Flex alignItems="center">
-            <IEdit />
-          </Flex>
-        </Flex>
-        <div style={littlePadding}/>
-      </Box>
-    </Link>
+          <div style={littlePadding}/>
+        </div>
+      </Link>
+    </Button>
   );
 }
 
