@@ -19,7 +19,7 @@ export default class InputApplicabilityFilters extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sampleInvolvedParties: [1, 2],
+      sampleInvolvedParties: [1],
     };
 
     // Bind functions

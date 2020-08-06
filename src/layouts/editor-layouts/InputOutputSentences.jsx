@@ -11,13 +11,6 @@ import Text from '../../components/primitives/Text';
 import Button from '../../components/primitives/Button';
 import Addbutton from '../../components/patterns/Addbutton';
 import Flex from '../../components/layout/Flex';
-import Icon from '../../components/icons/Icon';
-import Input from '../../components/primitives/Input';
-import Dropdown from '../../components/primitives/Dropdown';
-import Rule from '../../components/primitives/Rule';
-import InputField from '../../components/patterns/InputField';
-import Infobox from '../../components/patterns/Infobox';
-import ITrash from '../../components/icons/ITrash';
 import SentenceConstructor from '../../components/patterns/SentenceConstructor';
 
 // style
@@ -40,10 +33,16 @@ const smallFillBox = {
 export default class InputOutputSentences extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      inputSentences: [1],
+    };
+
+    // Bind functions
+    // this.toggleLoggedin = this.toggleLoggedin.bind(this);
   }
 
   render() {
+    const { inputSentences } = this.state;
     const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
@@ -74,9 +73,21 @@ export default class InputOutputSentences extends React.Component {
           >
             <Text variant="formtitle">Inputs</Text>
             <Box padding={1} />
-            <SentenceConstructor />
+            {inputSentences.map((val, key) => (
+              <Box key={key}>
+                <SentenceConstructor />
+                <Box padding={1} />
+              </Box>
+            ))}
             <Box padding={1} />
-            <Addbutton />
+            <Addbutton 
+              onClick={() => {
+                const parties = inputSentences;
+                const last = parties[parties.length];
+                parties.push(last + 1);
+                this.setState({ inputSentences: parties });
+              }}
+            />
           </Box>
           <Box padding={1} />
           <Box

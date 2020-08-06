@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Grid, Text, Badge, Box } from '..';
+import { Grid, Text, Badge, Box, Flex } from '..';
+
+const rowValues = [{ logic: 'T', type: 'blue', }, { logic: 'F', type: 'lightblue', }, { logic: 'B', type: 'grayblue', }];
 
 function InputOutputRow() {
   return (
@@ -9,7 +11,13 @@ function InputOutputRow() {
         <Text color="textb">Input condition sentences goes here</Text>
       </Box>
       <Box>
-        <Badge variant="blue">T</Badge>
+        <Flex>
+          {rowValues.map((rowValue) => (
+            <Badge variant={rowValue.type} key={rowValue.logic}>
+              {rowValue.logic}
+            </Badge>
+          ))}
+        </Flex>
       </Box>
     </Grid>
   );
