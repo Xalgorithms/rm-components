@@ -2,6 +2,7 @@
 import React from 'react';
 import { Router, Redirect } from '@reach/router';
 import { prettifyJSON } from 'xalgo-rule-processor';
+import { toast } from 'react-toastify';
 
 // pages
 import EditorLanding from './editor-layouts/EditorLanding';
@@ -62,13 +63,13 @@ export default class Editor extends React.Component {
 
     const storedRule = localStorage.getItem('rule');
     const storedRuleContent = JSON.parse(storedRule);
-    const storedRuleEmpty = objectEmpty(storedRuleContent.metadata.ruleName);
+    const storedRuleEmpty = objectEmpty(storedRuleContent);
 
     console.log(`Local stored rule is \n\n${storedRule}`);
 
     if (!this.state.rule.metadata.ruleName) {
       console.log('There is currently no rule stored in STATE.');
-      if (!storedRuleEmpty) {
+      if (!storedRuleEmpty && storedRuleContent.metadata.ruleName) {
         console.log('There is rule content in local storage, loading into State...');
         this.setState({ rule: storedRuleContent }, () => {
           console.log('Navigating to the editor landing...');
@@ -114,7 +115,7 @@ export default class Editor extends React.Component {
   }
 
   resetRule() {
-    console.log('Attempting to reset rule...');
+    toast.warning('Rule reset');
     this.updateRule(deepCopy(emptyRule));
     this.props.navigate('/editor');
   }
@@ -131,11 +132,7 @@ export default class Editor extends React.Component {
       <ScrollUp>
         <Router primary={false}>
           {/* Redirect to the editor page if the rule is partially complete. */}
-          {this.state.blank ? (
-            <RuleName path="/" rule={rule} updateRule={this.updateRule} />
-          ) : (
-            <Redirect from="/" to="/editor/editor-landing" />
-          )}
+          <RuleName path="/" rule={rule} updateRule={this.updateRule} />
           <EditorLanding
             path="/editor-landing"
             rule={rule}
