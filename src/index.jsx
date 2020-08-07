@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Application />
     <ToastContainer
-      position="top-right"
+      position="top-center"
       autoClose={3000}
       transition={Slide}
       hideProgressBar

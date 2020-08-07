@@ -44,6 +44,16 @@ export default class RuleName extends React.Component {
    * Set the local state from editor state.
    */
   componentDidMount() {
+    this.setNameAndDescFromProps();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.rule !== this.props.rule) {
+      this.setNameAndDescFromProps();
+    }
+  }
+
+  setNameAndDescFromProps() {
     const { ruleName, ruleDescription } = this.props.rule.metadata;
     console.log(`
     Editing Rule Title and Description:

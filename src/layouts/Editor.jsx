@@ -45,9 +45,9 @@ export default class Editor extends React.Component {
       if (storedRule) {
         console.log('Setting state...');
         this.setState({ rule: JSON.parse(storedRule) });
-        return;
+      } else {
+        this.props.navigate('/editor');
       }
-      this.props.navigate('/editor');
     }
   }
 
