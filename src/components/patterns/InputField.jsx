@@ -13,7 +13,7 @@ const textareaStyle = {
   color: '#696969',
 };
 
-function InputField({ children, message }) {
+function InputField({ children, value, onChange }) {
   const [color, setColor] = React.useState('oline');
 
   function useOutsideAlerter(ref) {
@@ -42,9 +42,12 @@ function InputField({ children, message }) {
   return (
     <div ref={wrapperRef}>
       <Box p={2} m={0} width={1} bg="bg" border="1px solid" borderColor={color} borderRadius="base">
-        <textarea style={textareaStyle} onClick={() => setColor('primary')}>
-          {message}
-        </textarea>
+        <textarea
+          value={value}
+          onChange={onChange}
+          style={textareaStyle}
+          onClick={() => setColor('primary')}
+        />
         <div>{children}</div>
       </Box>
     </div>

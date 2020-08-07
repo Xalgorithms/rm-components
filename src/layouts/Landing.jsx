@@ -32,6 +32,10 @@ export default class Landing extends React.Component {
                 Oughtomation is a general-purpose method for anyone to publish, discover, fetch,
                 scrutinize, prioritize and automate normative rules across the Internet.
               </Text>
+              <Box m={1} />
+              <Text color="primary">
+                This mockup behaves as if you are already logged in to the system.
+              </Text>
             </Box>
           </Flex>
           <Grid gridTemplateColumns="50vw 50vw">

@@ -18,11 +18,13 @@ export default class EditorLanding extends React.Component {
   }
 
   render() {
-    {/*const { currentRule } = this.state;*/}
+    {
+      /*const { currentRule } = this.state;*/
+    }
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
-          <EditorControl title="Rule Name" />
+          <EditorControl title={this.props.rule.metadata.ruleName} />
           <Box p={2} />
           <SectionDescription>
             <Text variant="subtitledesc" color="purplea">
@@ -37,24 +39,42 @@ export default class EditorLanding extends React.Component {
           </SectionDescription>
         </Box>
         <Box>
-          <Box m={0} width={1} bg="bg" border="1px solid" borderColor="oline" borderRadius="base" p={2}>
-            <Text variant="formtitle">
-              Input→Output Table
-            </Text>
+          <Box
+            m={0}
+            width={1}
+            bg="bg"
+            border="1px solid"
+            borderColor="oline"
+            borderRadius="base"
+            p={2}
+          >
+            <Text variant="formtitle">Input→Output Table</Text>
             <Button variant="invisiblewide">
-              <EditorSection title="Input→Output Table" destination="/editor/input-output-sentences" />
+              <EditorSection
+                title="Input→Output Table"
+                destination="/editor/input-output-sentences"
+              />
             </Button>
           </Box>
           <Box padding={2} />
-          <Box m={0} width={1} bg="bg" border="1px solid" borderColor="oline" borderRadius="base" p={2}>
-            <Text variant="formtitle">
-              Context
-            </Text>
+          <Box
+            m={0}
+            width={1}
+            bg="bg"
+            border="1px solid"
+            borderColor="oline"
+            borderRadius="base"
+            p={2}
+          >
+            <Text variant="formtitle">Context</Text>
             <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
             <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
             <EditorSection title="Input Contexts" destination="/editor/input-context" />
-            <EditorSection title="Input Sources" destination="/editor/input-applicability-filters" />
-            <EditorSection title="Input Filters" destination="/editor/additional-data"/>
+            <EditorSection
+              title="Input Sources"
+              destination="/editor/input-applicability-filters"
+            />
+            <EditorSection title="Input Filters" destination="/editor/additional-data" />
           </Box>
         </Box>
       </Grid>

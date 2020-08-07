@@ -21,18 +21,61 @@ const widthHold = {
 };
 
 const gradBg = {
-    background: 'radial-gradient(174.09% 353.7% at 121.14% 89.59%, #D3E0FA 0%, rgba(238, 224, 255, 0.28) 41.13%, rgba(225, 224, 255, 0.17) 100%)',
-}
+  background:
+    'radial-gradient(174.09% 353.7% at 121.14% 89.59%, #D3E0FA 0%, rgba(238, 224, 255, 0.28) 41.13%, rgba(225, 224, 255, 0.17) 100%)',
+};
 
 // Primary Component
 export default class RuleName extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: '',
+      description: '',
+    };
+
+    this.saveAndRedirect = this.saveAndRedirect.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+  }
+
+  /**
+   * Set the local state from editor state.
+   */
+  componentDidMount() {
+    const { ruleName, ruleDescription } = this.props.rule.metadata;
+    console.log(`
+    Editing Rule Title and Description:
+    Title       :  ${ruleName}
+    Description :  ${ruleDescription}
+    `);
+    this.setState({
+      name: ruleName,
+      description: ruleDescription,
+    });
+  }
+
+  handleNameChange(event) {
+    this.setState({ name: event.target.value });
+  }
+
+  handleDescriptionChange(event) {
+    this.setState({ description: event.target.value });
+  }
+
+  /**
+   * Persist the local state up to editor state.
+   */
+  saveAndRedirect() {
+    console.log('Name saved, redirecting to editor landing.');
+    const meta = this.props.rule.metadata;
+    meta.ruleName = this.state.name;
+    meta.ruleDescription = this.state.description;
+    this.props.updateRule(meta, 'metadata');
+    this.props.navigate('/editor/editor-landing');
   }
 
   render() {
-    const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="50% 50%">
         <div style={inputHold}>
@@ -40,19 +83,23 @@ export default class RuleName extends React.Component {
             <div style={widthHold}>
               <Text variant="subtitle">Every rule begins with plain language sentences. </Text>
               <Box m={1} />
-              <Text>Lorem ipsum</Text>
+              <Text>
+                Use this field to write or paste the natural language statement of the rule you are
+                working on. State in a simple factual way what this rule requires, and what
+                assertions it will make.
+              </Text>
               <Box m={2} />
-              <Text>Rule Name</Text>
+              <Text variant="formtitle">Rule Name</Text>
               <Box m={1} />
-              <Input />
+              <Input value={this.state.name} onChange={this.handleNameChange} />
               <Box m={2} />
-              <Text>Rule Text</Text>
+              <Text variant="formtitle">Rule Text</Text>
               <Box m={1} />
-              <InputField />
+              <InputField value={this.state.description} onChange={this.handleDescriptionChange} />
               <Box m={3} />
-              <Link to="/editor/editor-landing">
-                  <Button variant="wide" >Start</Button>
-              </Link>
+              <Button variant="wide" onClick={this.saveAndRedirect}>
+                Start
+              </Button>
             </div>
             <div style={inputHold} />
           </Flex>
