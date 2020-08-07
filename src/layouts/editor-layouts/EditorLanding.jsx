@@ -53,12 +53,10 @@ export default class EditorLanding extends React.Component {
             p={2}
           >
             <Text variant="formtitle">Input→Output Table</Text>
-            <Button variant="invisiblewide">
-              <EditorSection
-                title="Input→Output Table"
-                destination="/editor/input-output-sentences"
-              />
-            </Button>
+            <EditorSection
+              title="Input→Output Table"
+              destination="/editor/input-output-sentences"
+            />
           </Box>
           <Box padding={2} />
           <Box

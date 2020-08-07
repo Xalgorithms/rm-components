@@ -1,7 +1,6 @@
 // libraries
 import React from 'react';
-import { Router, Redirect } from '@reach/router';
-import { prettifyJSON } from 'xalgo-rule-processor';
+import { Router } from '@reach/router';
 import { toast } from 'react-toastify';
 
 // pages

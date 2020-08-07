@@ -14,11 +14,8 @@ import Icon from '../../components/icons/Icon';
 import InputOutputRow from '../../components/patterns/InputOutputRow';
 import Badge from '../../components/primitives/Badge';
 
-const rowValue = 4;
-
 // Primary Component
 export default class InputOutput extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {};
