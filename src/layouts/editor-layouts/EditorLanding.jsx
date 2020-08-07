@@ -37,6 +37,10 @@ export default class EditorLanding extends React.Component {
               circumstance, the sentence would logically be ‘true’ or ‘false’.
             </Text>
           </SectionDescription>
+          <Box p={2} />
+          <Button variant="wide" onClick={this.props.resetRule}>
+            Reset Rule
+          </Button>
         </Box>
         <Box>
           <Box

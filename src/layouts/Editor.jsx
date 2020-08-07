@@ -18,6 +18,24 @@ import RuleName from './editor-layouts/RuleName';
 
 // rm-components
 
+const emptyRule = {
+  metadata: {
+    ruleName: '',
+    ruleDescription: '',
+  },
+};
+
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+function objectEmpty(obj) {
+  const type = typeof obj;
+  if (!obj) return true; // If null, return true;
+  if (type !== 'object') return true; // If not an object, it's 'empty'.
+  return Object.keys(obj).length === 0;
+}
+
 /**
  * The Editor component is the parent of all editing views, and is the
  * master source of information regarding the state of the rule.
@@ -27,25 +45,37 @@ export default class Editor extends React.Component {
     super(props);
     this.state = {
       blank: true,
-      rule: {
-        metadata: {
-          ruleName: '',
-          ruleDescription: '',
-        },
-      },
+      rule: deepCopy(emptyRule),
     };
 
     this.updateRule = this.updateRule.bind(this);
+    this.resetRule = this.resetRule.bind(this);
+    this.getRuleFromStorage = this.getRuleFromStorage.bind(this);
   }
 
   componentDidMount() {
+    this.getRuleFromStorage();
+  }
+
+  getRuleFromStorage() {
+    console.log('Getting rule from storage...');
+
     const storedRule = localStorage.getItem('rule');
+    const storedRuleContent = JSON.parse(storedRule);
+    const storedRuleEmpty = objectEmpty(storedRuleContent.metadata.ruleName);
+
     console.log(`Local stored rule is \n\n${storedRule}`);
+
     if (!this.state.rule.metadata.ruleName) {
-      if (storedRule) {
-        console.log('Setting state...');
-        this.setState({ rule: JSON.parse(storedRule) });
+      console.log('There is currently no rule stored in STATE.');
+      if (!storedRuleEmpty) {
+        console.log('There is rule content in local storage, loading into State...');
+        this.setState({ rule: storedRuleContent }, () => {
+          console.log('Navigating to the editor landing...');
+          this.props.navigate('/editor/editor-landing');
+        });
       } else {
+        console.log('There is no rule content in local storage, starting a new rule.');
         this.props.navigate('/editor');
       }
     }
@@ -83,6 +113,12 @@ export default class Editor extends React.Component {
     }
   }
 
+  resetRule() {
+    console.log('Attempting to reset rule...');
+    this.updateRule(deepCopy(emptyRule));
+    this.props.navigate('/editor');
+  }
+
   persistRuleToLocalStorage() {
     console.log('Persisting rule to local storage...');
     localStorage.setItem('rule', JSON.stringify(this.state.rule, null, 2));
@@ -100,7 +136,12 @@ export default class Editor extends React.Component {
           ) : (
             <Redirect from="/" to="/editor/editor-landing" />
           )}
-          <EditorLanding path="/editor-landing" rule={rule} updateRule={this.updateRule} />
+          <EditorLanding
+            path="/editor-landing"
+            rule={rule}
+            resetRule={this.resetRule}
+            updateRule={this.updateRule}
+          />
           <InputOutput path="/input-output" rule={rule} updateRule={this.updateRule} />
           <InputApplicabilityFilters
             path="/input-applicability-filters"
