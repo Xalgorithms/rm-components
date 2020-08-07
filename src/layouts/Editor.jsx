@@ -38,6 +38,19 @@ export default class Editor extends React.Component {
     this.updateRule = this.updateRule.bind(this);
   }
 
+  componentDidMount() {
+    const storedRule = localStorage.getItem('rule');
+    console.log(`Local stored rule is \n\n${storedRule}`);
+    if (!this.state.rule.metadata.ruleName) {
+      if (storedRule) {
+        console.log('Setting state...');
+        this.setState({ rule: JSON.parse(storedRule) });
+        return;
+      }
+      this.props.navigate('/editor');
+    }
+  }
+
   /**
    * Allows child components to update the rule, or a specific rule section.
    *
@@ -58,16 +71,21 @@ export default class Editor extends React.Component {
         const updatedRule = prevState.rule;
         updatedRule[section] = newRuleContent;
         return { rule: updatedRule };
-      });
+      }, this.persistRuleToLocalStorage);
     } else if (section && subsection) {
       this.setState((prevState) => {
         const updatedRule = prevState.rule;
         updatedRule[section][subsection] = newRuleContent;
         return { rule: updatedRule };
-      });
+      }, this.persistRuleToLocalStorage);
     } else {
-      this.setState({ rule: newRuleContent });
+      this.setState({ rule: newRuleContent }, this.persistRuleToLocalStorage);
     }
+  }
+
+  persistRuleToLocalStorage() {
+    console.log('Persisting rule to local storage...');
+    localStorage.setItem('rule', JSON.stringify(this.state.rule, null, 2));
   }
 
   render() {

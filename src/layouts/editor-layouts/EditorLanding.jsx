@@ -18,13 +18,13 @@ export default class EditorLanding extends React.Component {
   }
 
   render() {
-    {
-      /*const { currentRule } = this.state;*/
-    }
+    /*const { currentRule } = this.state;*/
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
           <EditorControl title={this.props.rule.metadata.ruleName} />
+          <Box p={2} />
+          <Text>{this.props.rule.metadata.ruleDescription}</Text>
           <Box p={2} />
           <SectionDescription>
             <Text variant="subtitledesc" color="purplea">

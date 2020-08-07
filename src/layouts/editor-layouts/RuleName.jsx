@@ -68,13 +68,17 @@ export default class RuleName extends React.Component {
    * Persist the local state up to editor state.
    */
   saveAndRedirect() {
-    console.log('Name saved, redirecting to editor landing.');
-    const meta = this.props.rule.metadata;
-    meta.ruleName = this.state.name;
-    meta.ruleDescription = this.state.description;
-    toast('Saved Name and Description');
-    this.props.updateRule(meta, 'metadata');
-    this.props.navigate('/editor/editor-landing');
+    if (this.state.name && this.state.description) {
+      console.log('Name saved, redirecting to editor landing.');
+      const meta = this.props.rule.metadata;
+      meta.ruleName = this.state.name;
+      meta.ruleDescription = this.state.description;
+      toast('Saved Name and Description');
+      this.props.updateRule(meta, 'metadata');
+      this.props.navigate('/editor/editor-landing');
+    } else {
+      toast.error('Please enter a valid name and description for the rule.');
+    }
   }
 
   render() {
@@ -95,7 +99,7 @@ export default class RuleName extends React.Component {
               <Box m={1} />
               <Input value={this.state.name} onChange={this.handleNameChange} />
               <Box m={2} />
-              <Text variant="formtitle">Rule Text</Text>
+              <Text variant="formtitle">Rule Description</Text>
               <Box m={1} />
               <InputField value={this.state.description} onChange={this.handleDescriptionChange} />
               <Box m={3} />
