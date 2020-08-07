@@ -92,7 +92,9 @@ export default class Editor extends React.Component {
   updateRule(newRuleContent, section = null, subsection = null) {
     console.log(
       `Editor.jsx: Updating Rule Content:
-      \nPath: ${section} ${subsection}\n\n${JSON.stringify(newRuleContent, null, 2)}`
+      \nPath: ${section || ''}${subsection ? '/' : ''}${subsection || ''}
+      
+      ${JSON.stringify(newRuleContent, null, 2)}`
     );
     // If a subsection is defined, the section must also be defined.
     if (subsection && !section) {
