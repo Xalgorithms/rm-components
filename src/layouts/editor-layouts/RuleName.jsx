@@ -1,5 +1,6 @@
 // libraries
 import React from 'react';
+import { toast } from 'react-toastify';
 
 // rm-components
 import { Link } from '@reach/router';
@@ -71,6 +72,7 @@ export default class RuleName extends React.Component {
     const meta = this.props.rule.metadata;
     meta.ruleName = this.state.name;
     meta.ruleDescription = this.state.description;
+    toast('Saved Name and Description');
     this.props.updateRule(meta, 'metadata');
     this.props.navigate('/editor/editor-landing');
   }

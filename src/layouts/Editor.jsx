@@ -29,8 +29,8 @@ export default class Editor extends React.Component {
       blank: true,
       rule: {
         metadata: {
-          ruleName: 'Quebec Gas Tax',
-          ruleDescription: 'Yada yada yada',
+          ruleName: '',
+          ruleDescription: '',
         },
       },
     };
