@@ -7,12 +7,12 @@ function PlusOne() {
 
   const plus = () => {
     setCount(count + 1);
-    console.log(count);
+    console.log(`PlusOne.jsx: ${count}`);
   };
 
   useEffect(() => {
     // Update the document title using the browser API
-    document.title = message;
+    // document.title = message;
   });
 
   return (

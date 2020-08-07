@@ -55,11 +55,13 @@ export default class RuleName extends React.Component {
 
   setNameAndDescFromProps() {
     const { ruleName, ruleDescription } = this.props.rule.metadata;
-    console.log(`
-    Editing Rule Title and Description:
-    Title       :  ${ruleName}
-    Description :  ${ruleDescription}
-    `);
+    if (ruleName && ruleDescription) {
+      console.log(
+        `RuleName.jsx: Loading rule info from props:\nTitle: ${ruleName}\nDescription: ${ruleDescription}`
+      );
+    } else {
+      console.log('RuleName.jsx: Name and description props delivered empty.');
+    }
     this.setState({
       name: ruleName,
       description: ruleDescription,
@@ -79,7 +81,7 @@ export default class RuleName extends React.Component {
    */
   saveAndRedirect() {
     if (this.state.name && this.state.description) {
-      console.log('Name saved, redirecting to editor landing.');
+      console.log('RuleName.jsx Name saved, redirecting to editor landing.');
       const meta = this.props.rule.metadata;
       meta.ruleName = this.state.name;
       meta.ruleDescription = this.state.description;

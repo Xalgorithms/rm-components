@@ -59,24 +59,24 @@ export default class Editor extends React.Component {
   }
 
   getRuleFromStorage() {
-    console.log('Getting rule from storage...');
+    console.log('Editor.jsx: Getting rule from storage...');
 
     const storedRule = localStorage.getItem('rule');
     const storedRuleContent = JSON.parse(storedRule);
     const storedRuleEmpty = objectEmpty(storedRuleContent);
 
-    console.log(`Local stored rule is \n\n${storedRule}`);
+    console.log(`Editor.jsx: Local stored rule is \n\n${storedRule}`);
 
     if (!this.state.rule.metadata.ruleName) {
-      console.log('There is currently no rule stored in STATE.');
+      console.log('Editor.jsx: There is currently no rule stored in STATE.');
       if (!storedRuleEmpty && storedRuleContent.metadata.ruleName) {
-        console.log('There is rule content in local storage, loading into State...');
+        console.log('Editor.jsx: There is rule content in local storage, loading into State...');
         this.setState({ rule: storedRuleContent }, () => {
-          console.log('Navigating to the editor landing...');
+          console.log('Editor.jsx: Navigating to the editor landing...');
           this.props.navigate('/editor/editor-landing');
         });
       } else {
-        console.log('There is no rule content in local storage, starting a new rule.');
+        console.log('Editor.jsx: There is no rule content in local storage, starting a new rule.');
         this.props.navigate('/editor');
       }
     }
@@ -91,7 +91,7 @@ export default class Editor extends React.Component {
    */
   updateRule(newRuleContent, section = null, subsection = null) {
     console.log(
-      `Updating Rule Content:
+      `Editor.jsx: Updating Rule Content:
       \nPath: ${section} ${subsection}\n\n${JSON.stringify(newRuleContent, null, 2)}`
     );
     // If a subsection is defined, the section must also be defined.
@@ -121,7 +121,7 @@ export default class Editor extends React.Component {
   }
 
   persistRuleToLocalStorage() {
-    console.log('Persisting rule to local storage...');
+    console.log('Editor.jsx: Persisting rule to local storage...');
     localStorage.setItem('rule', JSON.stringify(this.state.rule, null, 2));
   }
 
