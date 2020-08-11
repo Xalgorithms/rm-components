@@ -10,4 +10,4 @@ on: [push]
         with:
           node-version: '14'
       - run: yarn install
-      - run: yarn build-components 
+      - run: yarn build-components
