@@ -1,3 +1,6 @@
+// Theme 
+export { default as Theme } from './patterns/Theme.jsx';
+export {default as theme} from '../theme';
 
 // Primitves
 export { default as Text } from './primitives/Text.jsx';
@@ -30,6 +33,3 @@ export { default as Box } from './layout/Box.jsx';
 export { default as Grid } from './layout/Grid.jsx';
 export { default as Flex } from './layout/Flex.jsx';
 export { default as Stack } from './layout/Stack.jsx';
-
-// Theme
-export { default as Theme } from './patterns/Theme.jsx';

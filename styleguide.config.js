@@ -11,7 +11,7 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(js|jsx|mjs)?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
@@ -39,7 +39,7 @@ module.exports = {
     }
     return props;
   },
-  components: 'src/components/**/*.jsx',
+  components: 'src/components/**/*.js*',
   assetsDir: 'static',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/Provider.js'),

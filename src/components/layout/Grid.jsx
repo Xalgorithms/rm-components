@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Box } from '..';
 
-const Grid = styled(Box)({
+export const Grid = styled(Box)({
   display: 'grid',
 });
 

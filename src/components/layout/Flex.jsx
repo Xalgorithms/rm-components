@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Box } from '..';
 
-const Flex = styled(Box)({
+export const Flex = styled(Box)({
   display: 'flex',
 });
 
