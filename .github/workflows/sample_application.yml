@@ -1,4 +1,4 @@
-name: Components
+name: Sample Application
 on: push
 
 jobs:
@@ -11,4 +11,4 @@ jobs:
       with:
         node-version: '14'
     - run: yarn install
-    - run: yarn build-components
+    - run: yarn react-build
