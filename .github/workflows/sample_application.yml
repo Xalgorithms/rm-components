@@ -11,5 +11,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '14'
-    - run: yarn install
-    - run: yarn react-build
+    - name: Install Packages 
+      run: yarn install
+    - name: Build 
+      run: yarn react-build
