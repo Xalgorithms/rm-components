@@ -3,7 +3,8 @@
   "version": "0.0.11",
   "scripts": {
     "start": "styleguidist server",
-    "build": "webpack",
+    "build-components": "webpack",
+    "build-styleguide": "styleguidist build",
     "format": "prettier --write .",
     "lint": "eslint ",
     "react-start": "react-scripts start",
@@ -40,6 +41,8 @@
     ]
   },
   "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "@reach/router": "^1.3.4",
     "@styled-system/css": "^5.1.5",
     "@styled-system/prop-types": "^5.1.5",
@@ -49,10 +52,6 @@
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
     "xalgo-rule-processor": "^0.0.4"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
