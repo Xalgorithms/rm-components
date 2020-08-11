@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Stack, Box, Icon, Button, Text, Flex, Modal, Infobox } from '..';
+import { Input, Stack, Box, Button, Text, Flex, Modal, Infobox } from '..';
 import IInfo from '../icons/IInfo';
 
 function FormSlider({ name, description, labela, labelb, labelc }) {

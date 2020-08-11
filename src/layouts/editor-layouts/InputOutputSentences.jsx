@@ -15,20 +15,6 @@ import SentenceConstructor from '../../components/patterns/SentenceConstructor';
 
 // style
 
-const fillBox = {
-  borderBottom: '1px solid #696969',
-  minWidth: 80,
-  marginLeft: 3,
-  marginRight: 3,
-};
-
-const smallFillBox = {
-  borderBottom: '1px solid #696969',
-  minWidth: 20,
-  marginLeft: 3,
-  marginRight: 3,
-};
-
 // Primary Component
 export default class InputOutputSentences extends React.Component {
   constructor(props) {
@@ -43,7 +29,7 @@ export default class InputOutputSentences extends React.Component {
 
   render() {
     const { inputSentences } = this.state;
-    const { currentRule } = this.state;
+    //const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Dropdown, Box, Icon, IInfo, Button, Grid, Text, Flex, Modal, Infobox } from '..';
+import { Stack, Dropdown, Box, IInfo, Button, Grid, Text, Flex, Modal, Infobox } from '..';
 
 function FormDropdownDouble({
   name,

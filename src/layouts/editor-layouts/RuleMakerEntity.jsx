@@ -22,7 +22,7 @@ export default class RuleMakerEntity extends React.Component {
   }
 
   render() {
-    const { currentRule } = this.state;
+    //const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>

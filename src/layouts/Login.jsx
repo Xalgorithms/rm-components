@@ -2,7 +2,6 @@
 import React from 'react';
 import Box from '../components/layout/Box';
 import Grid from '../components/layout/Grid';
-import SectionDescription from '../components/patterns/SectionDescription';
 import { Link } from '@reach/router';
 import Button from '../components/primitives/Button';
 // rm-components

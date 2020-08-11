@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Dropdown, Box, Icon, Button, Grid, Text, Flex, Modal, Infobox, IInfo } from '..';
+import { Stack, Dropdown, Box, Button, Text, Flex, Modal, Infobox, IInfo } from '..';
 
 function FormDropdown({ name, description, label, value, options = [] }) {
   const [isOpen, setIsOpen] = React.useState(false);

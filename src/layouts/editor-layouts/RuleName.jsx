@@ -3,7 +3,6 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 // rm-components
-import { Link } from '@reach/router';
 import Box from '../../components/layout/Box';
 import Grid from '../../components/layout/Grid';
 import Text from '../../components/primitives/Text';
