@@ -1,4 +1,4 @@
-name: Components
+name: Components 
 on: push
 
 jobs:

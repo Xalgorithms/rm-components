@@ -3,6 +3,7 @@
   "version": "0.0.11",
   "scripts": {
     "start": "styleguidist server",
+    "build": "echo 'use a build command for the components, styleguide, or react build'",
     "build-components": "webpack",
     "build-styleguide": "styleguidist build",
     "format": "prettier --write .",
