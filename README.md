@@ -6,10 +6,10 @@ This is a work in progress component library.
 
 ```sh
 # Using yarn
-$ yarn add @xalgorithms/rm-components
+$ yarn add @xalgorithms/rm-components@latest
 
 # Using npm
-$ npm i @xalgorithms/rm-components
+$ npm i @xalgorithms/rm-components@latest
 ```
 
 Within your application, you can now import and use the components:

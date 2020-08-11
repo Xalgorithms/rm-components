@@ -1,6 +1,6 @@
 {
   "name": "@xalgorithms/rm-components",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "scripts": {
     "start": "styleguidist server",
     "build": "webpack",
