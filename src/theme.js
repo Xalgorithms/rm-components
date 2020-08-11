@@ -1,3 +1,3 @@
-import theme from './components/theme';
+import { theme } from './components/patterns/Theme';
 
 export default theme;
