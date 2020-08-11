@@ -1,5 +1,7 @@
 # RM Components
 
+![Components](https://github.com/Xalgorithms/rm-components/workflows/Components/badge.svg)
+
 This is a work in progress component library.
 
 Styleguide: <https://xalgo-rm-component-styleguide.netlify.app/>
