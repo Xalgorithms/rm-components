@@ -40,6 +40,8 @@ You can also use `npx styleguidist server` to run styleguidist directly.
 
 Contributors must request access to the `@xalgorithms` npm organization to publish the package.
 
+test
+
 ```sh
 npm login
 npm publish --access public
