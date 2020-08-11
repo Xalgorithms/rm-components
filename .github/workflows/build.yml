@@ -1,0 +1,25 @@
+name: Components
+
+on: push
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      - name: Install Packages
+        run: yarn install
+
+      - name: Build Components
+        run: yarn build-components
+
+      - name: Build Test React App
+        run: yarn react-build
+
+      - name: Build Test React App
+        run: yarn build-styleguide
