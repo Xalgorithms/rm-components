@@ -27,7 +27,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .vscode/
-
-# Bad practice
-yarn.lock
-package.lock.json
