@@ -1,9 +1,10 @@
 name: Sample Application
+
 on: push
 
 jobs:
   build:
-    name: Build
+    name: Build React App
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

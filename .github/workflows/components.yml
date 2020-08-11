@@ -1,9 +1,10 @@
 name: Components 
+
 on: push
 
 jobs:
   build:
-    name: Build
+    name: Build Components
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
