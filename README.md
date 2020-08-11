@@ -1,8 +1,12 @@
-## RM Components
+# RM Components
 
 This is a work in progress component library.
 
-### Usage
+Styleguide: <https://xalgo-rm-component-styleguide.netlify.app/>
+
+Sample app: <https://xalgo-rm-components-sample-application.netlify.app/>
+
+## Usage
 
 ```sh
 # Using yarn
@@ -21,7 +25,7 @@ import { Text, Input, Label } from "@xalgorithms/rm-components";
 <Input variant={"secondary"} type={"range"} />
 ```
 
-### Development
+## Development
 
 ```sh
 # Install packages
