@@ -1,16 +1,17 @@
 // libraries
 import { Router } from '@reach/router';
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 
 // rm-components
 import Box from '../components/layout/Box';
-import theme from '../theme';
+
+// Pages
 import Browse from './Browse';
 import Dashboard from './Dashboard';
 import Editor from './Editor';
 import Landing from './Landing';
 import Login from './Login';
+import Theme from '../components/patterns/Theme'
 
 // other components
 import ScrollUp from './components/ScrollUp';
@@ -63,7 +64,7 @@ export default class Application extends React.Component {
     const { authenticated, userRules, userInfo } = this.state;
     return (
       <ScrollUp>
-        <ThemeProvider theme={theme}>
+        <Theme>
           <Navigation authenticated={authenticated} />
 
           <Box bg="#F9FBFE" style={baseBoxStyle}>
@@ -113,7 +114,7 @@ export default class Application extends React.Component {
             </Router>
           </Box>
           <Footer />
-        </ThemeProvider>
+        </Theme>
       </ScrollUp>
     );
   }

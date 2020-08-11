@@ -27,3 +27,6 @@ export { default as Box } from './layout/Box';
 export { default as Grid } from './layout/Grid';
 export { default as Flex } from './layout/Flex';
 export { default as Stack } from './layout/Stack';
+
+// Theme
+export {default as Theme} from './patterns/Theme';
