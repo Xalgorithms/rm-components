@@ -1,6 +1,6 @@
 # RM Components
 
-![Components](https://github.com/Xalgorithms/rm-components/workflows/Components/badge.svg)
+[![Components](https://github.com/Xalgorithms/rm-components/workflows/Components/badge.svg)](https://github.com/Xalgorithms/rm-components#development)
 
 This is a work in progress component library.
 
