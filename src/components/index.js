@@ -29,5 +29,5 @@ export { default as Flex } from './layout/Flex';
 export { default as Stack } from './layout/Stack';
 
 // Theme
-export {default as Theme} from './patterns/Theme';
-export {default as theme } from '../theme';
+export { default as Theme} from './patterns/Theme';
+export { default as theme } from './theme';
