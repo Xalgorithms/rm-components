@@ -1,17 +1,5 @@
 import React from 'react';
-import {
-  Input,
-  Stack,
-  Infobox,
-  Box,
-  Icon,
-  Button,
-  Grid,
-  Text,
-  Flex,
-  Modal,
-} from '..';
-import IInfo from '../icons/IInfo';
+import { Input, Stack, Infobox, Box, Button, Grid, Text, Flex, Modal, IInfo } from '..';
 
 function FormStandardDouble(props) {
   // Extract some props.

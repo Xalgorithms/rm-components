@@ -1,18 +1,5 @@
 import React from 'react';
-import {
-  Infobox,
-  Input,
-  Stack,
-  Dropdown,
-  Box,
-  Icon,
-  Button,
-  Grid,
-  Text,
-  Flex,
-  Modal,
-} from '..';
-import IInfo from '../icons/IInfo';
+import { Infobox, Input, Stack, Dropdown, Box, Button, Grid, Text, Flex, Modal, IInfo } from '..';
 
 function FormStandardDropdown({
   name,

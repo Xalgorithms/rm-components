@@ -1,6 +1,5 @@
 import React from 'react';
-import { Input, Stack, Box, Button, Text, Flex, Modal, Infobox } from '..';
-import IInfo from '../icons/IInfo';
+import { Input, Stack, Box, Button, Text, Flex, Modal, Infobox, IInfo } from '..';
 
 function FormStandard({ name, description }) {
   const [isOpen, setIsOpen] = React.useState(false);

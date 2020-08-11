@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Box from './Box';
+import { Box } from '..';
 
-export const Grid = styled(Box)({
+const Grid = styled(Box)({
   display: 'grid',
 });
 

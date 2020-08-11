@@ -2,16 +2,19 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
+  context: path.join(__dirname, '/src/components'),
   entry: './index.js',
   output: {
-    path: path.resolve('./'),
+    path: path.join(__dirname, './build'),
     filename: 'index.js',
+    library: 'Xalgo RM Components',
     libraryTarget: 'commonjs2',
+    publicPath: '/build/',
   },
   resolve: {
     alias: {
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
+      react: path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
     },
   },
   externals: {
@@ -37,4 +40,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [],
 };

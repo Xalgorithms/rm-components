@@ -4,7 +4,7 @@ import { system } from 'styled-system';
 import { Box } from '..';
 
 // We need this export here to fix something
-export const Stack = styled(Box)(
+const Stack = styled(Box)(
   /*
    * We are using a "lobotomized owl" CSS selector to add margin between children
    * More information: https://every-layout.dev/layouts/stack/#the-solution

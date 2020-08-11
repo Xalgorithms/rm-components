@@ -1,6 +1,5 @@
 import React from 'react';
-import { Stack, Dropdown, Box, Icon, Button, Grid, Text, Flex, Modal, Infobox } from '..';
-import IInfo from '../icons/IInfo';
+import { Stack, Dropdown, Box, Icon, IInfo, Button, Grid, Text, Flex, Modal, Infobox } from '..';
 
 function FormDropdownDouble({
   name,
@@ -19,7 +18,7 @@ function FormDropdownDouble({
   const [isOpena, setIsOpena] = React.useState(false);
 
   const renderOptions = () => {
-    return options.map(({ value, label, }, index) => (
+    return options.map(({ value, label }, index) => (
       <option value={value} key={index}>
         {label}
       </option>
@@ -27,7 +26,7 @@ function FormDropdownDouble({
   };
 
   const renderOptionsTwo = () => {
-    return optionsTwo.map(({ valueTwo, labelTwo, }, index) => (
+    return optionsTwo.map(({ valueTwo, labelTwo }, index) => (
       <option value={valueTwo} key={index}>
         {labelTwo}
       </option>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Input, Stack, Infobox, Box, Icon, Button, Grid, Text, Flex, Modal } from '..';
-import IInfo from '../icons/IInfo';
+import { Input, Stack, Infobox, Box, IInfo, Button, Grid, Text, Flex, Modal } from '..';
 
 function FormStandardLabel({ name, nameTwo, description, descriptionTwo, value }) {
   const [isOpen, setIsOpen] = React.useState(false);
