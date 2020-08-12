@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import { Box, Flex, Icon, Text, Button } from '..';
+import { Box, Flex, Text, Button } from '..';
 import IEdit from "../icons/IEdit";
 
 const styleNavlink = {
@@ -30,8 +30,6 @@ function EditorSection({ title, destination }) {
           <div style={littlePadding}/>
           <Flex justifyContent="space-between">
             <Flex alignItems="center">
-              <Icon name="status" />
-              <Box padding={1} />
               <Text color="primary">{title}</Text>
             </Flex>
             <Box />

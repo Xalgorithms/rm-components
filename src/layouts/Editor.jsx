@@ -15,6 +15,7 @@ import AdditionalData from './editor-layouts/AdditionalData';
 import InputOutputSentences from './editor-layouts/InputOutputSentences';
 import ScrollUp from './components/ScrollUp';
 import RuleName from './editor-layouts/RuleName';
+import EditorLeft from './editor-layouts/EditorLeft';
 
 // rm-components
 
@@ -156,6 +157,7 @@ export default class Editor extends React.Component {
             rule={rule}
             updateRule={this.updateRule}
           />
+          <EditorLeft path="editor-left" rule={rule} updateRule={this.updateRule} />
         </Router>
       </ScrollUp>
     );

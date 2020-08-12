@@ -5,8 +5,6 @@ function EditorControl({ title }) {
   return (
     <Flex justifyContent="space-between">
       <Flex alignItems="center">
-        <Button variant="invisible">Back</Button>
-        <Box padding={1} />
         <Text variant="sectiontitle">{title}</Text>
         <Box padding={1} />
         <Badge>Draft</Badge>

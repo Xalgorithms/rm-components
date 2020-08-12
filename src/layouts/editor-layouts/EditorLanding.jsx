@@ -4,11 +4,10 @@ import React from 'react';
 // rm-components
 import Box from '../../components/layout/Box';
 import Grid from '../../components/layout/Grid';
-import EditorControl from '../../components/patterns/EditorControl';
-import SectionDescription from '../../components/patterns/SectionDescription';
 import Text from '../../components/primitives/Text';
 import EditorSection from '../../components/patterns/EditorSection';
-import Button from '../../components/primitives/Button';
+
+import EditorLeft from './EditorLeft';
 
 // Primary Component
 export default class EditorLanding extends React.Component {
@@ -18,10 +17,12 @@ export default class EditorLanding extends React.Component {
   }
 
   render() {
-    /* const { currentRule } = this.state; */
+    // const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
+          <EditorLeft title={this.props.rule.metadata.ruleName} />
+          {/*
           <EditorControl title={this.props.rule.metadata.ruleName} />
           <Box p={2} />
           <Text>{this.props.rule.metadata.ruleDescription}</Text>
@@ -40,7 +41,7 @@ export default class EditorLanding extends React.Component {
           <Box p={2} />
           <Button variant="wide" onClick={this.props.resetRule}>
             Reset Rule
-          </Button>
+          </Button>*/}
         </Box>
         <Box>
           <Box
@@ -72,11 +73,11 @@ export default class EditorLanding extends React.Component {
             <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
             <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
             <EditorSection title="Input Contexts" destination="/editor/input-context" />
+            <EditorSection title="Input Sources" destination="/editor/additional-data" />
             <EditorSection
-              title="Input Sources"
+              title="Input Filters"
               destination="/editor/input-applicability-filters"
             />
-            <EditorSection title="Input Filters" destination="/editor/additional-data" />
           </Box>
         </Box>
       </Grid>
