@@ -1,4 +1,4 @@
-need props for margin and colors rename to mandorla
+The badge is a label used in multiple patterns
 
 input-output table labels
 
@@ -8,9 +8,13 @@ input-output table labels
 <Badge variant="grayblue">F</Badge>
 ```
 
+Suggestion
+
 ```jsx
 <Badge variant="suggestion">Capacity</Badge>
 ```
+
+Kind of rule
 
 ```jsx
 <Badge>Draft</Badge>

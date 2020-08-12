@@ -40,6 +40,7 @@ const Button = styled.button(
 
     '&:disabled': {
       color: 'lgrey',
+      borderColor: 'oline',
       boxShadow: '0px 4px 4px #E0E0E0',
     },
   }),

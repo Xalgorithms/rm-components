@@ -4,7 +4,7 @@ import { variant } from 'styled-system';
 import { css } from '@styled-system/css';
 
 /**
- * A basic input field.
+ * Input field. Default is text input.
  */
 const Input = styled.input(
   css({

@@ -7,7 +7,6 @@ export { default as Text } from './primitives/Text.jsx';
 export { default as Input } from './primitives/Input.jsx';
 export { default as Button } from './primitives/Button.jsx';
 export { default as Badge } from './primitives/Badge.jsx';
-export { default as Label } from './primitives/Label.jsx';
 export { default as Dropdown } from './primitives/Dropdown.jsx';
 export { default as Modal } from './primitives/Modal.jsx';
 export { default as Link } from './primitives/Link.jsx';

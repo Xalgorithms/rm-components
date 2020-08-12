@@ -5,7 +5,8 @@ module.exports = {
   title: 'rm-components',
   version,
   exampleMode: 'expand',
-  components: '../src/components/[A-Z]**/*.js', // index.js
+  pagePerSection: false,
+  components: '../src/components/[A-Z]**/[A-Z]*.js', // index.js
   // ignore: ['**/src/test.js'],
   webpackConfig: {
     module: {
@@ -44,4 +45,20 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/Provider.js'),
   },
+  sections: [
+    {
+      name: 'Icons',
+      components: 'src/components/icons/*.js*',
+      ignore: ['src/components/icons/IEdit.jsx', 'src/components/icons/IEx.jsx', 'src/components/icons/IInfo.jsx', 'src/components/icons/ITrash.jsx', 'src/components/icons/iconlib.js',],
+    },
+    {
+      name: 'Primitives',
+      components: 'src/components/primitives/*.js*',
+    },
+    {
+      name: 'Patterns',
+      components: 'src/components/patterns/*.js*',
+      ignore: ['src/components/patterns/Theme.jsx', 'src/components/patterns/SentenceConstructor.jsx'],
+    },
+  ],
 };

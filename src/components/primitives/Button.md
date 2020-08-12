@@ -10,12 +10,10 @@ Disabled buttons:
 <Button disabled>Try again</Button>
 ```
 
-Button as a link:
+Wide button
 
 ```jsx padded
-<Button as="a" href="/">
+<Button variant="wide">
   Click me
 </Button>
 ```
-
-Full width button coming soon
