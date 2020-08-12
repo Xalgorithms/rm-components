@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Stack, Text, Flex, Icon, Badge, Box, Button } from '..';
+import { Text, Flex, Icon, Badge, Box, Button } from '..';
 
 export default function Card() {
   return (

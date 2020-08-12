@@ -47,6 +47,10 @@ module.exports = {
   },
   sections: [
     {
+      name: 'Brand',
+      components: 'src/components/brand/*.js*',
+    },
+    {
       name: 'Icons',
       components: 'src/components/icons/*.js*',
       ignore: ['src/components/icons/IEdit.jsx', 'src/components/icons/IEx.jsx', 'src/components/icons/IInfo.jsx', 'src/components/icons/ITrash.jsx', 'src/components/icons/iconlib.js',],

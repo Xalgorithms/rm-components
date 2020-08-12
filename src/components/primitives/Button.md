@@ -1,4 +1,4 @@
-Secondary and primary buttons:
+Form Button
 
 ```jsx padded
 <Button>Push me</Button>
