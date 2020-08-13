@@ -17,12 +17,17 @@ const helpAlign = {
   marginBottom: '6px',
 };
 
+const holdTop = {
+  position: 'sticky',
+  top: '130px',
+}
+
 // Primary Component
 function EditorLeft({ title }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <Box>
+    <div style={holdTop}>
       <Flex justifyContent="space-between">
         <Flex alignItems="center">
           <Text variant="sectiontitle">{title}</Text>
@@ -150,7 +155,7 @@ function EditorLeft({ title }) {
         </SectionDescription>
       </Modal>
       <Box p={1} />
-    </Box>
+    </div>
   );
 }
 

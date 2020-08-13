@@ -5,13 +5,11 @@ import React from 'react';
 import { Link } from '@reach/router';
 import Box from '../../components/layout/Box';
 import Grid from '../../components/layout/Grid';
-import EditorControl from '../../components/patterns/EditorControl';
-import SectionDescription from '../../components/patterns/SectionDescription';
-import Text from '../../components/primitives/Text';
 import Button from '../../components/primitives/Button';
 import Flex from '../../components/layout/Flex';
 import FormDropdown from '../../components/patterns/FormDropdown';
 import FormSlider from '../../components/patterns/FormSlider';
+import EditorLeft from './EditorLeft';
 
 // Primary Component
 export default class OutputWeight extends React.Component {
@@ -25,19 +23,7 @@ export default class OutputWeight extends React.Component {
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
-          <EditorControl title="Rule Name" />
-          <Box p={2} />
-          <SectionDescription>
-            <Text variant="subtitledesc" color="purplea">
-              Output Weight
-            </Text>
-            <Text>
-              Any rule can be expressed in terms of its input conditions, and its output assertions.
-              Please state each condition of this rule, and each assertion of this rule, as a simple
-              factual sentence. Each sentence should be phrased in a manner that, in some particular
-              circumstance, the sentence would logically be ‘true’ or ‘false’.
-            </Text>
-          </SectionDescription>
+          <EditorLeft title={this.props.rule.metadata.ruleName} />
         </Box>
         <Box>
           <Box
