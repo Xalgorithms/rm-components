@@ -24,7 +24,7 @@ import Footer from './components/Footer'
 // Styling
 
 const baseBoxStyle = {
-  minHeight: '100%',
+  minHeight: '100vh',
   margin: 0,
   paddingTop: 92,
 };

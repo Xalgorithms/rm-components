@@ -9,6 +9,10 @@ import EditorSection from '../../components/patterns/EditorSection';
 
 import EditorLeft from './EditorLeft';
 
+const fullheight = {
+  minHeight: '80vh',
+};
+
 // Primary Component
 export default class EditorLanding extends React.Component {
   constructor(props) {
@@ -41,44 +45,46 @@ export default class EditorLanding extends React.Component {
           <Box p={2} />
           <Button variant="wide" onClick={this.props.resetRule}>
             Reset Rule
-          </Button>*/}
+          </Button> */}
         </Box>
         <Box>
-          <Box
-            m={0}
-            width={1}
-            bg="bg"
-            border="1px solid"
-            borderColor="oline"
-            borderRadius="base"
-            p={2}
-          >
-            <Text variant="formtitle">Input→Output Table</Text>
-            <EditorSection
-              title="Input→Output Table"
-              destination="/editor/input-output-sentences"
-            />
-          </Box>
-          <Box padding={2} />
-          <Box
-            m={0}
-            width={1}
-            bg="bg"
-            border="1px solid"
-            borderColor="oline"
-            borderRadius="base"
-            p={2}
-          >
-            <Text variant="formtitle">Context</Text>
-            <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
-            <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
-            <EditorSection title="Input Contexts" destination="/editor/input-context" />
-            <EditorSection title="Input Sources" destination="/editor/additional-data" />
-            <EditorSection
-              title="Input Filters"
-              destination="/editor/input-applicability-filters"
-            />
-          </Box>
+          <div style={fullheight}>
+            <Box
+              m={0}
+              width={1}
+              bg="bg"
+              border="1px solid"
+              borderColor="oline"
+              borderRadius="base"
+              p={2}
+            >
+              <Text variant="formtitle">Input→Output Table</Text>
+              <EditorSection
+                title="Input→Output Table"
+                destination="/editor/input-output-sentences"
+              />
+            </Box>
+            <Box padding={2} />
+            <Box
+              m={0}
+              width={1}
+              bg="bg"
+              border="1px solid"
+              borderColor="oline"
+              borderRadius="base"
+              p={2}
+            >
+              <Text variant="formtitle">Context</Text>
+              <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
+              <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
+              <EditorSection title="Input Contexts" destination="/editor/input-context" />
+              <EditorSection title="Input Sources" destination="/editor/additional-data" />
+              <EditorSection
+                title="Input Filters"
+                destination="/editor/input-applicability-filters"
+              />
+            </Box>
+          </div>
         </Box>
       </Grid>
     );

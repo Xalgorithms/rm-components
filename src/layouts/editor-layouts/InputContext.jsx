@@ -12,6 +12,10 @@ import FormDropdown from '../../components/patterns/FormDropdown';
 import Flex from '../../components/layout/Flex';
 import EditorLeft from './EditorLeft';
 
+const fullheight = {
+  minHeight: '80vh',
+};
+
 // Primary Component
 export default class InputContext extends React.Component {
   constructor(props) {
@@ -27,98 +31,100 @@ export default class InputContext extends React.Component {
           <EditorLeft title={this.props.rule.metadata.ruleName} />
         </Box>
         <Box>
-          <Box
-            p={2}
-            m={0}
-            width={1}
-            bg="bg"
-            border="1px solid"
-            borderColor="oline"
-            borderRadius="base"
-          >
-            <FormDropdownDouble
-              name="Country Jurisdiction"
-              description="hello world is asking the following things"
-              options={[
-                { value: 'justice', label: 'Justice' },
-                { value: 'peace', label: 'Peace' },
-                { value: 'no justice', label: 'No Justice' },
-                { value: 'no peace', label: 'No Peace' },
-              ]}
-              nameTwo="Sub-Country Jurisdiction"
-              descriptionTwo="hello world is asking the following things"
-              optionsTwo={[
-                { valueTwo: 'justice', labelTwo: 'Justice' },
-                { valueTwo: 'peace', labelTwo: 'Peace' },
-                { valueTwo: 'no justice', labelTwo: 'No Justice' },
-                { valueTwo: 'no peace', labelTwo: 'No Peace' },
-              ]}
-            />
-          </Box>
-          <Box padding={1} />
-          <Box
-            p={2}
-            m={0}
-            width={1}
-            bg="bg"
-            border="1px solid"
-            borderColor="oline"
-            borderRadius="base"
-          >
-            <FormStandardDouble
-              name="Start Date and Time "
-              description="hello world is asking the following things"
-              nameTwo="End Date and Time"
-              descriptionTwo="hello world is asking the following things"
-            />
+          <div style={fullheight}>
+            <Box
+              p={2}
+              m={0}
+              width={1}
+              bg="bg"
+              border="1px solid"
+              borderColor="oline"
+              borderRadius="base"
+            >
+              <FormDropdownDouble
+                name="Country Jurisdiction"
+                description="hello world is asking the following things"
+                options={[
+                  { value: 'justice', label: 'Justice' },
+                  { value: 'peace', label: 'Peace' },
+                  { value: 'no justice', label: 'No Justice' },
+                  { value: 'no peace', label: 'No Peace' },
+                ]}
+                nameTwo="Sub-Country Jurisdiction"
+                descriptionTwo="hello world is asking the following things"
+                optionsTwo={[
+                  { valueTwo: 'justice', labelTwo: 'Justice' },
+                  { valueTwo: 'peace', labelTwo: 'Peace' },
+                  { valueTwo: 'no justice', labelTwo: 'No Justice' },
+                  { valueTwo: 'no peace', labelTwo: 'No Peace' },
+                ]}
+              />
+            </Box>
             <Box padding={1} />
-            <FormDropdown
-              name="Time Zone"
-              description="hello world is asking the following things"
-              options={[
-                { value: 'justice', label: 'Justice' },
-                { value: 'peace', label: 'Peace' },
-                { value: 'no justice', label: 'No Justice' },
-                { value: 'no peace', label: 'No Peace' },
-              ]}
-            />
-          </Box>
-          <Box padding={1} />
-          <Box
-            p={2}
-            m={0}
-            width={1}
-            bg="bg"
-            border="1px solid"
-            borderColor="oline"
-            borderRadius="base"
-          >
-            <FormDropdownDouble
-              name="Country Jurisdiction"
-              description="hello world is asking the following things"
-              options={[
-                { value: 'justice', label: 'Justice' },
-                { value: 'peace', label: 'Peace' },
-                { value: 'no justice', label: 'No Justice' },
-                { value: 'no peace', label: 'No Peace' },
-              ]}
-              nameTwo="Sub-Country Jurisdiction"
-              descriptionTwo="hello world is asking the following things"
-              optionsTwo={[
-                { valueTwo: 'justice', labelTwo: 'Justice' },
-                { valueTwo: 'peace', labelTwo: 'Peace' },
-                { valueTwo: 'no justice', labelTwo: 'No Justice' },
-                { valueTwo: 'no peace', labelTwo: 'No Peace' },
-              ]}
-            />
-          </Box>
-          <Box padding={1} />
-          <Flex justifyContent="flex-end">
-            <Box />
-            <Link to="/editor/editor-landing">
-              <Button>Done</Button>
-            </Link>
-          </Flex>
+            <Box
+              p={2}
+              m={0}
+              width={1}
+              bg="bg"
+              border="1px solid"
+              borderColor="oline"
+              borderRadius="base"
+            >
+              <FormStandardDouble
+                name="Start Date and Time "
+                description="hello world is asking the following things"
+                nameTwo="End Date and Time"
+                descriptionTwo="hello world is asking the following things"
+              />
+              <Box padding={1} />
+              <FormDropdown
+                name="Time Zone"
+                description="hello world is asking the following things"
+                options={[
+                  { value: 'justice', label: 'Justice' },
+                  { value: 'peace', label: 'Peace' },
+                  { value: 'no justice', label: 'No Justice' },
+                  { value: 'no peace', label: 'No Peace' },
+                ]}
+              />
+            </Box>
+            <Box padding={1} />
+            <Box
+              p={2}
+              m={0}
+              width={1}
+              bg="bg"
+              border="1px solid"
+              borderColor="oline"
+              borderRadius="base"
+            >
+              <FormDropdownDouble
+                name="Country Jurisdiction"
+                description="hello world is asking the following things"
+                options={[
+                  { value: 'justice', label: 'Justice' },
+                  { value: 'peace', label: 'Peace' },
+                  { value: 'no justice', label: 'No Justice' },
+                  { value: 'no peace', label: 'No Peace' },
+                ]}
+                nameTwo="Sub-Country Jurisdiction"
+                descriptionTwo="hello world is asking the following things"
+                optionsTwo={[
+                  { valueTwo: 'justice', labelTwo: 'Justice' },
+                  { valueTwo: 'peace', labelTwo: 'Peace' },
+                  { valueTwo: 'no justice', labelTwo: 'No Justice' },
+                  { valueTwo: 'no peace', labelTwo: 'No Peace' },
+                ]}
+              />
+            </Box>
+            <Box padding={1} />
+            <Flex justifyContent="flex-end">
+              <Box />
+              <Link to="/editor/editor-landing">
+                <Button>Done</Button>
+              </Link>
+            </Flex>
+          </div>
         </Box>
       </Grid>
     );
