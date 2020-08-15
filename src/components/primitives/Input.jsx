@@ -5,6 +5,8 @@ import { css } from '@styled-system/css';
 
 /**
  * Input field. Default is text input.
+ * @param {String} value is the current text value of the input.
+ * @param {Function} onChange will be fired when the value is updated by the user.
  */
 const Input = styled.input(
   css({
@@ -92,8 +94,9 @@ const Input = styled.input(
 
 Input.propTypes = {
   /** Button label */
-  children: PropTypes.node,
+  value: PropTypes.string,
   onChange: PropTypes.func,
+  children: PropTypes.node,
   disabled: PropTypes.bool,
   focus: PropTypes.bool,
 };

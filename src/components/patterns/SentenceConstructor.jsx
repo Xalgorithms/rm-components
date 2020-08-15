@@ -4,34 +4,63 @@ import ITrash from '../icons/ITrash';
 import IEdit from '../icons/IEdit';
 import IEx from '../icons/IEx';
 import InputField from './InputField';
-import Rule from '../primitives/Rule';
 
 // style
 
 const fillBox = {
-    borderBottom: '1px solid #696969',
-    minWidth: 80,
-    marginLeft: 4,
-    marginRight: 4,
-  };
+  borderBottom: '1px solid #696969',
+  minWidth: 80,
+  marginLeft: 4,
+  marginRight: 4,
+};
 
-  const fillBoxBlue = {
-    borderBottom: '1px solid #204EF0',
-    minWidth: 80,
-    marginLeft: 4,
-    marginRight: 4,
-  };
-  
-  
-  const smallFillBox = {
-    borderBottom: '1px solid #696969',
-    minWidth: 20,
-    marginLeft: 4,
-    marginRight: 4,
-  };
+const smallFillBox = {
+  borderBottom: '1px solid #696969',
+  minWidth: 20,
+  marginLeft: 4,
+  marginRight: 4,
+};
 
-function SentenceConstructor() {
+/**
+ * Displays content parameters in the condensed sentence/view of the component.
+ * @param {String} contentField the text content of a field.
+ */
+function SentenceConstructorField({ contentField, small }) {
+  if (!contentField) {
+    return <div style={small ? smallFillBox : fillBox} />;
+  }
+  return (
+    <div style={small ? smallFillBox : fillBox}>
+      <Text>{contentField}</Text>
+    </div>
+  );
+}
+
+/**
+ * Ensures the incoming content has all the correct parameters.
+ * @param {JSON} content the json object containing the content for the object.
+ * @param {Function} updateContent the function called to update the object.
+ */
+function enforceContentSchema(content, updateContent) {
+  if (!content.a || !content.b || !content.c || !content.d) {
+    console.error('SentenceConstructor is missing parameters.');
+  }
+
+  if (!content) {
+    updateContent({
+      a: '',
+      b: '',
+      c: '',
+      d: '',
+      e: '',
+    });
+  }
+}
+
+function SentenceConstructor({ content, updateContent }) {
   const [isOpen, setIsOpen] = React.useState(false);
+
+  enforceContentSchema(content, updateContent);
 
   return (
     <Box>
@@ -41,13 +70,13 @@ function SentenceConstructor() {
             <Text color="primary">A</Text>
             <Box padding={1} />
             <Text>The</Text>
-            <div style={fillBoxBlue} ><Text color="primary">Input</Text></div>
-            <div style={fillBox} />
+            <SentenceConstructorField contentField={content.a} />
+            <SentenceConstructorField contentField={content.b} />
             <Text>of the</Text>
-            <div style={fillBox} />
+            <SentenceConstructorField contentField={content.c} />
             <Text>is</Text>
-            <div style={smallFillBox} />
-            <div style={fillBox} />
+            <SentenceConstructorField contentField={content.d} small />
+            <SentenceConstructorField contentField={content.e} />
           </Flex>
           <Flex>
             <Modal isOpen={isOpen}>
@@ -60,7 +89,7 @@ function SentenceConstructor() {
                 <IEdit />
               </Button>
             </Modal>
-            <Box p={1}/>
+            <Box p={1} />
             <Button variant="invisible">
               <ITrash />
             </Button>
@@ -74,11 +103,11 @@ function SentenceConstructor() {
             <Text>The</Text>
             <Box padding={1} />
             <Box>
-              <Input />
+              <Input value={content.a} onChange={updateContent} />
             </Box>
             <Box padding={1} />
             <Box>
-              <Input />
+              <Input value={content.b} onChange={updateContent} />
             </Box>
           </Flex>
           <Box padding={1} />
@@ -86,18 +115,27 @@ function SentenceConstructor() {
             <Text>Of the</Text>
             <Box padding={1} />
             <Box>
-              <Input />
+              <Input value={content.c} onChange={updateContent} />
             </Box>
             <Box padding={1} />
             <Box>
               <Dropdown>
-                <option>≥</option>
-                <option>=</option>
+                <option>{'=='}</option>
+                <option>{'!='}</option>
+                <option>{'>'}</option>
+                <option>{'<'}</option>
+                <option>{'>='}</option>
+                <option>{'<='}</option>
               </Dropdown>
             </Box>
           </Flex>
           <Box padding={1} />
-          <InputField message="Adjective, Arithmetic expression, or Boolean Number">
+          <InputField
+            value={content.e}
+            onChange={updateContent}
+            message="Adjective, Arithmetic expression, or Boolean Number"
+          />
+          {/*
             <Rule />
             <Flex alignItems="center">
               <Text color="primary">Sum</Text>
@@ -106,7 +144,7 @@ function SentenceConstructor() {
               <Box padding={1} />
               <Text color="primary">Source</Text>
             </Flex>
-          </InputField>
+            */}
         </Modal>
       </Box>
     </Box>

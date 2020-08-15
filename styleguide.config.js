@@ -62,7 +62,7 @@ module.exports = {
     {
       name: 'Patterns',
       components: 'src/components/patterns/*.js*',
-      ignore: ['src/components/patterns/Theme.jsx', 'src/components/patterns/SentenceConstructor.jsx'],
+      ignore: ['src/components/patterns/Theme.jsx'],
     },
   ],
 };

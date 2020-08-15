@@ -28,11 +28,11 @@ const emptyRule = {
   },
 };
 
-function deepCopy(obj) {
+export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
-function objectEmpty(obj) {
+export function objectEmpty(obj) {
   const type = typeof obj;
   if (!obj) return true; // If null, return true;
   if (type !== 'object') return true; // If not an object, it's 'empty'.

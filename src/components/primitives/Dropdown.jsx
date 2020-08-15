@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { css } from '@styled-system/css';
+import PropTypes from 'prop-types';
 
 const Dropdown = styled.select(
   css({
@@ -29,3 +30,12 @@ const Dropdown = styled.select(
 );
 
 export default Dropdown;
+
+Dropdown.propTypes = {
+  /** Button label */
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  children: PropTypes.node,
+  disabled: PropTypes.bool,
+  focus: PropTypes.bool,
+};
