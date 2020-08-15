@@ -11,6 +11,7 @@ import Addbutton from '../../components/patterns/Addbutton';
 import Flex from '../../components/layout/Flex';
 import SentenceConstructor from '../../components/patterns/SentenceConstructor';
 import EditorLeft from './EditorLeft';
+import Input from '../../components/primitives/Input';
 
 // style
 const fullheight = {
@@ -23,15 +24,22 @@ export default class InputOutputSentences extends React.Component {
     super(props);
     this.state = {
       inputSentences: [1],
+      verb: '',
     };
+    this.handleVerbChange = this.handleVerbChange.bind(this);
+  }
 
-    // Bind functions
-    // this.toggleLoggedin = this.toggleLoggedin.bind(this);
+  handleVerbChange(event) {
+    this.setState({ verb: event.target.value });
+    if (this.state.verb) {
+      const meta = this.props.rule.metadata;
+      this.props.updateRule(meta, 'metadata');
+    }
   }
 
   render() {
     const { inputSentences } = this.state;
-    //const { currentRule } = this.state;
+    // const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>
@@ -50,6 +58,8 @@ export default class InputOutputSentences extends React.Component {
             >
               <Text variant="formtitle">Inputs</Text>
               <Box padding={1} />
+              <Text>{this.props.rule.metadata.ruleVerb}</Text>
+              <Input onChange={this.handleVerbChange} />
               {inputSentences.map((val, key) => (
                 <Box key={key}>
                   <SentenceConstructor />
@@ -57,7 +67,7 @@ export default class InputOutputSentences extends React.Component {
                 </Box>
               ))}
               <Box padding={1} />
-              <Addbutton 
+              <Addbutton
                 onClick={() => {
                   const parties = inputSentences;
                   const last = parties[parties.length];

@@ -23,6 +23,8 @@ const emptyRule = {
   metadata: {
     ruleName: '',
     ruleDescription: '',
+    ruleVerb: '',
+    ruleAttribute: '',
   },
 };
 
