@@ -32,11 +32,11 @@ export default class InputApplicabilityFilters extends React.Component {
   render() {
     const { sampleInvolvedParties } = this.state;
     return (
-      <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
-        <Box>
+      <Grid gridTemplateColumns="25% 75%">
+        <Box p={4} bg="draftb">
           <EditorLeft title={this.props.rule.metadata.ruleName} />
         </Box>
-        <Box>
+        <Box p={4}>
           <div style={fullheight}> 
             {sampleInvolvedParties.map((val, key) => (
               <InvolvedParty key={key} />

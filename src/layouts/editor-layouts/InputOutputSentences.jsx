@@ -24,12 +24,22 @@ export default class InputOutputSentences extends React.Component {
     super(props);
     this.state = {
       inputSentences: [1],
+      verb: '',
     };
+    this.handleVerbChange = this.handleVerbChange.bind(this);
+  }
+
+  handleVerbChange(event) {
+    this.setState({ verb: event.target.value });
+    if (this.state.verb) {
+      const meta = this.props.rule.metadata;
+      this.props.updateRule(meta, 'metadata');
+    }
   }
 
   render() {
     const { inputSentences } = this.state;
-    // const { currentRule } = this.state;
+    const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
         <Box>

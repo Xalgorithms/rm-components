@@ -26,11 +26,11 @@ export default class AdditionalData extends React.Component {
   render() {
     //const { currentRule } = this.state;
     return (
-      <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
-        <Box>
+      <Grid gridTemplateColumns="25% 75%">
+        <Box p={4} bg="draftb">
           <EditorLeft title={this.props.rule.metadata.ruleName} />
         </Box>
-        <Box>
+        <Box p={4}>
           <div style={fullheight}>
             <Box
               p={2}

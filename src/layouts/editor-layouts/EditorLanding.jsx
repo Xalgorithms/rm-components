@@ -23,8 +23,8 @@ export default class EditorLanding extends React.Component {
   render() {
     // const { currentRule } = this.state;
     return (
-      <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
-        <Box>
+      <Grid gridTemplateColumns="25% 75%">
+        <Box p={4} bg="draftb">
           <EditorLeft title={this.props.rule.metadata.ruleName} />
           {/*
           <EditorControl title={this.props.rule.metadata.ruleName} />
@@ -47,43 +47,23 @@ export default class EditorLanding extends React.Component {
             Reset Rule
           </Button> */}
         </Box>
-        <Box>
+        <Box p={4}>
           <div style={fullheight}>
-            <Box
-              m={0}
-              width={1}
-              bg="bg"
-              border="1px solid"
-              borderColor="oline"
-              borderRadius="base"
-              p={2}
-            >
-              <Text variant="formtitle">Input→Output Table</Text>
-              <EditorSection
-                title="Input→Output Table"
-                destination="/editor/input-output-sentences"
-              />
-            </Box>
+            <Text variant="formtitle">Input→Output Table</Text>
+            <EditorSection
+              title="Input→Output Table"
+              destination="/editor/input-output-sentences"
+            />
             <Box padding={2} />
-            <Box
-              m={0}
-              width={1}
-              bg="bg"
-              border="1px solid"
-              borderColor="oline"
-              borderRadius="base"
-              p={2}
-            >
-              <Text variant="formtitle">Context</Text>
-              <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
-              <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
-              <EditorSection title="Input Contexts" destination="/editor/input-context" />
-              <EditorSection title="Input Sources" destination="/editor/additional-data" />
-              <EditorSection
-                title="Input Filters"
-                destination="/editor/input-applicability-filters"
-              />
-            </Box>
+            <Text variant="formtitle">Context</Text>
+            <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
+            <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
+            <EditorSection title="Input Contexts" destination="/editor/input-context" />
+            <EditorSection title="Input Sources" destination="/editor/additional-data" />
+            <EditorSection
+              title="Input Filters"
+              destination="/editor/input-applicability-filters"
+            />
           </div>
         </Box>
       </Grid>
