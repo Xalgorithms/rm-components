@@ -12,7 +12,7 @@ import RuleManager from './editor-layouts/RuleManager';
 import OutputWeight from './editor-layouts/OutputWeight';
 import InputContext from './editor-layouts/InputContext';
 import AdditionalData from './editor-layouts/AdditionalData';
-import InputOutputSentences from './editor-layouts/InputOutputSentences';
+//import InputOutputSentences from './editor-layouts/InputOutputSentences';
 import ScrollUp from './components/ScrollUp';
 import RuleName from './editor-layouts/RuleName';
 import EditorLeft from './editor-layouts/EditorLeft';
@@ -154,11 +154,11 @@ export default class Editor extends React.Component {
           <OutputWeight path="output-weight" rule={rule} updateRule={this.updateRule} />
           <InputContext path="input-context" rule={rule} updateRule={this.updateRule} />
           <AdditionalData path="additional-data" rule={rule} updateRule={this.updateRule} />
-          <InputOutputSentences
+          {/*<InputOutputSentences
             path="input-output-sentences"
             rule={rule}
             updateRule={this.updateRule}
-          />
+          />*/}
           <EditorLeft path="editor-left" rule={rule} updateRule={this.updateRule} />
         </Router>
       </ScrollUp>

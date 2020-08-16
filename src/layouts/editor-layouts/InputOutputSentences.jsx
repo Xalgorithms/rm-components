@@ -9,7 +9,7 @@ import Text from '../../components/primitives/Text';
 import Button from '../../components/primitives/Button';
 import Addbutton from '../../components/patterns/Addbutton';
 import Flex from '../../components/layout/Flex';
-import SentenceConstructor from '../../components/patterns/SentenceConstructor';
+//import SentenceConstructor from '../../components/patterns/SentenceConstructor';
 import EditorLeft from './EditorLeft';
 import Input from '../../components/primitives/Input';
 
@@ -39,7 +39,7 @@ export default class InputOutputSentences extends React.Component {
 
   render() {
     const { inputSentences } = this.state;
-    const { currentRule } = this.state;
+    //const { currentRule } = this.state;
     return (
       <Grid gridTemplateColumns="25% 75%">
         <Box p={4} bg="draftb">

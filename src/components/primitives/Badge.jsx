@@ -22,29 +22,35 @@ const Badge = styled.div(
       blue: {
         color: 'bg',
         backgroundColor: 'primary',
-        marginRight: '12px',
+        width: '34px',
       },
       lightblue: {
         color: 'primary',
         backgroundColor: 'midblue',
-        marginRight: '12px',
+        width: '34px',
       },
       grayblue: {
         color: 'primary',
         backgroundColor: 'greyblue',
-        marginRight: '12px',
+        width: '34px',
       },
       form: {
         color: 'textb',
         borderColor: 'oline',
         backgroundColor: 'bg',
-        marginRight: '12px',
+        width: '34px',
       },
       blank: {
         backgroundColor: 'bg',
         color: 'textb',
         border: 'none',
-        marginRight: '12px',
+        width: '34px',
+      },
+      invisible: {
+        backgroundColor: 'bg',
+        color: 'bg',
+        border: 'none',
+        width: '34px',
       },
       suggestion: {
         color: 'purplea',

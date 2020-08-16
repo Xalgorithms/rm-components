@@ -5,9 +5,8 @@ const Rule = styled.hr(
     css({
         borderTop: '1px solid #E7E7E7',
         borderBottom: '0px',
-        margin: 2,
-        px: 0,
-        py: 0,
+        padding: '0px',
+        margin:'0px',
     })
 );
 

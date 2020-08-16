@@ -8,13 +8,38 @@ import Grid from '../../components/layout/Grid';
 import Text from '../../components/primitives/Text';
 import Button from '../../components/primitives/Button';
 import Flex from '../../components/layout/Flex';
-import Icon from '../../components/icons/Icon';
 import InputOutputRow from '../../components/patterns/InputOutputRow';
 import Badge from '../../components/primitives/Badge';
 import EditorLeft from './EditorLeft';
+import Addbutton from '../../components/patterns/Addbutton';
 
 const fullheight = {
   minHeight: '80vh',
+};
+
+const rowValues = [
+  { logic: 'A', type: 'blank' },
+  { logic: 'B', type: 'blank' },
+  { logic: 'C', type: 'blank' },
+];
+
+const blankValues = [
+  { logic: 'A', type: 'invisible' },
+  { logic: 'B', type: 'invisible' },
+  { logic: 'C', type: 'invisible' },
+];
+
+const ruleLeft = {
+  borderLeft: '1px solid #E7E7E7',
+  padding: '1em',
+};
+
+const halfWidth = {
+  width: '50%',
+};
+
+const bottomLine = {
+  borderBottom: '1px solid #E7E7E7',
 };
 
 // Primary Component
@@ -26,57 +51,111 @@ export default class InputOutput extends React.Component {
 
   render() {
     return (
-      <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
-        <Box>
+      <Grid gridTemplateColumns="25% 75%">
+        <Box p={4} bg="draftb">
           <EditorLeft title={this.props.rule.metadata.ruleName} />
         </Box>
-        <Box>
+        <Box p={4}>
           <div style={fullheight}>
-            <Box
-              p={2}
-              m={0}
-              width={1}
-              bg="bg"
-              border="1px solid"
-              borderColor="oline"
-              borderRadius="base"
-            >
-              <Flex justifyContent="space-between">
-                <Text variant="formtitle">Input Output Table</Text>
-                <Button variant="invisible">
-                  <Flex alignItems="center">
-                    <Text>Expand Table</Text>
+            <div style={bottomLine}>
+              <Flex alignItems="center">
+                <div style={halfWidth}>
+                  <Flex>
+                    <Text variant="formtitle">When</Text>
                     <Box padding={1} />
-                    <Icon name="expand" />
+                    <Text>Input Contditions</Text>
                   </Flex>
-                </Button>
+                </div>
+                <Box>
+                  <Flex>
+                    {rowValues.map((rowValue) => (
+                      <div style={ruleLeft}>
+                        <Badge variant={rowValue.type} key={rowValue.logic}>
+                          {rowValue.logic}
+                        </Badge>
+                      </div>
+                    ))}
+                    <div style={ruleLeft} />
+                  </Flex>
+                </Box>
               </Flex>
-              <Box padding={1} />
-              <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
+            </div>
+            <InputOutputRow />
+            <InputOutputRow />
+            <Flex alignItems="center">
+              <div style={halfWidth}>
+                <Addbutton />
+              </div>
+              <Box>
                 <Flex>
-                  <Text variant="formtitle">When</Text>
-                  <Box padding={1} />
-                  <Text>Input Contditions</Text>
+                  {blankValues.map((blankValue) => (
+                    <div style={ruleLeft}>
+                      <Badge variant={blankValue.type} key={blankValue.logic}>
+                        {blankValue.logic}
+                      </Badge>
+                    </div>
+                  ))}
+                  <div style={ruleLeft} />
                 </Flex>
-                <Box>
-                  <Badge variant="blank">A</Badge>
-                </Box>
-              </Grid>
-              <InputOutputRow />
-              <Box padding={1} />
-              <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
+              </Box>
+            </Flex>
+            <Flex alignItems="center">
+              <div style={halfWidth} />
+              <Box>
                 <Flex>
-                  <Text variant="formtitle">Then</Text>
-                  <Box padding={1} />
-                  <Text>Output Contditions</Text>
+                  {blankValues.map((blankValue) => (
+                    <div style={ruleLeft}>
+                      <Badge variant={blankValue.type} key={blankValue.logic}>
+                        {blankValue.logic}
+                      </Badge>
+                    </div>
+                  ))}
+                  <div style={ruleLeft} />
                 </Flex>
+              </Box>
+            </Flex>
+            <div style={bottomLine}>
+              <Flex alignItems="center">
+                <div style={halfWidth}>
+                  <Flex>
+                    <Text variant="formtitle">Then</Text>
+                    <Box padding={1} />
+                    <Text>Output Contditions</Text>
+                  </Flex>
+                </div>
                 <Box>
-                  <Badge variant="blank">A</Badge>
+                  <Flex>
+                    {blankValues.map((blankValue) => (
+                      <div style={ruleLeft}>
+                        <Badge variant={blankValue.type} key={blankValue.logic}>
+                          {blankValue.logic}
+                        </Badge>
+                      </div>
+                    ))}
+                    <div style={ruleLeft} />
+                  </Flex>
                 </Box>
-              </Grid>
-              <InputOutputRow />
-              <Box padding={1} />
-            </Box>
+              </Flex>
+            </div>
+            <InputOutputRow />
+            <Flex alignItems="center">
+              <div style={halfWidth}>
+                <Addbutton />
+              </div>
+              <Box>
+                <Flex>
+                  {blankValues.map((blankValue) => (
+                    <div style={ruleLeft}>
+                      <Badge variant={blankValue.type} key={blankValue.logic}>
+                        {blankValue.logic}
+                      </Badge>
+                    </div>
+                  ))}
+                  <div style={ruleLeft} />
+                </Flex>
+              </Box>
+            </Flex>
+            <Box padding={1} />
             <Box padding={1} />
             <Flex justifyContent="flex-end">
               <Box />

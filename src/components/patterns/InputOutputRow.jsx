@@ -1,25 +1,57 @@
 import React from 'react';
 
-import { Grid, Text, Badge, Box, Flex } from '..';
+import { Text, Badge, Box, Flex, Button } from '..';
+import IEdit from '../icons/IEdit';
+import ITrash from '../icons/ITrash';
 
-const rowValues = [{ logic: 'T', type: 'blue', }, { logic: 'F', type: 'lightblue', }, { logic: 'B', type: 'grayblue', }];
+const rowValues = [
+  { logic: 'T', type: 'blue' },
+  { logic: 'F', type: 'lightblue' },
+  { logic: 'B', type: 'grayblue' },
+];
+
+const ruleLeft = {
+  borderLeft: '1px solid #E7E7E7',
+  padding: '1em',
+  width: '34px',
+};
+
+const halfWidth = {
+  width: '50%',
+};
+
+const bottomLine = {
+  borderBottom: '1px solid #E7E7E7',
+};
 
 function InputOutputRow() {
   return (
-    <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%">
-      <Box>
-        <Text color="textb">Input condition sentences goes here</Text>
-      </Box>
-      <Box>
-        <Flex>
-          {rowValues.map((rowValue) => (
-            <Badge variant={rowValue.type} key={rowValue.logic}>
-              {rowValue.logic}
-            </Badge>
-          ))}
-        </Flex>
-      </Box>
-    </Grid>
+    <div style={bottomLine}>
+      <Flex alignItems="center">
+        <div style={halfWidth}>
+          <Text color="textb">Input condition sentences goes here</Text>
+        </div>
+        <Box>
+          <Flex>
+            {rowValues.map((rowValue) => (
+              <div style={ruleLeft}>
+                <Badge variant={rowValue.type} key={rowValue.logic}>
+                  {rowValue.logic}
+                </Badge>
+              </div>
+            ))}
+            <div style={ruleLeft} />
+          </Flex>
+        </Box>
+        <Button variant="invisible">
+          <IEdit />
+        </Button>
+        <Box p={1} />
+        <Button variant="invisible">
+          <ITrash />
+        </Button>
+      </Flex>
+    </div>
   );
 }
 

@@ -50,10 +50,7 @@ export default class EditorLanding extends React.Component {
         <Box p={4}>
           <div style={fullheight}>
             <Text variant="formtitle">Input→Output Table</Text>
-            <EditorSection
-              title="Input→Output Table"
-              destination="/editor/input-output-sentences"
-            />
+            <EditorSection title="Input→Output Table" destination="/editor/input-output" />
             <Box padding={2} />
             <Text variant="formtitle">Context</Text>
             <EditorSection title="MetaData Management" destination="/editor/rule-maker-entity" />
