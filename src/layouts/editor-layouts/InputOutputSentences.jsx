@@ -41,11 +41,11 @@ export default class InputOutputSentences extends React.Component {
     const { inputSentences } = this.state;
     const { currentRule } = this.state;
     return (
-      <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
-        <Box>
+      <Grid gridTemplateColumns="25% 75%">
+        <Box p={4} bg="draftb">
           <EditorLeft title={this.props.rule.metadata.ruleName} />
         </Box>
-        <Box>
+        <Box p={4} >
           <div style={fullheight}>
             <Box
               p={2}
@@ -62,7 +62,7 @@ export default class InputOutputSentences extends React.Component {
               <Input onChange={this.handleVerbChange} />
               {inputSentences.map((val, key) => (
                 <Box key={key}>
-                  <SentenceConstructor />
+                  {/*<SentenceConstructor />*/}
                   <Box padding={1} />
                 </Box>
               ))}
@@ -88,7 +88,7 @@ export default class InputOutputSentences extends React.Component {
             >
               <Text variant="formtitle">Outputs</Text>
               <Box padding={1} />
-              <SentenceConstructor />
+              {/*<SentenceConstructor />*/}
               <Box padding={1} />
               <Addbutton />
             </Box>
