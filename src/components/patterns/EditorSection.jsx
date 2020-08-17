@@ -30,7 +30,7 @@ function EditorSection({ title, destination }) {
           <Flex alignItems="center">
             <Icon name="edit" />
             <Box p={1}/>
-            <Text>{title}</Text>
+            <Text color="textb">{title}</Text>
           </Flex>
           <div style={littlePadding} />
         </div>

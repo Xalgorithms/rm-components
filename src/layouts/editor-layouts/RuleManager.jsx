@@ -25,8 +25,8 @@ export default class RuleManager extends React.Component {
   render() {
     // const { currentRule } = this.state;
     return (
-      <Grid gridTemplateColumns="25% 75%">
-        <Box p={4} bg="draftb">
+      <Grid gridTemplateColumns="400px auto">
+        <Box p={4} borderRight="1px solid #E7E7E7">
           <EditorLeft title={this.props.rule.metadata.ruleName} />
         </Box>
         <Box p={4}>

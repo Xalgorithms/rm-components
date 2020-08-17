@@ -109,7 +109,7 @@ function EditorLeft({ title }) {
       </Modal>
       <Modal isOpen={!isOpen}>
         <Button variant="wide">Publish Rule</Button>
-        <Box m={1} />
+        <Box m={3} />
         <SectionDescription>
           <Text variant="formtitle">Rule Maker Dashboard</Text>
           <Text>

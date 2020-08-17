@@ -3,7 +3,7 @@ import { Box } from '..';
 
 function SectionDescription({ children }) {
   return (
-    <Box p={2} m={0} width={1} borderRadius="base">
+    <Box m={0} width={1} borderRadius="base">
       {children}
     </Box>
   );

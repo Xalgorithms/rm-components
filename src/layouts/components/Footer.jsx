@@ -13,7 +13,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <Box p={4} bg="text">
-        <Box p={2} bg="draftc" borderRadius="base">
+        <Box p={2} bg="greyblue" borderRadius="base">
           <Flex>
             <Icon name="info" />
             <Text>Prototype</Text>

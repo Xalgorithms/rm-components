@@ -1,20 +1,18 @@
 import React from 'react';
-import { Text, Flex, Icon, Badge, Box, Button } from '..';
+import { Text, Flex, Icon, Box, Button } from '..';
 
 export default function Card() {
   return (
     <Box
       p={2}
-      m={2}
-      width={1 / 3}
       bg="bg"
       border="1px solid"
       borderColor="oline"
       borderRadius="base"
+      marginBottom={4}
     >
       <Flex alignItems="flex-start">
         <Text>Loi concernant la taxe sur les carburants</Text>
-        <Badge>Draft</Badge>
       </Flex>
       <Box padding={2} />
       <Flex justifyContent="space-between">
