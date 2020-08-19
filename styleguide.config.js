@@ -53,11 +53,18 @@ module.exports = {
     {
       name: 'Icons',
       components: 'src/components/icons/*.js*',
-      ignore: ['src/components/icons/IEdit.jsx', 'src/components/icons/IEx.jsx', 'src/components/icons/IInfo.jsx', 'src/components/icons/ITrash.jsx', 'src/components/icons/iconlib.js',],
+      ignore: [
+        'src/components/icons/IEdit.jsx',
+        'src/components/icons/IEx.jsx',
+        'src/components/icons/IInfo.jsx',
+        'src/components/icons/ITrash.jsx',
+        'src/components/icons/iconlib.js',
+      ],
     },
     {
       name: 'Primitives',
       components: 'src/components/primitives/*.js*',
+      ignore: ['src/components/primitives/Option.jsx'],
     },
     {
       name: 'Patterns',

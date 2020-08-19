@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Flex, Button, Dropdown, Input, Infobox, Modal } from '..';
+import { Box, Text, Flex, Button, Dropdown, Option, Input, Infobox, Modal } from '..';
 import ITrash from '../icons/ITrash';
 import IEdit from '../icons/IEdit';
 import IEx from '../icons/IEx';
@@ -42,17 +42,24 @@ function SentenceConstructorField({ contentField, small }) {
  * @param {Function} updateContent the function called to update the object.
  */
 function enforceContentSchema(content, updateContent) {
-  if (!content.a || !content.b || !content.c || !content.d) {
+  content.
+  if (
+    !content.participle ||
+    !content.attribute ||
+    !content.subject ||
+    !content.operation ||
+    !content.value
+  ) {
     console.error('SentenceConstructor is missing parameters.');
   }
 
   if (!content) {
     updateContent({
-      a: '',
-      b: '',
-      c: '',
-      d: '',
-      e: '',
+      participle: '',
+      attribute: '',
+      subject: '',
+      operation: '',
+      value: '',
     });
   }
 }
@@ -70,13 +77,13 @@ function SentenceConstructor({ content, updateContent }) {
             <Text color="primary">A</Text>
             <Box padding={1} />
             <Text>The</Text>
-            <SentenceConstructorField contentField={content.a} />
-            <SentenceConstructorField contentField={content.b} />
+            <SentenceConstructorField contentField={content.particple} />
+            <SentenceConstructorField contentField={content.attribute} />
             <Text>of the</Text>
-            <SentenceConstructorField contentField={content.c} />
+            <SentenceConstructorField contentField={content.subject} />
             <Text>is</Text>
-            <SentenceConstructorField contentField={content.d} small />
-            <SentenceConstructorField contentField={content.e} />
+            <SentenceConstructorField contentField={content.operation} small />
+            <SentenceConstructorField contentField={content.value} />
           </Flex>
           <Flex>
             <Modal isOpen={isOpen}>
@@ -120,12 +127,12 @@ function SentenceConstructor({ content, updateContent }) {
             <Box padding={1} />
             <Box>
               <Dropdown>
-                <option>{'=='}</option>
-                <option>{'!='}</option>
-                <option>{'>'}</option>
-                <option>{'<'}</option>
-                <option>{'>='}</option>
-                <option>{'<='}</option>
+                <Option value="==">==</Option>
+                <Option value="!=">!=</Option>
+                <Option value=">">&gt;</Option>
+                <Option value="<">&lt;</Option>
+                <Option value=">=">&gt;=</Option>
+                <Option value="<=">&lt;=</Option>
               </Dropdown>
             </Box>
           </Flex>

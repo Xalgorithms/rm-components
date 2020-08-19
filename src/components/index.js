@@ -10,6 +10,7 @@ export { default as Badge } from './primitives/Badge.jsx';
 export { default as Dropdown } from './primitives/Dropdown.jsx';
 export { default as Modal } from './primitives/Modal.jsx';
 export { default as Link } from './primitives/Link.jsx';
+export { default as Option } from './primitives/Option.jsx';
 
 // icon
 export { default as Icon } from './icons/Icon.jsx';
