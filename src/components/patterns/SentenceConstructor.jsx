@@ -38,20 +38,19 @@ function SentenceConstructorField({ contentField, small }) {
 
 /**
  * Ensures the incoming content has all the correct parameters.
+ * @deprecated will be replaced by a method from the xrp libary.
  * @param {JSON} content the json object containing the content for the object.
  * @param {Function} updateContent the function called to update the object.
  */
 function enforceContentSchema(content, updateContent) {
-  content.
   if (
     !content.participle ||
     !content.attribute ||
     !content.subject ||
     !content.operation ||
     !content.value
-  ) {
+  )
     console.error('SentenceConstructor is missing parameters.');
-  }
 
   if (!content) {
     updateContent({
@@ -64,6 +63,11 @@ function enforceContentSchema(content, updateContent) {
   }
 }
 
+/**
+ * Requires content and updateContent props to function correctly.
+ * @param {JSON} content contains a schema-constrained blob of content for use in the component fields.
+ * @param {Function} updateContent method for passing an updated version of the internal content to the parent.
+ */
 function SentenceConstructor({ content, updateContent }) {
   const [isOpen, setIsOpen] = React.useState(false);
 

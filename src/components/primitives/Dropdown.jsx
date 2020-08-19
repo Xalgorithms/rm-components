@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { css } from '@styled-system/css';
 import PropTypes from 'prop-types';
 
-const Dropdown = styled.select(
+export const Dropdown = styled.select(
   css({
     boxSizing: 'border-box',
     display: 'block',
