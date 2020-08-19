@@ -2,7 +2,7 @@
 import React from 'react';
 import { Router } from '@reach/router';
 import { toast } from 'react-toastify';
-
+import { deepCopy, objectEmpty } from 'xalgo-rule-processor';
 // pages
 import EditorLanding from './editor-layouts/EditorLanding';
 import InputOutput from './editor-layouts/InputOutput';
@@ -27,17 +27,6 @@ const emptyRule = {
     ruleAttribute: '',
   },
 };
-
-export function deepCopy(obj) {
-  return JSON.parse(JSON.stringify(obj));
-}
-
-export function objectEmpty(obj) {
-  const type = typeof obj;
-  if (!obj) return true; // If null, return true;
-  if (type !== 'object') return true; // If not an object, it's 'empty'.
-  return Object.keys(obj).length === 0;
-}
 
 /**
  * The Editor component is the parent of all editing views, and is the
