@@ -9,6 +9,11 @@ import Card from '../components/patterns/Card';
 // rm-components
 import Text from '../components/primitives/Text';
 import ScrollUp from './components/ScrollUp';
+import { zIndex } from 'styled-system';
+
+const hold = {
+  zIndex: '10',
+}
 
 // Primary Component
 export default class Dashboard extends React.Component {
@@ -22,29 +27,31 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <ScrollUp>
-        <Box m={4}>
-          <Flex>
-            <Search />
-          </Flex>
-        </Box>
-        <Rule />
-        <Grid gridTemplateColumns="auto 400px">
-          <Box>
-            <Box p={4} height="26vh">
-              <Text>Create Rule</Text>
-            </Box>
-            <Box p={4} borderTop="1px solid #E7E7E7" height="26vh">
-            <Text>Create Control Table</Text>
-            </Box>
-            <Box p={4} borderTop="1px solid #E7E7E7" height="26vh">
-            </Box>
+        <div style={hold}>
+          <Box m={4}>
+            <Flex>
+              <Search />
+            </Flex>
           </Box>
-          <Box p={4} borderLeft="1px solid #E7E7E7" height="80vh">
-            <Card />
-            <Card />
-            <Card />
-          </Box>
-        </Grid>
+          <Rule />
+          <Grid gridTemplateColumns="auto 400px">
+            <Box>
+              <Box p={4} height="26vh">
+                <Text>Create Rule</Text>
+              </Box>
+              <Box p={4} borderTop="1px solid #E7E7E7" height="26vh">
+              <Text>Create Control Table</Text>
+              </Box>
+              <Box p={4} borderTop="1px solid #E7E7E7" height="26vh">
+              </Box>
+            </Box>
+            <Box p={4} borderLeft="1px solid #E7E7E7" height="80vh">
+              <Card />
+              <Card />
+              <Card />
+            </Box>
+          </Grid>
+        </div>
       </ScrollUp>
     );
   }

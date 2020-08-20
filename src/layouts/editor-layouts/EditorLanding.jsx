@@ -15,6 +15,7 @@ import EditorLeft from './EditorLeft';
 
 const fullheight = {
   minHeight: '80vh',
+  minWidth: '50vw',
 };
 
 const ruleLeft = {
@@ -33,9 +34,13 @@ const bottomLine = {
 const saveButton = {
   position: 'fixed',
   right: '0',
-  top: '110px',
-  padding: '2em',
-}
+  top: '111px',
+  paddingTop: '2em',
+  paddingLeft: '2em',
+  paddingRight: '2em',
+  background: '#fff',
+  zIndex: '1',
+};
 
 const rowValues = [
   { logic: 'A', type: 'blank' },
@@ -72,7 +77,7 @@ export default class EditorLanding extends React.Component {
         <div style={saveButton}>
           <Flex>
             <Text color="publish">Publish</Text>
-            <Box p={1}/>
+            <Box p={1} />
             <Text color="primary">Save and Exit</Text>
           </Flex>
         </div>
@@ -83,7 +88,7 @@ export default class EditorLanding extends React.Component {
               <Box>
                 <div>
                   <div style={bottomLine}>
-                    <Flex alignItems="center">
+                    <Flex alignItems="center" width="50vw">
                       <div style={halfWidth}>
                         <Flex>
                           <Text variant="formtitle">When</Text>
@@ -203,9 +208,7 @@ export default class EditorLanding extends React.Component {
                   </Flex>
                   <Box padding={1} />
                   <Box padding={1} />
-                  <Flex justifyContent="flex-end">
-                    <text>modal</text>
-                  </Flex>
+                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
                 </div>
               </Box>
               <Box padding={2} />
@@ -219,7 +222,7 @@ export default class EditorLanding extends React.Component {
               />
             </div>
           </Box>
-        </EditorLeft> 
+        </EditorLeft>
       </div>
     );
   }
