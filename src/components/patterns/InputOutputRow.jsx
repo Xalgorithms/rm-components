@@ -4,16 +4,10 @@ import { Text, Badge, Box, Flex, Button } from '..';
 import IEdit from '../icons/IEdit';
 import ITrash from '../icons/ITrash';
 
-const rowValues = [
-  { logic: 'T', type: 'blue' },
-  { logic: 'F', type: 'lightblue' },
-  { logic: 'B', type: 'grayblue' },
-];
 
 const ruleLeft = {
   borderLeft: '1px solid #E7E7E7',
   padding: '1em',
-  width: '34px',
 };
 
 const halfWidth = {
@@ -24,7 +18,7 @@ const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
 };
 
-function InputOutputRow() {
+function InputOutputRow({rowValues}) {
   return (
     <div style={bottomLine}>
       <Flex alignItems="center">

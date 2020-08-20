@@ -84,6 +84,7 @@ const theme = {
     purpleb: palette.purple[2],
     bluebg: palette.blue[1],
     grad: '#F1EEFC',
+    publish: palette.green[0],
   },
   space: [0, 8, 12, 24, 36],
   fonts: {
