@@ -6,7 +6,6 @@ import Text from '../../components/primitives/Text';
 import Button from '../../components/primitives/Button';
 import Flex from '../../components/layout/Flex';
 import Modal from '../../components/primitives/Modal';
-import IEx from '../../components/icons/IEx';
 import Icon from '../../components/icons/Icon';
 
 const littlePadding = {

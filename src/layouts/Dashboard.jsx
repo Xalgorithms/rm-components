@@ -9,10 +9,9 @@ import Card from '../components/patterns/Card';
 // rm-components
 import Text from '../components/primitives/Text';
 import ScrollUp from './components/ScrollUp';
-import { zIndex } from 'styled-system';
 
 const hold = {
-  zIndex: '10',
+  zIndex: '5',
 }
 
 // Primary Component

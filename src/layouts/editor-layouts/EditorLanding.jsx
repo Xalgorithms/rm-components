@@ -3,7 +3,6 @@ import React from 'react';
 
 // rm-components
 import Box from '../../components/layout/Box';
-import Grid from '../../components/layout/Grid';
 import Text from '../../components/primitives/Text';
 import EditorSection from '../../components/patterns/EditorSection';
 import Flex from '../../components/layout/Flex';
@@ -61,11 +60,6 @@ const blankValues = [
   { logic: 'B', type: 'invisible' },
   { logic: 'C', type: 'invisible' },
 ];
-
-const holdTop = {
-  position: 'sticky',
-  top: '110px',
-};
 
 // Primary Component
 export default class EditorLanding extends React.Component {
