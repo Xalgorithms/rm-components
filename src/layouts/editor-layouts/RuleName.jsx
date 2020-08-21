@@ -20,11 +20,6 @@ const widthHold = {
   width: '80%',
 };
 
-const gradBg = {
-  background:
-    'radial-gradient(174.09% 353.7% at 121.14% 89.59%, #D3E0FA 0%, rgba(238, 224, 255, 0.28) 41.13%, rgba(225, 224, 255, 0.17) 100%)',
-};
-
 // Primary Component
 export default class RuleName extends React.Component {
   constructor(props) {
@@ -121,7 +116,7 @@ export default class RuleName extends React.Component {
             <div style={inputHold} />
           </Flex>
         </div>
-        <div style={gradBg} />
+        <Box borderLeft="1px solid #efefef" />
       </Grid>
     );
   }

@@ -21,33 +21,31 @@ export default class Landing extends React.Component {
   render() {
     return (
       <ScrollUp>
-        <Grid gridTemplateRows="45vh 45vh">
-          <Flex alignItems="center" justifyContent="center" bg="grad">
-            <Box width={4 / 7}>
-              <Text variant="heading">
-                A rule is a relation between what is and what ought to be.
+        <Grid height="80vh" gridTemplateColumns="400px auto">
+          <Box borderRight="1px solid #efefef">
+            <Box p={4}>
+              <Text variant="formtitle">
+                Introducing XRADS
               </Text>
-              <Box p={1} />
-              <Text>
-                Oughtomation is a general-purpose method for anyone to publish, discover, fetch,
-                scrutinize, prioritize and automate normative rules across the Internet.
-              </Text>
-              <Box m={1} />
+              <Box p={1}/>
               <Text color="primary">
                 This mockup behaves as if you are already logged in to the system.
               </Text>
             </Box>
-          </Flex>
-          <Grid gridTemplateColumns="50vw 50vw">
-            <Flex alignItems="center" justifyContent="center" bg="text" p={4}>
-              <Search />
-            </Flex>
-            <Flex alignItems="center" justifyContent="center" p={4}>
-              <Box>
-                <Text>Assemble Rule</Text>
+          </Box>
+          <Flex alignItems="center" justifyContent="center">
+            <Box width="460px">
+              <Text variant="heading">
+                Solving the Problem of Rules.
+              </Text>
+              <Box p={1} />
+              <Box border="1px solid" borderColor="oline" borderRadius="round" p={2}>
+                <Search />
               </Box>
-            </Flex>
-          </Grid>
+              <Box p={1} />
+              <Text>Assemble Rule</Text>
+            </Box>
+          </Flex>
         </Grid>
       </ScrollUp>
     );

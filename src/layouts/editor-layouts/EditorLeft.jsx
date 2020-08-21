@@ -57,7 +57,7 @@ function EditorLeft({ title, description, children }) {
                 </Button>
               </Box>
               <Box paddingRight={4} paddingLeft={4} paddingTop={4}>
-                <Button variant="invisible" onClick={() => setIsOpenb(true)}>
+                <Button variant="invisible" onClick={() => setIsOpenb(false)}>
                   <Box width="18px" height="16px">
                     <svg viewBox="0 0 9.86 9.86">
                       <title>i-info-small</title>
@@ -169,12 +169,12 @@ function EditorLeft({ title, description, children }) {
         </div>
         <div>
           <div style={holdTop}>
-            <Modal isOpen={isOpenb}>
+            <Modal isOpen={!isOpenb}>
               <Box width="450px">
                 <Box p={4}>
                   <Flex justifyContent="space-between">
                     <Text variant="formtitle">Guide</Text>
-                    <Button variant="invisible" onClick={() => setIsOpenb(false)}>
+                    <Button variant="invisible" onClick={() => setIsOpenb(true)}>
                       <Icon name="close" />
                     </Button>
                   </Flex>
@@ -193,7 +193,7 @@ function EditorLeft({ title, description, children }) {
         </div>
         <div>
           <div style={holdTop}>
-            <Modal isOpen={isOpenb}>
+            <Modal isOpen={!isOpenb}>
               <div>
                 <div style={horizontalRule} />
               </div>

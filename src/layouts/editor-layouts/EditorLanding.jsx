@@ -45,17 +45,6 @@ const fixpos = {
   width: '100%',
 };
 
-const saveButton = {
-  position: 'fixed',
-  right: '0',
-  top: '111px',
-  paddingTop: '2em',
-  paddingLeft: '2em',
-  paddingRight: '2em',
-  background: '#fff',
-  zIndex: '1',
-};
-
 const rowValues = [
   { logic: 'A', type: 'blank' },
   { logic: 'B', type: 'blank' },
