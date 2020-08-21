@@ -22,24 +22,31 @@ const holdTop = {
   top: '110px',
 };
 
+const holdwide = {
+  width: '100%',
+};
+
 const horizontalRule = {
+  position: 'sticky',
   borderLeft: '1px solid #E7E7E7',
   height: '100vh',
+  zIndex: '-1',
+  top: '110px',
 };
 
 // Primary Component
-function EditorLeft({ children }) {
+function EditorLeft({ title, description, children }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isOpenb, setIsOpenb] = React.useState(false);
   const [isOpenc, setIsOpenc] = React.useState(false);
 
   return (
-    <div width='100vw' overflow='none'>
+    <div width="100vw" overflow="none">
       <Flex>
         <div>
           <div style={holdTop}>
             <Box>
-            <Box paddingRight={4} paddingLeft={4} paddingTop={4}>
+              <Box paddingRight={4} paddingLeft={4} paddingTop={4}>
                 <Button variant="invisible" onClick={() => setIsOpen(true)}>
                   <Box width="18px" height="16px">
                     <svg viewBox="0 0 16 14">
@@ -69,14 +76,30 @@ function EditorLeft({ children }) {
               <Box paddingRight={4} paddingLeft={4} paddingTop={4}>
                 <Button variant="invisible" onClick={() => setIsOpenc(true)}>
                   <Box width="18px" height="16px">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.19 8.12"><title>name and description</title><path d="M11.19,1.49H5.69a.5.5,0,0,1-.5-.5.5.5,0,0,1,.5-.5h5.5a.5.5,0,0,1,.5.5A.51.51,0,0,1,11.19,1.49Z" transform="translate(-0.5 -0.49)"/><path d="M11.19,5.05H1a.5.5,0,0,1,0-1H11.19a.5.5,0,0,1,0,1Z" transform="translate(-0.5 -0.49)"/><path d="M11.19,8.61H1a.5.5,0,0,1-.5-.5.5.5,0,0,1,.5-.5H11.19a.51.51,0,0,1,.5.5A.5.5,0,0,1,11.19,8.61Z" transform="translate(-0.5 -0.49)"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.19 8.12">
+                      <title>name and description</title>
+                      <path
+                        d="M11.19,1.49H5.69a.5.5,0,0,1-.5-.5.5.5,0,0,1,.5-.5h5.5a.5.5,0,0,1,.5.5A.51.51,0,0,1,11.19,1.49Z"
+                        transform="translate(-0.5 -0.49)"
+                      />
+                      <path
+                        d="M11.19,5.05H1a.5.5,0,0,1,0-1H11.19a.5.5,0,0,1,0,1Z"
+                        transform="translate(-0.5 -0.49)"
+                      />
+                      <path
+                        d="M11.19,8.61H1a.5.5,0,0,1-.5-.5.5.5,0,0,1,.5-.5H11.19a.51.51,0,0,1,.5.5A.5.5,0,0,1,11.19,8.61Z"
+                        transform="translate(-0.5 -0.49)"
+                      />
+                    </svg>
                   </Box>
                 </Button>
               </Box>
             </Box>
           </div>
         </div>
-        <div style={horizontalRule}/>
+        <div>
+          <div style={horizontalRule} />
+        </div>
         <div>
           <div style={holdTop}>
             <Modal isOpen={isOpen}>
@@ -88,6 +111,7 @@ function EditorLeft({ children }) {
                       <Icon name="close" />
                     </Button>
                   </Flex>
+                  <Box p={2}/>
                   <Button variant="invisiblewide">
                     <div style={helpAlign}>
                       <div style={littlePadding} />
@@ -133,9 +157,16 @@ function EditorLeft({ children }) {
             </Modal>
           </div>
         </div>
-        <Modal isOpen={isOpen}>
-          <div style={horizontalRule}/>
-        </Modal>
+        <div />
+        <div>
+          <div style={holdTop}>
+            <Modal isOpen={isOpen}>
+              <div>
+                <div style={horizontalRule} />
+              </div>
+            </Modal>
+          </div>
+        </div>
         <div>
           <div style={holdTop}>
             <Modal isOpen={isOpenb}>
@@ -147,14 +178,28 @@ function EditorLeft({ children }) {
                       <Icon name="close" />
                     </Button>
                   </Flex>
+                  <Box p={2}/>
+                  <Text>
+                    Any rule can be expressed in terms of its input conditions, and its output
+                    assertions. Please state each condition of this rule, and each assertion of this
+                    rule, as a simple factual sentence. Each sentence should be phrased in a manner
+                    that, in some particular circumstance, the sentence would logically be ‘true’ or
+                    ‘false’.
+                  </Text>
                 </Box>
               </Box>
             </Modal>
           </div>
         </div>
-        <Modal isOpen={isOpenb}>
-          <div style={horizontalRule}/>
-        </Modal>
+        <div>
+          <div style={holdTop}>
+            <Modal isOpen={isOpenb}>
+              <div>
+                <div style={horizontalRule} />
+              </div>
+            </Modal>
+          </div>
+        </div>
         <div>
           <div style={holdTop}>
             <Modal isOpen={isOpenc}>
@@ -166,15 +211,23 @@ function EditorLeft({ children }) {
                       <Icon name="close" />
                     </Button>
                   </Flex>
+                  <Box p={2}/>
+                  <Text>{description}</Text>
                 </Box>
               </Box>
             </Modal>
           </div>
         </div>
-        <Modal isOpen={isOpenc}>
-          <div style={horizontalRule}/>
-        </Modal>
-        <div>{children}</div>
+        <div>
+          <div style={holdTop}>
+            <Modal isOpen={isOpenc}>
+              <div>
+                <div style={horizontalRule} />
+              </div>
+            </Modal>
+          </div>
+        </div>
+        <div style={holdwide}>{children}</div>
       </Flex>
     </div>
   );

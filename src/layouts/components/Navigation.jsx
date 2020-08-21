@@ -14,6 +14,7 @@ const styleHold = {
   width: '100%',
   top: 0,
   outline: '1px solid #E7E7E7',
+  zIndex: '5',
 }
 
 const styleNavbar = {

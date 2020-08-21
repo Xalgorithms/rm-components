@@ -22,7 +22,7 @@ import EditorLeft from './EditorLeft';
 
 const fullheight = {
   minHeight: '80vh',
-  minWidth: '50vw',
+  width: '50vw',
 };
 
 const ruleLeft = {
@@ -36,6 +36,13 @@ const halfWidth = {
 
 const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
+};
+
+const fixpos = {
+  position: 'sticky',
+  top: '100px',
+  background: '#fff',
+  width: '100%',
 };
 
 const saveButton = {
@@ -77,20 +84,31 @@ export default class EditorLanding extends React.Component {
     const { inputSentences, outputSentences, sampleInvolvedParties } = this.state;
     return (
       <div>
-        <div style={saveButton}>
-          {/* save and exit controlss */}
-
-          <Flex>
-            <Text color="publish">Publish</Text>
-            <Box p={1} />
-            <Text color="primary">Save and Exit</Text>
-          </Flex>
-        </div>
-        <EditorLeft>
+        <EditorLeft
+          title={this.props.rule.metadata.ruleName}
+          description={this.props.rule.metadata.ruleDescription}
+        >
           {/* Input Output Table */}
+
+          <div style={fixpos}>
+            <Box p={4} width="100%">
+              <Flex justifyContent="space-between" alignItems="center">
+                <div>
+                  <Box padding="0.2em" />
+                  <Text variant="formtitle">{this.props.rule.metadata.ruleName}</Text>
+                </div>
+                <Flex>
+                  <Text color="publish">Publish</Text>
+                  <Box p={1} />
+                  <Text color="primary">Save and Exit</Text>
+                </Flex>
+              </Flex>
+            </Box>
+          </div>
 
           <Box p={4}>
             <div style={fullheight}>
+              <Box padding={2} />
               <EditorSection title="Input→Output Table" />
               <Box>
                 <div>

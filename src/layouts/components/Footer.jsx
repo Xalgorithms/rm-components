@@ -12,8 +12,8 @@ import Box from '../../components/layout/Box';
 export default class Footer extends React.Component {
   render() {
     return (
-      <Box p={4} bg="text">
-        <Box p={2} bg="greyblue" borderRadius="base">
+      <Box p={4} borderTop="1px solid #efefef">
+        <Box p={2} border="1px solid" borderColor="oline" borderRadius="base">
           <Flex>
             <Icon name="info" />
             <Text>Prototype</Text>
