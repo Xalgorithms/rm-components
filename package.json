@@ -52,7 +52,7 @@
     "react-toastify": "^6.0.8",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
-    "xalgo-rule-processor": "^0.0.5"
+    "xalgo-rule-processor": "^0.0.6"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",

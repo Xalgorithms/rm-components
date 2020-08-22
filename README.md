@@ -42,6 +42,12 @@ yarn react-start
 
 You can also use `npx styleguidist server` to run styleguidist directly.
 
+Often we'll need to bump the version of the dependency `xalgo-rule-processor` with:
+
+```sh
+yarn upgrade xalgo-rule-processor@latest
+```
+
 ### Publishing
 
 Contributors must request access to the `@xalgorithms` npm organization to publish the package.
