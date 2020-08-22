@@ -87,7 +87,7 @@ export default class EditorLanding extends React.Component {
           description={this.props.rule.metadata.ruleDescription}
         >
           {/* Input Output Table */}
-
+          {/*
           <div style={fixpos}>
             <Box p={4} width="100%" bg="#fff">
               <Flex justifyContent="space-between" alignItems="center">
@@ -129,7 +129,7 @@ export default class EditorLanding extends React.Component {
                 </Box>
               </Flex>
             </div>
-          </div>
+          </div> */}
           <Box p={4}>
             <div style={fullheight}>
               <Box padding={2} />
