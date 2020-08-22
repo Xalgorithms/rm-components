@@ -17,6 +17,7 @@ import FormDropdown from '../../components/patterns/FormDropdown';
 import FormDropdownDouble from '../../components/patterns/FormDropdownDouble';
 import FormStandardDouble from '../../components/patterns/FormStandardDouble';
 import InvolvedParty from '../../components/patterns/InvolvedParty';
+import SentenceConstructor from '../../components/patterns/SentenceConstructor';
 
 import EditorLeft from './EditorLeft';
 
@@ -40,9 +41,15 @@ const bottomLine = {
 
 const fixpos = {
   position: 'sticky',
-  top: '100px',
-  background: '#fff',
+  top: '88px',
   width: '100%',
+};
+
+const modalhold = {
+  position: 'sticky',
+  height: '90vh',
+  background: 'rgba(255, 255, 255, .8)',
+  marginBottom: '-90vh',
 };
 
 const rowValues = [
@@ -80,7 +87,7 @@ export default class EditorLanding extends React.Component {
           {/* Input Output Table */}
 
           <div style={fixpos}>
-            <Box p={4} width="100%">
+            <Box p={4} width="100%" bg="#fff">
               <Flex justifyContent="space-between" alignItems="center">
                 <div>
                   <Box padding="0.2em" />
@@ -93,8 +100,34 @@ export default class EditorLanding extends React.Component {
                 </Flex>
               </Flex>
             </Box>
+            <div style={modalhold}>
+              <Flex alignItems="center" justifyContent="center">
+                <Box height="70vh" />
+                <Box
+                  p={2}
+                  m={0}
+                  width="600px"
+                  bg="bg"
+                  border="1px solid"
+                  borderColor="oline"
+                  borderRadius="base"
+                >
+                  <SentenceConstructor
+                    content={{
+                      a: 'Param A',
+                      b: 'Param B',
+                      c: 'Param C',
+                      d: '>',
+                      e: 'formula E',
+                    }}
+                    updateContent={(n) => {
+                      console.log(n);
+                    }}
+                  />
+                </Box>
+              </Flex>
+            </div>
           </div>
-
           <Box p={4}>
             <div style={fullheight}>
               <Box padding={2} />

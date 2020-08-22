@@ -14,7 +14,7 @@ const styleHold = {
   width: '100%',
   top: 0,
   outline: '1px solid #E7E7E7',
-  zIndex: '5',
+  zIndex: '5'
 }
 
 const styleNavbar = {
@@ -63,7 +63,7 @@ export default class Navigation extends React.Component {
       <div style={styleHold}>
         <Flex justifyContent="space-between" alignItems="center" m={4}>
           <Link to="/" style={styleNavlink}>
-            <Text variant="subtitle">XRADS</Text>
+            <Text variant="formtitle">XRADS</Text>
           </Link>
           <nav style={styleNavbar}>
             {authenticated ? (

@@ -69,7 +69,7 @@ function enforceContentSchema(content, updateContent) {
  * @param {Function} updateContent method for passing an updated version of the internal content to the parent.
  */
 function SentenceConstructor({ content, updateContent }) {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
 
   enforceContentSchema(content, updateContent);
 
