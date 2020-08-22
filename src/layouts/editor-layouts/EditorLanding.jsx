@@ -2,22 +2,24 @@
 import React from 'react';
 
 // rm-components
-import Box from '../../components/layout/Box';
-import Text from '../../components/primitives/Text';
-import EditorSection from '../../components/patterns/EditorSection';
-import Flex from '../../components/layout/Flex';
-import Badge from '../../components/primitives/Badge';
-import Addbutton from '../../components/patterns/Addbutton';
-import InputOutputRow from '../../components/patterns/InputOutputRow';
-import FormStandard from '../../components/patterns/FormStandard';
-import FormStandardDropdown from '../../components/patterns/FormStandardDropdown';
-import FormStandardLabel from '../../components/patterns/FormStandardLabel';
-import FormSlider from '../../components/patterns/FormSlider';
-import FormDropdown from '../../components/patterns/FormDropdown';
-import FormDropdownDouble from '../../components/patterns/FormDropdownDouble';
-import FormStandardDouble from '../../components/patterns/FormStandardDouble';
-import InvolvedParty from '../../components/patterns/InvolvedParty';
-import SentenceConstructor from '../../components/patterns/SentenceConstructor';
+import {
+  Box,
+  Text,
+  EditorSection,
+  Flex,
+  Badge,
+  Addbutton,
+  InputOutputRow,
+  FormStandard,
+  FormSlider,
+  FormStandardDropdown,
+  FormStandardLabel,
+  FormDropdown,
+  FormDropdownDouble,
+  FormStandardDouble,
+  InvolvedParty,
+  SentenceConstructor,
+} from '../../components';
 
 import EditorLeft from './EditorLeft';
 

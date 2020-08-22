@@ -28,6 +28,10 @@ export { default as FormStandardDouble } from './patterns/FormStandardDouble.jsx
 export { default as FormStandardDropdown } from './patterns/FormStandardDropdown.jsx';
 export { default as FormStandardLabel } from './patterns/FormStandardLabel.jsx';
 export { default as InvolvedParty } from './patterns/InvolvedParty.jsx';
+export { default as EditorSection } from './patterns/EditorSection.jsx';
+export { default as InputOutputRow } from './patterns/InputOutputRow.jsx';
+export { default as SentenceConstructor } from './patterns/SentenceConstructor.jsx';
+export { default as FormSlider } from './patterns/FormSlider.jsx';
 
 // Layouts
 export { default as Box } from './layout/Box.jsx';
