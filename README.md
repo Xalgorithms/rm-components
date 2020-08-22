@@ -46,6 +46,9 @@ Often we'll need to bump the version of the dependency `xalgo-rule-processor` wi
 
 ```sh
 yarn upgrade xalgo-rule-processor@latest
+
+# Or to upgrade everything
+yarn upgrade --latest
 ```
 
 ### Publishing
