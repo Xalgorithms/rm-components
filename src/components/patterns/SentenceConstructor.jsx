@@ -1,9 +1,6 @@
 import React from 'react';
-import { Box, Text, Flex, Button, Dropdown, Option, Input, Infobox, Modal } from '..';
-import ITrash from '../icons/ITrash';
-import IEdit from '../icons/IEdit';
-import IEx from '../icons/IEx';
-import InputField from './InputField';
+import { Box, Text, Flex, Button, Dropdown, Option, Input, Infobox, Modal, InputField } from '..';
+import { IEdit, ITrash, IEx } from '../icons';
 
 // style
 

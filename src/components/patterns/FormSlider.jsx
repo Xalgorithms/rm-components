@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, Stack, Box, Button, Text, Flex, Modal, Infobox } from '..';
-import IInfo from '../icons/IInfo';
+import { IInfo } from '../icons';
 
 function FormSlider({ name, description, labela, labelb, labelc }) {
   const [isOpen, setIsOpen] = React.useState(false);

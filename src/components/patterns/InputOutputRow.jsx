@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { Text, Badge, Box, Flex, Button } from '..';
-import IEdit from '../icons/IEdit';
-import ITrash from '../icons/ITrash';
-
+import { IEdit, ITrash } from '../icons';
 
 const ruleLeft = {
   borderLeft: '1px solid #E7E7E7',
@@ -18,7 +16,7 @@ const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
 };
 
-function InputOutputRow({rowValues}) {
+function InputOutputRow({ rowValues }) {
   return (
     <div style={bottomLine}>
       <Flex alignItems="center">
@@ -27,8 +25,8 @@ function InputOutputRow({rowValues}) {
         </div>
         <Box>
           <Flex>
-            {rowValues.map((rowValue) => (
-              <div style={ruleLeft}>
+            {rowValues.map((rowValue, i) => (
+              <div style={ruleLeft} key={i}>
                 <Badge variant={rowValue.type} key={rowValue.logic}>
                   {rowValue.logic}
                 </Badge>

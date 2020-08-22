@@ -32,6 +32,7 @@ export { default as EditorSection } from './patterns/EditorSection.jsx';
 export { default as InputOutputRow } from './patterns/InputOutputRow.jsx';
 export { default as SentenceConstructor } from './patterns/SentenceConstructor.jsx';
 export { default as FormSlider } from './patterns/FormSlider.jsx';
+export { default as InputField } from './patterns/InputField.jsx';
 
 // Layouts
 export { default as Box } from './layout/Box.jsx';
