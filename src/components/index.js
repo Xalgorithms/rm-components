@@ -13,10 +13,7 @@ export { default as Link } from './primitives/Link.jsx';
 export { default as Option } from './primitives/Option.jsx';
 
 // icon
-export { default as Icon } from './icons/Icon.jsx';
-export { default as IInfo } from './icons/IInfo.jsx';
-export { default as IEdit } from './icons/IEdit.jsx';
-export { default as IEx } from './icons/IEx.jsx';
+export * from './icons';
 
 // pattern
 export { default as Infobox } from './patterns/Infobox.jsx';
@@ -30,9 +27,10 @@ export { default as FormStandardLabel } from './patterns/FormStandardLabel.jsx';
 export { default as InvolvedParty } from './patterns/InvolvedParty.jsx';
 export { default as EditorSection } from './patterns/EditorSection.jsx';
 export { default as InputOutputRow } from './patterns/InputOutputRow.jsx';
-export { default as SentenceConstructor } from './patterns/SentenceConstructor.jsx';
 export { default as FormSlider } from './patterns/FormSlider.jsx';
 export { default as InputField } from './patterns/InputField.jsx';
+export { default as SentenceConstructor } from './patterns/SentenceConstructor.jsx';
+export { default as SentenceEditor } from './patterns/SentenceEditor.jsx';
 
 // Layouts
 export { default as Box } from './layout/Box.jsx';

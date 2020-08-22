@@ -6,7 +6,7 @@ module.exports = {
   version,
   exampleMode: 'expand',
   pagePerSection: false,
-  components: '../src/components/[A-Z]**/[A-Z]*.js', // index.js
+  components: '../src/components/[A-Z]**/[A-Z]*.js*', // index.js
   // ignore: ['**/src/test.js'],
   webpackConfig: {
     module: {
@@ -40,7 +40,6 @@ module.exports = {
     }
     return props;
   },
-  components: 'src/components/**/*.js*',
   assetsDir: 'static',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/Provider.js'),
@@ -54,6 +53,7 @@ module.exports = {
       name: 'Icons',
       components: 'src/components/icons/*.js*',
       ignore: [
+        'src/components/icons/index.js',
         'src/components/icons/IEdit.jsx',
         'src/components/icons/IEx.jsx',
         'src/components/icons/IInfo.jsx',
