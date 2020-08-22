@@ -13789,10 +13789,10 @@ ws@^6.0.0, ws@^6.1.2, ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
-xalgo-rule-processor@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/xalgo-rule-processor/-/xalgo-rule-processor-0.0.6.tgz#6d8997892b1842ede416d76237b6d9621f4a86fa"
-  integrity sha512-IYCGeCu3Z3hYucnKCsMTSrZoZJPZ0GVErjsoNQ5Bb4+IuCTE6IiAlRu7CEwtPjqGxDVIdrQsP676njvQo5zstA==
+xalgo-rule-processor@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/xalgo-rule-processor/-/xalgo-rule-processor-0.0.7.tgz#3a94f1faeaebd781aa993380db298d85c14fdc44"
+  integrity sha512-8owQGvwY+bmd/9YLQvxmegSULAVPKPsOBAW+Q73DSSDBsjSeXbHtIgEtSHDWpiGa9yU7pHq5UBI0r6+7VTEq4g==
   dependencies:
     chalk "^4.0.0"
 
