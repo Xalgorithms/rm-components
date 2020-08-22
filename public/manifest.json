@@ -1,6 +1,6 @@
 {
-  "short_name": "Xalgo-RM",
-  "name": "Create React App Sample",
+  "short_name": "XRADS",
+  "name": "Xalgorithms Rule Editor",
   "icons": [
     {
       "src": "favicon.ico",
