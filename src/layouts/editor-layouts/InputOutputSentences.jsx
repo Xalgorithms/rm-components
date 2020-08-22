@@ -3,15 +3,9 @@ import React from 'react';
 
 // rm-components
 import { Link } from '@reach/router';
-import Box from '../../components/layout/Box';
-import Grid from '../../components/layout/Grid';
-import Text from '../../components/primitives/Text';
-import Button from '../../components/primitives/Button';
-import Addbutton from '../../components/patterns/Addbutton';
-import Flex from '../../components/layout/Flex';
 //import SentenceConstructor from '../../components/patterns/SentenceConstructor';
 import EditorLeft from './EditorLeft';
-import Input from '../../components/primitives/Input';
+import { Box, Grid, Text, Input, Flex, Button, Addbutton } from '../../components';
 
 // style
 const fullheight = {
@@ -45,7 +39,7 @@ export default class InputOutputSentences extends React.Component {
         <Box p={4} bg="draftb">
           <EditorLeft title={this.props.rule.metadata.ruleName} />
         </Box>
-        <Box p={4} >
+        <Box p={4}>
           <div style={fullheight}>
             <Box
               p={2}

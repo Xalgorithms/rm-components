@@ -2,7 +2,7 @@
 import React from 'react';
 import { Router } from '@reach/router';
 import { toast } from 'react-toastify';
-import { deepCopy, objectEmpty } from 'xalgo-rule-processor';
+import { deepCopy, objectEmpty, RuleSchema, enforceSchemaWithTables } from 'xalgo-rule-processor';
 // pages
 import EditorLanding from './editor-layouts/EditorLanding';
 import InputOutput from './editor-layouts/InputOutput';
@@ -19,14 +19,7 @@ import EditorLeft from './editor-layouts/EditorLeft';
 
 // rm-components
 
-const emptyRule = {
-  metadata: {
-    ruleName: '',
-    ruleDescription: '',
-    ruleVerb: '',
-    ruleAttribute: '',
-  },
-};
+const emptyRule = enforceSchemaWithTables(RuleSchema, {});
 
 /**
  * The Editor component is the parent of all editing views, and is the
@@ -36,7 +29,6 @@ export default class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      blank: true,
       rule: deepCopy(emptyRule),
     };
 

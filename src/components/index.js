@@ -20,6 +20,7 @@ export { default as IEx } from './icons/IEx.jsx';
 
 // pattern
 export { default as Infobox } from './patterns/Infobox.jsx';
+export { default as Addbutton } from './patterns/Addbutton.jsx';
 export { default as FormDropdown } from './patterns/FormDropdown.jsx';
 export { default as FormDropdownDouble } from './patterns/FormDropdownDouble.jsx';
 export { default as FormStandard } from './patterns/FormStandard.jsx';
