@@ -104,11 +104,21 @@ export default class SentenceEditor extends React.Component {
             </Flex>
 
             <Flex>
-              <Button variant="invisible" onClick={() => setIsOpen(false)}>
+              <Button
+                variant="invisible"
+                onClick={() => {
+                  console.error('IMPLEMENT ME');
+                }}
+              >
                 <Icon name="download" fill="red" />
               </Button>
               <Box p={1} />
-              <Button variant="invisible" onClick={() => setIsOpen(true)}>
+              <Button
+                variant="invisible"
+                onClick={() => {
+                  console.error('IMPLEMENT ME');
+                }}
+              >
                 <IEdit />
               </Button>
               <Box p={1} />
