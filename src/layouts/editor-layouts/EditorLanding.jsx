@@ -18,7 +18,7 @@ import {
   FormDropdownDouble,
   FormStandardDouble,
   InvolvedParty,
-  SentenceConstructor,
+  // SentenceConstructor,
 } from '../../components';
 
 import EditorLeft from './EditorLeft';
@@ -40,7 +40,7 @@ const halfWidth = {
 const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
 };
-
+/*
 const fixpos = {
   position: 'sticky',
   top: '88px',
@@ -53,7 +53,7 @@ const modalhold = {
   background: 'rgba(255, 255, 255, .8)',
   marginBottom: '-90vh',
 };
-
+*/
 const rowValues = [
   { logic: 'A', type: 'blank' },
   { logic: 'B', type: 'blank' },
