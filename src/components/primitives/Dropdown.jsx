@@ -7,6 +7,7 @@ export const Dropdown = styled.select(
     boxSizing: 'border-box',
     display: 'block',
     width: '100%',
+    minWidth: '20px',
     margin: 0,
     padding: '12px',
     border: '1px solid #E7E7E7',

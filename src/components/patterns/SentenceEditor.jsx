@@ -14,8 +14,6 @@ import {
 } from '..';
 import { IEdit, ITrash } from '../icons';
 
-// style
-
 const fillBox = {
   borderBottom: '1px solid #696969',
   minWidth: 80,
@@ -30,10 +28,6 @@ const smallFillBox = {
   marginRight: 4,
 };
 
-/**
- * Displays content parameters in the condensed sentence/view of the component.
- * @param {String} contentField the text content of a field.
- */
 function SentenceConstructorField({ contentField, small }) {
   if (!contentField) {
     return <div style={small ? smallFillBox : fillBox} />;
@@ -45,20 +39,46 @@ function SentenceConstructorField({ contentField, small }) {
   );
 }
 
-/**
- * Requires content and updateContent props to function correctly.
- * @param {JSON} content contains a schema-constrained blob of content for use in the component fields.
- * @param {Function} updateContent method for passing an updated version of the internal content to the parent.
- */
-
 export default class SentenceEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      participle: '',
+      attribute: '',
+      subject: '',
+      operation: '==',
+      value: '',
+    };
+
+    this.updateParticiple = this.updateParticiple.bind(this);
+    this.updateAttribute = this.updateAttribute.bind(this);
+    this.updateSubject = this.updateSubject.bind(this);
+    this.updateOperation = this.updateOperation.bind(this);
+    this.updateValue = this.updateValue.bind(this);
+  }
+
+  updateParticiple(event) {
+    this.setState({ participle: event.target.value });
+  }
+
+  updateAttribute(event) {
+    this.setState({ attribute: event.target.value });
+  }
+
+  updateSubject(event) {
+    this.setState({ subject: event.target.value });
+  }
+
+  updateOperation(event) {
+    this.setState({ operation: event.target.value });
+  }
+
+  updateValue(event) {
+    this.setState({ value: event.target.value });
   }
 
   render() {
-    const { content, updateContent } = this.props;
+    const { participle, attribute, subject, operation, value } = this.state;
     return (
       <Box>
         <Box>
@@ -67,13 +87,13 @@ export default class SentenceEditor extends React.Component {
               <Text color="primary">A</Text>
               <Box padding={1} />
               <Text>The</Text>
-              <SentenceConstructorField contentField={content.particple} />
-              <SentenceConstructorField contentField={content.attribute} />
+              <SentenceConstructorField contentField={participle} />
+              <SentenceConstructorField contentField={attribute} />
               <Text>of the</Text>
-              <SentenceConstructorField contentField={content.subject} />
+              <SentenceConstructorField contentField={subject} />
               <Text>is</Text>
-              <SentenceConstructorField contentField={content.operation} small />
-              <SentenceConstructorField contentField={content.value} />
+              <SentenceConstructorField contentField={operation} small />
+              <SentenceConstructorField contentField={value} />
             </Flex>
 
             <Flex>
@@ -108,11 +128,15 @@ export default class SentenceEditor extends React.Component {
               <Text>The</Text>
               <Box padding={1} />
               <Box>
-                <Input value={content.a} onChange={updateContent} />
+                <Input
+                  value={participle}
+                  placeholder="participle"
+                  onChange={this.updateParticiple}
+                />
               </Box>
               <Box padding={1} />
               <Box>
-                <Input value={content.b} onChange={updateContent} />
+                <Input value={attribute} placeholder="attribute" onChange={this.updateAttribute} />
               </Box>
             </Flex>
             <Box padding={1} />
@@ -120,11 +144,11 @@ export default class SentenceEditor extends React.Component {
               <Text>Of the</Text>
               <Box padding={1} />
               <Box>
-                <Input value={content.c} onChange={updateContent} />
+                <Input value={subject} placeholder="subject" onChange={this.updateSubject} />
               </Box>
               <Box padding={1} />
               <Box>
-                <Dropdown>
+                <Dropdown value={operation} onChange={this.updateOperation}>
                   <Option value="==">==</Option>
                   <Option value="!=">!=</Option>
                   <Option value=">">&gt;</Option>
@@ -136,8 +160,8 @@ export default class SentenceEditor extends React.Component {
             </Flex>
             <Box padding={1} />
             <InputField
-              value={content.e}
-              onChange={updateContent}
+              value={value}
+              onChange={this.updateValue}
               message="Adjective, Arithmetic expression, or Boolean Number"
             />
             {/*
