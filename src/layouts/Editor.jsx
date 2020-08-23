@@ -12,7 +12,6 @@ import EditorLeft from './editor-layouts/EditorLeft';
 import {
   Box,
   Text,
-  EditorSection,
   Flex,
   Badge,
   Addbutton,
@@ -74,6 +73,13 @@ export default class Editor extends React.Component {
       sampleInvolvedParties: [1],
       // isOpen: 'false',
     };
+
+    this.getRuleFromStorage = this.getRuleFromStorage.bind(this);
+    this.updateRule = this.updateRule.bind(this);
+    // reset delete persist
+    this.resetRule = this.resetRule.bind(this);
+    this.deleteRule = this.deleteRule.bind(this);
+    this.persistRuleToLocalStorage = this.persistRuleToLocalStorage.bind(this);
   }
 
   componentDidMount() {
@@ -145,6 +151,13 @@ export default class Editor extends React.Component {
     this.props.navigate('/editor');
   }
 
+  deleteRule() {
+    toast.warning('Rule Delete');
+    this.updateRule(deepCopy(emptyRule));
+    this.props.navigate('/dashboard');
+    console.error('IMPLEMENT ME: deleteRule() in Editor.jsx');
+  }
+
   persistRuleToLocalStorage() {
     console.log('Editor.jsx: Persisting rule to local storage...');
     localStorage.setItem('rule', JSON.stringify(this.state.rule, null, 2));
@@ -156,7 +169,12 @@ export default class Editor extends React.Component {
     return (
       <ScrollUp>
         <div>
-          <EditorLeft title={rule.metadata.rule.title} description={rule.metadata.rule.description}>
+          <EditorLeft
+            title={rule.metadata.rule.title}
+            description={rule.metadata.rule.description}
+            deleteFunction={this.deleteRule}
+            resetFunction={this.resetRule}
+          >
             {/* Input Output Table */}
             {/*
           <div style={fixpos}>
@@ -204,7 +222,13 @@ export default class Editor extends React.Component {
             <Box p={4}>
               <div style={fullheight}>
                 <Box padding={2} />
-                <EditorSection title="Input→Output Table" />
+                <Text variant="heading">Rule Information</Text>
+                <Box>
+                  <Box padding={2} />
+                  <Box padding={2} />
+                  <Box padding={2} />
+                </Box>
+                <Text variant="heading">Input Tables</Text>
                 <Box>
                   <div>
                     <div style={bottomLine}>
@@ -335,10 +359,7 @@ export default class Editor extends React.Component {
 
                 {/* Metadata Management */}
 
-                <EditorSection
-                  title="MetaData Management"
-                  destination="/editor/rule-maker-entity"
-                />
+                <Text variant="heading">Metadata Management</Text>
 
                 <Box>
                   <div>
@@ -388,10 +409,7 @@ export default class Editor extends React.Component {
 
                 {/* Managment, Authorship and Maintainence */}
 
-                <EditorSection
-                  title="Managment, Authorship & Maintainence"
-                  destination="/editor/rule-maker-entity"
-                />
+                <Text variant="heading">Managment, Authorship &amp; Maintainence</Text>
 
                 <Box>
                   <div>
@@ -443,8 +461,7 @@ export default class Editor extends React.Component {
                 <Box padding={2} />
 
                 {/* Quantative wieghts */}
-
-                <EditorSection title="Qualitative Weights" destination="/editor/output-weight" />
+                <Text variant="heading">Qualitative Weights</Text>
 
                 <Box>
                   <div>
@@ -494,7 +511,7 @@ export default class Editor extends React.Component {
 
                 {/* Input Contexts */}
 
-                <EditorSection title="Input Contexts" destination="/editor/input-context" />
+                <Text variant="heading">Input Contexts</Text>
 
                 <Box>
                   <div>
@@ -564,7 +581,7 @@ export default class Editor extends React.Component {
 
                 {/* Input sources */}
 
-                <EditorSection title="Input Sources" destination="/editor/additional-data" />
+                <Text variant="heading">Input Sources</Text>
 
                 <Box>
                   <div>
@@ -624,10 +641,8 @@ export default class Editor extends React.Component {
 
                 {/* Input filters */}
 
-                <EditorSection
-                  title="Input Filters"
-                  destination="/editor/input-applicability-filters"
-                />
+                <Text variant="heading">Input Filters</Text>
+
                 <Box>
                   <div>
                     {sampleInvolvedParties.map((val, key) => (

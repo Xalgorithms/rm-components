@@ -35,7 +35,7 @@ const horizontalRule = {
 };
 
 // Primary Component
-function EditorLeft({ title, description, children }) {
+function EditorLeft({ title, description, children, deleteFunction, resetFunction }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isOpenb, setIsOpenb] = React.useState(false);
   const [isOpenc, setIsOpenc] = React.useState(false);
@@ -111,7 +111,7 @@ function EditorLeft({ title, description, children }) {
                       <Icon name="close" />
                     </Button>
                   </Flex>
-                  <Box p={2}/>
+                  <Box p={2} />
                   <Button variant="invisiblewide">
                     <div style={helpAlign}>
                       <div style={littlePadding} />
@@ -126,7 +126,7 @@ function EditorLeft({ title, description, children }) {
                     </div>
                   </Button>
                   <Box p={2} />
-                  <Button variant="invisiblewide">
+                  <Button variant="invisiblewide" onClick={resetFunction}>
                     <div style={helpAlign}>
                       <div style={littlePadding} />
                       <Flex justifyContent="space-between">
@@ -139,7 +139,7 @@ function EditorLeft({ title, description, children }) {
                       <div style={littlePadding} />
                     </div>
                   </Button>
-                  <Button variant="invisiblewide">
+                  <Button variant="invisiblewide" onClick={deleteFunction}>
                     <div style={helpAlign}>
                       <div style={littlePadding} />
                       <Flex justifyContent="space-between">
@@ -178,7 +178,7 @@ function EditorLeft({ title, description, children }) {
                       <Icon name="close" />
                     </Button>
                   </Flex>
-                  <Box p={2}/>
+                  <Box p={2} />
                   <Text>
                     Any rule can be expressed in terms of its input conditions, and its output
                     assertions. Please state each condition of this rule, and each assertion of this
@@ -211,7 +211,7 @@ function EditorLeft({ title, description, children }) {
                       <Icon name="close" />
                     </Button>
                   </Flex>
-                  <Box p={2}/>
+                  <Box p={2} />
                   <Text>{description}</Text>
                 </Box>
               </Box>
