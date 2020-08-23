@@ -80,6 +80,10 @@ export default class Editor extends React.Component {
     this.resetRule = this.resetRule.bind(this);
     this.deleteRule = this.deleteRule.bind(this);
     this.persistRuleToLocalStorage = this.persistRuleToLocalStorage.bind(this);
+
+    //Handlers
+    this.handleRuleTitleChange = this.handleRuleTitleChange.bind(this);
+    this.handleRuleDescriptionChange = this.handleRuleDescriptionChange.bind(this);
   }
 
   componentDidMount() {
@@ -96,9 +100,9 @@ export default class Editor extends React.Component {
 
     console.log(`Editor.jsx: Local stored rule is \n\n${storedRule}`);
 
-    if (!this.state.rule.metadata.ruleName) {
+    if (!this.state.rule.metadata.rule.title) {
       console.log('Editor.jsx: There is currently no rule stored in STATE.');
-      if (!storedRuleEmpty && storedRuleContent.metadata.ruleName) {
+      if (!storedRuleEmpty && storedRuleContent.metadata.rule.title) {
         console.log('Editor.jsx: There is rule content in local storage, loading into State...');
         this.setState({ rule: storedRuleContent }, () => {
           console.log('Editor.jsx: Navigating to the editor landing...');
@@ -160,8 +164,38 @@ export default class Editor extends React.Component {
 
   persistRuleToLocalStorage() {
     console.log('Editor.jsx: Persisting rule to local storage...');
-    localStorage.setItem('rule', JSON.stringify(this.state.rule, null, 2));
+    localStorage.setItem('rule', prettyJSON(this.state.rule));
   }
+
+  /**
+   * =====================================================================
+   * Field Input Handlers (Lots of these. Not sure how better to do this.)
+   * =====================================================================
+   */
+
+  handleRuleTitleChange(event) {
+    const newVal = event.target.value;
+    this.setState((prevState) => {
+      const ruleMod = { ...prevState.rule };
+      ruleMod.metadata.rule.title = newVal || '';
+      return { rule: ruleMod };
+    });
+  }
+
+  handleRuleDescriptionChange(event) {
+    const newVal = event.target.value;
+    this.setState((prevState) => {
+      const ruleMod = { ...prevState.rule };
+      ruleMod.metadata.rule.description = newVal || '';
+      return { rule: ruleMod };
+    });
+  }
+
+  /**
+   * ==================================
+   * Rendering Method, end of functions
+   * ==================================
+   */
 
   render() {
     const { rule, inputSentences, outputSentences, sampleInvolvedParties } = this.state;
@@ -224,7 +258,21 @@ export default class Editor extends React.Component {
                 <Box padding={2} />
                 <Text variant="heading">Rule Information</Text>
                 <Box>
-                  <Box padding={2} />
+                  <FormStandard
+                    name="Rule Title"
+                    description={RuleSchema.metadata.rule.__title}
+                    value={rule.metadata.rule.title}
+                    onChange={this.handleRuleTitleChange}
+                    onBlur={this.persistRuleToLocalStorage}
+                  />
+                  <Box m={1} />
+                  <FormStandard
+                    name="Rule Description"
+                    description={RuleSchema.metadata.rule.__description}
+                    value={rule.metadata.rule.description}
+                    onChange={this.handleRuleDescriptionChange}
+                    onBlur={this.persistRuleToLocalStorage}
+                  />
                   <Box padding={2} />
                   <Box padding={2} />
                 </Box>

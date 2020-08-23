@@ -14,7 +14,8 @@
     "import/no-named-as-default-member": 0,
     "react/destructuring-assignment": 0,
     "react/no-array-index-key": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "no-underscore-dangle": "off"
   },
   "env": {
     "jest/globals": true,
