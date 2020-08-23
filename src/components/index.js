@@ -31,6 +31,7 @@ export { default as FormSlider } from './patterns/FormSlider.jsx';
 export { default as InputField } from './patterns/InputField.jsx';
 export { default as SentenceConstructor } from './patterns/SentenceConstructor.jsx';
 export { default as SentenceEditor } from './patterns/SentenceEditor.jsx';
+export { default as SentenceDisplay } from './patterns/SentenceDisplay.jsx';
 
 // Layouts
 export { default as Box } from './layout/Box.jsx';
