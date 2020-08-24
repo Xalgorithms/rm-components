@@ -2,7 +2,6 @@
 import React from 'react';
 import Box from '../components/layout/Box';
 import Grid from '../components/layout/Grid';
-import Search from '../components/patterns/Search';
 import Card from '../components/patterns/Card';
 import Rule from '../components/primitives/Rule';
 import Flex from '../components/layout/Flex';

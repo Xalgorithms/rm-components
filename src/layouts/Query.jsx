@@ -2,10 +2,8 @@
 import React from 'react';
 import Box from '../components/layout/Box';
 import Grid from '../components/layout/Grid';
-import SectionDescription from '../components/patterns/SectionDescription';
 import Card from '../components/patterns/Card';
 // rm-components
-import Text from '../components/primitives/Text';
 import ScrollUp from './components/ScrollUp';
 import Search from '../components/patterns/Search';
 import Rule from '../components/primitives/Rule';
@@ -21,7 +19,7 @@ export default class Query extends React.Component {
   }
 
   render() {
-    const { pageDescription } = this.state;
+    //const { pageDescription } = this.state;
     return (
       <ScrollUp>
         <Box m={4}>
