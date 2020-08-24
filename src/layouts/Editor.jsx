@@ -754,14 +754,19 @@ export default class Editor extends React.Component {
 }
 
 function RuleNameSection({ rule, updateRule, active }) {
+  // 0. Fill out the section name.
   const sectionName = 'Rule Information';
+  const [modified, setModified] = useState(false);
 
   // 1. Set a state for each element that must be filled.
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
 
-  // 2. Ensure each field is set according to the current rule state.
-  if (active) {
+  // Don't touch this.
+  if (active && !modified) {
+    console.log(`${sectionName} section is being edited.`);
+
+    // 2. Ensure each field is set according to the current rule state.
     if (title !== rule.metadata.rule.title) setTitle(rule.metadata.rule.title);
     if (desc !== rule.metadata.rule.description) setDesc(rule.metadata.rule.description);
   }
@@ -770,7 +775,7 @@ function RuleNameSection({ rule, updateRule, active }) {
   return (
     <Box>
       <Box padding={2} />
-      <Text variant="heading">SDFS</Text>
+      <Text variant="heading">{sectionName}</Text>
       <Box>
         <FormStandard
           name="Rule Title"
@@ -779,6 +784,7 @@ function RuleNameSection({ rule, updateRule, active }) {
           value={title}
           onChange={(e) => {
             setTitle(e.target.value);
+            setModified(true);
           }}
         />
         <Box m={1} />
@@ -789,22 +795,31 @@ function RuleNameSection({ rule, updateRule, active }) {
           value={desc}
           onChange={(e) => {
             setDesc(e.target.value);
+            setModified(true);
           }}
         />
         <Box padding={2} />
 
         {/* SAVE BUTTON */}
-        {/* 4. In the save method, update the rule state.*/}
+        {/* 4. In the save method, update the rule state. */}
         <Button
+          disabled={!modified}
           onClick={() => {
             const ruleCopy = deepCopy(rule);
+
+            // Modify all necessary fields in the rule.
             ruleCopy.metadata.rule.title = title;
             ruleCopy.metadata.rule.description = desc;
+
+            // Call the updateRule function with the new content.
             updateRule(ruleCopy);
-            toast('Saved');
+
+            // Cleanup and notifications.
+            toast(`Saved ${sectionName}`);
+            setModified(false);
           }}
         >
-          Save {sectionName}
+          {`Save ${sectionName}`}
         </Button>
         <Box padding={4} />
       </Box>
