@@ -46,6 +46,19 @@ const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
 };
 
+const fixpos = {
+  position: 'sticky',
+  top: '88px',
+  width: '100%',
+};
+
+const modalhold = {
+  position: 'sticky',
+  height: '90vh',
+  background: 'rgba(255, 255, 255, .8)',
+  marginBottom: '-90vh',
+};
+
 const rowValues = [
   { logic: 'A', type: 'blank' },
   { logic: 'B', type: 'blank' },
@@ -58,9 +71,14 @@ const blankValues = [
   { logic: 'C', type: 'invisible' },
 ];
 
+// This empty rule is the schema without any __descriptions.
 const emptyRule = enforceSchemaWithTables(RuleSchema, {});
 
 /**
+ * ================
+ * The Editor Class
+ * ================
+ *
  * The Editor component is the parent of all editing views, and is the
  * master source of information regarding the state of the rule.
  */
@@ -73,7 +91,9 @@ export default class Editor extends React.Component {
       outputSentences: [1],
       sampleInvolvedParties: [1],
       active: false,
-      // isOpen: 'false',
+      modalOpen: false,
+      // modalEditingInput: true,
+      // modalEditingValue: 0,
     };
 
     this.getRuleFromStorage = this.getRuleFromStorage.bind(this);
@@ -82,16 +102,17 @@ export default class Editor extends React.Component {
     this.resetRule = this.resetRule.bind(this);
     this.deleteRule = this.deleteRule.bind(this);
     this.persistRuleToLocalStorage = this.persistRuleToLocalStorage.bind(this);
-
-    //Handlers
-    this.handleRuleTitleChange = this.handleRuleTitleChange.bind(this);
-    this.handleRuleDescriptionChange = this.handleRuleDescriptionChange.bind(this);
   }
 
   componentDidMount() {
     this.getRuleFromStorage();
-    console.log(prettyJSON(this.state.rule));
   }
+
+  /**
+   * ==============================================
+   * Class Functions, mostly for editing rule state
+   * ==============================================
+   */
 
   getRuleFromStorage() {
     console.log('Editor.jsx: Getting rule from storage...');
@@ -106,7 +127,10 @@ export default class Editor extends React.Component {
       console.log('Editor.jsx: There is currently no rule stored in STATE.');
       if (!storedRuleEmpty && storedRuleContent.metadata.rule.title) {
         console.log('Editor.jsx: There is rule content in local storage, loading into State...');
-        this.setState({ rule: storedRuleContent, active: true });
+        this.setState({ rule: storedRuleContent }, () => {
+          console.log('Editor.jsx: Updated content from local storage.');
+          this.setState({ active: true });
+        });
       }
     }
   }
@@ -122,8 +146,7 @@ export default class Editor extends React.Component {
     console.log(
       `Editor.jsx: Updating Rule Content:
       \nPath: ${section || ''}${subsection ? '/' : ''}${subsection || ''}
-      
-      ${JSON.stringify(newRuleContent, null, 2)}`
+      \nContent:\n${prettyJSON(newRuleContent)}`
     );
     // If a subsection is defined, the section must also be defined.
     if (subsection && !section) {
@@ -141,6 +164,7 @@ export default class Editor extends React.Component {
         return { rule: updatedRule };
       }, this.persistRuleToLocalStorage);
     } else {
+      // This is the most common use case by far, I should consider scrapping the rest of this method.
       this.setState({ rule: newRuleContent, active: true }, this.persistRuleToLocalStorage);
     }
   }
@@ -164,37 +188,24 @@ export default class Editor extends React.Component {
   }
 
   /**
-   * =====================================================================
-   * Field Input Handlers (Lots of these. Not sure how better to do this.)
-   * =====================================================================
-   */
-
-  handleRuleTitleChange(event) {
-    const newVal = event.target.value;
-    this.setState((prevState) => {
-      const ruleMod = { ...prevState.rule };
-      ruleMod.metadata.rule.title = newVal || '';
-      return { rule: ruleMod };
-    });
-  }
-
-  handleRuleDescriptionChange(event) {
-    const newVal = event.target.value;
-    this.setState((prevState) => {
-      const ruleMod = { ...prevState.rule };
-      ruleMod.metadata.rule.description = newVal || '';
-      return { rule: ruleMod };
-    });
-  }
-
-  /**
    * ==================================
    * Rendering Method, end of functions
    * ==================================
+   *
+   * I've tried to move as many parts of this as possible into functional
+   * components, which are included after this class. Those which could not
+   * should be moved in the future.
    */
 
   render() {
-    const { rule, inputSentences, outputSentences, sampleInvolvedParties, active } = this.state;
+    const {
+      rule,
+      inputSentences,
+      outputSentences,
+      sampleInvolvedParties,
+      active,
+      modalOpen,
+    } = this.state;
 
     return (
       <ScrollUp>
@@ -205,51 +216,51 @@ export default class Editor extends React.Component {
             deleteFunction={this.deleteRule}
             resetFunction={this.resetRule}
           >
-            {/*
-          <div style={fixpos}>
-            <Box p={4} width="100%" bg="#fff">
-              <Flex justifyContent="space-between" alignItems="center">
-                <div>
-                  <Box padding="0.2em" />
-                  <Text variant="formtitle">{this.props.rule.metadata.ruleName}</Text>
-                </div>
-                <Flex>
-                  <Text color="publish">Publish</Text>
-                  <Box p={1} />
-                  <Text color="primary">Save and Exit</Text>
-                </Flex>
-              </Flex>
-            </Box>
-            <div style={modalhold}>
-              <Flex alignItems="center" justifyContent="center">
-                <Box height="70vh" />
-                <Box
-                  p={2}
-                  m={0}
-                  width="600px"
-                  bg="bg"
-                  border="1px solid"
-                  borderColor="oline"
-                  borderRadius="base"
-                >
-                  <SentenceConstructor
-                    content={{
-                      a: 'Param A',
-                      b: 'Param B',
-                      c: 'Param C',
-                      d: '>',
-                      e: 'formula E',
-                    }}
-                    updateContent={(n) => {
-                      console.log(n);
-                    }}
-                  />
+            {/* Modal used by input/output tables. */}
+            {modalOpen ? (
+              <div style={fixpos}>
+                <Box p={4} width="100%" bg="#fff">
+                  <Flex justifyContent="space-between" alignItems="center">
+                    <div>
+                      <Box padding="0.2em" />
+                      <Text variant="formtitle">{rule.metadata.rule.name}</Text>
+                    </div>
+                    <Flex>
+                      <Text color="publish">Publish</Text>
+                      <Box p={1} />
+                      <Text color="primary">Save and Exit</Text>
+                    </Flex>
+                  </Flex>
                 </Box>
-              </Flex>
-            </div>
-          </div> 
-          
-          */}
+                <div style={modalhold}>
+                  <Flex alignItems="center" justifyContent="center">
+                    <Box height="70vh" />
+                    <Box
+                      p={2}
+                      m={0}
+                      width="600px"
+                      bg="bg"
+                      border="1px solid"
+                      borderColor="oline"
+                      borderRadius="base"
+                    >
+                      <Text>Hello?</Text>
+                      <Button
+                        onClick={() => {
+                          this.setState((prevState) => {
+                            const updatedRule = prevState.rule;
+                            // Add extra stuff to updatedRule here.
+                            return { rule: updatedRule, modalOpen: false };
+                          });
+                        }}
+                      >
+                        Save and Close
+                      </Button>
+                    </Box>
+                  </Flex>
+                </div>
+              </div>
+            ) : null}
 
             <Box p={4}>
               <div style={fullheight}>
