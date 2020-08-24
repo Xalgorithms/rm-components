@@ -6,6 +6,8 @@ import {
   RuleSchema,
   generateNewRule,
   addNewCase,
+  addNewInputCondition,
+  addNewOutputAssertion,
   prettyJSON,
 } from 'xalgo-rule-processor';
 import ScrollUp from './components/ScrollUp';
@@ -76,7 +78,9 @@ const blankValues = [
 
 // This empty rule is the schema without any __descriptions.
 // Temporarily start with three cases.
-const emptyRule = addNewCase(addNewCase(generateNewRule()));
+const emptyRule = addNewOutputAssertion(
+  addNewInputCondition(addNewInputCondition(addNewCase(addNewCase(generateNewRule()))))
+);
 
 /**
  * ================
@@ -286,11 +290,13 @@ export default class Editor extends React.Component {
                       </Box>
                     </Flex>
                   </div>
-                  {inputSentences.map((val, key) => (
+
+                  {rule.input_conditions.map((val, key) => (
                     <Box key={key}>
                       <InputOutputRow rowValues={rowValues} />
                     </Box>
                   ))}
+
                   <Flex alignItems="center">
                     <div style={halfWidth}>
                       <Addbutton
@@ -353,7 +359,7 @@ export default class Editor extends React.Component {
                       </Box>
                     </Flex>
                   </div>
-                  {outputSentences.map((val, key) => (
+                  {rule.output_assertions.map((val, key) => (
                     <Box key={key}>
                       <InputOutputRow rowValues={rowValues} />
                     </Box>
