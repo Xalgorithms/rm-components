@@ -145,8 +145,9 @@ export default class Editor extends React.Component {
       console.log('Adding a case to the cases.');
       newRuleContent.input_conditions[0].cases[0].case = alphabet.charAt(0);
     }
-    // This is the most common use case by far, I should consider scrapping the rest of this method.
-    this.setState({ rule: newRuleContent }, () => {
+
+    // Finally, save.
+    this.setState({ active: false, rule: newRuleContent }, () => {
       console.log('Editor.jsx: Updated content from local storage.');
       this.setState({ active: true }, () => {
         this.persistRuleToLocalStorage();
@@ -231,7 +232,7 @@ export default class Editor extends React.Component {
                     borderColor="oline"
                     borderRadius="base"
                   >
-                    <Text>Hello?</Text>
+                    <Text>Hello Motol?</Text>
                     <Button
                       onClick={() => {
                         this.setState((prevState) => {
