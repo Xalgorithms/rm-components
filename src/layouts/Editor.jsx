@@ -4,7 +4,8 @@ import {
   deepCopy,
   objectEmpty,
   RuleSchema,
-  enforceSchemaWithTables,
+  generateNewRule,
+  addNewCase,
   prettyJSON,
 } from 'xalgo-rule-processor';
 import ScrollUp from './components/ScrollUp';
@@ -74,7 +75,7 @@ const blankValues = [
 ];
 
 // This empty rule is the schema without any __descriptions.
-const emptyRule = enforceSchemaWithTables(RuleSchema, {});
+const emptyRule = addNewCase(addNewCase(generateNewRule()));
 
 /**
  * ================
