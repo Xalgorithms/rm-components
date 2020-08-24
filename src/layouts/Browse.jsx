@@ -2,7 +2,10 @@
 import React from 'react';
 import Box from '../components/layout/Box';
 import Grid from '../components/layout/Grid';
-import SectionDescription from '../components/patterns/SectionDescription';
+import Search from '../components/patterns/Search';
+import Card from '../components/patterns/Card';
+import Rule from '../components/primitives/Rule';
+import Flex from '../components/layout/Flex';
 // rm-components
 import Text from '../components/primitives/Text';
 import ScrollUp from './components/ScrollUp';
@@ -19,20 +22,19 @@ export default class Browse extends React.Component {
   render() {
     return (
       <ScrollUp>
-        <Grid gridTemplateColumns="48.75% 48.75%" gridGap="2.5%" m={4}>
-          <Box>
-            <SectionDescription>
-              <Text variant="subtitle" color="purplea">
-                {this.state.pageDescription}
-              </Text>
-              <Text>
-                Any rule can be expressed in terms of its input conditions, and its output
-                assertions. Please state each condition of this rule, and each assertion of this
-                rule, as a simple factual sentence. Each sentence should be phrased in a manner
-                that, in some particular circumstance, the sentence would logically be ‘true’ or
-                ‘false’.
-              </Text>
-            </SectionDescription>
+        <Box m={4}>
+          <Flex>
+            <Text color="primary">Upload Table</Text>
+          </Flex>
+        </Box>
+        <Rule />
+        <Grid height="80vh" gridTemplateColumns="400px auto">
+          <Box borderRight="1px solid #efefef">
+            <Box p={4}>
+              <Card />
+              <Card />
+              <Card />
+            </Box>
           </Box>
         </Grid>
       </ScrollUp>

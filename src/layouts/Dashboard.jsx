@@ -12,7 +12,7 @@ import ScrollUp from './components/ScrollUp';
 
 const hold = {
   zIndex: '5',
-}
+};
 
 // Primary Component
 export default class Dashboard extends React.Component {
@@ -33,21 +33,29 @@ export default class Dashboard extends React.Component {
             </Flex>
           </Box>
           <Rule />
-          <Grid gridTemplateColumns="auto 400px">
-            <Box>
-              <Box p={4} height="26vh">
-                <Text>Create Rule</Text>
-              </Box>
-              <Box p={4} borderTop="1px solid #E7E7E7" height="26vh">
-              <Text>Create Control Table</Text>
-              </Box>
-              <Box p={4} borderTop="1px solid #E7E7E7" height="26vh">
+          <Grid gridTemplateColumns="400px auto 400px">
+            <Box borderRight="1px solid #efefef">
+              <Box p={4}>
+                <Text variant="formtitle">Welcome to the Dashboard</Text>
+                <Box p={1} />
+                <Text>Lorem Ipsum</Text>
               </Box>
             </Box>
-            <Box p={4} borderLeft="1px solid #E7E7E7" height="80vh">
+            <Box paddingLeft={4} paddingTop={4} height="80vh">
               <Card />
               <Card />
               <Card />
+            </Box>
+            <Box>
+              <Box m={4} p={2} height="19vh" bg="midblue" borderRadius="base">
+                <Text color="primary">Create Rule</Text>
+              </Box>
+              <Box m={4} p={2} height="19vh" bg="primary" borderRadius="base">
+                <Text color="#fff">Create Control Table</Text>
+              </Box>
+              <Box m={4} p={2} height="38vh" borderRadius="base" border="1px solid" borderColor="oline">
+                <Text color="primary">Upload Table</Text>
+              </Box>
             </Box>
           </Grid>
         </div>
