@@ -75,6 +75,7 @@ const blankValues = [
 ];
 
 // This empty rule is the schema without any __descriptions.
+// Temporarily start with three cases.
 const emptyRule = addNewCase(addNewCase(generateNewRule()));
 
 /**
