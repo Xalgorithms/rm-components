@@ -25,6 +25,7 @@ const Input = styled.input(
     // Remove red outline on required input in Firefox
     boxShadow: 'none',
 
+    // TODO: Any way to make the placeholder text a bit lighter?
     '&::placeholder': {
       color: 'secondary',
     },

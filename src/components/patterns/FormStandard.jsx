@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Stack, Box, Button, Text, Flex, Modal, Infobox, IInfo } from '..';
 
-function FormStandard({ name, description, value, onChange, onBlur }) {
+function FormStandard({ name, description, value, onChange, onBlur, placeholder }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -19,7 +19,7 @@ function FormStandard({ name, description, value, onChange, onBlur }) {
         </Button>
       </Flex>
       <Box padding={1} />
-      <Input value={value} onChange={onChange} onBlur={onBlur} />
+      <Input value={value} onChange={onChange} onBlur={onBlur} placeholder={placeholder} />
     </Stack>
   );
 }

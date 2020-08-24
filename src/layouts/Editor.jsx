@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import {
   deepCopy,
@@ -14,6 +14,7 @@ import {
   Text,
   Flex,
   Badge,
+  Button,
   Addbutton,
   InputOutputRow,
   FormStandard,
@@ -209,7 +210,6 @@ export default class Editor extends React.Component {
             deleteFunction={this.deleteRule}
             resetFunction={this.resetRule}
           >
-            {/* Input Output Table */}
             {/*
           <div style={fixpos}>
             <Box p={4} width="100%" bg="#fff">
@@ -252,30 +252,18 @@ export default class Editor extends React.Component {
                 </Box>
               </Flex>
             </div>
-          </div> */}
+          </div> 
+          
+          */}
+
             <Box p={4}>
               <div style={fullheight}>
-                <Box padding={2} />
-                <Text variant="heading">Rule Information</Text>
-                <Box>
-                  <FormStandard
-                    name="Rule Title"
-                    description={RuleSchema.metadata.rule.__title}
-                    value={rule.metadata.rule.title}
-                    onChange={this.handleRuleTitleChange}
-                    onBlur={this.persistRuleToLocalStorage}
-                  />
-                  <Box m={1} />
-                  <FormStandard
-                    name="Rule Description"
-                    description={RuleSchema.metadata.rule.__description}
-                    value={rule.metadata.rule.description}
-                    onChange={this.handleRuleDescriptionChange}
-                    onBlur={this.persistRuleToLocalStorage}
-                  />
-                  <Box padding={2} />
-                  <Box padding={2} />
-                </Box>
+                {/* Rule Name */}
+
+                <RuleNameSection rule={rule} updateRule={this.updateRule} />
+
+                {/* Input Output Table */}
+
                 <Text variant="heading">Input Tables</Text>
                 <Box>
                   <div>
@@ -768,4 +756,62 @@ export default class Editor extends React.Component {
       </ScrollUp>
     );
   }
+}
+
+function RuleNameSection({ rule, updateRule }) {
+  const sectionName = 'Rule Information';
+
+  // 1. Set a state for each element that must be filled.
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
+
+  // 2. Ensure each field is set according to the current rule state.
+  if (title !== rule.metadata.rule.title) setTitle(rule.metadata.rule.title);
+  if (desc !== rule.metadata.rule.description) setDesc(rule.metadata.rule.description);
+
+  // 3. Return a rendering of the component.
+  return (
+    <Box>
+      <Box padding={2} />
+      <Text variant="heading">{sectionName}</Text>
+      <Box>
+        <FormStandard
+          name="Rule Title"
+          description={RuleSchema.metadata.rule.__title}
+          placeholder={RuleSchema.metadata.rule.title}
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <Box m={1} />
+        <FormStandard
+          name="Rule Description"
+          description={RuleSchema.metadata.rule.__description}
+          placeholder={RuleSchema.metadata.rule.description}
+          value={desc}
+          onChange={(e) => {
+            setDesc(e.target.value);
+          }}
+        />
+        <Box padding={2} />
+
+        {/* SAVE BUTTON */}
+        {/* 4. In the save method, update the rule state. */}
+        <Button
+          onClick={() => {
+            const ruleCopy = deepCopy(rule);
+            ruleCopy.metadata.rule.title = title;
+            ruleCopy.metadata.rule.description = desc;
+            updateRule(ruleCopy);
+            toast(`Saved ${sectionName}`);
+          }}
+        >
+          Save
+          {sectionName}
+        </Button>
+        <Box padding={4} />
+      </Box>
+    </Box>
+  );
 }
