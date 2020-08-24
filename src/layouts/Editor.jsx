@@ -72,6 +72,7 @@ export default class Editor extends React.Component {
       inputSentences: [1],
       outputSentences: [1],
       sampleInvolvedParties: [1],
+      active: false,
       // isOpen: 'false',
     };
 
@@ -95,7 +96,7 @@ export default class Editor extends React.Component {
   getRuleFromStorage() {
     console.log('Editor.jsx: Getting rule from storage...');
 
-    const storedRule = localStorage.getItem('rule');
+    const storedRule = localStorage.getItem('rulev2');
     const storedRuleContent = JSON.parse(storedRule);
     const storedRuleEmpty = objectEmpty(storedRuleContent);
 
@@ -105,13 +106,7 @@ export default class Editor extends React.Component {
       console.log('Editor.jsx: There is currently no rule stored in STATE.');
       if (!storedRuleEmpty && storedRuleContent.metadata.rule.title) {
         console.log('Editor.jsx: There is rule content in local storage, loading into State...');
-        this.setState({ rule: storedRuleContent }, () => {
-          console.log('Editor.jsx: Navigating to the editor landing...');
-          this.props.navigate('/editor/editor-landing');
-        });
-      } else {
-        console.log('Editor.jsx: There is no rule content in local storage, starting a new rule.');
-        this.props.navigate('/editor');
+        this.setState({ rule: storedRuleContent, active: true });
       }
     }
   }
@@ -146,7 +141,7 @@ export default class Editor extends React.Component {
         return { rule: updatedRule };
       }, this.persistRuleToLocalStorage);
     } else {
-      this.setState({ rule: newRuleContent }, this.persistRuleToLocalStorage);
+      this.setState({ rule: newRuleContent, active: true }, this.persistRuleToLocalStorage);
     }
   }
 
@@ -165,7 +160,7 @@ export default class Editor extends React.Component {
 
   persistRuleToLocalStorage() {
     console.log('Editor.jsx: Persisting rule to local storage...');
-    localStorage.setItem('rule', prettyJSON(this.state.rule));
+    localStorage.setItem('rulev2', prettyJSON(this.state.rule));
   }
 
   /**
@@ -199,7 +194,7 @@ export default class Editor extends React.Component {
    */
 
   render() {
-    const { rule, inputSentences, outputSentences, sampleInvolvedParties } = this.state;
+    const { rule, inputSentences, outputSentences, sampleInvolvedParties, active } = this.state;
 
     return (
       <ScrollUp>
@@ -260,7 +255,7 @@ export default class Editor extends React.Component {
               <div style={fullheight}>
                 {/* Rule Name */}
 
-                <RuleNameSection rule={rule} updateRule={this.updateRule} />
+                <RuleNameSection rule={rule} updateRule={this.updateRule} active={active} />
 
                 {/* Input Output Table */}
 
@@ -758,7 +753,7 @@ export default class Editor extends React.Component {
   }
 }
 
-function RuleNameSection({ rule, updateRule }) {
+function RuleNameSection({ rule, updateRule, active }) {
   const sectionName = 'Rule Information';
 
   // 1. Set a state for each element that must be filled.
@@ -766,14 +761,16 @@ function RuleNameSection({ rule, updateRule }) {
   const [desc, setDesc] = useState('');
 
   // 2. Ensure each field is set according to the current rule state.
-  if (title !== rule.metadata.rule.title) setTitle(rule.metadata.rule.title);
-  if (desc !== rule.metadata.rule.description) setDesc(rule.metadata.rule.description);
+  if (active) {
+    if (title !== rule.metadata.rule.title) setTitle(rule.metadata.rule.title);
+    if (desc !== rule.metadata.rule.description) setDesc(rule.metadata.rule.description);
+  }
 
   // 3. Return a rendering of the component.
   return (
     <Box>
       <Box padding={2} />
-      <Text variant="heading">{sectionName}</Text>
+      <Text variant="heading">SDFS</Text>
       <Box>
         <FormStandard
           name="Rule Title"
@@ -797,18 +794,17 @@ function RuleNameSection({ rule, updateRule }) {
         <Box padding={2} />
 
         {/* SAVE BUTTON */}
-        {/* 4. In the save method, update the rule state. */}
+        {/* 4. In the save method, update the rule state.*/}
         <Button
           onClick={() => {
             const ruleCopy = deepCopy(rule);
             ruleCopy.metadata.rule.title = title;
             ruleCopy.metadata.rule.description = desc;
             updateRule(ruleCopy);
-            toast(`Saved ${sectionName}`);
+            toast('Saved');
           }}
         >
-          Save
-          {sectionName}
+          Save {sectionName}
         </Button>
         <Box padding={4} />
       </Box>
