@@ -28,6 +28,8 @@ import {
   // SentenceConstructor,
 } from '../components';
 
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
 const fullheight = {
   minHeight: '80vh',
   width: '50vw',
@@ -127,46 +129,29 @@ export default class Editor extends React.Component {
       console.log('Editor.jsx: There is currently no rule stored in STATE.');
       if (!storedRuleEmpty && storedRuleContent.metadata.rule.title) {
         console.log('Editor.jsx: There is rule content in local storage, loading into State...');
-        this.setState({ rule: storedRuleContent }, () => {
-          console.log('Editor.jsx: Updated content from local storage.');
-          this.setState({ active: true });
-        });
+        this.updateRule(storedRuleContent);
       }
     }
   }
 
-  /**
-   * Allows child components to update the rule, or a specific rule section.
-   *
-   * @param {Object} newRuleContent new content to be placed in the rule
-   * @param {String} section top-level section to replace
-   * @param {String} subsection second-level section to replace
-   */
-  updateRule(newRuleContent, section = null, subsection = null) {
+  updateRule(content) {
+    const newRuleContent = content;
     console.log(
       `Editor.jsx: Updating Rule Content:
-      \nPath: ${section || ''}${subsection ? '/' : ''}${subsection || ''}
       \nContent:\n${prettyJSON(newRuleContent)}`
     );
-    // If a subsection is defined, the section must also be defined.
-    if (subsection && !section) {
-      throw new Error('Must include a section if a subsection is defined.');
-    } else if (section && !subsection) {
-      this.setState((prevState) => {
-        const updatedRule = prevState.rule;
-        updatedRule[section] = newRuleContent;
-        return { rule: updatedRule };
-      }, this.persistRuleToLocalStorage);
-    } else if (section && subsection) {
-      this.setState((prevState) => {
-        const updatedRule = prevState.rule;
-        updatedRule[section][subsection] = newRuleContent;
-        return { rule: updatedRule };
-      }, this.persistRuleToLocalStorage);
-    } else {
-      // This is the most common use case by far, I should consider scrapping the rest of this method.
-      this.setState({ rule: newRuleContent, active: true }, this.persistRuleToLocalStorage);
+    // Perform checks on rule to ensure content is good.
+    if (newRuleContent.input_conditions[0].cases[0].case === '') {
+      console.log('Adding a case to the cases.');
+      newRuleContent.input_conditions[0].cases[0].case = alphabet.charAt(0);
     }
+    // This is the most common use case by far, I should consider scrapping the rest of this method.
+    this.setState({ rule: newRuleContent }, () => {
+      console.log('Editor.jsx: Updated content from local storage.');
+      this.setState({ active: true }, () => {
+        this.persistRuleToLocalStorage();
+      });
+    });
   }
 
   resetRule() {
@@ -179,7 +164,7 @@ export default class Editor extends React.Component {
     toast.warning('Rule Delete');
     this.updateRule(deepCopy(emptyRule));
     this.props.navigate('/dashboard');
-    console.error('IMPLEMENT ME: deleteRule() in Editor.jsx');
+    console.error("This is a toy editor, you're not deleting anything.");
   }
 
   persistRuleToLocalStorage() {
@@ -207,309 +192,453 @@ export default class Editor extends React.Component {
       modalOpen,
     } = this.state;
 
+    console.log('TEST TEST TEST\n\n\n');
+    console.log(rule.input_conditions[0].cases);
+
     return (
-      <ScrollUp>
-        <div>
-          <EditorLeft
-            title={rule.metadata.rule.title}
-            description={rule.metadata.rule.description}
-            deleteFunction={this.deleteRule}
-            resetFunction={this.resetRule}
-          >
-            {/* Modal used by input/output tables. */}
-            {modalOpen ? (
-              <div style={fixpos}>
-                <Box p={4} width="100%" bg="#fff">
-                  <Flex justifyContent="space-between" alignItems="center">
-                    <div>
-                      <Box padding="0.2em" />
-                      <Text variant="formtitle">{rule.metadata.rule.name}</Text>
-                    </div>
-                    <Flex>
-                      <Text color="publish">Publish</Text>
-                      <Box p={1} />
-                      <Text color="primary">Save and Exit</Text>
-                    </Flex>
+      <div>
+        <EditorLeft
+          title={rule.metadata.rule.title}
+          description={rule.metadata.rule.description}
+          deleteFunction={this.deleteRule}
+          resetFunction={this.resetRule}
+        >
+          {/* Modal used by input/output tables. */}
+          {modalOpen ? (
+            <div style={fixpos}>
+              <Box p={4} width="100%" bg="#fff">
+                <Flex justifyContent="space-between" alignItems="center">
+                  <div>
+                    <Box padding="0.2em" />
+                    <Text variant="formtitle">{rule.metadata.rule.name}</Text>
+                  </div>
+                  <Flex>
+                    <Text color="publish">Publish</Text>
+                    <Box p={1} />
+                    <Text color="primary">Save and Exit</Text>
                   </Flex>
-                </Box>
-                <div style={modalhold}>
-                  <Flex alignItems="center" justifyContent="center">
-                    <Box height="70vh" />
-                    <Box
-                      p={2}
-                      m={0}
-                      width="600px"
-                      bg="bg"
-                      border="1px solid"
-                      borderColor="oline"
-                      borderRadius="base"
+                </Flex>
+              </Box>
+              <div style={modalhold}>
+                <Flex alignItems="center" justifyContent="center">
+                  <Box height="70vh" />
+                  <Box
+                    p={2}
+                    m={0}
+                    width="600px"
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Text>Hello?</Text>
+                    <Button
+                      onClick={() => {
+                        this.setState((prevState) => {
+                          const updatedRule = prevState.rule;
+                          // Add extra stuff to updatedRule here.
+                          return { rule: updatedRule, modalOpen: false };
+                        });
+                      }}
                     >
-                      <Text>Hello?</Text>
-                      <Button
-                        onClick={() => {
-                          this.setState((prevState) => {
-                            const updatedRule = prevState.rule;
-                            // Add extra stuff to updatedRule here.
-                            return { rule: updatedRule, modalOpen: false };
-                          });
-                        }}
-                      >
-                        Save and Close
-                      </Button>
+                      Save and Close
+                    </Button>
+                  </Box>
+                </Flex>
+              </div>
+            </div>
+          ) : null}
+
+          <Box p={4}>
+            <div style={fullheight}>
+              {/* Rule Name */}
+
+              <RuleNameSection rule={rule} updateRule={this.updateRule} active={active} />
+
+              {/* Input Output Table */}
+
+              <Text variant="heading">Input Tables</Text>
+              <Box>
+                <div>
+                  <div style={bottomLine}>
+                    <Flex alignItems="center">
+                      <div style={halfWidth}>
+                        <Flex>
+                          <Text variant="formtitle">When</Text>
+                          <Box padding={1} />
+                          <Text>Input Contditions</Text>
+                        </Flex>
+                      </div>
+                      <Box>
+                        <Flex>
+                          {rule.input_conditions[0].cases.map((rowValue, i) => {
+                            return (
+                              <div style={ruleLeft} key={i}>
+                                <Badge variant="grayblue">{rowValue.case || 'X'}</Badge>
+                              </div>
+                            );
+                          })}
+                          <div style={ruleLeft} />
+                        </Flex>
+                      </Box>
+                    </Flex>
+                  </div>
+                  {inputSentences.map((val, key) => (
+                    <Box key={key}>
+                      <InputOutputRow rowValues={rowValues} />
                     </Box>
+                  ))}
+                  <Flex alignItems="center">
+                    <div style={halfWidth}>
+                      <Addbutton
+                        onClick={() => {
+                          const parties = inputSentences;
+                          const last = parties[parties.length];
+                          parties.push(last + 1);
+                          this.setState({ inputSentences: parties });
+                        }}
+                      />
+                    </div>
+                    <Box>
+                      <Flex>
+                        {blankValues.map((blankValue, i) => (
+                          <div style={ruleLeft} key={i}>
+                            <Badge variant={blankValue.type} key={blankValue.logic}>
+                              {blankValue.logic}
+                            </Badge>
+                          </div>
+                        ))}
+                        <div style={ruleLeft} />
+                      </Flex>
+                    </Box>
+                  </Flex>
+                  <Flex alignItems="center">
+                    <div style={halfWidth} />
+                    <Box>
+                      <Flex>
+                        {blankValues.map((blankValue, i) => (
+                          <div style={ruleLeft} key={i}>
+                            <Badge variant={blankValue.type} key={blankValue.logic}>
+                              {blankValue.logic}
+                            </Badge>
+                          </div>
+                        ))}
+                        <div style={ruleLeft} />
+                      </Flex>
+                    </Box>
+                  </Flex>
+                  <div style={bottomLine}>
+                    <Flex alignItems="center">
+                      <div style={halfWidth}>
+                        <Flex>
+                          <Text variant="formtitle">Then</Text>
+                          <Box padding={1} />
+                          <Text>Output Contditions</Text>
+                        </Flex>
+                      </div>
+                      <Box>
+                        <Flex>
+                          {blankValues.map((blankValue, i) => (
+                            <div style={ruleLeft} key={i}>
+                              <Badge variant={blankValue.type} key={blankValue.logic}>
+                                {blankValue.logic}
+                              </Badge>
+                            </div>
+                          ))}
+                          <div style={ruleLeft} />
+                        </Flex>
+                      </Box>
+                    </Flex>
+                  </div>
+                  {outputSentences.map((val, key) => (
+                    <Box key={key}>
+                      <InputOutputRow rowValues={rowValues} />
+                    </Box>
+                  ))}
+                  <Flex alignItems="center">
+                    <div style={halfWidth}>
+                      <Addbutton
+                        onClick={() => {
+                          const parties = outputSentences;
+                          const last = parties[parties.length];
+                          parties.push(last + 1);
+                          this.setState({ outputSentences: parties });
+                        }}
+                      />
+                    </div>
+                    <Box>
+                      <Flex>
+                        {blankValues.map((blankValue, i) => (
+                          <div style={ruleLeft} key={i}>
+                            <Badge variant={blankValue.type} key={blankValue.logic}>
+                              {blankValue.logic}
+                            </Badge>
+                          </div>
+                        ))}
+                        <div style={ruleLeft} />
+                      </Flex>
+                    </Box>
+                  </Flex>
+                  <Box padding={1} />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
+              {/* Metadata Management */}
+
+              <Text variant="heading">Metadata Management</Text>
+
+              <Box>
+                <div>
+                  <FormStandardDropdown
+                    name="Rule Version"
+                    description="hello world is asking the following things"
+                    nameTwo="Xalgo Version"
+                    descriptionTwo="hello world is asking the following things"
+                    options={[
+                      { value: 'last stable', label: 'Last Stable' },
+                      { value: 'peace', label: 'Peace' },
+                      { value: 'no justice', label: 'No Justice' },
+                      { value: 'no peace', label: 'No Peace' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <FormStandardDropdown
+                    name="Rule URL"
+                    description="hello world is asking the following things"
+                    nameTwo="Rule Criticality"
+                    descriptionTwo="hello world is asking the following things"
+                    options={[
+                      { value: 'experimental', label: 'Experimental' },
+                      { value: 'peace', label: 'Peace' },
+                      { value: 'no justice', label: 'No Justice' },
+                      { value: 'no peace', label: 'No Peace' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <FormStandardLabel
+                    name="RuleMaker Entity Name"
+                    description="hello world is asking the following things"
+                    nameTwo="RuleMaker ID"
+                    descriptionTwo="hello world is asking the following things"
+                    value="Vqp4nv8eGprI"
+                  />
+                  <Box padding={1} />
+                  <FormStandard
+                    name="RuleMaker URL"
+                    description="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
+              {/* Managment, Authorship and Maintainence */}
+
+              <Text variant="heading">Managment, Authorship &amp; Maintainence</Text>
+
+              <Box>
+                <div>
+                  <FormStandardLabel
+                    name="Rule Manager Name"
+                    description="hello world is asking the following things"
+                    nameTwo="Rule Manager ID"
+                    descriptionTwo="hello world is asking the following things"
+                    value="Vqp4nv8eGprI"
+                  />
+                  <Box padding={1} />
+                  <FormStandard
+                    name="Rule Manager Email"
+                    description="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <FormStandardLabel
+                    name="Rule Author Name"
+                    description="hello world is asking the following things"
+                    nameTwo="Rule Author ID"
+                    descriptionTwo="hello world is asking the following things"
+                    value="Vqp4nv8eGprI"
+                  />
+                  <Box padding={1} />
+                  <FormStandard
+                    name="Rule Author Email"
+                    description="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <FormStandardLabel
+                    name="Rule Maintainer Name"
+                    description="hello world is asking the following things"
+                    nameTwo="Rule Maintainer ID"
+                    descriptionTwo="hello world is asking the following things"
+                    value="Vqp4nv8eGprI"
+                  />
+                  <Box padding={1} />
+                  <FormStandard
+                    name="Rule Maintainer Email"
+                    description="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
                   </Flex>
                 </div>
-              </div>
-            ) : null}
+              </Box>
+              <Box padding={2} />
 
-            <Box p={4}>
-              <div style={fullheight}>
-                {/* Rule Name */}
+              {/* Quantative wieghts */}
+              <Text variant="heading">Qualitative Weights</Text>
 
-                <RuleNameSection rule={rule} updateRule={this.updateRule} active={active} />
+              <Box>
+                <div>
+                  <FormDropdown
+                    name="Select the rule category that most applies."
+                    description="hello world is asking the following things"
+                    options={[
+                      { value: 'justice', label: 'Justice' },
+                      { value: 'peace', label: 'Peace' },
+                      { value: 'no justice', label: 'No Justice' },
+                      { value: 'no peace', label: 'No Peace' },
+                    ]}
+                  />
+                  <Box padding={2} />
+                  <FormSlider
+                    name="Character of this Obligation"
+                    description="lorem ipsum"
+                    labela="Quality or Fairness"
+                    labelb="Strongly Beneficial"
+                    labelc="Absolutely Essential"
+                  />
+                  <Box padding={2} />
+                  <FormSlider
+                    name="Enforcement Measures in Place"
+                    description="lorem ipsum"
+                    labela="here Are No or Minor Penalties"
+                    labelb="There Are Significant Penalties"
+                    labelc="There Are Major Penalties"
+                  />
+                  <Box padding={2} />
+                  <FormSlider
+                    name="Consequences of Non-Conformance "
+                    description="lorem ipsum"
+                    labela="Inconsequential"
+                    labelb="Moderate Effects"
+                    labelc="Enormous Impacts"
+                  />
+                  <Box p={1} />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
+                  </Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
 
-                {/* Input Output Table */}
+              {/* Input Contexts */}
 
-                <Text variant="heading">Input Tables</Text>
-                <Box>
-                  <div>
-                    <div style={bottomLine}>
-                      <Flex alignItems="center">
-                        <div style={halfWidth}>
-                          <Flex>
-                            <Text variant="formtitle">When</Text>
-                            <Box padding={1} />
-                            <Text>Input Contditions</Text>
-                          </Flex>
-                        </div>
-                        <Box>
-                          <Flex>
-                            {rowValues.map((rowValue, i) => (
-                              <div style={ruleLeft} key={i}>
-                                <Badge variant={rowValue.type} key={rowValue.logic}>
-                                  {rowValue.logic}
-                                </Badge>
-                              </div>
-                            ))}
-                            <div style={ruleLeft} />
-                          </Flex>
-                        </Box>
-                      </Flex>
-                    </div>
-                    {inputSentences.map((val, key) => (
-                      <Box key={key}>
-                        <InputOutputRow rowValues={rowValues} />
-                      </Box>
-                    ))}
-                    <Flex alignItems="center">
-                      <div style={halfWidth}>
-                        <Addbutton
-                          onClick={() => {
-                            const parties = inputSentences;
-                            const last = parties[parties.length];
-                            parties.push(last + 1);
-                            this.setState({ inputSentences: parties });
-                          }}
-                        />
-                      </div>
-                      <Box>
-                        <Flex>
-                          {blankValues.map((blankValue, i) => (
-                            <div style={ruleLeft} key={i}>
-                              <Badge variant={blankValue.type} key={blankValue.logic}>
-                                {blankValue.logic}
-                              </Badge>
-                            </div>
-                          ))}
-                          <div style={ruleLeft} />
-                        </Flex>
-                      </Box>
-                    </Flex>
-                    <Flex alignItems="center">
-                      <div style={halfWidth} />
-                      <Box>
-                        <Flex>
-                          {blankValues.map((blankValue, i) => (
-                            <div style={ruleLeft} key={i}>
-                              <Badge variant={blankValue.type} key={blankValue.logic}>
-                                {blankValue.logic}
-                              </Badge>
-                            </div>
-                          ))}
-                          <div style={ruleLeft} />
-                        </Flex>
-                      </Box>
-                    </Flex>
-                    <div style={bottomLine}>
-                      <Flex alignItems="center">
-                        <div style={halfWidth}>
-                          <Flex>
-                            <Text variant="formtitle">Then</Text>
-                            <Box padding={1} />
-                            <Text>Output Contditions</Text>
-                          </Flex>
-                        </div>
-                        <Box>
-                          <Flex>
-                            {blankValues.map((blankValue, i) => (
-                              <div style={ruleLeft} key={i}>
-                                <Badge variant={blankValue.type} key={blankValue.logic}>
-                                  {blankValue.logic}
-                                </Badge>
-                              </div>
-                            ))}
-                            <div style={ruleLeft} />
-                          </Flex>
-                        </Box>
-                      </Flex>
-                    </div>
-                    {outputSentences.map((val, key) => (
-                      <Box key={key}>
-                        <InputOutputRow rowValues={rowValues} />
-                      </Box>
-                    ))}
-                    <Flex alignItems="center">
-                      <div style={halfWidth}>
-                        <Addbutton
-                          onClick={() => {
-                            const parties = outputSentences;
-                            const last = parties[parties.length];
-                            parties.push(last + 1);
-                            this.setState({ outputSentences: parties });
-                          }}
-                        />
-                      </div>
-                      <Box>
-                        <Flex>
-                          {blankValues.map((blankValue, i) => (
-                            <div style={ruleLeft} key={i}>
-                              <Badge variant={blankValue.type} key={blankValue.logic}>
-                                {blankValue.logic}
-                              </Badge>
-                            </div>
-                          ))}
-                          <div style={ruleLeft} />
-                        </Flex>
-                      </Box>
-                    </Flex>
+              <Text variant="heading">Input Contexts</Text>
+
+              <Box>
+                <div>
+                  <FormDropdownDouble
+                    name="Country Jurisdiction"
+                    description="hello world is asking the following things"
+                    options={[
+                      { value: 'justice', label: 'Justice' },
+                      { value: 'peace', label: 'Peace' },
+                      { value: 'no justice', label: 'No Justice' },
+                      { value: 'no peace', label: 'No Peace' },
+                    ]}
+                    nameTwo="Sub-Country Jurisdiction"
+                    descriptionTwo="hello world is asking the following things"
+                    optionsTwo={[
+                      { valueTwo: 'justice', labelTwo: 'Justice' },
+                      { valueTwo: 'peace', labelTwo: 'Peace' },
+                      { valueTwo: 'no justice', labelTwo: 'No Justice' },
+                      { valueTwo: 'no peace', labelTwo: 'No Peace' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <FormStandardDouble
+                    name="Start Date and Time "
+                    description="hello world is asking the following things"
+                    nameTwo="End Date and Time"
+                    descriptionTwo="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <FormDropdown
+                    name="Time Zone"
+                    description="hello world is asking the following things"
+                    options={[
+                      { value: 'justice', label: 'Justice' },
+                      { value: 'peace', label: 'Peace' },
+                      { value: 'no justice', label: 'No Justice' },
+                      { value: 'no peace', label: 'No Peace' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <FormDropdownDouble
+                    name="Country Jurisdiction"
+                    description="hello world is asking the following things"
+                    options={[
+                      { value: 'justice', label: 'Justice' },
+                      { value: 'peace', label: 'Peace' },
+                      { value: 'no justice', label: 'No Justice' },
+                      { value: 'no peace', label: 'No Peace' },
+                    ]}
+                    nameTwo="Sub-Country Jurisdiction"
+                    descriptionTwo="hello world is asking the following things"
+                    optionsTwo={[
+                      { valueTwo: 'justice', labelTwo: 'Justice' },
+                      { valueTwo: 'peace', labelTwo: 'Peace' },
+                      { valueTwo: 'no justice', labelTwo: 'No Justice' },
+                      { valueTwo: 'no peace', labelTwo: 'No Peace' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
+                  </Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
+              {/* Input sources */}
+
+              <Text variant="heading">Input Sources</Text>
+
+              <Box>
+                <div>
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <FormStandard
+                      name="Field Name"
+                      description="hello world is asking the following things"
+                    />
+                    <FormStandard
+                      name="Target  Value"
+                      description="hello world is asking the following things"
+                    />
                     <Box padding={1} />
-                    <Box padding={1} />
-                    <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
-                  </div>
-                </Box>
-                <Box padding={2} />
-
-                {/* Metadata Management */}
-
-                <Text variant="heading">Metadata Management</Text>
-
-                <Box>
-                  <div>
+                    <Addbutton />
+                    <Box padding={3} />
                     <FormStandardDropdown
-                      name="Rule Version"
-                      description="hello world is asking the following things"
-                      nameTwo="Xalgo Version"
-                      descriptionTwo="hello world is asking the following things"
-                      options={[
-                        { value: 'last stable', label: 'Last Stable' },
-                        { value: 'peace', label: 'Peace' },
-                        { value: 'no justice', label: 'No Justice' },
-                        { value: 'no peace', label: 'No Peace' },
-                      ]}
-                    />
-                    <Box padding={1} />
-                    <FormStandardDropdown
-                      name="Rule URL"
-                      description="hello world is asking the following things"
-                      nameTwo="Rule Criticality"
-                      descriptionTwo="hello world is asking the following things"
-                      options={[
-                        { value: 'experimental', label: 'Experimental' },
-                        { value: 'peace', label: 'Peace' },
-                        { value: 'no justice', label: 'No Justice' },
-                        { value: 'no peace', label: 'No Peace' },
-                      ]}
-                    />
-                    <Box padding={1} />
-                    <FormStandardLabel
-                      name="RuleMaker Entity Name"
-                      description="hello world is asking the following things"
-                      nameTwo="RuleMaker ID"
-                      descriptionTwo="hello world is asking the following things"
-                      value="Vqp4nv8eGprI"
-                    />
-                    <Box padding={1} />
-                    <FormStandard
-                      name="RuleMaker URL"
-                      description="hello world is asking the following things"
-                    />
-                    <Box padding={1} />
-                    <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
-                  </div>
-                </Box>
-                <Box padding={2} />
-
-                {/* Managment, Authorship and Maintainence */}
-
-                <Text variant="heading">Managment, Authorship &amp; Maintainence</Text>
-
-                <Box>
-                  <div>
-                    <FormStandardLabel
-                      name="Rule Manager Name"
-                      description="hello world is asking the following things"
-                      nameTwo="Rule Manager ID"
-                      descriptionTwo="hello world is asking the following things"
-                      value="Vqp4nv8eGprI"
-                    />
-                    <Box padding={1} />
-                    <FormStandard
-                      name="Rule Manager Email"
-                      description="hello world is asking the following things"
-                    />
-                    <Box padding={1} />
-                    <FormStandardLabel
-                      name="Rule Author Name"
-                      description="hello world is asking the following things"
-                      nameTwo="Rule Author ID"
-                      descriptionTwo="hello world is asking the following things"
-                      value="Vqp4nv8eGprI"
-                    />
-                    <Box padding={1} />
-                    <FormStandard
-                      name="Rule Author Email"
-                      description="hello world is asking the following things"
-                    />
-                    <Box padding={1} />
-                    <FormStandardLabel
-                      name="Rule Maintainer Name"
-                      description="hello world is asking the following things"
-                      nameTwo="Rule Maintainer ID"
-                      descriptionTwo="hello world is asking the following things"
-                      value="Vqp4nv8eGprI"
-                    />
-                    <Box padding={1} />
-                    <FormStandard
-                      name="Rule Maintainer Email"
-                      description="hello world is asking the following things"
-                    />
-                    <Box padding={1} />
-                    <Flex justifyContent="flex-end">
-                      <Box />
-                      {/* the modal button will go here */}
-                    </Flex>
-                  </div>
-                </Box>
-                <Box padding={2} />
-
-                {/* Quantative wieghts */}
-                <Text variant="heading">Qualitative Weights</Text>
-
-                <Box>
-                  <div>
-                    <FormDropdown
-                      name="Select the rule category that most applies."
-                      description="hello world is asking the following things"
+                      name="Unique Identifier"
+                      description="Text input description."
+                      nameTwo="Standard Role Name"
+                      descriptionTwo="Dropdown input description."
                       options={[
                         { value: 'justice', label: 'Justice' },
                         { value: 'peace', label: 'Peace' },
@@ -517,249 +646,106 @@ export default class Editor extends React.Component {
                         { value: 'no peace', label: 'No Peace' },
                       ]}
                     />
-                    <Box padding={2} />
-                    <FormSlider
-                      name="Character of this Obligation"
-                      description="lorem ipsum"
-                      labela="Quality or Fairness"
-                      labelb="Strongly Beneficial"
-                      labelc="Absolutely Essential"
-                    />
-                    <Box padding={2} />
-                    <FormSlider
-                      name="Enforcement Measures in Place"
-                      description="lorem ipsum"
-                      labela="here Are No or Minor Penalties"
-                      labelb="There Are Significant Penalties"
-                      labelc="There Are Major Penalties"
-                    />
-                    <Box padding={2} />
-                    <FormSlider
-                      name="Consequences of Non-Conformance "
-                      description="lorem ipsum"
-                      labela="Inconsequential"
-                      labelb="Moderate Effects"
-                      labelc="Enormous Impacts"
-                    />
-                    <Box p={1} />
-                    <Box padding={1} />
-                    <Flex justifyContent="flex-end">
-                      <Box />
-                      {/* the modal button will go here */}
-                    </Flex>
-                  </div>
-                </Box>
-                <Box padding={2} />
+                  </Box>
+                  <Box padding={1} />
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Addbutton />
+                  </Box>
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
+                  </Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
 
-                {/* Input Contexts */}
+              {/* Input filters */}
 
-                <Text variant="heading">Input Contexts</Text>
+              <Text variant="heading">Input Filters</Text>
 
-                <Box>
-                  <div>
-                    <FormDropdownDouble
-                      name="Country Jurisdiction"
-                      description="hello world is asking the following things"
-                      options={[
-                        { value: 'justice', label: 'Justice' },
-                        { value: 'peace', label: 'Peace' },
-                        { value: 'no justice', label: 'No Justice' },
-                        { value: 'no peace', label: 'No Peace' },
-                      ]}
-                      nameTwo="Sub-Country Jurisdiction"
-                      descriptionTwo="hello world is asking the following things"
-                      optionsTwo={[
-                        { valueTwo: 'justice', labelTwo: 'Justice' },
-                        { valueTwo: 'peace', labelTwo: 'Peace' },
-                        { valueTwo: 'no justice', labelTwo: 'No Justice' },
-                        { valueTwo: 'no peace', labelTwo: 'No Peace' },
-                      ]}
+              <Box>
+                <div>
+                  {sampleInvolvedParties.map((val, key) => (
+                    <InvolvedParty key={key} />
+                  ))}
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Addbutton
+                      onClick={() => {
+                        const parties = sampleInvolvedParties;
+                        const last = parties[parties.length];
+                        parties.push(last + 1);
+                        this.setState({ sampleInvolvedParties: parties });
+                      }}
+                      content="Add Involved Party"
                     />
+                  </Box>
+                  <Box padding={1} />
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Text variant="formtitle">Involved Product or Service</Text>
                     <Box padding={1} />
                     <FormStandardDouble
-                      name="Start Date and Time "
-                      description="hello world is asking the following things"
-                      nameTwo="End Date and Time"
-                      descriptionTwo="hello world is asking the following things"
+                      name="Standard Role Name"
+                      description="Detail for standard role name field."
+                      nameTwo="Standard Industry Code"
+                      descriptionTwo="Detail for industry code field."
                     />
-                    <Box padding={1} />
-                    <FormDropdown
-                      name="Time Zone"
-                      description="hello world is asking the following things"
-                      options={[
-                        { value: 'justice', label: 'Justice' },
-                        { value: 'peace', label: 'Peace' },
-                        { value: 'no justice', label: 'No Justice' },
-                        { value: 'no peace', label: 'No Peace' },
-                      ]}
+                  </Box>
+                  <Box padding={1} />
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Addbutton
+                      onClick={() => {
+                        const parties = sampleInvolvedParties;
+                        const last = parties[parties.length];
+                        parties.push(last + 1);
+                        this.setState({ sampleInvolvedParties: parties });
+                      }}
+                      content="Add Involved Party"
                     />
-                    <Box padding={1} />
-                    <FormDropdownDouble
-                      name="Country Jurisdiction"
-                      description="hello world is asking the following things"
-                      options={[
-                        { value: 'justice', label: 'Justice' },
-                        { value: 'peace', label: 'Peace' },
-                        { value: 'no justice', label: 'No Justice' },
-                        { value: 'no peace', label: 'No Peace' },
-                      ]}
-                      nameTwo="Sub-Country Jurisdiction"
-                      descriptionTwo="hello world is asking the following things"
-                      optionsTwo={[
-                        { valueTwo: 'justice', labelTwo: 'Justice' },
-                        { valueTwo: 'peace', labelTwo: 'Peace' },
-                        { valueTwo: 'no justice', labelTwo: 'No Justice' },
-                        { valueTwo: 'no peace', labelTwo: 'No Peace' },
-                      ]}
-                    />
-                    <Box padding={1} />
-                    <Flex justifyContent="flex-end">
-                      <Box />
-                      {/* the modal button will go here */}
-                    </Flex>
-                  </div>
-                </Box>
-                <Box padding={2} />
-
-                {/* Input sources */}
-
-                <Text variant="heading">Input Sources</Text>
-
-                <Box>
-                  <div>
-                    <Box
-                      p={2}
-                      m={0}
-                      width={1}
-                      bg="bg"
-                      border="1px solid"
-                      borderColor="oline"
-                      borderRadius="base"
-                    >
-                      <FormStandard
-                        name="Field Name"
-                        description="hello world is asking the following things"
-                      />
-                      <FormStandard
-                        name="Target  Value"
-                        description="hello world is asking the following things"
-                      />
-                      <Box padding={1} />
-                      <Addbutton />
-                      <Box padding={3} />
-                      <FormStandardDropdown
-                        name="Unique Identifier"
-                        description="Text input description."
-                        nameTwo="Standard Role Name"
-                        descriptionTwo="Dropdown input description."
-                        options={[
-                          { value: 'justice', label: 'Justice' },
-                          { value: 'peace', label: 'Peace' },
-                          { value: 'no justice', label: 'No Justice' },
-                          { value: 'no peace', label: 'No Peace' },
-                        ]}
-                      />
-                    </Box>
-                    <Box padding={1} />
-                    <Box
-                      p={2}
-                      m={0}
-                      width={1}
-                      bg="bg"
-                      border="1px solid"
-                      borderColor="oline"
-                      borderRadius="base"
-                    >
-                      <Addbutton />
-                    </Box>
-                    <Box padding={1} />
-                    <Flex justifyContent="flex-end">
-                      <Box />
-                      {/* the modal button will go here */}
-                    </Flex>
-                  </div>
-                </Box>
-                <Box padding={2} />
-
-                {/* Input filters */}
-
-                <Text variant="heading">Input Filters</Text>
-
-                <Box>
-                  <div>
-                    {sampleInvolvedParties.map((val, key) => (
-                      <InvolvedParty key={key} />
-                    ))}
-                    <Box
-                      p={2}
-                      m={0}
-                      width={1}
-                      bg="bg"
-                      border="1px solid"
-                      borderColor="oline"
-                      borderRadius="base"
-                    >
-                      <Addbutton
-                        onClick={() => {
-                          const parties = sampleInvolvedParties;
-                          const last = parties[parties.length];
-                          parties.push(last + 1);
-                          this.setState({ sampleInvolvedParties: parties });
-                        }}
-                        content="Add Involved Party"
-                      />
-                    </Box>
-                    <Box padding={1} />
-                    <Box
-                      p={2}
-                      m={0}
-                      width={1}
-                      bg="bg"
-                      border="1px solid"
-                      borderColor="oline"
-                      borderRadius="base"
-                    >
-                      <Text variant="formtitle">Involved Product or Service</Text>
-                      <Box padding={1} />
-                      <FormStandardDouble
-                        name="Standard Role Name"
-                        description="Detail for standard role name field."
-                        nameTwo="Standard Industry Code"
-                        descriptionTwo="Detail for industry code field."
-                      />
-                    </Box>
-                    <Box padding={1} />
-                    <Box
-                      p={2}
-                      m={0}
-                      width={1}
-                      bg="bg"
-                      border="1px solid"
-                      borderColor="oline"
-                      borderRadius="base"
-                    >
-                      <Addbutton
-                        onClick={() => {
-                          const parties = sampleInvolvedParties;
-                          const last = parties[parties.length];
-                          parties.push(last + 1);
-                          this.setState({ sampleInvolvedParties: parties });
-                        }}
-                        content="Add Involved Party"
-                      />
-                    </Box>
-                    <Box padding={1} />
-                    <Flex justifyContent="flex-end">
-                      <Box />
-                      {/* the modal button will go here */}
-                    </Flex>
-                  </div>
-                </Box>
-              </div>
-            </Box>
-          </EditorLeft>
-        </div>
-      </ScrollUp>
+                  </Box>
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
+                  </Flex>
+                </div>
+              </Box>
+            </div>
+          </Box>
+        </EditorLeft>
+      </div>
     );
   }
 }
