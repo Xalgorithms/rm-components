@@ -10,7 +10,6 @@ import {
   addNewOutputAssertion,
   prettyJSON,
 } from 'xalgo-rule-processor';
-import ScrollUp from './components/ScrollUp';
 import EditorLeft from './editor-layouts/EditorLeft';
 import {
   Box,
