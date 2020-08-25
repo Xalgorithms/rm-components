@@ -6,19 +6,18 @@ import { Link } from '@reach/router';
 import Text from '../../components/primitives/Text';
 import Flex from '../../components/layout/Flex';
 import Icon from '../../components/icons/Icon';
+import Grid from '../../components/layout/Grid';
+import Box from '../../components/layout/Box';
+import Search from '../../components/patterns/Search';
+import Modal from '../../components/primitives/Modal';
+import Button from '../../components/primitives/Button';
 
 // styles
 const styleHold = {
   position: 'fixed',
-  background: '#fff',
   width: '100%',
   top: 0,
-  outline: '1px solid #E7E7E7',
   zIndex: '5',
-};
-
-const styleNavbar = {
-  display: 'flex',
 };
 
 const styleNavlink = {
@@ -35,121 +34,200 @@ const svghold = {
   paddingTop: '3px',
 };
 
-const svgholdb = {
-  width: '14px',
-  height: '14px',
-  marginRight: '4px',
-  paddingBottom: '4px',
-};
-
-const svgholdc = {
-  width: '13px',
-  height: '16px',
-  marginRight: '4px',
-  paddingBottom: '3px',
+const modalhold = {
+  position: 'sticky',
+  height: '90vh',
+  background: 'rgba(255, 255, 255, .8)',
+  marginBottom: '-90vh',
 };
 
 // Primary Component
 export default class Navigation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isToggleOn: false,
+      isToggleAccount: false,
+    };
+    this.handleModal = this.handleModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleAccount = this.handleAccount.bind(this);
+    this.closeAccount = this.closeAccount.bind(this);
+  }
+
+  handleModal() {
+    this.setState((state) => ({
+      isToggleOn: !false,
+    }));
+  }
+
+  closeModal() {
+    this.setState((state) => ({
+      isToggleOn: false,
+    }));
+  }
+
+  handleAccount() {
+    this.setState((state) => ({
+      isToggleAccount: !false,
+    }));
+  }
+
+  closeAccount() {
+    this.setState((state) => ({
+      isToggleAccount: false,
+    }));
   }
 
   render() {
     const { authenticated } = this.props;
     return (
       <div style={styleHold}>
-        <Flex justifyContent="space-between" alignItems="center" m={4}>
-          <Link to="/" style={styleNavlink}>
-            <Text variant="formtitle">XRADS</Text>
-          </Link>
-          <nav style={styleNavbar}>
-            {authenticated ? (
-              <Link to="/browse" style={styleNavlink}>
-                <Flex alignItems="center">
-                  <div style={svgholdc}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.69 10.01">
-                      <title>i-list-small</title>
-                      <path
-                        d="M10.34,1.73H4.84a.51.51,0,0,1-.5-.5.5.5,0,0,1,.5-.5h5.5a.5.5,0,0,1,.5.5A.5.5,0,0,1,10.34,1.73Z"
-                        transform="translate(-0.15 -0.23)"
-                      />
-                      <path
-                        d="M10.34,5.73H4.84a.5.5,0,0,1-.5-.5.51.51,0,0,1,.5-.5h5.5a.5.5,0,0,1,.5.5A.5.5,0,0,1,10.34,5.73Z"
-                        transform="translate(-0.15 -0.23)"
-                      />
-                      <path
-                        d="M10.34,9.29H4.84a.5.5,0,0,1-.5-.5.51.51,0,0,1,.5-.5h5.5a.5.5,0,0,1,.5.5A.5.5,0,0,1,10.34,9.29Z"
-                        transform="translate(-0.15 -0.23)"
-                      />
-                      <circle cx="1.44" cy="1.44" r="0.94" fill="#fff" />
-                      <path
-                        d="M1.6,3.11A1.44,1.44,0,1,1,3,1.67,1.44,1.44,0,0,1,1.6,3.11Zm0-1.88A.44.44,0,1,0,2,1.67.45.45,0,0,0,1.6,1.23Z"
-                        transform="translate(-0.15 -0.23)"
-                      />
-                      <circle cx="1.44" cy="5.01" r="0.94" fill="#fff" />
-                      <path
-                        d="M1.6,6.68A1.45,1.45,0,1,1,3,5.23,1.45,1.45,0,0,1,1.6,6.68Zm0-1.89A.45.45,0,1,0,2,5.23.45.45,0,0,0,1.6,4.79Z"
-                        transform="translate(-0.15 -0.23)"
-                      />
-                      <circle cx="1.44" cy="8.57" r="0.94" fill="#fff" />
-                      <path
-                        d="M1.6,10.24A1.45,1.45,0,1,1,3,8.79,1.45,1.45,0,0,1,1.6,10.24Zm0-1.89A.45.45,0,1,0,2,8.79.45.45,0,0,0,1.6,8.35Z"
-                        transform="translate(-0.15 -0.23)"
-                      />
-                    </svg>
-                  </div>
-                  <Text>Browse</Text>
+        <Grid
+          gridTemplateColumns="400px auto 400px"
+          alignItems="center"
+          paddingLeft={3}
+          paddingRight={4}
+          paddingTop={3}
+          paddingBottom={3}
+          bg="#fff"
+        >
+          <Box>
+            <Flex alignItems="center">
+              <img src="/icon.png" width="40px" alt="xalgorithms logo"/>
+              <Link to="/" style={styleNavlink}>
+                <Text variant="formtitle" marginLeft="8px">
+                  XRADS
+                </Text>
+              </Link>
+            </Flex>
+          </Box>
+          <Box
+            border="1px solid"
+            borderColor="oline"
+            borderRadius="round"
+            paddingTop="0.6em"
+            paddingBottom="0.6em"
+            paddingLeft="1.2em"
+            paddingRight="1.2em"
+          >
+            <Flex displayContents="space-between">
+              <Search />
+              <Button variant="invisible" onClick={this.handleModal}>
+                Table
+              </Button>
+            </Flex>
+          </Box>
+          <Box justifySelf="end">
+            <Flex>
+              {authenticated ? (
+                <Link to="/editor" style={styleNavlink}>
+                  <Flex alignItems="center">
+                    <div style={svghold}>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+                        <title>i-edit-black-small</title>
+                        <path
+                          d="M14.52,7.87,10.35,3.71,11.86,2.2a2,2,0,0,1,1.41-.58h0a2,2,0,0,1,1.42.58L16,3.53a2,2,0,0,1,0,2.83ZM11.77,3.71l2.75,2.74.8-.79a1,1,0,0,0,0-1.42L14,2.91a1,1,0,0,0-.71-.29h0a1,1,0,0,0-.7.29Z"
+                          transform="translate(-0.1 -1.62)"
+                        />
+                        <path
+                          d="M4.23,18.18H.1V14L9.73,4.38l4.15,4.15Zm-3.13-1H3.81l8.66-8.65L9.73,5.79,1.1,14.39Z"
+                          transform="translate(-0.1 -1.62)"
+                        />
+                      </svg>
+                    </div>
+                    <Text>Editor</Text>
+                  </Flex>
+                </Link>
+              ) : null}
+              {authenticated ? (
+                <Link to="/dashboard" style={styleNavlink}>
+                  <Flex alignItems="center">
+                    <div style={svghold}>
+                      <Icon name="dash" fill="black" />
+                    </div>
+                    <Text>Dashboard</Text>
+                  </Flex>
+                </Link>
+              ) : null}
+
+              <Flex alignItems="center">
+                <div style={svghold}>
+                  <Icon name="user" fill="black" />
+                </div>
+                <Button variant="invisible" onClick={this.handleAccount}>
+                  <Text>Account</Text>
+                </Button>
+              </Flex>
+            </Flex>
+          </Box>
+        </Grid>
+        <Grid gridTemplateColumns="400px auto 400px" alignItems="start">
+          <Box borderBottom="1px solid #efefef" />
+          <Box borderBottom="1px solid #efefef" />
+          <Box borderBottom="1px solid #efefef">
+            <Modal isOpen={!!this.state.isToggleAccount}>
+              <Box p={4} borderLeft="1px solid #efefef" bg="#fff">
+                <Flex justifyContent="space-between">
+                  <Text variant="formtitle">Account Settings</Text>
+                  <Button variant="invisible" onClick={this.closeAccount}>
+                    <Icon name="ex" fill="text"/>
+                  </Button>
                 </Flex>
-              </Link>
-            ) : null}
-            {authenticated ? (
-              <Link to="/query" style={styleNavlink}>
-                <Flex alignItems="center">
-                  <div style={svgholdb}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.64 11.95">
-                      <title>i-search-black-small</title>
-                      <path
-                        d="M12.25,11.74l-3.5-3.5a1,1,0,0,0-.19-.12A4.36,4.36,0,1,0,5.19,9.74,4.26,4.26,0,0,0,7.6,9a.76.76,0,0,0,.15.23l3.5,3.5a.7.7,0,0,0,1-1ZM1.81,5.36A3.38,3.38,0,1,1,5.19,8.74,3.38,3.38,0,0,1,1.81,5.36Z"
-                        transform="translate(-0.81 -0.99)"
-                      />
-                    </svg>
-                  </div>
-                  <Text>Query</Text>
+                <Box p={2}></Box>
+                <Text color="error">Log Out</Text>
+              </Box>
+            </Modal>
+          </Box>
+        </Grid>
+        <Modal isOpen={!!this.state.isToggleOn}>
+          <div style={modalhold}>
+            <Flex alignItems="center" justifyContent="center">
+              <Box height="70vh" />
+              <Box
+                p={2}
+                m={0}
+                width="600px"
+                bg="bg"
+                border="1px solid"
+                borderColor="oline"
+                borderRadius="base"
+              >
+                <Flex justifyContent="space-between">
+                  <Text variant="sectiontitle">Upload Table</Text>
+                  <Button variant="invisible" onClick={this.closeModal}>
+                    <Icon name="ex" />
+                  </Button>
                 </Flex>
-              </Link>
-            ) : null}
-            {authenticated ? (
-              <Link to="/editor" style={styleNavlink}>
-                <Flex alignItems="center">
-                  <div style={svghold}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
-                      <title>i-edit-black-small</title>
-                      <path
-                        d="M14.52,7.87,10.35,3.71,11.86,2.2a2,2,0,0,1,1.41-.58h0a2,2,0,0,1,1.42.58L16,3.53a2,2,0,0,1,0,2.83ZM11.77,3.71l2.75,2.74.8-.79a1,1,0,0,0,0-1.42L14,2.91a1,1,0,0,0-.71-.29h0a1,1,0,0,0-.7.29Z"
-                        transform="translate(-0.1 -1.62)"
-                      />
-                      <path
-                        d="M4.23,18.18H.1V14L9.73,4.38l4.15,4.15Zm-3.13-1H3.81l8.66-8.65L9.73,5.79,1.1,14.39Z"
-                        transform="translate(-0.1 -1.62)"
-                      />
-                    </svg>
-                  </div>
-                  <Text>Editor</Text>
+                <Box p={1} />
+                <Flex>
+                  <Box width="50%" height="20px" marginRight={1}>
+                    <Text color="textb">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non dui
+                      sollicitudin, semper tortor in, vestibulum felis.
+                    </Text>
+                    <Box p={1} />
+                    <Button>Or Create Table</Button>
+                  </Box>
+                  <Box
+                    width="50%"
+                    marginLeft={1}
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Flex alignItems="center" justifyContent="center">
+                      <Box height="250px" />
+                      <Box>
+                        <Text>Drag Table Here</Text>
+                      </Box>
+                    </Flex>
+                  </Box>
                 </Flex>
-              </Link>
-            ) : null}
-            {authenticated ? (
-              <Link to="/dashboard" style={styleNavlink}>
-                <Icon name="dash" fill="black" />
-              </Link>
-            ) : null}
-            <Link to="/login">
-              <Icon name="user" fill="black" />
-            </Link>
-          </nav>
-        </Flex>
+              </Box>
+            </Flex>
+          </div>
+        </Modal>
       </div>
     );
   }

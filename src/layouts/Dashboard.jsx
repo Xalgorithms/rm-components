@@ -2,9 +2,6 @@
 import React from 'react';
 import Box from '../components/layout/Box';
 import Grid from '../components/layout/Grid';
-import Flex from '../components/layout/Flex';
-import Search from '../components/patterns/Search';
-import Rule from '../components/primitives/Rule';
 import Card from '../components/patterns/Card';
 // rm-components
 import Text from '../components/primitives/Text';
@@ -27,50 +24,33 @@ export default class Dashboard extends React.Component {
     return (
       <ScrollUp>
         <div style={hold}>
-          <Box m={4}>
-            <Flex>
-              <Search />
-            </Flex>
-          </Box>
-          <Rule />
-          <Grid gridTemplateColumns="400px auto 400px">
-            <Box borderRight="1px solid #efefef">
-              <Box p={4}>
-                <Text variant="formtitle">Welcome to the Dashboard</Text>
-                <Box p={1} />
-                <Text>Lorem Ipsum</Text>
-              </Box>
-            </Box>
-            <Box paddingLeft={4} paddingTop={4} height="80vh">
-              <Card />
-              <Card />
-              <Card />
-            </Box>
+          <Grid gridTemplateRows="auto" height="90vh">
             <Box>
-              <Box m={4} p={2} bg="midblue" borderRadius="base">
-                <Flex alignItems="center" justifyContent="center">
-                  <Box height="15vh" />
-                  <Box>
-                    <Text color="primary">Create Rule</Text>
+              <Grid gridTemplateColumns="400px auto 400px" height="100%">
+                <Box borderRight="1px solid #efefef">
+                  <Box p={4}>
+                    <Text variant="formtitle">Editor</Text>
+                    <Box p={2} />
+                    <Box>
+                      <Text color="primary">Create Rule</Text>
+                    </Box>
+                    <Box marginTop={2}>
+                      <Text color="textb">Create Table</Text>
+                    </Box>
                   </Box>
-                </Flex>
-              </Box>
-              <Box m={4} p={2} bg="primary" borderRadius="base">
-                <Flex alignItems="center" justifyContent="center">
-                  <Box height="15vh" />
-                  <Box>
-                    <Text color="#fff">Create Control Table</Text>
-                  </Box>
-                </Flex>
-              </Box>
-              <Box m={4} p={2} borderRadius="base" border="1px solid" borderColor="oline">
-                <Flex alignItems="center" justifyContent="center">
-                  <Box height="30vh" />
-                  <Box>
-                    <Text color="primary">Upload Table</Text>
-                  </Box>
-                </Flex>
-              </Box>
+                </Box>
+                <Box p={4}  borderRight="1px solid #efefef">
+                  <Box p={1} />
+                  <Text>Graphics showing rule ussage will go here in the future</Text>
+                </Box>
+                <Box p={4} height="auto">
+                  <Text variant="formtitle">My Rules</Text>
+                  <Box p={2} />
+                  <Card />
+                  <Card />
+                  <Card />
+                </Box>
+              </Grid>
             </Box>
           </Grid>
         </div>

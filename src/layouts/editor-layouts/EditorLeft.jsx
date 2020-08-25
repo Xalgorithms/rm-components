@@ -19,7 +19,7 @@ const helpAlign = {
 
 const holdTop = {
   position: 'sticky',
-  top: '98px',
+  top: '90px',
 };
 
 const holdwide = {
@@ -31,7 +31,7 @@ const horizontalRule = {
   borderLeft: '1px solid #E7E7E7',
   height: '100vh',
   zIndex: '-1',
-  top: '98px',
+  top: '90px',
 };
 
 // Primary Component

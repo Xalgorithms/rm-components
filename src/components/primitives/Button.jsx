@@ -65,10 +65,12 @@ const Button = styled.button(
         border: 'none',
         px: 0,
         py: 0,
+        color: 'text',
         '&:hover:not(:disabled), &:active:not(:disabled)': {
           background: 'none',
           cursor: 'pointer',
           boxShadow: 'none',
+          color: 'text',
         },
       },
       invisiblewide: {
