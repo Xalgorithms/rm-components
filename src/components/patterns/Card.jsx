@@ -9,7 +9,7 @@ export default function Card() {
       border="1px solid"
       borderColor="oline"
       borderRadius="base"
-      marginBottom={4}
+      marginBottom={3}
     >
       <Flex alignItems="flex-start">
         <Text>Loi concernant la taxe sur les carburants</Text>

@@ -47,14 +47,29 @@ export default class Dashboard extends React.Component {
               <Card />
             </Box>
             <Box>
-              <Box m={4} p={2} height="19vh" bg="midblue" borderRadius="base">
-                <Text color="primary">Create Rule</Text>
+              <Box m={4} p={2} bg="midblue" borderRadius="base">
+                <Flex alignItems="center" justifyContent="center">
+                  <Box height="15vh" />
+                  <Box>
+                    <Text color="primary">Create Rule</Text>
+                  </Box>
+                </Flex>
               </Box>
-              <Box m={4} p={2} height="19vh" bg="primary" borderRadius="base">
-                <Text color="#fff">Create Control Table</Text>
+              <Box m={4} p={2} bg="primary" borderRadius="base">
+                <Flex alignItems="center" justifyContent="center">
+                  <Box height="15vh" />
+                  <Box>
+                    <Text color="#fff">Create Control Table</Text>
+                  </Box>
+                </Flex>
               </Box>
-              <Box m={4} p={2} height="38vh" borderRadius="base" border="1px solid" borderColor="oline">
-                <Text color="primary">Upload Table</Text>
+              <Box m={4} p={2} borderRadius="base" border="1px solid" borderColor="oline">
+                <Flex alignItems="center" justifyContent="center">
+                  <Box height="30vh" />
+                  <Box>
+                    <Text color="primary">Upload Table</Text>
+                  </Box>
+                </Flex>
               </Box>
             </Box>
           </Grid>
