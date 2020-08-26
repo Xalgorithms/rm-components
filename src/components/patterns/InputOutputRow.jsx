@@ -1,4 +1,5 @@
 import React from 'react';
+import { deepCopy } from 'xalgo-rule-processor';
 
 import { Text, Badge, Box, Flex, Button } from '..';
 import { IEdit, ITrash } from '../icons';
@@ -45,12 +46,7 @@ function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondit
         <Button
           variant="invisible"
           onClick={() => {
-            alert('Editing row...');
-            if (inputCondition) {
-              console.log(`Editing input condition ${index}...`);
-            } else {
-              console.log(`Editing output assertion ${index}...`);
-            }
+            editRow(index);
           }}
         >
           <IEdit />
@@ -59,12 +55,15 @@ function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondit
         <Button
           variant="invisible"
           onClick={() => {
-            alert('Deleting Row');
+            const ruleCopy = deepCopy(rule);
             if (inputCondition) {
               console.log('Removing input condition...');
+              ruleCopy.input_conditions.splice(index, 1);
             } else {
               console.log('Removing output assertion...');
+              ruleCopy.output_assertions.splice(index, 1);
             }
+            updateRule(ruleCopy);
           }}
         >
           <ITrash />
