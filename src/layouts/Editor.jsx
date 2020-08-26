@@ -27,6 +27,7 @@ import {
   FormDropdownDouble,
   FormStandardDouble,
   InvolvedParty,
+  SentenceEditor,
   // SentenceConstructor,
 } from '../components';
 
@@ -177,18 +178,17 @@ export default class Editor extends React.Component {
    */
 
   editInputCondition(key) {
-    this.editSentence(key, true, false);
+    this.editSentence(key, true);
   }
 
   editOutputAssertion(key) {
-    this.editSentence(key, false, true);
+    this.editSentence(key, false);
   }
 
-  editSentence(key, inputConditions = false, outputAssertions = false) {
+  editSentence(key, inputConditions = false) {
     this.setState({
       modalOpen: true,
       modalEditingInput: inputConditions,
-      modalEditingAssertions: outputAssertions,
       modalEditingIndex: key,
     });
   }
@@ -210,12 +210,16 @@ export default class Editor extends React.Component {
       active,
       modalOpen,
       modalEditingIndex,
-      modalEditingAssertions,
       modalEditingInput,
     } = this.state;
 
-    console.log('TEST TEST TEST\n\n\n');
-    console.log(rule.input_conditions[0].cases);
+    // Set up editing modal.
+    let sentence = {};
+    if (modalEditingInput) {
+      sentence = rule.input_conditions[modalEditingIndex];
+    } else {
+      sentence = rule.output_assertions[modalEditingIndex];
+    }
 
     return (
       <div>
@@ -259,7 +263,19 @@ export default class Editor extends React.Component {
                       <Text variant="heading">Modify Output Assertion</Text>
                     )}
                     <Box padding={2} />
+                    <SentenceEditor
+                      participle={sentence.participle}
+                      attribute={sentence.attribute}
+                      subject={sentence.subject}
+                      operation={sentence.operation}
+                      value={sentence.value}
+                      index={modalEditingIndex}
+                      modalEditingInput={modalEditingInput}
+                      updateRule={this.updateRule}
+                    />
+                    <Box padding={2} />
                     <Text>Raw JSON data:</Text>
+                    <Box padding={1} />
                     {modalEditingInput ? (
                       <Text>{prettyJSON(rule.input_conditions[modalEditingIndex])}</Text>
                     ) : (
