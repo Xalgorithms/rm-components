@@ -204,7 +204,15 @@ export default class Editor extends React.Component {
    */
 
   render() {
-    const { rule, sampleInvolvedParties, active, modalOpen } = this.state;
+    const {
+      rule,
+      sampleInvolvedParties,
+      active,
+      modalOpen,
+      modalEditingIndex,
+      modalEditingAssertions,
+      modalEditingInput,
+    } = this.state;
 
     console.log('TEST TEST TEST\n\n\n');
     console.log(rule.input_conditions[0].cases);
@@ -245,7 +253,19 @@ export default class Editor extends React.Component {
                     borderColor="oline"
                     borderRadius="base"
                   >
-                    <Text>Hello Motol?</Text>
+                    {modalEditingInput ? (
+                      <Text variant="heading">Modify Input Condition</Text>
+                    ) : (
+                      <Text variant="heading">Modify Output Assertion</Text>
+                    )}
+                    <Box padding={2} />
+                    <Text>Raw JSON data:</Text>
+                    {modalEditingInput ? (
+                      <Text>{prettyJSON(rule.input_conditions[modalEditingIndex])}</Text>
+                    ) : (
+                      <Text>{prettyJSON(rule.output_assertions[modalEditingIndex])}</Text>
+                    )}
+                    <Box padding={2} />
                     <Button
                       onClick={() => {
                         this.setState((prevState) => {
