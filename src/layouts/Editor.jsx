@@ -63,18 +63,6 @@ const modalhold = {
   marginBottom: '-90vh',
 };
 
-const rowValues = [
-  { logic: 'A', type: 'blank' },
-  { logic: 'B', type: 'blank' },
-  { logic: 'C', type: 'blank' },
-];
-
-const blankValues = [
-  { logic: 'A', type: 'invisible' },
-  { logic: 'B', type: 'invisible' },
-  { logic: 'C', type: 'invisible' },
-];
-
 // This empty rule is the schema without any __descriptions.
 // Temporarily start with three cases.
 const emptyRule = addNewOutputAssertion(
@@ -94,8 +82,6 @@ export default class Editor extends React.Component {
     super(props);
     this.state = {
       rule: deepCopy(emptyRule),
-      inputSentences: [1],
-      outputSentences: [1],
       sampleInvolvedParties: [1],
       active: false,
       modalOpen: false,
@@ -189,14 +175,7 @@ export default class Editor extends React.Component {
    */
 
   render() {
-    const {
-      rule,
-      inputSentences,
-      outputSentences,
-      sampleInvolvedParties,
-      active,
-      modalOpen,
-    } = this.state;
+    const { rule, sampleInvolvedParties, active, modalOpen } = this.state;
 
     console.log('TEST TEST TEST\n\n\n');
     console.log(rule.input_conditions[0].cases);
@@ -281,7 +260,7 @@ export default class Editor extends React.Component {
                           {rule.input_conditions[0].cases.map((rowValue, i) => {
                             return (
                               <div style={ruleLeft} key={i}>
-                                <Badge variant="grayblue">{rowValue.case || 'X'}</Badge>
+                                <Badge variant="blank">{rowValue.case || '?'}</Badge>
                               </div>
                             );
                           })}
@@ -294,7 +273,7 @@ export default class Editor extends React.Component {
                   {/* Input Conditions Data */}
                   {rule.input_conditions.map((val, key) => (
                     <Box key={key}>
-                      <InputOutputRow rowValues={rowValues} />
+                      <InputOutputRow rowData={val} />
                     </Box>
                   ))}
 
@@ -303,7 +282,7 @@ export default class Editor extends React.Component {
                       <Addbutton
                         onClick={() => {
                           /* This function must add a new Input Condition */
-                          this.updateRule(addNewInputCondition(this.state.rule));
+                          this.updateRule(addNewInputCondition(rule));
                         }}
                       />
                     </div>
@@ -327,7 +306,7 @@ export default class Editor extends React.Component {
                   </div>
                   {rule.output_assertions.map((val, key) => (
                     <Box key={key}>
-                      <InputOutputRow rowValues={rowValues} />
+                      <InputOutputRow rowData={val} />
                     </Box>
                   ))}
                   <Flex alignItems="center">
@@ -335,23 +314,11 @@ export default class Editor extends React.Component {
                       <Addbutton
                         onClick={() => {
                           /* Must add a new output assertion. */
-                          this.updateRule(addNewOutputAssertion(this.state.rule));
+                          this.updateRule(addNewOutputAssertion(rule));
                         }}
                       />
                     </div>
-                    <Box>
-                      <Flex>
-                        {/* Output Assertions Data */}
-                        {blankValues.map((blankValue, i) => (
-                          <div style={ruleLeft} key={i}>
-                            <Badge variant={blankValue.type} key={blankValue.logic}>
-                              {blankValue.logic}
-                            </Badge>
-                          </div>
-                        ))}
-                        <div style={ruleLeft} />
-                      </Flex>
-                    </Box>
+                    <BlankRows rule={rule} />
                   </Flex>
                   <Box padding={1} />
                   <Box padding={1} />

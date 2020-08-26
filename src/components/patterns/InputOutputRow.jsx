@@ -16,7 +16,7 @@ const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
 };
 
-function InputOutputRow({ rowValues }) {
+function InputOutputRow({ rowData }) {
   return (
     <div style={bottomLine}>
       <Flex alignItems="center">
@@ -25,13 +25,20 @@ function InputOutputRow({ rowValues }) {
         </div>
         <Box>
           <Flex>
-            {rowValues.map((rowValue, i) => (
-              <div style={ruleLeft} key={i}>
-                <Badge variant={rowValue.type} key={rowValue.logic}>
-                  {rowValue.logic}
-                </Badge>
-              </div>
-            ))}
+            {rowData.cases.map((rowValue, i) => {
+              let variant = 'grayblue';
+              if (rowValue.value.toLowerCase() === 't') {
+                variant = 'blue';
+              } else if (rowValue.value.toLowerCase() === 'f') {
+                variant = 'lightblue';
+              }
+
+              return (
+                <div style={ruleLeft} key={i}>
+                  <Badge variant={variant}>{rowValue.value || 'B'}</Badge>
+                </div>
+              );
+            })}
             <div style={ruleLeft} />
           </Flex>
         </Box>
