@@ -277,6 +277,7 @@ export default class Editor extends React.Component {
                       </div>
                       <Box>
                         <Flex>
+                          {/* Input Conditions Data Headings */}
                           {rule.input_conditions[0].cases.map((rowValue, i) => {
                             return (
                               <div style={ruleLeft} key={i}>
@@ -290,6 +291,7 @@ export default class Editor extends React.Component {
                     </Flex>
                   </div>
 
+                  {/* Input Conditions Data */}
                   {rule.input_conditions.map((val, key) => (
                     <Box key={key}>
                       <InputOutputRow rowValues={rowValues} />
@@ -300,40 +302,16 @@ export default class Editor extends React.Component {
                     <div style={halfWidth}>
                       <Addbutton
                         onClick={() => {
-                          const parties = inputSentences;
-                          const last = parties[parties.length];
-                          parties.push(last + 1);
-                          this.setState({ inputSentences: parties });
+                          /* This function must add a new Input Condition */
+                          this.updateRule(addNewInputCondition(this.state.rule));
                         }}
                       />
                     </div>
-                    <Box>
-                      <Flex>
-                        {blankValues.map((blankValue, i) => (
-                          <div style={ruleLeft} key={i}>
-                            <Badge variant={blankValue.type} key={blankValue.logic}>
-                              {blankValue.logic}
-                            </Badge>
-                          </div>
-                        ))}
-                        <div style={ruleLeft} />
-                      </Flex>
-                    </Box>
+                    <BlankRows rule={rule} />
                   </Flex>
                   <Flex alignItems="center">
                     <div style={halfWidth} />
-                    <Box>
-                      <Flex>
-                        {blankValues.map((blankValue, i) => (
-                          <div style={ruleLeft} key={i}>
-                            <Badge variant={blankValue.type} key={blankValue.logic}>
-                              {blankValue.logic}
-                            </Badge>
-                          </div>
-                        ))}
-                        <div style={ruleLeft} />
-                      </Flex>
-                    </Box>
+                    <BlankRows rule={rule} />
                   </Flex>
                   <div style={bottomLine}>
                     <Flex alignItems="center">
@@ -341,21 +319,10 @@ export default class Editor extends React.Component {
                         <Flex>
                           <Text variant="formtitle">Then</Text>
                           <Box padding={1} />
-                          <Text>Output Contditions</Text>
+                          <Text>Output Assertions</Text>
                         </Flex>
                       </div>
-                      <Box>
-                        <Flex>
-                          {blankValues.map((blankValue, i) => (
-                            <div style={ruleLeft} key={i}>
-                              <Badge variant={blankValue.type} key={blankValue.logic}>
-                                {blankValue.logic}
-                              </Badge>
-                            </div>
-                          ))}
-                          <div style={ruleLeft} />
-                        </Flex>
-                      </Box>
+                      <BlankRows rule={rule} />
                     </Flex>
                   </div>
                   {rule.output_assertions.map((val, key) => (
@@ -367,15 +334,14 @@ export default class Editor extends React.Component {
                     <div style={halfWidth}>
                       <Addbutton
                         onClick={() => {
-                          const parties = outputSentences;
-                          const last = parties[parties.length];
-                          parties.push(last + 1);
-                          this.setState({ outputSentences: parties });
+                          /* Must add a new output assertion. */
+                          this.updateRule(addNewOutputAssertion(this.state.rule));
                         }}
                       />
                     </div>
                     <Box>
                       <Flex>
+                        {/* Output Assertions Data */}
                         {blankValues.map((blankValue, i) => (
                           <div style={ruleLeft} key={i}>
                             <Badge variant={blankValue.type} key={blankValue.logic}>
@@ -756,6 +722,21 @@ export default class Editor extends React.Component {
       </div>
     );
   }
+}
+
+function BlankRows({ rule }) {
+  return (
+    <Box>
+      <Flex>
+        {rule.input_conditions[0].cases.map((rowValue, i) => (
+          <div style={ruleLeft} key={i}>
+            <Badge variant="invisible">X</Badge>
+          </div>
+        ))}
+        <div style={ruleLeft} />
+      </Flex>
+    </Box>
+  );
 }
 
 function RuleNameSection({ rule, updateRule, active }) {
