@@ -85,8 +85,9 @@ export default class Editor extends React.Component {
       sampleInvolvedParties: [1],
       active: false,
       modalOpen: false,
-      // modalEditingInput: true,
-      // modalEditingValue: 0,
+      modalEditingInput: false,
+      modalEditingAssertions: false,
+      modalEditingIndex: 0,
     };
 
     this.getRuleFromStorage = this.getRuleFromStorage.bind(this);
@@ -95,6 +96,11 @@ export default class Editor extends React.Component {
     this.resetRule = this.resetRule.bind(this);
     this.deleteRule = this.deleteRule.bind(this);
     this.persistRuleToLocalStorage = this.persistRuleToLocalStorage.bind(this);
+
+    // Sentence editing
+    this.editSentence = this.editSentence.bind(this);
+    this.editInputCondition = this.editInputCondition.bind(this);
+    this.editOutputAssertion = this.editOutputAssertion.bind(this);
   }
 
   componentDidMount() {
@@ -162,6 +168,29 @@ export default class Editor extends React.Component {
   persistRuleToLocalStorage() {
     console.log('Editor.jsx: Persisting rule to local storage...');
     localStorage.setItem('rulev2', prettyJSON(this.state.rule));
+  }
+
+  /**
+   * ===========================
+   * Functions for Editing Cases
+   * ===========================
+   */
+
+  editInputCondition(key) {
+    this.editSentence(key, true, false);
+  }
+
+  editOutputAssertion(key) {
+    this.editSentence(key, false, true);
+  }
+
+  editSentence(key, inputConditions = false, outputAssertions = false) {
+    this.setState({
+      modalOpen: true,
+      modalEditingInput: inputConditions,
+      modalEditingAssertions: outputAssertions,
+      modalEditingIndex: key,
+    });
   }
 
   /**
@@ -256,7 +285,7 @@ export default class Editor extends React.Component {
                       </div>
                       <Box>
                         <Flex>
-                          {/* Input Conditions Data Headings */}
+                          {/* Input Conditions/Output Assertions Case Headings */}
                           {rule.input_conditions[0].cases.map((rowValue, i) => {
                             return (
                               <div style={ruleLeft} key={i}>
@@ -273,7 +302,14 @@ export default class Editor extends React.Component {
                   {/* Input Conditions Data */}
                   {rule.input_conditions.map((val, key) => (
                     <Box key={key}>
-                      <InputOutputRow rowData={val} />
+                      <InputOutputRow
+                        rowData={val}
+                        rule={rule}
+                        updateRule={this.updateRule}
+                        editRow={this.editInputCondition}
+                        index={key}
+                        inputCondition
+                      />
                     </Box>
                   ))}
 
@@ -306,7 +342,14 @@ export default class Editor extends React.Component {
                   </div>
                   {rule.output_assertions.map((val, key) => (
                     <Box key={key}>
-                      <InputOutputRow rowData={val} />
+                      <InputOutputRow
+                        rowData={val}
+                        rule={rule}
+                        updateRule={this.updateRule}
+                        editRow={this.editOutputAssertion}
+                        index={key}
+                        inputCondition={false}
+                      />
                     </Box>
                   ))}
                   <Flex alignItems="center">

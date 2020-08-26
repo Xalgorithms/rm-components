@@ -16,7 +16,7 @@ const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
 };
 
-function InputOutputRow({ rowData }) {
+function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondition }) {
   return (
     <div style={bottomLine}>
       <Flex alignItems="center">
@@ -42,11 +42,31 @@ function InputOutputRow({ rowData }) {
             <div style={ruleLeft} />
           </Flex>
         </Box>
-        <Button variant="invisible">
+        <Button
+          variant="invisible"
+          onClick={() => {
+            alert('Editing row...');
+            if (inputCondition) {
+              console.log(`Editing input condition ${index}...`);
+            } else {
+              console.log(`Editing output assertion ${index}...`);
+            }
+          }}
+        >
           <IEdit />
         </Button>
         <Box p={1} />
-        <Button variant="invisible">
+        <Button
+          variant="invisible"
+          onClick={() => {
+            alert('Deleting Row');
+            if (inputCondition) {
+              console.log('Removing input condition...');
+            } else {
+              console.log('Removing output assertion...');
+            }
+          }}
+        >
           <ITrash />
         </Button>
       </Flex>
