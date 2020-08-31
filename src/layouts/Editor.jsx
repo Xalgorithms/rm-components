@@ -5,7 +5,7 @@ import {
   objectEmpty,
   RuleSchema,
   generateNewRule,
-  addNewCase,
+  // addNewCase,
   addNewInputCondition,
   addNewOutputAssertion,
   prettyJSON,
@@ -66,9 +66,7 @@ const modalhold = {
 
 // This empty rule is the schema without any __descriptions.
 // Temporarily start with three cases.
-const emptyRule = addNewOutputAssertion(
-  addNewInputCondition(addNewInputCondition(addNewCase(addNewCase(generateNewRule()))))
-);
+const emptyRule = generateNewRule();
 
 /**
  * ================
@@ -87,7 +85,6 @@ export default class Editor extends React.Component {
       active: false,
       modalOpen: false,
       modalEditingInput: false,
-      modalEditingAssertions: false,
       modalEditingIndex: 0,
     };
 
@@ -213,14 +210,6 @@ export default class Editor extends React.Component {
       modalEditingInput,
     } = this.state;
 
-    // Set up editing modal.
-    let sentence = {};
-    if (modalEditingInput) {
-      sentence = rule.input_conditions[modalEditingIndex];
-    } else {
-      sentence = rule.output_assertions[modalEditingIndex];
-    }
-
     return (
       <div>
         <EditorLeft
@@ -251,7 +240,7 @@ export default class Editor extends React.Component {
                   <Box
                     p={2}
                     m={0}
-                    width="600px"
+                    width="620px"
                     bg="bg"
                     border="1px solid"
                     borderColor="oline"
@@ -264,14 +253,6 @@ export default class Editor extends React.Component {
                       modalEditingInput={modalEditingInput}
                       updateRule={this.updateRule}
                     />
-                    <Box padding={2} />
-                    <Text>Raw JSON data:</Text>
-                    <Box padding={1} />
-                    {modalEditingInput ? (
-                      <Text>{prettyJSON(rule.input_conditions[modalEditingIndex])}</Text>
-                    ) : (
-                      <Text>{prettyJSON(rule.output_assertions[modalEditingIndex])}</Text>
-                    )}
                   </Box>
                 </Flex>
               </div>
@@ -767,6 +748,7 @@ function BlankRows({ rule }) {
 function RuleNameSection({ rule, updateRule, active }) {
   // 0. Fill out the section name.
   const sectionName = 'Rule Information';
+  const sectionDesc = 'Begin your rule by providing a title and concise description.';
   const [modified, setModified] = useState(false);
 
   // 1. Set a state for each element that must be filled.
@@ -787,6 +769,9 @@ function RuleNameSection({ rule, updateRule, active }) {
     <Box>
       <Box padding={2} />
       <Text variant="heading">{sectionName}</Text>
+      <Box padding={1} />
+      <Text>{sectionDesc}</Text>
+      <Box padding={2} />
       <Box>
         <FormStandard
           name="Rule Title"

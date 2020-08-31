@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
-import { deepCopy, RuleSchema } from 'xalgo-rule-processor';
-import {
-  Box,
-  Text,
-  Flex,
-  Button,
-  Dropdown,
-  Option,
-  Input,
-  Infobox,
-  Modal,
-  InputField,
-  Icon,
-} from '..';
-import { IEdit, ITrash } from '../icons';
+import { deepCopy } from 'xalgo-rule-processor';
+import { Box, Text, Flex, Button, Dropdown, Option, Input, Infobox, Modal, InputField } from '..';
 
 const fillBox = {
   borderBottom: '1px solid #696969',
@@ -88,30 +75,6 @@ export default function SentenceEditor(props) {
             <Text>is</Text>
             <SentenceConstructorField contentField={operation} small />
             <SentenceConstructorField contentField={value} />
-          </Flex>
-
-          <Flex>
-            <Button
-              variant="invisible"
-              onClick={() => {
-                console.error('IMPLEMENT ME');
-              }}
-            >
-              <Icon name="download" fill="red" />
-            </Button>
-            <Box p={1} />
-            <Button
-              variant="invisible"
-              onClick={() => {
-                console.error('IMPLEMENT ME');
-              }}
-            >
-              <IEdit />
-            </Button>
-            <Box p={1} />
-            <Button variant="invisible">
-              <ITrash />
-            </Button>
           </Flex>
         </Flex>
         <Modal isOpen>

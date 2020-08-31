@@ -19,9 +19,16 @@ const bottomLine = {
 
 function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondition }) {
   const { participle, attribute, subject, operation, value } = rowData;
-  const sentence = ['The', participle, attribute, 'of the', subject, 'is', operation, value].join(
-    ' '
-  );
+  const sentence = [
+    'The',
+    participle || 'participle',
+    attribute || 'attribute',
+    'of the',
+    subject || 'subject',
+    'is',
+    operation || '==',
+    value || 'value',
+  ].join(' ');
   return (
     <div style={bottomLine}>
       <Flex alignItems="center">
