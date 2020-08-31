@@ -1,10 +1,10 @@
 import React from 'react';
 import { deepCopy } from 'xalgo-rule-processor';
+import { isArray } from 'xalgo-rule-processor/dist/types';
 import { toast } from 'react-toastify';
 
 import { Text, Badge, Box, Flex, Button } from '..';
 import { IEdit, ITrash } from '../icons';
-import { isArray } from 'xalgo-rule-processor/dist/types';
 
 const ruleLeft = {
   borderLeft: '1px solid #E7E7E7',

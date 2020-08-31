@@ -4,7 +4,7 @@ import {
   deepCopy,
   objectEmpty,
   generateNewRule,
-  // addNewCase,
+  addNewCase,
   addNewInputCondition,
   addNewOutputAssertion,
   prettyJSON,
@@ -15,6 +15,7 @@ import {
   Text,
   Flex,
   Badge,
+  Button,
   Addbutton,
   InputOutputRow,
   FormStandard,
@@ -99,6 +100,7 @@ export default class Editor extends React.Component {
     this.editSentence = this.editSentence.bind(this);
     this.editInputCondition = this.editInputCondition.bind(this);
     this.editOutputAssertion = this.editOutputAssertion.bind(this);
+    this.addCase = this.addCase.bind(this);
   }
 
   componentDidMount() {
@@ -198,6 +200,10 @@ export default class Editor extends React.Component {
     });
   }
 
+  addCase() {
+    this.updateRule(addNewCase(this.state.rule));
+  }
+
   /**
    * ==================================
    * Rendering Method, end of functions
@@ -284,7 +290,7 @@ export default class Editor extends React.Component {
                         <Flex>
                           <Text variant="formtitle">When</Text>
                           <Box padding={1} />
-                          <Text>Input Contditions</Text>
+                          <Text>Input Conditions</Text>
                         </Flex>
                       </div>
                       <Box>
@@ -300,6 +306,14 @@ export default class Editor extends React.Component {
                           <div style={ruleLeft} />
                         </Flex>
                       </Box>
+                      <Button onClick={this.addCase}>+</Button>
+                      <Button
+                        onClick={() => {
+                          toast('Unimplemented.');
+                        }}
+                      >
+                        -
+                      </Button>
                     </Flex>
                   </div>
 
@@ -342,6 +356,14 @@ export default class Editor extends React.Component {
                         </Flex>
                       </div>
                       <BlankRows rule={rule} />
+                      <Button onClick={this.addCase}>+</Button>
+                      <Button
+                        onClick={() => {
+                          toast('Unimplemented.');
+                        }}
+                      >
+                        -
+                      </Button>
                     </Flex>
                   </div>
                   {rule.output_assertions.map((val, key) => (
