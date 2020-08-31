@@ -39,14 +39,13 @@ const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const fullheight = {
   minHeight: '80vh',
   width: '50vw',
-  //overflowX: 
+  // overflowX:
 };
 
 const overflowTable = {
   width: '100%',
   overflowX: 'scroll',
 };
-
 
 const ruleLeft = {
   borderLeft: '1px solid #E7E7E7',
@@ -68,7 +67,6 @@ const bottomLine = {
 
 const rowWidth = {
   width: '60px',
-  border: '1px solid red',
 };
 
 const fixpos = {
@@ -324,7 +322,7 @@ export default class Editor extends React.Component {
                                     toast('Unimplemented.');
                                   }}
                                 >
-                                  <ColumnLabel rowLabel={rowValue.case || '?'}/>
+                                  <ColumnLabel rowLabel={rowValue.case || '?'} />
                                 </Button>
                               </div>
                             );
@@ -370,7 +368,7 @@ export default class Editor extends React.Component {
                       />
                     </div>
                     <BlankRows rule={rule} />
-                    <div style={rowWidth}/>
+                    <div style={rowWidth} />
                   </Flex>
                   <Flex alignItems="center">
                     <div style={halfWidth} />
@@ -429,12 +427,7 @@ export default class Editor extends React.Component {
                     description="hello world is asking the following things"
                     nameTwo="Xalgo Version"
                     descriptionTwo="hello world is asking the following things"
-                    options={[
-                      { value: 'last stable', label: 'Last Stable' },
-                      { value: 'peace', label: 'Peace' },
-                      { value: 'no justice', label: 'No Justice' },
-                      { value: 'no peace', label: 'No Peace' },
-                    ]}
+                    options={[{ value: 'last stable', label: 'Last Stable' }]}
                   />
                   <Box padding={1} />
                   <FormStandardDropdown
@@ -442,12 +435,7 @@ export default class Editor extends React.Component {
                     description="hello world is asking the following things"
                     nameTwo="Rule Criticality"
                     descriptionTwo="hello world is asking the following things"
-                    options={[
-                      { value: 'experimental', label: 'Experimental' },
-                      { value: 'peace', label: 'Peace' },
-                      { value: 'no justice', label: 'No Justice' },
-                      { value: 'no peace', label: 'No Peace' },
-                    ]}
+                    options={[{ value: 'experimental', label: 'Experimental' }]}
                   />
                   <Box padding={1} />
                   <FormStandardLabel
@@ -530,10 +518,15 @@ export default class Editor extends React.Component {
                     name="Select the rule category that most applies."
                     description="hello world is asking the following things"
                     options={[
-                      { value: 'justice', label: 'Justice' },
-                      { value: 'peace', label: 'Peace' },
-                      { value: 'no justice', label: 'No Justice' },
-                      { value: 'no peace', label: 'No Peace' },
+                      { value: 'Informal Custom or Preference', label: 'Informal Custom or Preference' },
+                      { value: 'Formal Custom Without Legal Standing', label: 'Formal Custom Without Legal Standing' },
+                      { value: 'Guideline, Instruction, or Policy', label: 'Guideline, Instruction, or Policy' },
+                      { value: 'Code of Conduct', label: 'Code of Conduct' },
+                      { value: 'Regulation or Directive', label: 'Regulation or Directive' },
+                      { value: 'Common Law or Case Law', label: 'Common Law or Case Law' },
+                      { value: 'Statute or Legislation', label: 'Statute or Legislation' },
+                      { value: 'International Law', label: 'International Law' },
+                      { value: 'Constitutional Law', label: 'Constitutional Law' },
                     ]}
                   />
                   <Box padding={2} />
@@ -548,9 +541,9 @@ export default class Editor extends React.Component {
                   <FormSlider
                     name="Enforcement Measures in Place"
                     description="lorem ipsum"
-                    labela="here Are No or Minor Penalties"
-                    labelb="There Are Significant Penalties"
-                    labelc="There Are Major Penalties"
+                    labela="Minor Penalties"
+                    labelb="Significant Penalties"
+                    labelc="Major Penalties"
                   />
                   <Box padding={2} />
                   <FormSlider
@@ -576,23 +569,11 @@ export default class Editor extends React.Component {
 
               <Box>
                 <div>
-                  <FormDropdownDouble
-                    name="Country Jurisdiction"
+                  <FormStandardDouble
+                    name="Country Jurisdiction "
                     description="hello world is asking the following things"
-                    options={[
-                      { value: 'justice', label: 'Justice' },
-                      { value: 'peace', label: 'Peace' },
-                      { value: 'no justice', label: 'No Justice' },
-                      { value: 'no peace', label: 'No Peace' },
-                    ]}
                     nameTwo="Sub-Country Jurisdiction"
                     descriptionTwo="hello world is asking the following things"
-                    optionsTwo={[
-                      { valueTwo: 'justice', labelTwo: 'Justice' },
-                      { valueTwo: 'peace', labelTwo: 'Peace' },
-                      { valueTwo: 'no justice', labelTwo: 'No Justice' },
-                      { valueTwo: 'no peace', labelTwo: 'No Peace' },
-                    ]}
                   />
                   <Box padding={1} />
                   <FormStandardDouble
@@ -606,30 +587,52 @@ export default class Editor extends React.Component {
                     name="Time Zone"
                     description="hello world is asking the following things"
                     options={[
-                      { value: 'justice', label: 'Justice' },
-                      { value: 'peace', label: 'Peace' },
-                      { value: 'no justice', label: 'No Justice' },
-                      { value: 'no peace', label: 'No Peace' },
+                      { value: 'UTC−12:00', label: 'UTC−12:00' },
+                      { value: 'UTC−11:00', label: 'UTC−11:00' },
+                      { value: 'UTC−10:00', label: 'UTC−10:00' },
+                      { value: 'UTC−09:30', label: 'UTC−09:30' },
+                      { value: 'UTC−09:00', label: 'UTC−09:00' },
+                      { value: 'UTC−08:00', label: 'UTC−08:00' },
+                      { value: 'UTC−07:00', label: 'UTC−07:00' },
+                      { value: 'UTC−06:00', label: 'UTC−06:00' },
+                      { value: 'UTC−05:00', label: 'UTC−05:00' },
+                      { value: 'UTC−04:00', label: 'UTC−04:00' },
+                      { value: 'UTC−03:30', label: 'UTC−03:30' },
+                      { value: 'UTC−03:00', label: 'UTC−03:00' },
+                      { value: 'UTC−02:00', label: 'UTC−02:00' },
+                      { value: 'UTC−01:00', label: 'UTC−01:00' },
+                      { value: 'UTC±00:00', label: 'UTC±00:00' },
+                      { value: 'UTC+01:00', label: 'UTC+01:00' },
+                      { value: 'UTC+02:00', label: 'UTC+02:00' },
+                      { value: 'UTC+03:00', label: 'UTC+03:00' },
+                      { value: 'UTC+03:30', label: 'UTC+03:30' },
+                      { value: 'UTC+04:00', label: 'UTC+04:00' },
+                      { value: 'UTC+04:30', label: 'UTC+04:30' },
+                      { value: 'UTC+05:00', label: 'UTC+05:00' },
+                      { value: 'UTC+05:30', label: 'UTC+05:30' },
+                      { value: 'UTC+05:45', label: 'UTC+05:45' },
+                      { value: 'UTC+06:00', label: 'UTC+06:00' },
+                      { value: 'UTC+06:30', label: 'UTC+06:30' },
+                      { value: 'UTC+07:00', label: 'UTC+07:00' },
+                      { value: 'UTC+08:00', label: 'UTC+08:00' },
+                      { value: 'UTC+08:45', label: 'UTC+08:45' },
+                      { value: 'UTC+09:00', label: 'UTC+09:00' },
+                      { value: 'UTC+09:30', label: 'UTC+09:30' },
+                      { value: 'UTC+10:00', label: 'UTC+10:00' },
+                      { value: 'UTC+10:30', label: 'UTC+10:30' },
+                      { value: 'UTC+11:00', label: 'UTC+11:00' },
+                      { value: 'UTC+12:00', label: 'UTC+12:00' },
+                      { value: 'UTC+12:45', label: 'UTC+12:45' },
+                      { value: 'UTC+13:00', label: 'UTC+13:00' },
+                      { value: 'UTC+14:00', label: 'UTC+14:00' },
                     ]}
                   />
                   <Box padding={1} />
-                  <FormDropdownDouble
-                    name="Country Jurisdiction"
+                  <FormStandardDouble
+                    name="Country Jurisdiction "
                     description="hello world is asking the following things"
-                    options={[
-                      { value: 'justice', label: 'Justice' },
-                      { value: 'peace', label: 'Peace' },
-                      { value: 'no justice', label: 'No Justice' },
-                      { value: 'no peace', label: 'No Peace' },
-                    ]}
                     nameTwo="Sub-Country Jurisdiction"
                     descriptionTwo="hello world is asking the following things"
-                    optionsTwo={[
-                      { valueTwo: 'justice', labelTwo: 'Justice' },
-                      { valueTwo: 'peace', labelTwo: 'Peace' },
-                      { valueTwo: 'no justice', labelTwo: 'No Justice' },
-                      { valueTwo: 'no peace', labelTwo: 'No Peace' },
-                    ]}
                   />
                   <Box padding={1} />
                   <Flex justifyContent="flex-end">

@@ -22,7 +22,7 @@ export const Dropdown = styled.select(
     WebkitAppearance: 'none',
     MozAppearance: 'none',
     appearance: 'none' /* Remove default arrow */,
-    background: 'url(/assets/icons/dropdown.svg) no-repeat right center',
+    background: 'url(/dropdown.svg) no-repeat right center',
     '&:focus': {
       outline: 0,
       borderColor: 'primary',
