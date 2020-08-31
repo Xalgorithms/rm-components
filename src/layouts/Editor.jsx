@@ -147,7 +147,7 @@ export default class Editor extends React.Component {
     // Finally, save.
     this.setState({ active: false, rule: newRuleContent }, () => {
       console.log('Editor.jsx: Updated content from local storage.');
-      this.setState({ active: true }, () => {
+      this.setState({ active: true, modalOpen: false }, () => {
         this.persistRuleToLocalStorage();
       });
     });
@@ -257,19 +257,10 @@ export default class Editor extends React.Component {
                     borderColor="oline"
                     borderRadius="base"
                   >
-                    {modalEditingInput ? (
-                      <Text variant="heading">Modify Input Condition</Text>
-                    ) : (
-                      <Text variant="heading">Modify Output Assertion</Text>
-                    )}
-                    <Box padding={2} />
                     <SentenceEditor
-                      participle={sentence.participle}
-                      attribute={sentence.attribute}
-                      subject={sentence.subject}
-                      operation={sentence.operation}
-                      value={sentence.value}
+                      rule={rule}
                       index={modalEditingIndex}
+                      active={active}
                       modalEditingInput={modalEditingInput}
                       updateRule={this.updateRule}
                     />
@@ -281,18 +272,6 @@ export default class Editor extends React.Component {
                     ) : (
                       <Text>{prettyJSON(rule.output_assertions[modalEditingIndex])}</Text>
                     )}
-                    <Box padding={2} />
-                    <Button
-                      onClick={() => {
-                        this.setState((prevState) => {
-                          const updatedRule = prevState.rule;
-                          // Add extra stuff to updatedRule here.
-                          return { rule: updatedRule, modalOpen: false };
-                        });
-                      }}
-                    >
-                      Save and Close
-                    </Button>
                   </Box>
                 </Flex>
               </div>

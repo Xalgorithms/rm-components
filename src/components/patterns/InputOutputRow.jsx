@@ -18,11 +18,15 @@ const bottomLine = {
 };
 
 function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondition }) {
+  const { participle, attribute, subject, operation, value } = rowData;
+  const sentence = ['The', participle, attribute, 'of the', subject, 'is', operation, value].join(
+    ' '
+  );
   return (
     <div style={bottomLine}>
       <Flex alignItems="center">
         <div style={halfWidth}>
-          <Text color="textb">Input condition sentences goes here</Text>
+          <Text color="textb">{sentence}</Text>
         </div>
         <Box>
           <Flex>
