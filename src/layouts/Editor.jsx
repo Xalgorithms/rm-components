@@ -10,6 +10,7 @@ import {
   prettyJSON,
 } from 'xalgo-rule-processor';
 import EditorLeft from './editor-layouts/EditorLeft';
+import ColumnLabel from '../components/patterns/ColumnLabel';
 import {
   Box,
   Text,
@@ -27,6 +28,7 @@ import {
   FormStandardDouble,
   InvolvedParty,
   SentenceEditor,
+  Icon,
   // SentenceConstructor,
 } from '../components';
 
@@ -37,19 +39,41 @@ const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const fullheight = {
   minHeight: '80vh',
   width: '50vw',
+  //overflowX: 
 };
+
+const overflowTable = {
+  width: '100%',
+  overflowX: 'scroll',
+};
+
 
 const ruleLeft = {
   borderLeft: '1px solid #E7E7E7',
   padding: '1em',
 };
 
+const ruleLeftalt = {
+  borderLeft: '1px solid #E7E7E7',
+  padding: '0.75em',
+};
+
 const halfWidth = {
-  width: '50%',
+  minWidth: '400px',
 };
 
 const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
+};
+
+const rowWidth = {
+  width: '60px',
+  border: '1px solid red',
+};
+
+const leftWidth = {
+  width: '180px',
+  border: '1px solid red',
 };
 
 const fixpos = {
@@ -235,7 +259,7 @@ export default class Editor extends React.Component {
           {/* Modal used by input/output tables. */}
           {modalOpen ? (
             <div style={fixpos}>
-              <Box p={4} width="100%" bg="#fff">
+              <Box p={4} bg="#fff">
                 <Flex justifyContent="space-between" alignItems="center">
                   <div>
                     <Box padding="0.2em" />
@@ -283,7 +307,7 @@ export default class Editor extends React.Component {
 
               <Text variant="heading">Input Tables</Text>
               <Box>
-                <div>
+                <div style={overflowTable}>
                   <div style={bottomLine}>
                     <Flex alignItems="center">
                       <div style={halfWidth}>
@@ -299,21 +323,31 @@ export default class Editor extends React.Component {
                           {rule.input_conditions[0].cases.map((rowValue, i) => {
                             return (
                               <div style={ruleLeft} key={i}>
-                                <Badge variant="blank">{rowValue.case || '?'}</Badge>
+                                <Button
+                                  variant="invisible"
+                                  onClick={() => {
+                                    toast('Unimplemented.');
+                                  }}
+                                >
+                                  <ColumnLabel rowLabel={rowValue.case || '?'}/>
+                                </Button>
                               </div>
                             );
                           })}
-                          <div style={ruleLeft} />
+                          <div style={ruleLeftalt} />
                         </Flex>
                       </Box>
-                      <Button onClick={this.addCase}>+</Button>
-                      <Button
-                        onClick={() => {
-                          toast('Unimplemented.');
-                        }}
-                      >
-                        -
-                      </Button>
+                      <div style={rowWidth}>
+                        <Button variant="invisible" onClick={this.addCase}>
+                          <Icon
+                            name="additional"
+                            fill="#345FF9"
+                            size={32}
+                            viewbox_x={32}
+                            viewbox_y={32}
+                          />
+                        </Button>
+                      </div>
                     </Flex>
                   </div>
 
@@ -341,6 +375,7 @@ export default class Editor extends React.Component {
                       />
                     </div>
                     <BlankRows rule={rule} />
+                    <div style={rowWidth}/>
                   </Flex>
                   <Flex alignItems="center">
                     <div style={halfWidth} />
@@ -356,14 +391,6 @@ export default class Editor extends React.Component {
                         </Flex>
                       </div>
                       <BlankRows rule={rule} />
-                      <Button onClick={this.addCase}>+</Button>
-                      <Button
-                        onClick={() => {
-                          toast('Unimplemented.');
-                        }}
-                      >
-                        -
-                      </Button>
                     </Flex>
                   </div>
                   {rule.output_assertions.map((val, key) => (

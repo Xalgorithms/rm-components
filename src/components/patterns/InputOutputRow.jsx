@@ -12,11 +12,13 @@ const ruleLeft = {
 };
 
 const halfWidth = {
-  width: '50%',
+  minWidth: '400px',
 };
 
 const bottomLine = {
   borderBottom: '1px solid #E7E7E7',
+  minWidth: '100%',
+  display: 'block',
 };
 
 function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondition }) {

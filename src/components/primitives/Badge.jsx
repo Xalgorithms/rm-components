@@ -51,6 +51,7 @@ const Badge = styled.div(
         color: 'bg',
         border: 'none',
         width: '34px',
+        height: '46px',
       },
       suggestion: {
         color: 'purplea',
