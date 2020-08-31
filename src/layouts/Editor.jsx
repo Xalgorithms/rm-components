@@ -24,7 +24,6 @@ import {
   FormStandardDropdown,
   FormStandardLabel,
   FormDropdown,
-  FormDropdownDouble,
   FormStandardDouble,
   InvolvedParty,
   SentenceEditor,
