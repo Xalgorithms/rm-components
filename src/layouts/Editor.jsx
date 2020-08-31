@@ -71,11 +71,6 @@ const rowWidth = {
   border: '1px solid red',
 };
 
-const leftWidth = {
-  width: '180px',
-  border: '1px solid red',
-};
-
 const fixpos = {
   position: 'sticky',
   top: '88px',
