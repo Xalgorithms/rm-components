@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import {
   deepCopy,
   objectEmpty,
-  RuleSchema,
   generateNewRule,
   // addNewCase,
   addNewInputCondition,
@@ -16,7 +15,6 @@ import {
   Text,
   Flex,
   Badge,
-  Button,
   Addbutton,
   InputOutputRow,
   FormStandard,
@@ -30,6 +28,8 @@ import {
   SentenceEditor,
   // SentenceConstructor,
 } from '../components';
+
+import RuleNameSection from './components/RuleNameSection';
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -130,11 +130,19 @@ export default class Editor extends React.Component {
   }
 
   updateRule(content) {
-    const newRuleContent = content;
+    let newRuleContent = content;
     console.log(
       `Editor.jsx: Updating Rule Content:
       \nContent:\n${prettyJSON(newRuleContent)}`
     );
+
+    if (newRuleContent.input_conditions.length === 0) {
+      newRuleContent = addNewInputCondition(newRuleContent);
+    }
+
+    if (newRuleContent.output_assertions.length === 0) {
+      newRuleContent = addNewOutputAssertion(newRuleContent);
+    }
     // Perform checks on rule to ensure content is good.
     if (newRuleContent.input_conditions[0].cases[0].case === '') {
       console.log('Adding a case to the cases.');
@@ -741,84 +749,6 @@ function BlankRows({ rule }) {
         ))}
         <div style={ruleLeft} />
       </Flex>
-    </Box>
-  );
-}
-
-function RuleNameSection({ rule, updateRule, active }) {
-  // 0. Fill out the section name.
-  const sectionName = 'Rule Information';
-  const sectionDesc = 'Begin your rule by providing a title and concise description.';
-  const [modified, setModified] = useState(false);
-
-  // 1. Set a state for each element that must be filled.
-  const [title, setTitle] = useState('');
-  const [desc, setDesc] = useState('');
-
-  // Don't touch this.
-  if (active && !modified) {
-    console.log(`${sectionName} section is being edited.`);
-
-    // 2. Ensure each field is set according to the current rule state.
-    if (title !== rule.metadata.rule.title) setTitle(rule.metadata.rule.title);
-    if (desc !== rule.metadata.rule.description) setDesc(rule.metadata.rule.description);
-  }
-
-  // 3. Return a rendering of the component.
-  return (
-    <Box>
-      <Box padding={2} />
-      <Text variant="heading">{sectionName}</Text>
-      <Box padding={1} />
-      <Text>{sectionDesc}</Text>
-      <Box padding={2} />
-      <Box>
-        <FormStandard
-          name="Rule Title"
-          description={RuleSchema.metadata.rule.__title}
-          placeholder={RuleSchema.metadata.rule.title}
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-            setModified(true);
-          }}
-        />
-        <Box m={1} />
-        <FormStandard
-          name="Rule Description"
-          description={RuleSchema.metadata.rule.__description}
-          placeholder={RuleSchema.metadata.rule.description}
-          value={desc}
-          onChange={(e) => {
-            setDesc(e.target.value);
-            setModified(true);
-          }}
-        />
-        <Box padding={2} />
-
-        {/* SAVE BUTTON */}
-        {/* 4. In the save method, update the rule state. */}
-        <Button
-          disabled={!modified}
-          onClick={() => {
-            const ruleCopy = deepCopy(rule);
-
-            // Modify all necessary fields in the rule.
-            ruleCopy.metadata.rule.title = title;
-            ruleCopy.metadata.rule.description = desc;
-
-            // Call the updateRule function with the new content.
-            updateRule(ruleCopy);
-
-            // Cleanup and notifications.
-            toast(`Saved ${sectionName}`);
-            setModified(false);
-          }}
-        >
-          {`Save ${sectionName}`}
-        </Button>
-        <Box padding={4} />
-      </Box>
     </Box>
   );
 }
