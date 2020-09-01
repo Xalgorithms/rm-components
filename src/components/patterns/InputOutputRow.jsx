@@ -21,12 +21,12 @@ const bottomLine = {
   display: 'block',
 };
 
-function rotateValue(tfb) {
+function rotateValue(tfb, inputCondition = true) {
   let retval = '';
   if (tfb.toLowerCase() === 't') {
     retval = 'F';
   } else if (tfb.toLowerCase() === 'f') {
-    retval = 'B';
+    retval = inputCondition ? 'B' : 'T';
   } else {
     retval = 'T';
   }
@@ -71,18 +71,24 @@ function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondit
                       const ruleCopy = deepCopy(rule);
                       if (inputCondition) {
                         ruleCopy.input_conditions[index].cases[i].value = rotateValue(
-                          ruleCopy.input_conditions[index].cases[i].value
+                          ruleCopy.input_conditions[index].cases[i].value,
+                          inputCondition
                         );
                       } else {
                         // Output assertion
                         ruleCopy.output_assertions[index].cases[i].value = rotateValue(
-                          ruleCopy.output_assertions[index].cases[i].value
+                          ruleCopy.output_assertions[index].cases[i].value,
+                          inputCondition
                         );
                       }
                       updateRule(ruleCopy);
                     }}
                   >
-                    <Badge variant={variant}>{rowValue.value || 'B'}</Badge>
+                    {inputCondition ? (
+                      <Badge variant={variant}>{rowValue.value || 'B'}</Badge>
+                    ) : (
+                      <Badge variant={variant}>{rowValue.value || 'F'}</Badge>
+                    )}
                   </Button>
                 </div>
               );
