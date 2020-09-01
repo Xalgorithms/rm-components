@@ -21,6 +21,18 @@ const bottomLine = {
   display: 'block',
 };
 
+function rotateValue(tfb) {
+  let retval = '';
+  if (tfb.toLowerCase() === 't') {
+    retval = 'F';
+  } else if (tfb.toLowerCase() === 'f') {
+    retval = 'B';
+  } else {
+    retval = 'T';
+  }
+  return retval;
+}
+
 function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondition }) {
   const { participle, attribute, subject, operation, value } = rowData;
   const sentence = [
@@ -33,6 +45,7 @@ function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondit
     operation || '==',
     value || 'value',
   ].join(' ');
+
   return (
     <div style={bottomLine}>
       <Flex alignItems="center">
@@ -51,7 +64,26 @@ function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondit
 
               return (
                 <div style={ruleLeft} key={i}>
-                  <Badge variant={variant}>{rowValue.value || 'B'}</Badge>
+                  <Button
+                    variant="invisible"
+                    onClick={() => {
+                      // Updates the case.
+                      const ruleCopy = deepCopy(rule);
+                      if (inputCondition) {
+                        ruleCopy.input_conditions[index].cases[i].value = rotateValue(
+                          ruleCopy.input_conditions[index].cases[i].value
+                        );
+                      } else {
+                        // Output assertion
+                        ruleCopy.output_assertions[index].cases[i].value = rotateValue(
+                          ruleCopy.output_assertions[index].cases[i].value
+                        );
+                      }
+                      updateRule(ruleCopy);
+                    }}
+                  >
+                    <Badge variant={variant}>{rowValue.value || 'B'}</Badge>
+                  </Button>
                 </div>
               );
             })}
