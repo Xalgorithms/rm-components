@@ -511,7 +511,7 @@ export default class Editor extends React.Component {
               <Box padding={2} />
 
               {/* Quantative wieghts */}
-              <Text variant="heading">Qualitative Weights</Text>
+              <Text variant="heading">Output: Qualitative Weights</Text>
 
               <Box>
                 <div>
@@ -575,7 +575,7 @@ export default class Editor extends React.Component {
 
               {/* Input Contexts */}
 
-              <Text variant="heading">Input Contexts</Text>
+              <Text variant="heading">Input: Contexts</Text>
 
               <Box>
                 <div>
@@ -659,7 +659,7 @@ export default class Editor extends React.Component {
 
               {/* Input sources */}
 
-              <Text variant="heading">Input Sources</Text>
+              <Text variant="heading">Input: Sources</Text>
               <Box padding={1} />
               <Box>
                 <div>
@@ -719,7 +719,7 @@ export default class Editor extends React.Component {
 
               {/* Input filters */}
 
-              <Text variant="heading">Input Filters</Text>
+              <Text variant="heading">Input: Filters</Text>
               <Box padding={1} />
               <Box>
                 <div>
