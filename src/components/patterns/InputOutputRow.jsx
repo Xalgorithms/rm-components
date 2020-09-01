@@ -55,11 +55,13 @@ function InputOutputRow({ rowData, rule, updateRule, editRow, index, inputCondit
         <Box>
           <Flex>
             {rowData.cases.map((rowValue, i) => {
-              let variant = 'grayblue';
+              let variant = 'blue';
               if (rowValue.value.toLowerCase() === 't') {
                 variant = 'blue';
               } else if (rowValue.value.toLowerCase() === 'f') {
                 variant = 'lightblue';
+              } else if (rowValue.value.toLowerCase() === 'b') {
+                variant = 'both';
               }
 
               return (

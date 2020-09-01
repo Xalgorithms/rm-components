@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { deepCopy, RuleSchema } from 'xalgo-rule-processor';
-import { Box, Text, Button, FormStandard } from '../../components';
+import { Box, Text, Button, FormStandard, InputField } from '../../components';
+import FormTextArea from '../../components/patterns/FormTextArea';
 
 export default function RuleNameSection({ rule, updateRule, active }) {
   // 0. Fill out the section name.
@@ -32,7 +33,7 @@ export default function RuleNameSection({ rule, updateRule, active }) {
       <Box padding={2} />
       <Box>
         <FormStandard
-          name="Rule Title"
+          name="Rule Name (max 120 char)"
           description={RuleSchema.metadata.rule.__title}
           placeholder={RuleSchema.metadata.rule.title}
           value={title}
@@ -42,8 +43,8 @@ export default function RuleNameSection({ rule, updateRule, active }) {
           }}
         />
         <Box m={1} />
-        <FormStandard
-          name="Rule Description"
+        <FormTextArea
+          name="Short Description (max 240 char)"
           description={RuleSchema.metadata.rule.__description}
           placeholder={RuleSchema.metadata.rule.description}
           value={desc}

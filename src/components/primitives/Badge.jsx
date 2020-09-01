@@ -29,9 +29,7 @@ const Badge = styled.div(
         backgroundColor: 'midblue',
         width: '34px',
       },
-      grayblue: {
-        color: 'primary',
-        backgroundColor: 'greyblue',
+      both: {
         width: '34px',
       },
       form: {
@@ -51,7 +49,6 @@ const Badge = styled.div(
         color: 'bg',
         border: 'none',
         width: '34px',
-        height: '46px',
       },
       suggestion: {
         color: 'purplea',
