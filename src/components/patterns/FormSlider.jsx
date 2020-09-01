@@ -12,7 +12,7 @@ function FormSlider({ name, description, labela, labelb, labelc }) {
       </Modal>
       <Box padding={1} />
       <Flex alignItems="center">
-        <Text>{name}</Text>
+        <Text variant="formtitle">{name}</Text>
         <Button variant="invisible" onClick={() => setIsOpen(true)}>
           <Flex alignItems="flex-bottom" m="4px">
             <IInfo />
@@ -26,7 +26,7 @@ function FormSlider({ name, description, labela, labelb, labelc }) {
         <Text>{labelc}</Text>
       </Flex>
       <Box padding={1} />
-      <Input variant="secondary" type="range" />
+      <Input variant="secondary" type="range" min="0" max="99" value="0" step="1" />
     </Stack>
   );
 }

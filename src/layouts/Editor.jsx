@@ -31,6 +31,8 @@ import {
   // SentenceConstructor,
 } from '../components';
 
+import TwoFieldModule from '../components/patterns/TwoFieldModule';
+
 import RuleNameSection from './components/RuleNameSection';
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -437,6 +439,17 @@ export default class Editor extends React.Component {
                     options={[{ value: 'experimental', label: 'Experimental' }]}
                   />
                   <Box padding={1} />
+                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
+              {/* Managment, Authorship and Maintainence */}
+
+              <Text variant="heading">Managment, Authorship &amp; Maintainence</Text>
+
+              <Box>
+                <div>
                   <FormStandardLabel
                     name="RuleMaker Entity Name"
                     description="hello world is asking the following things"
@@ -450,17 +463,6 @@ export default class Editor extends React.Component {
                     description="hello world is asking the following things"
                   />
                   <Box padding={1} />
-                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
-                </div>
-              </Box>
-              <Box padding={2} />
-
-              {/* Managment, Authorship and Maintainence */}
-
-              <Text variant="heading">Managment, Authorship &amp; Maintainence</Text>
-
-              <Box>
-                <div>
                   <FormStandardLabel
                     name="Rule Manager Name"
                     description="hello world is asking the following things"
@@ -514,25 +516,34 @@ export default class Editor extends React.Component {
               <Box>
                 <div>
                   <FormDropdown
-                    name="Select the rule category that most applies."
+                    name="Select the rule group that most applies."
                     description="hello world is asking the following things"
                     options={[
-                      { value: 'Informal Custom or Preference', label: 'Informal Custom or Preference' },
-                      { value: 'Formal Custom Without Legal Standing', label: 'Formal Custom Without Legal Standing' },
-                      { value: 'Guideline, Instruction, or Policy', label: 'Guideline, Instruction, or Policy' },
+                      {
+                        value: 'Informal Custom or Preference',
+                        label: 'Informal Custom or Preference',
+                      },
+                      {
+                        value: 'Formal Custom Without Legal Standing',
+                        label: 'Formal Custom Without Legal Standing',
+                      },
+                      {
+                        value: 'Guideline, Instruction, or Policy',
+                        label: 'Guideline, Instruction, or Policy',
+                      },
                       { value: 'Code of Conduct', label: 'Code of Conduct' },
                       { value: 'Regulation or Directive', label: 'Regulation or Directive' },
                       { value: 'Common Law or Case Law', label: 'Common Law or Case Law' },
                       { value: 'Statute or Legislation', label: 'Statute or Legislation' },
                       { value: 'International Law', label: 'International Law' },
-                      { value: 'Constitutional Law', label: 'Constitutional Law' },
+                      { value: 'Operational Patern', label: 'Operational Patern' },
                     ]}
                   />
                   <Box padding={2} />
                   <FormSlider
                     name="Character of this Obligation"
                     description="lorem ipsum"
-                    labela="Quality or Fairness"
+                    labela="Basic Coherence"
                     labelb="Strongly Beneficial"
                     labelc="Absolutely Essential"
                   />
@@ -548,8 +559,8 @@ export default class Editor extends React.Component {
                   <FormSlider
                     name="Consequences of Non-Conformance "
                     description="lorem ipsum"
-                    labela="Inconsequential"
-                    labelb="Moderate Effects"
+                    labela="Preference Only"
+                    labelb="Significant Effects"
                     labelc="Enormous Impacts"
                   />
                   <Box p={1} />
@@ -568,12 +579,23 @@ export default class Editor extends React.Component {
 
               <Box>
                 <div>
-                  <FormStandardDouble
-                    name="Country Jurisdiction "
-                    description="hello world is asking the following things"
-                    nameTwo="Sub-Country Jurisdiction"
-                    descriptionTwo="hello world is asking the following things"
-                  />
+                <Box padding={1} />
+                  <TwoFieldModule title="Jurisdictions" fielda="Country Jurisdiction" descriptiona="Detail Lorem Ipsum" fieldb="Sub-Country Jurisdiction" descriptionb="Detail Lorem Ipsum" />
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Addbutton
+                      onClick={() => {
+                      }}
+                      content="Add Jurisdiction"
+                    />
+                  </Box>
                   <Box padding={1} />
                   <FormStandardDouble
                     name="Start Date and Time "
@@ -627,13 +649,6 @@ export default class Editor extends React.Component {
                     ]}
                   />
                   <Box padding={1} />
-                  <FormStandardDouble
-                    name="Country Jurisdiction "
-                    description="hello world is asking the following things"
-                    nameTwo="Sub-Country Jurisdiction"
-                    descriptionTwo="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
                   <Flex justifyContent="flex-end">
                     <Box />
                     {/* the modal button will go here */}
@@ -645,7 +660,7 @@ export default class Editor extends React.Component {
               {/* Input sources */}
 
               <Text variant="heading">Input Sources</Text>
-
+              <Box padding={1} />
               <Box>
                 <div>
                   <Box
@@ -705,7 +720,7 @@ export default class Editor extends React.Component {
               {/* Input filters */}
 
               <Text variant="heading">Input Filters</Text>
-
+              <Box padding={1} />
               <Box>
                 <div>
                   {sampleInvolvedParties.map((val, key) => (
@@ -731,24 +746,7 @@ export default class Editor extends React.Component {
                     />
                   </Box>
                   <Box padding={1} />
-                  <Box
-                    p={2}
-                    m={0}
-                    width={1}
-                    bg="bg"
-                    border="1px solid"
-                    borderColor="oline"
-                    borderRadius="base"
-                  >
-                    <Text variant="formtitle">Involved Product or Service</Text>
-                    <Box padding={1} />
-                    <FormStandardDouble
-                      name="Standard Role Name"
-                      description="Detail for standard role name field."
-                      nameTwo="Standard Industry Code"
-                      descriptionTwo="Detail for industry code field."
-                    />
-                  </Box>
+                  <TwoFieldModule title="Involved Product or Service" fielda="UNSPSC Product or Service Name" descriptiona="Detail Lorem Ipsum" fieldb="UNSPSC Product or Service Code" descriptionb="Detail Lorem Ipsum" />
                   <Box padding={1} />
                   <Box
                     p={2}

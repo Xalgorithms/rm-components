@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { deepCopy, RuleSchema } from 'xalgo-rule-processor';
-import { Box, Text, Button, FormStandard, InputField } from '../../components';
+import { Box, Text, Button, FormStandard } from '../../components';
 import FormTextArea from '../../components/patterns/FormTextArea';
 
 export default function RuleNameSection({ rule, updateRule, active }) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Stack, Box, Button, Text, Flex, Modal, Infobox, IInfo, InputField } from '..';
+import { Stack, Box, Button, Text, Flex, Modal, Infobox, IInfo, InputField } from '..';
 
 function FormTextArea({ name, description, value, onChange, onBlur, placeholder }) {
   const [isOpen, setIsOpen] = React.useState(false);

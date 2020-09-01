@@ -14,18 +14,18 @@ export default class InvolvedParty extends React.Component {
           borderColor="oline"
           borderRadius="base"
         >
-          <Text variant="formtitle">Involved Party</Text>
+          <Text variant="formtitle">Standard Role Name</Text>
             <Box padding={1} />
-          <FormStandardDouble
-            name="Standard Role Name"
-            description="Detail for standard role name field."
-            nameTwo="Standard Industry Code"
-            descriptionTwo="Detail for industry code field."
-          />
-          <Box padding={1} />
           <FormStandard
             name="Standard Industry Name"
             description="hello world is asking the following things"
+          />
+          <Box padding={1} />
+          <FormStandardDouble
+            name="ISIC Industry Code"
+            description="Detail for standard role name field."
+            nameTwo="ISIC Industry Name "
+            descriptionTwo="Detail for industry code field."
           />
         </Box>
         <Box padding={1} />
