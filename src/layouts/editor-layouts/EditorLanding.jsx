@@ -623,6 +623,57 @@ export default class EditorLanding extends React.Component {
                     {/* the modal button will go here */}
                   </Flex>
                 </div>
+                {/* output purpose */}
+                <EditorSection
+                  title="MetaData Management"
+                  destination="/editor/rule-maker-entity"
+                />
+
+                <Box>
+                  <div>
+                    <FormStandardDropdown
+                      name="Rule Version"
+                      description="hello world is asking the following things"
+                      nameTwo="Xalgo Version"
+                      descriptionTwo="hello world is asking the following things"
+                      options={[
+                        { value: 'last stable', label: 'Last Stable' },
+                        { value: 'peace', label: 'Peace' },
+                        { value: 'no justice', label: 'No Justice' },
+                        { value: 'no peace', label: 'No Peace' },
+                      ]}
+                    />
+                    <Box padding={1} />
+                    <FormStandardDropdown
+                      name="Rule URL"
+                      description="hello world is asking the following things"
+                      nameTwo="Rule Criticality"
+                      descriptionTwo="hello world is asking the following things"
+                      options={[
+                        { value: 'experimental', label: 'Experimental' },
+                        { value: 'peace', label: 'Peace' },
+                        { value: 'no justice', label: 'No Justice' },
+                        { value: 'no peace', label: 'No Peace' },
+                      ]}
+                    />
+                    <Box padding={1} />
+                    <FormStandardLabel
+                      name="RuleMaker Entity Name"
+                      description="hello world is asking the following things"
+                      nameTwo="RuleMaker ID"
+                      descriptionTwo="hello world is asking the following things"
+                      value="Vqp4nv8eGprI"
+                    />
+                    <Box padding={1} />
+                    <FormStandard
+                      name="RuleMaker URL"
+                      description="hello world is asking the following things"
+                    />
+                    <Box padding={1} />
+                    <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
+                  </div>
+                </Box>
+                <Box padding={2} />
               </Box>
             </div>
           </Box>

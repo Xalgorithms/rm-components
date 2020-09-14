@@ -8,6 +8,7 @@ import {
   addNewInputCondition,
   addNewOutputAssertion,
   prettyJSON,
+  // RuleSchema,
 } from 'xalgo-rule-processor';
 import EditorLeft from './editor-layouts/EditorLeft';
 import ColumnLabel from '../components/patterns/ColumnLabel';
@@ -28,6 +29,7 @@ import {
   InvolvedParty,
   SentenceEditor,
   Icon,
+  FormDropdownDouble,
   // SentenceConstructor,
 } from '../components';
 
@@ -420,23 +422,28 @@ export default class Editor extends React.Component {
               {/* Metadata Management */}
 
               <Text variant="heading">Metadata Management</Text>
-
               <Box>
                 <div>
                   <FormStandardDropdown
                     name="Rule Version"
-                    description="hello world is asking the following things"
+                    description="Each rule author or maintainer is responsible for version management based on the 'Semver' industry convention."
+                    placeholder="1.0.0"
                     nameTwo="Xalgo Version"
-                    descriptionTwo="hello world is asking the following things"
+                    descriptionTwo="Which version of Interlibr and Xalgo is this rule expression designed to operate with?"
                     options={[{ value: 'last stable', label: 'Last Stable' }]}
                   />
                   <Box padding={1} />
                   <FormStandardDropdown
                     name="Rule URL"
-                    description="hello world is asking the following things"
+                    description="Please supply a Web link directly to documentation about this rule."
+                    placeholder="www.your.organization.org"
                     nameTwo="Rule Criticality"
-                    descriptionTwo="hello world is asking the following things"
-                    options={[{ value: 'experimental', label: 'Experimental' }]}
+                    descriptionTwo="Choose: experimental, in effect or archived"
+                    options={[
+                      { value: 'experimental', label: 'Experimental' },
+                      { value: 'in effect', label: 'in effect' },
+                      { value: 'archived', label: 'archived' },
+                    ]}
                   />
                   <Box padding={1} />
                   <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
@@ -446,7 +453,7 @@ export default class Editor extends React.Component {
 
               {/* Managment, Authorship and Maintainence */}
 
-              <Text variant="heading">Managment, Authorship &amp; Maintainence</Text>
+              <Text variant="heading">Management, Authorship &amp; Maintenance</Text>
 
               <Box>
                 <div>
@@ -579,8 +586,14 @@ export default class Editor extends React.Component {
 
               <Box>
                 <div>
-                <Box padding={1} />
-                  <TwoFieldModule title="Jurisdictions" fielda="Country Jurisdiction" descriptiona="Detail Lorem Ipsum" fieldb="Sub-Country Jurisdiction" descriptionb="Detail Lorem Ipsum" />
+                  <Box padding={1} />
+                  <TwoFieldModule
+                    title="Jurisdictions"
+                    fielda="Country Jurisdiction"
+                    descriptiona="Detail Lorem Ipsum"
+                    fieldb="Sub-Country Jurisdiction"
+                    descriptionb="Detail Lorem Ipsum"
+                  />
                   <Box
                     p={2}
                     m={0}
@@ -590,11 +603,7 @@ export default class Editor extends React.Component {
                     borderColor="oline"
                     borderRadius="base"
                   >
-                    <Addbutton
-                      onClick={() => {
-                      }}
-                      content="Add Jurisdiction"
-                    />
+                    <Addbutton onClick={() => {}} content="Add Jurisdiction" />
                   </Box>
                   <Box padding={1} />
                   <FormStandardDouble
@@ -746,7 +755,13 @@ export default class Editor extends React.Component {
                     />
                   </Box>
                   <Box padding={1} />
-                  <TwoFieldModule title="Involved Product or Service" fielda="UNSPSC Product or Service Name" descriptiona="Detail Lorem Ipsum" fieldb="UNSPSC Product or Service Code" descriptionb="Detail Lorem Ipsum" />
+                  <TwoFieldModule
+                    title="Involved Product or Service"
+                    fielda="UNSPSC Product or Service Name"
+                    descriptiona="Detail Lorem Ipsum"
+                    fieldb="UNSPSC Product or Service Code"
+                    descriptionb="Detail Lorem Ipsum"
+                  />
                   <Box padding={1} />
                   <Box
                     p={2}
@@ -774,6 +789,69 @@ export default class Editor extends React.Component {
                   </Flex>
                 </div>
               </Box>
+              <Box padding={2} />
+
+              {/* output purpose */}
+
+              <Text variant="heading">Output Purpose</Text>
+              <Box>
+                <div>
+                  <FormDropdownDouble
+                    name="Who has responsibility for conformance?"
+                    description="Who has responsibility for conformance?"
+                    options={[
+                      { value: 'rule-maker', label: 'rule-maker' },
+                      { value: 'rule-taker', label: 'rule-taker' },
+                      { value: 'third-party', label: 'third-party' },
+                    ]}
+                    nameTwo="What is the primary verb?"
+                    descriptionTwo="What is the primary normative (deontic; modal) verb?"
+                    optionsTwo={[
+                      { valueTwo: 'must', labelTwo: 'must' },
+                      { valueTwo: 'may', labelTwo: 'may' },
+                      { valueTwo: 'should', labelTwo: 'should' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <FormDropdownDouble
+                    name="What is the nature of the primary verb"
+                    description="Is the primary modal verb stated in the affirmative; negative or as a question?"
+                    options={[
+                      { value: 'affirmative', label: 'affirmative' },
+                      { value: 'negative', label: 'negative' },
+                      { value: 'interrogative', label: 'interrogative' },
+                    ]}
+                    nameTwo="What is the primary action verb?"
+                    descriptionTwo="What is the primary action verb?"
+                    optionsTwo={[
+                      { valueTwo: 'be', labelTwo: 'be' },
+                      { valueTwo: 'do', labelTwo: 'do' },
+                      { valueTwo: 'have', labelTwo: 'have' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <FormDropdownDouble
+                    name="What is the type of philosophical rationale?"
+                    description="What is the principal type of philosophical rationale for this rule?"
+                    options={[
+                      { value: 'logical', label: 'logical' },
+                      { value: 'practical', label: 'practical' },
+                      { value: 'ethical', label: 'ethical' },
+                    ]}
+                    nameTwo="What is the nature of this rule?"
+                    descriptionTwo="Is this a directly implemented rule, a desription of a rule to be conformed with, or an empirical 
+                    fact about a rule?"
+                    optionsTwo={[
+                      { valueTwo: 'imperative', labelTwo: 'imperative' },
+                      { valueTwo: 'declarative', labelTwo: 'declarative' },
+                      { valueTwo: 'empirical', labelTwo: 'empirical' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
             </div>
           </Box>
         </EditorLeft>

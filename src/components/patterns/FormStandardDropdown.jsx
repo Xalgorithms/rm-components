@@ -6,6 +6,7 @@ function FormStandardDropdown({
   nameTwo,
   description,
   descriptionTwo,
+  placeholder,
   label,
   value,
   options = [],
@@ -51,7 +52,7 @@ function FormStandardDropdown({
             </Button>
           </Flex>
           <Box padding={1} />
-          <Input />
+          <Input placeholder={placeholder}/>
         </Box>
         <Box>
           {/* second input field */}
