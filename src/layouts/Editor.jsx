@@ -41,7 +41,8 @@ const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 const fullheight = {
   minHeight: '80vh',
-  width: '50vw',
+  minWidth: '500px',
+  maxWidth: '800px',
   // overflowX:
 };
 
@@ -299,6 +300,311 @@ export default class Editor extends React.Component {
 
               <RuleNameSection rule={rule} updateRule={this.updateRule} active={active} />
 
+              {/* Metadata Management */}
+              <Box>
+                <div>
+                  <FormStandardDropdown
+                    name="Rule Version"
+                    description="Each rule author or maintainer is responsible for version management based on the 'Semver' industry convention."
+                    placeholder="1.0.0"
+                    nameTwo="Xalgo Version"
+                    descriptionTwo="Which version of Interlibr and Xalgo is this rule expression designed to operate with?"
+                    options={[{ value: 'last stable', label: 'Last Stable' }]}
+                  />
+                  <Box padding={1} />
+                  <FormStandardDropdown
+                    name="Rule URL"
+                    description="Please supply a Web link directly to documentation about this rule."
+                    placeholder="www.your.organization.org"
+                    nameTwo="Rule Criticality"
+                    descriptionTwo="Choose: experimental, in effect or archived"
+                    options={[
+                      { value: 'experimental', label: 'Experimental' },
+                      { value: 'in effect', label: 'in effect' },
+                      { value: 'archived', label: 'archived' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
+              {/* Managment, Authorship and Maintainence */}
+
+              <Box>
+                <div>
+                  <FormStandardLabel
+                    name="RuleMaker Entity Name"
+                    description="hello world is asking the following things"
+                    nameTwo="RuleMaker ID"
+                    descriptionTwo="hello world is asking the following things"
+                    value="Vqp4nv8eGprI"
+                  />
+                  <Box padding={1} />
+                  <FormStandard
+                    name="RuleMaker URL"
+                    description="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <FormStandardLabel
+                    name="Rule Manager Name"
+                    description="hello world is asking the following things"
+                    nameTwo="Rule Manager ID"
+                    descriptionTwo="hello world is asking the following things"
+                    value="Vqp4nv8eGprI"
+                  />
+                  <Box padding={1} />
+                  <FormStandard
+                    name="Rule Manager Email"
+                    description="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <FormStandardLabel
+                    name="Rule Author Name"
+                    description="hello world is asking the following things"
+                    nameTwo="Rule Author ID"
+                    descriptionTwo="hello world is asking the following things"
+                    value="Vqp4nv8eGprI"
+                  />
+                  <Box padding={1} />
+                  <FormStandard
+                    name="Rule Author Email"
+                    description="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <FormStandardLabel
+                    name="Rule Maintainer Name"
+                    description="hello world is asking the following things"
+                    nameTwo="Rule Maintainer ID"
+                    descriptionTwo="hello world is asking the following things"
+                    value="Vqp4nv8eGprI"
+                  />
+                  <Box padding={1} />
+                  <FormStandard
+                    name="Rule Maintainer Email"
+                    description="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
+                  </Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
+              {/* Input sources */}
+
+              <Text variant="heading">Input: Sources</Text>
+              <Box padding={1} />
+              <Box>
+                <div>
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <FormStandard
+                      name="Field Name"
+                      description="hello world is asking the following things"
+                    />
+                    <FormStandard
+                      name="Target  Value"
+                      description="hello world is asking the following things"
+                    />
+                    <Box padding={1} />
+                    <Addbutton />
+                    <Box padding={3} />
+                    <FormStandardDropdown
+                      name="Unique Identifier"
+                      description="Text input description."
+                      nameTwo="Standard Role Name"
+                      descriptionTwo="Dropdown input description."
+                      options={[
+                        { value: 'justice', label: 'Justice' },
+                        { value: 'peace', label: 'Peace' },
+                        { value: 'no justice', label: 'No Justice' },
+                        { value: 'no peace', label: 'No Peace' },
+                      ]}
+                    />
+                  </Box>
+                  <Box padding={1} />
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Addbutton />
+                  </Box>
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
+                  </Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
+              {/* Input Contexts */}
+
+              <Text variant="heading">Input: Contexts</Text>
+
+              <Box>
+                <div>
+                  <Box padding={1} />
+                  <TwoFieldModule
+                    title="Jurisdictions"
+                    fielda="Country Jurisdiction"
+                    descriptiona="Detail Lorem Ipsum"
+                    fieldb="Sub-Country Jurisdiction"
+                    descriptionb="Detail Lorem Ipsum"
+                  />
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Addbutton onClick={() => {}} content="Add Jurisdiction" />
+                  </Box>
+                  <Box padding={1} />
+                  <FormStandardDouble
+                    name="Start Date and Time "
+                    description="hello world is asking the following things"
+                    nameTwo="End Date and Time"
+                    descriptionTwo="hello world is asking the following things"
+                  />
+                  <Box padding={1} />
+                  <FormDropdown
+                    name="Time Zone"
+                    description="hello world is asking the following things"
+                    options={[
+                      { value: 'UTC−12:00', label: 'UTC−12:00' },
+                      { value: 'UTC−11:00', label: 'UTC−11:00' },
+                      { value: 'UTC−10:00', label: 'UTC−10:00' },
+                      { value: 'UTC−09:30', label: 'UTC−09:30' },
+                      { value: 'UTC−09:00', label: 'UTC−09:00' },
+                      { value: 'UTC−08:00', label: 'UTC−08:00' },
+                      { value: 'UTC−07:00', label: 'UTC−07:00' },
+                      { value: 'UTC−06:00', label: 'UTC−06:00' },
+                      { value: 'UTC−05:00', label: 'UTC−05:00' },
+                      { value: 'UTC−04:00', label: 'UTC−04:00' },
+                      { value: 'UTC−03:30', label: 'UTC−03:30' },
+                      { value: 'UTC−03:00', label: 'UTC−03:00' },
+                      { value: 'UTC−02:00', label: 'UTC−02:00' },
+                      { value: 'UTC−01:00', label: 'UTC−01:00' },
+                      { value: 'UTC±00:00', label: 'UTC±00:00' },
+                      { value: 'UTC+01:00', label: 'UTC+01:00' },
+                      { value: 'UTC+02:00', label: 'UTC+02:00' },
+                      { value: 'UTC+03:00', label: 'UTC+03:00' },
+                      { value: 'UTC+03:30', label: 'UTC+03:30' },
+                      { value: 'UTC+04:00', label: 'UTC+04:00' },
+                      { value: 'UTC+04:30', label: 'UTC+04:30' },
+                      { value: 'UTC+05:00', label: 'UTC+05:00' },
+                      { value: 'UTC+05:30', label: 'UTC+05:30' },
+                      { value: 'UTC+05:45', label: 'UTC+05:45' },
+                      { value: 'UTC+06:00', label: 'UTC+06:00' },
+                      { value: 'UTC+06:30', label: 'UTC+06:30' },
+                      { value: 'UTC+07:00', label: 'UTC+07:00' },
+                      { value: 'UTC+08:00', label: 'UTC+08:00' },
+                      { value: 'UTC+08:45', label: 'UTC+08:45' },
+                      { value: 'UTC+09:00', label: 'UTC+09:00' },
+                      { value: 'UTC+09:30', label: 'UTC+09:30' },
+                      { value: 'UTC+10:00', label: 'UTC+10:00' },
+                      { value: 'UTC+10:30', label: 'UTC+10:30' },
+                      { value: 'UTC+11:00', label: 'UTC+11:00' },
+                      { value: 'UTC+12:00', label: 'UTC+12:00' },
+                      { value: 'UTC+12:45', label: 'UTC+12:45' },
+                      { value: 'UTC+13:00', label: 'UTC+13:00' },
+                      { value: 'UTC+14:00', label: 'UTC+14:00' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
+                  </Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
+              {/* Input filters */}
+
+              <Text variant="heading">Input: Filters</Text>
+              <Box padding={1} />
+              <Box>
+                <div>
+                  {sampleInvolvedParties.map((val, key) => (
+                    <InvolvedParty key={key} />
+                  ))}
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Addbutton
+                      onClick={() => {
+                        const parties = sampleInvolvedParties;
+                        const last = parties[parties.length];
+                        parties.push(last + 1);
+                        this.setState({ sampleInvolvedParties: parties });
+                      }}
+                      content="Add Involved Party"
+                    />
+                  </Box>
+                  <Box padding={1} />
+                  <TwoFieldModule
+                    title="Involved Product or Service"
+                    fielda="UNSPSC Product or Service Name"
+                    descriptiona="Detail Lorem Ipsum"
+                    fieldb="UNSPSC Product or Service Code"
+                    descriptionb="Detail Lorem Ipsum"
+                  />
+                  <Box padding={1} />
+                  <Box
+                    p={2}
+                    m={0}
+                    width={1}
+                    bg="bg"
+                    border="1px solid"
+                    borderColor="oline"
+                    borderRadius="base"
+                  >
+                    <Addbutton
+                      onClick={() => {
+                        const parties = sampleInvolvedParties;
+                        const last = parties[parties.length];
+                        parties.push(last + 1);
+                        this.setState({ sampleInvolvedParties: parties });
+                      }}
+                      content="Add Involved Party"
+                    />
+                  </Box>
+                  <Box padding={1} />
+                  <Flex justifyContent="flex-end">
+                    <Box />
+                    {/* the modal button will go here */}
+                  </Flex>
+                </div>
+              </Box>
+              <Box padding={2} />
+
               {/* Input Output Table */}
 
               <Text variant="heading">Input Tables</Text>
@@ -419,100 +725,64 @@ export default class Editor extends React.Component {
               </Box>
               <Box padding={2} />
 
-              {/* Metadata Management */}
+              {/* output purpose */}
 
-              <Text variant="heading">Metadata Management</Text>
+              <Text variant="heading">Output Purpose</Text>
               <Box>
                 <div>
-                  <FormStandardDropdown
-                    name="Rule Version"
-                    description="Each rule author or maintainer is responsible for version management based on the 'Semver' industry convention."
-                    placeholder="1.0.0"
-                    nameTwo="Xalgo Version"
-                    descriptionTwo="Which version of Interlibr and Xalgo is this rule expression designed to operate with?"
-                    options={[{ value: 'last stable', label: 'Last Stable' }]}
+                  <FormDropdownDouble
+                    name="Who has responsibility for conformance?"
+                    description="Who has responsibility for conformance?"
+                    options={[
+                      { value: 'rule-maker', label: 'rule-maker' },
+                      { value: 'rule-taker', label: 'rule-taker' },
+                      { value: 'third-party', label: 'third-party' },
+                    ]}
+                    nameTwo="What is the primary verb?"
+                    descriptionTwo="What is the primary normative (deontic; modal) verb?"
+                    optionsTwo={[
+                      { valueTwo: 'must', labelTwo: 'must' },
+                      { valueTwo: 'may', labelTwo: 'may' },
+                      { valueTwo: 'should', labelTwo: 'should' },
+                    ]}
                   />
                   <Box padding={1} />
-                  <FormStandardDropdown
-                    name="Rule URL"
-                    description="Please supply a Web link directly to documentation about this rule."
-                    placeholder="www.your.organization.org"
-                    nameTwo="Rule Criticality"
-                    descriptionTwo="Choose: experimental, in effect or archived"
+                  <FormDropdownDouble
+                    name="What is the nature of the primary verb"
+                    description="Is the primary modal verb stated in the affirmative; negative or as a question?"
                     options={[
-                      { value: 'experimental', label: 'Experimental' },
-                      { value: 'in effect', label: 'in effect' },
-                      { value: 'archived', label: 'archived' },
+                      { value: 'affirmative', label: 'affirmative' },
+                      { value: 'negative', label: 'negative' },
+                      { value: 'interrogative', label: 'interrogative' },
+                    ]}
+                    nameTwo="What is the primary action verb?"
+                    descriptionTwo="What is the primary action verb?"
+                    optionsTwo={[
+                      { valueTwo: 'be', labelTwo: 'be' },
+                      { valueTwo: 'do', labelTwo: 'do' },
+                      { valueTwo: 'have', labelTwo: 'have' },
+                    ]}
+                  />
+                  <Box padding={1} />
+                  <FormDropdownDouble
+                    name="What is the type of philosophical rationale?"
+                    description="What is the principal type of philosophical rationale for this rule?"
+                    options={[
+                      { value: 'logical', label: 'logical' },
+                      { value: 'practical', label: 'practical' },
+                      { value: 'ethical', label: 'ethical' },
+                    ]}
+                    nameTwo="What is the nature of this rule?"
+                    descriptionTwo="Is this a directly implemented rule, a desription of a rule to be conformed with, or an empirical 
+                    fact about a rule?"
+                    optionsTwo={[
+                      { valueTwo: 'imperative', labelTwo: 'imperative' },
+                      { valueTwo: 'declarative', labelTwo: 'declarative' },
+                      { valueTwo: 'empirical', labelTwo: 'empirical' },
                     ]}
                   />
                   <Box padding={1} />
                   <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
-                </div>
-              </Box>
-              <Box padding={2} />
-
-              {/* Managment, Authorship and Maintainence */}
-
-              <Text variant="heading">Management, Authorship &amp; Maintenance</Text>
-
-              <Box>
-                <div>
-                  <FormStandardLabel
-                    name="RuleMaker Entity Name"
-                    description="hello world is asking the following things"
-                    nameTwo="RuleMaker ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                  />
-                  <Box padding={1} />
-                  <FormStandard
-                    name="RuleMaker URL"
-                    description="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <FormStandardLabel
-                    name="Rule Manager Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Manager ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                  />
-                  <Box padding={1} />
-                  <FormStandard
-                    name="Rule Manager Email"
-                    description="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <FormStandardLabel
-                    name="Rule Author Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Author ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                  />
-                  <Box padding={1} />
-                  <FormStandard
-                    name="Rule Author Email"
-                    description="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <FormStandardLabel
-                    name="Rule Maintainer Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Maintainer ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                  />
-                  <Box padding={1} />
-                  <FormStandard
-                    name="Rule Maintainer Email"
-                    description="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <Flex justifyContent="flex-end">
-                    <Box />
-                    {/* the modal button will go here */}
-                  </Flex>
                 </div>
               </Box>
               <Box padding={2} />
@@ -576,279 +846,6 @@ export default class Editor extends React.Component {
                     <Box />
                     {/* the modal button will go here */}
                   </Flex>
-                </div>
-              </Box>
-              <Box padding={2} />
-
-              {/* Input Contexts */}
-
-              <Text variant="heading">Input: Contexts</Text>
-
-              <Box>
-                <div>
-                  <Box padding={1} />
-                  <TwoFieldModule
-                    title="Jurisdictions"
-                    fielda="Country Jurisdiction"
-                    descriptiona="Detail Lorem Ipsum"
-                    fieldb="Sub-Country Jurisdiction"
-                    descriptionb="Detail Lorem Ipsum"
-                  />
-                  <Box
-                    p={2}
-                    m={0}
-                    width={1}
-                    bg="bg"
-                    border="1px solid"
-                    borderColor="oline"
-                    borderRadius="base"
-                  >
-                    <Addbutton onClick={() => {}} content="Add Jurisdiction" />
-                  </Box>
-                  <Box padding={1} />
-                  <FormStandardDouble
-                    name="Start Date and Time "
-                    description="hello world is asking the following things"
-                    nameTwo="End Date and Time"
-                    descriptionTwo="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <FormDropdown
-                    name="Time Zone"
-                    description="hello world is asking the following things"
-                    options={[
-                      { value: 'UTC−12:00', label: 'UTC−12:00' },
-                      { value: 'UTC−11:00', label: 'UTC−11:00' },
-                      { value: 'UTC−10:00', label: 'UTC−10:00' },
-                      { value: 'UTC−09:30', label: 'UTC−09:30' },
-                      { value: 'UTC−09:00', label: 'UTC−09:00' },
-                      { value: 'UTC−08:00', label: 'UTC−08:00' },
-                      { value: 'UTC−07:00', label: 'UTC−07:00' },
-                      { value: 'UTC−06:00', label: 'UTC−06:00' },
-                      { value: 'UTC−05:00', label: 'UTC−05:00' },
-                      { value: 'UTC−04:00', label: 'UTC−04:00' },
-                      { value: 'UTC−03:30', label: 'UTC−03:30' },
-                      { value: 'UTC−03:00', label: 'UTC−03:00' },
-                      { value: 'UTC−02:00', label: 'UTC−02:00' },
-                      { value: 'UTC−01:00', label: 'UTC−01:00' },
-                      { value: 'UTC±00:00', label: 'UTC±00:00' },
-                      { value: 'UTC+01:00', label: 'UTC+01:00' },
-                      { value: 'UTC+02:00', label: 'UTC+02:00' },
-                      { value: 'UTC+03:00', label: 'UTC+03:00' },
-                      { value: 'UTC+03:30', label: 'UTC+03:30' },
-                      { value: 'UTC+04:00', label: 'UTC+04:00' },
-                      { value: 'UTC+04:30', label: 'UTC+04:30' },
-                      { value: 'UTC+05:00', label: 'UTC+05:00' },
-                      { value: 'UTC+05:30', label: 'UTC+05:30' },
-                      { value: 'UTC+05:45', label: 'UTC+05:45' },
-                      { value: 'UTC+06:00', label: 'UTC+06:00' },
-                      { value: 'UTC+06:30', label: 'UTC+06:30' },
-                      { value: 'UTC+07:00', label: 'UTC+07:00' },
-                      { value: 'UTC+08:00', label: 'UTC+08:00' },
-                      { value: 'UTC+08:45', label: 'UTC+08:45' },
-                      { value: 'UTC+09:00', label: 'UTC+09:00' },
-                      { value: 'UTC+09:30', label: 'UTC+09:30' },
-                      { value: 'UTC+10:00', label: 'UTC+10:00' },
-                      { value: 'UTC+10:30', label: 'UTC+10:30' },
-                      { value: 'UTC+11:00', label: 'UTC+11:00' },
-                      { value: 'UTC+12:00', label: 'UTC+12:00' },
-                      { value: 'UTC+12:45', label: 'UTC+12:45' },
-                      { value: 'UTC+13:00', label: 'UTC+13:00' },
-                      { value: 'UTC+14:00', label: 'UTC+14:00' },
-                    ]}
-                  />
-                  <Box padding={1} />
-                  <Flex justifyContent="flex-end">
-                    <Box />
-                    {/* the modal button will go here */}
-                  </Flex>
-                </div>
-              </Box>
-              <Box padding={2} />
-
-              {/* Input sources */}
-
-              <Text variant="heading">Input: Sources</Text>
-              <Box padding={1} />
-              <Box>
-                <div>
-                  <Box
-                    p={2}
-                    m={0}
-                    width={1}
-                    bg="bg"
-                    border="1px solid"
-                    borderColor="oline"
-                    borderRadius="base"
-                  >
-                    <FormStandard
-                      name="Field Name"
-                      description="hello world is asking the following things"
-                    />
-                    <FormStandard
-                      name="Target  Value"
-                      description="hello world is asking the following things"
-                    />
-                    <Box padding={1} />
-                    <Addbutton />
-                    <Box padding={3} />
-                    <FormStandardDropdown
-                      name="Unique Identifier"
-                      description="Text input description."
-                      nameTwo="Standard Role Name"
-                      descriptionTwo="Dropdown input description."
-                      options={[
-                        { value: 'justice', label: 'Justice' },
-                        { value: 'peace', label: 'Peace' },
-                        { value: 'no justice', label: 'No Justice' },
-                        { value: 'no peace', label: 'No Peace' },
-                      ]}
-                    />
-                  </Box>
-                  <Box padding={1} />
-                  <Box
-                    p={2}
-                    m={0}
-                    width={1}
-                    bg="bg"
-                    border="1px solid"
-                    borderColor="oline"
-                    borderRadius="base"
-                  >
-                    <Addbutton />
-                  </Box>
-                  <Box padding={1} />
-                  <Flex justifyContent="flex-end">
-                    <Box />
-                    {/* the modal button will go here */}
-                  </Flex>
-                </div>
-              </Box>
-              <Box padding={2} />
-
-              {/* Input filters */}
-
-              <Text variant="heading">Input: Filters</Text>
-              <Box padding={1} />
-              <Box>
-                <div>
-                  {sampleInvolvedParties.map((val, key) => (
-                    <InvolvedParty key={key} />
-                  ))}
-                  <Box
-                    p={2}
-                    m={0}
-                    width={1}
-                    bg="bg"
-                    border="1px solid"
-                    borderColor="oline"
-                    borderRadius="base"
-                  >
-                    <Addbutton
-                      onClick={() => {
-                        const parties = sampleInvolvedParties;
-                        const last = parties[parties.length];
-                        parties.push(last + 1);
-                        this.setState({ sampleInvolvedParties: parties });
-                      }}
-                      content="Add Involved Party"
-                    />
-                  </Box>
-                  <Box padding={1} />
-                  <TwoFieldModule
-                    title="Involved Product or Service"
-                    fielda="UNSPSC Product or Service Name"
-                    descriptiona="Detail Lorem Ipsum"
-                    fieldb="UNSPSC Product or Service Code"
-                    descriptionb="Detail Lorem Ipsum"
-                  />
-                  <Box padding={1} />
-                  <Box
-                    p={2}
-                    m={0}
-                    width={1}
-                    bg="bg"
-                    border="1px solid"
-                    borderColor="oline"
-                    borderRadius="base"
-                  >
-                    <Addbutton
-                      onClick={() => {
-                        const parties = sampleInvolvedParties;
-                        const last = parties[parties.length];
-                        parties.push(last + 1);
-                        this.setState({ sampleInvolvedParties: parties });
-                      }}
-                      content="Add Involved Party"
-                    />
-                  </Box>
-                  <Box padding={1} />
-                  <Flex justifyContent="flex-end">
-                    <Box />
-                    {/* the modal button will go here */}
-                  </Flex>
-                </div>
-              </Box>
-              <Box padding={2} />
-
-              {/* output purpose */}
-
-              <Text variant="heading">Output Purpose</Text>
-              <Box>
-                <div>
-                  <FormDropdownDouble
-                    name="Who has responsibility for conformance?"
-                    description="Who has responsibility for conformance?"
-                    options={[
-                      { value: 'rule-maker', label: 'rule-maker' },
-                      { value: 'rule-taker', label: 'rule-taker' },
-                      { value: 'third-party', label: 'third-party' },
-                    ]}
-                    nameTwo="What is the primary verb?"
-                    descriptionTwo="What is the primary normative (deontic; modal) verb?"
-                    optionsTwo={[
-                      { valueTwo: 'must', labelTwo: 'must' },
-                      { valueTwo: 'may', labelTwo: 'may' },
-                      { valueTwo: 'should', labelTwo: 'should' },
-                    ]}
-                  />
-                  <Box padding={1} />
-                  <FormDropdownDouble
-                    name="What is the nature of the primary verb"
-                    description="Is the primary modal verb stated in the affirmative; negative or as a question?"
-                    options={[
-                      { value: 'affirmative', label: 'affirmative' },
-                      { value: 'negative', label: 'negative' },
-                      { value: 'interrogative', label: 'interrogative' },
-                    ]}
-                    nameTwo="What is the primary action verb?"
-                    descriptionTwo="What is the primary action verb?"
-                    optionsTwo={[
-                      { valueTwo: 'be', labelTwo: 'be' },
-                      { valueTwo: 'do', labelTwo: 'do' },
-                      { valueTwo: 'have', labelTwo: 'have' },
-                    ]}
-                  />
-                  <Box padding={1} />
-                  <FormDropdownDouble
-                    name="What is the type of philosophical rationale?"
-                    description="What is the principal type of philosophical rationale for this rule?"
-                    options={[
-                      { value: 'logical', label: 'logical' },
-                      { value: 'practical', label: 'practical' },
-                      { value: 'ethical', label: 'ethical' },
-                    ]}
-                    nameTwo="What is the nature of this rule?"
-                    descriptionTwo="Is this a directly implemented rule, a desription of a rule to be conformed with, or an empirical 
-                    fact about a rule?"
-                    optionsTwo={[
-                      { valueTwo: 'imperative', labelTwo: 'imperative' },
-                      { valueTwo: 'declarative', labelTwo: 'declarative' },
-                      { valueTwo: 'empirical', labelTwo: 'empirical' },
-                    ]}
-                  />
-                  <Box padding={1} />
-                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
                 </div>
               </Box>
               <Box padding={2} />
