@@ -36,9 +36,9 @@ const horizontalRule = {
 
 // Primary Component
 function EditorLeft({ title, description, children, deleteFunction, resetFunction }) {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [isOpenb, setIsOpenb] = React.useState(false);
-  const [isOpenc, setIsOpenc] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false); // Settings
+  const [isOpenb, setIsOpenb] = React.useState(true); // Guide
+  const [isOpenc, setIsOpenc] = React.useState(false); // Description
 
   return (
     <div width="100vw" overflow="none">
@@ -47,7 +47,7 @@ function EditorLeft({ title, description, children, deleteFunction, resetFunctio
           <div style={holdTop}>
             <Box>
               <Box paddingRight={4} paddingLeft={4} paddingTop={4}>
-                <Button variant="invisible" onClick={() => setIsOpen(true)}>
+                <Button variant="invisible" onClick={() => setIsOpen(!isOpen)}>
                   <Box width="18px" height="16px">
                     <svg viewBox="0 0 16 14">
                       <path d="M7.69,10A2.75,2.75,0,1,1,10.44,7.2,2.75,2.75,0,0,1,7.69,10Zm0-4.5A1.75,1.75,0,1,0,9.44,7.2,1.75,1.75,0,0,0,7.69,5.45Z" />
@@ -57,7 +57,7 @@ function EditorLeft({ title, description, children, deleteFunction, resetFunctio
                 </Button>
               </Box>
               <Box paddingRight={4} paddingLeft={4} paddingTop={4}>
-                <Button variant="invisible" onClick={() => setIsOpenb(false)}>
+                <Button variant="invisible" onClick={() => setIsOpenb(!isOpenb)}>
                   <Box width="18px" height="16px">
                     <svg viewBox="0 0 9.86 9.86">
                       <title>i-info-small</title>
@@ -74,7 +74,7 @@ function EditorLeft({ title, description, children, deleteFunction, resetFunctio
                 </Button>
               </Box>
               <Box paddingRight={4} paddingLeft={4} paddingTop={4}>
-                <Button variant="invisible" onClick={() => setIsOpenc(true)}>
+                <Button variant="invisible" onClick={() => setIsOpenc(!isOpenc)}>
                   <Box width="18px" height="16px">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.19 8.12">
                       <title>name and description</title>
@@ -107,7 +107,7 @@ function EditorLeft({ title, description, children, deleteFunction, resetFunctio
                 <Box p={4}>
                   <Flex justifyContent="space-between">
                     <Text variant="formtitle">Settings</Text>
-                    <Button variant="invisible" onClick={() => setIsOpen(false)}>
+                    <Button variant="invisible" onClick={() => setIsOpen(!isOpen)}>
                       <Icon name="close" />
                     </Button>
                   </Flex>
@@ -169,12 +169,12 @@ function EditorLeft({ title, description, children, deleteFunction, resetFunctio
         </div>
         <div>
           <div style={holdTop}>
-            <Modal isOpen={!isOpenb}>
+            <Modal isOpen={isOpenb}>
               <Box width="450px">
                 <Box p={4}>
                   <Flex justifyContent="space-between">
                     <Text variant="formtitle">Guide</Text>
-                    <Button variant="invisible" onClick={() => setIsOpenb(true)}>
+                    <Button variant="invisible" onClick={() => setIsOpenb(!isOpenb)}>
                       <Icon name="close" />
                     </Button>
                   </Flex>
@@ -207,7 +207,7 @@ function EditorLeft({ title, description, children, deleteFunction, resetFunctio
                 <Box p={4}>
                   <Flex justifyContent="space-between">
                     <Text variant="formtitle">Description</Text>
-                    <Button variant="invisible" onClick={() => setIsOpenc(false)}>
+                    <Button variant="invisible" onClick={() => setIsOpenc(!isOpenc)}>
                       <Icon name="close" />
                     </Button>
                   </Flex>

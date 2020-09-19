@@ -30,7 +30,6 @@ import {
   SentenceEditor,
   Icon,
   FormDropdownDouble,
-  // SentenceConstructor,
 } from '../components';
 
 import TwoFieldModule from '../components/patterns/TwoFieldModule';
@@ -477,7 +476,7 @@ export default class Editor extends React.Component {
                     borderColor="oline"
                     borderRadius="base"
                   >
-                    <Addbutton onClick={() => {}} content="Add Jurisdiction" />
+                    <Addbutton onClick={() => { }} content="Add Jurisdiction" />
                   </Box>
                   <Box padding={1} />
                   <FormStandardDouble
