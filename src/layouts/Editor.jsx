@@ -16,7 +16,6 @@ import {
   Box,
   Text,
   Flex,
-  Badge,
   Button,
   Addbutton,
   InputOutputRow,
@@ -32,9 +31,9 @@ import {
   FormDropdownDouble,
 } from '../components';
 
-import TwoFieldModule from '../components/patterns/TwoFieldModule';
+import { BlankRows, RuleNameSection } from './editor-components';
 
-import RuleNameSection from './components/RuleNameSection';
+import TwoFieldModule from '../components/patterns/TwoFieldModule';
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -476,7 +475,7 @@ export default class Editor extends React.Component {
                     borderColor="oline"
                     borderRadius="base"
                   >
-                    <Addbutton onClick={() => { }} content="Add Jurisdiction" />
+                    <Addbutton onClick={() => {}} content="Add Jurisdiction" />
                   </Box>
                   <Box padding={1} />
                   <FormStandardDouble
@@ -675,12 +674,12 @@ export default class Editor extends React.Component {
                         }}
                       />
                     </div>
-                    <BlankRows rule={rule} />
+                    <BlankRows rule={rule} ruleLeft={ruleLeft} />
                     <div style={rowWidth} />
                   </Flex>
                   <Flex alignItems="center">
                     <div style={halfWidth} />
-                    <BlankRows rule={rule} />
+                    <BlankRows rule={rule} ruleLeft={ruleLeft} />
                   </Flex>
                   <div style={bottomLine}>
                     <Flex alignItems="center">
@@ -691,7 +690,7 @@ export default class Editor extends React.Component {
                           <Text>Output Assertions</Text>
                         </Flex>
                       </div>
-                      <BlankRows rule={rule} />
+                      <BlankRows rule={rule} ruleLeft={ruleLeft} />
                     </Flex>
                   </div>
                   {rule.output_assertions.map((val, key) => (
@@ -715,7 +714,7 @@ export default class Editor extends React.Component {
                         }}
                       />
                     </div>
-                    <BlankRows rule={rule} />
+                    <BlankRows rule={rule} ruleLeft={ruleLeft} />
                   </Flex>
                   <Box padding={1} />
                   <Box padding={1} />
@@ -854,19 +853,4 @@ export default class Editor extends React.Component {
       </div>
     );
   }
-}
-
-function BlankRows({ rule }) {
-  return (
-    <Box>
-      <Flex>
-        {rule.input_conditions[0].cases.map((rowValue, i) => (
-          <div style={ruleLeft} key={i}>
-            <Badge variant="invisible">X</Badge>
-          </div>
-        ))}
-        <div style={ruleLeft} />
-      </Flex>
-    </Box>
-  );
 }
