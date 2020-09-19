@@ -36,8 +36,10 @@ const horizontalRule = {
 
 // Primary Component
 function EditorLeft({ title, description, children, deleteFunction, resetFunction }) {
+
+  // To set one of these panels as open by default, start with the state true.
   const [isOpen, setIsOpen] = React.useState(false); // Settings
-  const [isOpenb, setIsOpenb] = React.useState(true); // Guide
+  const [isOpenb, setIsOpenb] = React.useState(false); // Guide
   const [isOpenc, setIsOpenc] = React.useState(false); // Description
 
   return (

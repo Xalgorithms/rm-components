@@ -52,7 +52,7 @@ function FormStandardDropdown({
             </Button>
           </Flex>
           <Box padding={1} />
-          <Input placeholder={placeholder}/>
+          <Input placeholder={placeholder} />
         </Box>
         <Box>
           {/* second input field */}

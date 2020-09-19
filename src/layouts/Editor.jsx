@@ -22,7 +22,6 @@ import {
   FormStandard,
   FormSlider,
   FormStandardDropdown,
-  FormStandardLabel,
   FormDropdown,
   FormStandardDouble,
   InvolvedParty,
@@ -31,7 +30,7 @@ import {
   FormDropdownDouble,
 } from '../components';
 
-import { BlankRows, RuleNameSection } from './editor-components';
+import { BlankRows, RuleNameSection, MetadataManagementSection } from './editor-components';
 
 import TwoFieldModule from '../components/patterns/TwoFieldModule';
 
@@ -110,6 +109,7 @@ export default class Editor extends React.Component {
 
     this.getRuleFromStorage = this.getRuleFromStorage.bind(this);
     this.updateRule = this.updateRule.bind(this);
+
     // reset delete persist
     this.resetRule = this.resetRule.bind(this);
     this.deleteRule = this.deleteRule.bind(this);
@@ -299,99 +299,20 @@ export default class Editor extends React.Component {
               <RuleNameSection rule={rule} updateRule={this.updateRule} active={active} />
 
               {/* Metadata Management */}
-              <Box>
-                <div>
-                  <FormStandardDropdown
-                    name="Rule Version"
-                    description="Each rule author or maintainer is responsible for version management based on the 'Semver' industry convention."
-                    placeholder="1.0.0"
-                    nameTwo="Xalgo Version"
-                    descriptionTwo="Which version of Interlibr and Xalgo is this rule expression designed to operate with?"
-                    options={[{ value: 'last stable', label: 'Last Stable' }]}
-                  />
-                  <Box padding={1} />
-                  <FormStandardDropdown
-                    name="Rule URL"
-                    description="Please supply a Web link directly to documentation about this rule."
-                    placeholder="www.your.organization.org"
-                    nameTwo="Rule Criticality"
-                    descriptionTwo="Choose: experimental, in effect or archived"
-                    options={[
-                      { value: 'experimental', label: 'Experimental' },
-                      { value: 'in effect', label: 'in effect' },
-                      { value: 'archived', label: 'archived' },
-                    ]}
-                  />
-                  <Box padding={1} />
-                  <Flex justifyContent="flex-end">{/* the modal button will go here */}</Flex>
-                </div>
-              </Box>
-              <Box padding={2} />
+              {/* Metadata Management */}
+              {/* Metadata Management */}
+              {/* Metadata Management */}
+              {/* Metadata Management */}
+              {/* Metadata Management */}
+              
+              <MetadataManagementSection rule={rule} updateRule={this.updateRule} active={active} />
 
-              {/* Managment, Authorship and Maintainence */}
 
-              <Box>
-                <div>
-                  <FormStandardLabel
-                    name="RuleMaker Entity Name"
-                    description="hello world is asking the following things"
-                    nameTwo="RuleMaker ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                  />
-                  <Box padding={1} />
-                  <FormStandard
-                    name="RuleMaker URL"
-                    description="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <FormStandardLabel
-                    name="Rule Manager Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Manager ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                  />
-                  <Box padding={1} />
-                  <FormStandard
-                    name="Rule Manager Email"
-                    description="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <FormStandardLabel
-                    name="Rule Author Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Author ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                  />
-                  <Box padding={1} />
-                  <FormStandard
-                    name="Rule Author Email"
-                    description="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <FormStandardLabel
-                    name="Rule Maintainer Name"
-                    description="hello world is asking the following things"
-                    nameTwo="Rule Maintainer ID"
-                    descriptionTwo="hello world is asking the following things"
-                    value="Vqp4nv8eGprI"
-                  />
-                  <Box padding={1} />
-                  <FormStandard
-                    name="Rule Maintainer Email"
-                    description="hello world is asking the following things"
-                  />
-                  <Box padding={1} />
-                  <Flex justifyContent="flex-end">
-                    <Box />
-                    {/* the modal button will go here */}
-                  </Flex>
-                </div>
-              </Box>
-              <Box padding={2} />
-
+              {/* Input sources */}
+              {/* Input sources */}
+              {/* Input sources */}
+              {/* Input sources */}
+              {/* Input sources */}
               {/* Input sources */}
 
               <Text variant="heading">Input: Sources</Text>
@@ -452,6 +373,11 @@ export default class Editor extends React.Component {
               </Box>
               <Box padding={2} />
 
+              {/* Input Contexts */}
+              {/* Input Contexts */}
+              {/* Input Contexts */}
+              {/* Input Contexts */}
+              {/* Input Contexts */}
               {/* Input Contexts */}
 
               <Text variant="heading">Input: Contexts</Text>
@@ -539,6 +465,11 @@ export default class Editor extends React.Component {
               <Box padding={2} />
 
               {/* Input filters */}
+              {/* Input filters */}
+              {/* Input filters */}
+              {/* Input filters */}
+              {/* Input filters */}
+              {/* Input filters */}
 
               <Text variant="heading">Input: Filters</Text>
               <Box padding={1} />
@@ -603,6 +534,11 @@ export default class Editor extends React.Component {
               </Box>
               <Box padding={2} />
 
+              {/* Input Output Table */}
+              {/* Input Output Table */}
+              {/* Input Output Table */}
+              {/* Input Output Table */}
+              {/* Input Output Table */}
               {/* Input Output Table */}
 
               <Text variant="heading">Input Tables</Text>
@@ -724,6 +660,11 @@ export default class Editor extends React.Component {
               <Box padding={2} />
 
               {/* output purpose */}
+              {/* output purpose */}
+              {/* output purpose */}
+              {/* output purpose */}
+              {/* output purpose */}
+              {/* output purpose */}
 
               <Text variant="heading">Output Purpose</Text>
               <Box>
@@ -785,7 +726,13 @@ export default class Editor extends React.Component {
               </Box>
               <Box padding={2} />
 
-              {/* Quantative wieghts */}
+              {/* Qualitative wieghts */}
+              {/* Qualitative wieghts */}
+              {/* Qualitative wieghts */}
+              {/* Qualitative wieghts */}
+              {/* Qualitative wieghts */}
+              {/* Qualitative wieghts */}
+
               <Text variant="heading">Output: Qualitative Weights</Text>
 
               <Box>
@@ -849,6 +796,7 @@ export default class Editor extends React.Component {
               <Box padding={2} />
             </div>
           </Box>
+          {/* End of the editor */}
         </EditorLeft>
       </div>
     );
